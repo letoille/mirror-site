@@ -155,6 +155,11 @@
     .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
     .hero-note { margin-top: 18px; font-size: 13px; color: var(--muted-2); display: flex; align-items: center; gap: 8px; }
     .hero-note svg { width: 15px; height: 15px; color: var(--gold-dim); }
+    .hero-stats { display: none; gap: 10px; margin-top: 22px; flex-wrap: wrap; }
+    .hero-stats.show { display: flex; }
+    .hero-stats .stat { display: inline-flex; align-items: center; gap: 8px; background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 7px 15px; font-size: 13.5px; color: var(--muted); }
+    .hero-stats .stat svg { width: 15px; height: 15px; color: var(--gold-soft); }
+    .hero-stats .stat b { color: var(--text); font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: .3px; }
 
     /* section shell */
     section { position: relative; z-index: 1; padding: 72px 0; }
@@ -314,6 +319,16 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         <span data-i18n-zh>支持国服 / 国际服 · 简体 / 繁体 / 英文 · 键盘与手柄触发</span>
         <span data-i18n-en>China &amp; Global realms · SC / TC / EN · keyboard &amp; gamepad triggers</span>
+      </div>
+      <div class="hero-stats" id="hero-stats">
+        <span class="stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          <b id="stat-visits">–</b><span data-i18n-zh>次访问</span><span data-i18n-en>visits</span>
+        </span>
+        <span class="stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+          <b id="stat-downloads">–</b><span data-i18n-zh>次下载</span><span data-i18n-en>downloads</span>
+        </span>
       </div>
     </div>
   </header>
@@ -537,15 +552,41 @@
       if (DOWNLOAD_URL) {
         btn.setAttribute('href', DOWNLOAD_URL);
         btn.setAttribute('download', '');
-        // Note: downloads are counted automatically by GA4 Enhanced Measurement
-        // ("File downloads"), which fires file_download for links ending in .exe.
-        // No manual event here — avoids double-counting.
+        // GA4 Enhanced Measurement auto-counts the .exe download (file_download event).
+        // Here we only bump the on-page public counter — a separate tally, no GA overlap.
+        btn.addEventListener('click', bumpDownloadCount);
       } else {
         btn.style.display = 'none';
         soon.style.display = 'inline-flex';
       }
       document.getElementById('ver').textContent = APP_VERSION;
     })();
+
+    // ---- Public on-page counters (Abacus — independent of GA4) ----
+    var COUNTER_BASE = "https://abacus.jasoncameron.dev";
+    var COUNTER_NS = "mirror-kalandraeye-com"; // namespace for this site
+    function fmtCount(n) { try { return Number(n).toLocaleString(); } catch (e) { return String(n); } }
+
+    (function initCounters() {
+      var box = document.getElementById('hero-stats');
+      // Visit: increment once per page load, then reveal the stats row.
+      fetch(COUNTER_BASE + "/hit/" + COUNTER_NS + "/visits")
+        .then(function (r) { return r.json(); })
+        .then(function (d) { document.getElementById('stat-visits').textContent = fmtCount(d.value); box.classList.add('show'); })
+        .catch(function () { /* stay hidden on failure */ });
+      // Download total: read current value without incrementing.
+      fetch(COUNTER_BASE + "/get/" + COUNTER_NS + "/downloads")
+        .then(function (r) { return r.ok ? r.json() : { value: 0 }; })
+        .then(function (d) { document.getElementById('stat-downloads').textContent = fmtCount(d.value || 0); })
+        .catch(function () { document.getElementById('stat-downloads').textContent = "0"; });
+    })();
+
+    function bumpDownloadCount() {
+      fetch(COUNTER_BASE + "/hit/" + COUNTER_NS + "/downloads")
+        .then(function (r) { return r.json(); })
+        .then(function (d) { document.getElementById('stat-downloads').textContent = fmtCount(d.value); })
+        .catch(function () { /* ignore — download still proceeds */ });
+    }
 
     function setLang(lang) {
       document.documentElement.setAttribute('data-lang', lang);
