@@ -319,13 +319,9 @@
     .social-btn.discord:hover { border-color:#5865F2; color:#aab0f7; box-shadow:0 8px 20px -8px rgba(88,101,242,.6); }
     .social-btn.qq svg { color:#3db8f5; }
     .social-btn.qq:hover { border-color:#1EBAFC; color:#7dd3fb; box-shadow:0 8px 20px -8px rgba(30,186,252,.6); }
-    .social-wrap { position:relative; }
-    .qq-pop { position:absolute; bottom:calc(100% + 12px); left:0; width:220px; background:#fff; border-radius:14px; padding:10px;
-      box-shadow:0 24px 60px -18px rgba(0,0,0,.75); opacity:0; visibility:hidden; transform:translateY(6px); transition:.2s; z-index:70; }
-    .qq-pop.show { opacity:1; visibility:visible; transform:translateY(0); }
-    .qq-pop::after { content:""; position:absolute; top:100%; left:38px; border:7px solid transparent; border-top-color:#fff; }
-    .qq-pop img { width:100%; display:block; border-radius:8px; }
-    .qq-pop-cap { text-align:center; font-size:11.5px; color:#555; margin-top:7px; font-weight:600; }
+    .qq-copied { display:none; }
+    .social-btn.qq.copied .qq-label { display:none; }
+    .social-btn.qq.copied .qq-copied { display:inline; color:#7dd3fb; }
     .disclaimer { max-width:640px; font-size:12.5px; color:var(--muted-2); margin-top:16px; line-height:1.7; }
 
     /* i18n visibility */
@@ -762,16 +758,11 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.3.5c1.8.4 2.6 1 3.5 1.7a13.3 13.3 0 0 0-4.6-1.1 13.6 13.6 0 0 0-4.6.4c-.5.1-1.2.3-2 .7-.4.2-.7.3-.7.3s.8-.6 2.7-1.1L9 3a19.8 19.8 0 0 0-4.9 1.4C2 8.9 1.3 13.3 1.6 17.6A19.9 19.9 0 0 0 7.7 21l.9-1.3c-1-.3-1.9-.7-2.7-1.2l.6-.4a14.2 14.2 0 0 0 12.2 0l.6.4c-.8.5-1.7.9-2.7 1.2l.9 1.3a19.9 19.9 0 0 0 6-3.4c.5-5-.7-9.3-3.8-13.2zM8.9 15c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm6.2 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/></svg>
           <span data-i18n-zh>加入 Discord</span><span data-i18n-en>Join Discord</span>
         </a>
-        <div class="social-wrap">
-          <a class="social-btn qq" id="qq-btn" href="#" onclick="toggleQQ(event)">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.395 15.035a39.55 39.55 0 00-.803-2.264l-1.079-2.695c.001-.032.014-.562.014-.836C19.526 4.632 17.351 0 12 0S4.474 4.632 4.474 9.241c0 .274.013.804.014.836l-1.08 2.695a38.97 38.97 0 00-.802 2.264c-1.021 3.283-.69 4.643-.438 4.673.54.065 2.103-2.472 2.103-2.472 0 1.469.756 3.387 2.394 4.771-.612.188-1.363.479-1.845.835-.434.32-.379.646-.301.778.343.578 5.883.369 7.482.189 1.6.18 7.14.389 7.483-.189.078-.132.132-.458-.301-.778-.483-.356-1.233-.646-1.846-.836 1.637-1.384 2.393-3.302 2.393-4.771 0 0 1.563 2.537 2.103 2.472.251-.03.581-1.39-.438-4.673z"/></svg>
-            <span data-i18n-zh>QQ 群</span><span data-i18n-en>QQ Group</span>
-          </a>
-          <div class="qq-pop" id="qq-pop">
-            <img src="assets/qq-qr.jpg" alt="QQ 群二维码 · 1057145969" loading="lazy" />
-            <div class="qq-pop-cap"><span data-i18n-zh>扫码加入 · 群号 1057145969</span><span data-i18n-en>Scan to join · Group 1057145969</span></div>
-          </div>
-        </div>
+        <a class="social-btn qq" id="qq-btn" href="#" onclick="copyQQ(event)" title="1057145969">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.395 15.035a39.55 39.55 0 00-.803-2.264l-1.079-2.695c.001-.032.014-.562.014-.836C19.526 4.632 17.351 0 12 0S4.474 4.632 4.474 9.241c0 .274.013.804.014.836l-1.08 2.695a38.97 38.97 0 00-.802 2.264c-1.021 3.283-.69 4.643-.438 4.673.54.065 2.103-2.472 2.103-2.472 0 1.469.756 3.387 2.394 4.771-.612.188-1.363.479-1.845.835-.434.32-.379.646-.301.778.343.578 5.883.369 7.482.189 1.6.18 7.14.389 7.483-.189.078-.132.132-.458-.301-.778-.483-.356-1.233-.646-1.846-.836 1.637-1.384 2.393-3.302 2.393-4.771 0 0 1.563 2.537 2.103 2.472.251-.03.581-1.39-.438-4.673z"/></svg>
+          <span class="qq-label"><span data-i18n-zh>QQ 群 1057145969</span><span data-i18n-en>QQ Group 1057145969</span></span>
+          <span class="qq-copied"><span data-i18n-zh>已复制群号 ✓</span><span data-i18n-en>Copied ✓</span></span>
+        </a>
       </div>
       <p class="foot-contact">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
@@ -800,15 +791,15 @@
       setLang(saved || (navigator.language && navigator.language.toLowerCase().indexOf('zh')===0 ? 'zh' : 'en'));
     })();
 
-    /* ---- QQ QR popover ---- */
-    function toggleQQ(e) {
-      e.preventDefault(); e.stopPropagation();
-      document.getElementById('qq-pop').classList.toggle('show');
+    /* ---- copy QQ group number ---- */
+    function copyQQ(e) {
+      e.preventDefault();
+      try { navigator.clipboard && navigator.clipboard.writeText("1057145969"); } catch (_) {}
+      var b = document.getElementById('qq-btn');
+      b.classList.add('copied');
+      clearTimeout(b._t);
+      b._t = setTimeout(function () { b.classList.remove('copied'); }, 1600);
     }
-    document.addEventListener('click', function (e) {
-      var pop = document.getElementById('qq-pop');
-      if (pop && pop.classList.contains('show') && !e.target.closest('.social-wrap')) pop.classList.remove('show');
-    });
 
     function swapDemoVideos(lang) {
       var other = lang === 'en' ? 'zh' : 'en';
