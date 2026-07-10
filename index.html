@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>魔镜 Mirror — 流放之路2 POE2 物品查价 · 截图识别 · 悬浮窗工具</title>
-  <meta name="description" content="魔镜 Mirror 是一款为《流放之路 2》(Path of Exile 2) 打造的 Windows 桌面悬浮窗助手：一键物品查价、截图识别整屏查价、AI 市集搜索、剧情引导、快捷正则、计时器、日志事件提醒。支持国际服 / 国服 / 台服，英 / 简 / 繁。免费下载。" />
+  <title>魔镜 Mirror — 流放之路2 (POE2) 查价工具 · 截图识别 · 悬浮窗助手</title>
+  <meta name="description" content="魔镜 Mirror 是一款免费的《流放之路 2》(POE2) 查价工具与桌面悬浮窗助手：一键物品查价、截图识别整屏价格、AI 市集搜索、官方交易行价格查询、剧情引导、快捷正则与计时器。支持国际服 / 国服 / 台服（英 / 简 / 繁），下载即用。" />
   <meta name="keywords" content="流放之路2,POE2,Path of Exile 2,物品查价,物品比价,价格查询,截图识别,OCR,交易行,悬浮窗,overlay,price check,AI搜索,剧情攻略,计时器,快捷正则,魔镜,Mirror,POE2工具,poe.ninja" />
   <meta name="author" content="Mirror" />
   <link rel="canonical" href="https://mirror.kalandraeye.com/" />
@@ -15,16 +15,16 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="魔镜 · Mirror" />
   <meta property="og:url" content="https://mirror.kalandraeye.com/" />
-  <meta property="og:title" content="魔镜 Mirror — 流放之路2 物品查价 · 截图识别悬浮窗工具" />
-  <meta property="og:description" content="一键物品查价 · 截图识别整屏查价 · AI 市集搜索 · 剧情引导 · 快捷正则 · 计时器。支持国际服/国服/台服，免费下载。" />
+  <meta property="og:title" content="魔镜 Mirror — 流放之路2 POE2 查价工具 · 截图识别悬浮窗" />
+  <meta property="og:description" content="免费 POE2 查价工具：一键物品查价 · 截图识别整屏价格 · AI 市集搜索 · 交易行价格查询 · 剧情引导 · 快捷正则 · 计时器。支持国际服/国服/台服。" />
   <meta property="og:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
   <meta property="og:locale" content="zh_CN" />
   <meta property="og:locale:alternate" content="en_US" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="魔镜 Mirror — 流放之路2 物品查价 · 截图识别悬浮窗工具" />
-  <meta name="twitter:description" content="一键物品查价 · 截图识别整屏查价 · AI 市集搜索 · 剧情引导 · 快捷正则 · 计时器。支持国际服/国服/台服。" />
+  <meta name="twitter:title" content="魔镜 Mirror — 流放之路2 POE2 查价工具 · 截图识别悬浮窗" />
+  <meta name="twitter:description" content="免费 POE2 查价工具：一键物品查价 · 截图识别整屏价格 · AI 市集搜索 · 交易行价格查询 · 剧情引导 · 快捷正则 · 计时器。支持国际服/国服/台服。" />
   <meta name="twitter:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
 
   <!-- Structured data -->
@@ -135,6 +135,10 @@
     .realms { margin-top:24px; display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--muted-2); flex-wrap:wrap; }
     .realms svg { width:15px; height:15px; color:var(--gold-dim); }
     .realms b { color:var(--gold-soft); font-weight:600; }
+    .gp-badge { display:inline-flex; align-items:center; gap:6px; font-weight:700; color:var(--gold);
+      border:1px solid rgba(227,192,114,.45); background:rgba(227,192,114,.1); padding:4px 11px; border-radius:999px;
+      box-shadow:0 0 18px -6px rgba(227,192,114,.6); }
+    .gp-badge svg { width:16px; height:16px; color:var(--gold); }
 
     /* hero mock overlay */
     .stage { position:relative; display:flex; justify-content:center; align-items:center; min-height:430px; }
@@ -361,8 +365,12 @@
         </div>
         <div class="realms reveal d5">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span data-i18n-zh>支持 <b>国际服 / 国服 / 台服</b> · 英 / 简 / 繁 · 键盘与手柄</span>
-          <span data-i18n-en>Supports <b>Global / China / Taiwan</b> realms · EN / SC / TC · keyboard &amp; gamepad</span>
+          <span data-i18n-zh>支持 <b>国际服 / 国服 / 台服</b> · 英 / 简 / 繁</span>
+          <span data-i18n-en>Supports <b>Global / China / Taiwan</b> · EN / SC / TC</span>
+          <span class="gp-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h4M8 10v4"/><circle cx="15.5" cy="11" r="1"/><circle cx="17.5" cy="13.5" r="1"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+            <span data-i18n-zh>键盘 + 手柄操作</span><span data-i18n-en>Keyboard + Gamepad</span>
+          </span>
         </div>
       </div>
 
@@ -398,7 +406,6 @@
   <section id="highlights">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div class="sec-eyebrow" data-i18n-zh>王牌功能</div><div class="sec-eyebrow" data-i18n-en>Signature features</div>
         <h2 class="sec-title" data-i18n-zh>不止查价，是全套刷图助手</h2>
         <h2 class="sec-title" data-i18n-en>More than an item appraiser</h2>
       </div>
