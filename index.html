@@ -218,6 +218,12 @@
     .ai-a .dots span { display:inline-block; width:5px; height:5px; margin:0 1px; border-radius:50%; background:var(--gold); animation:blink 1.2s infinite; }
     .ai-a .dots span:nth-child(2){animation-delay:.2s;} .ai-a .dots span:nth-child(3){animation-delay:.4s;}
     @keyframes blink { 0%,100%{opacity:.3;} 50%{opacity:1;} }
+    /* campaign mock */
+    .camp-mock { position:absolute; inset:0; padding:22px; display:flex; flex-direction:column; gap:8px; justify-content:center; }
+    .camp-zone { align-self:flex-start; font-size:12px; font-weight:700; color:var(--rare); background:rgba(10,7,3,.85); border:1px solid rgba(227,192,114,.3); padding:6px 12px; border-radius:8px; }
+    .camp-task { display:flex; gap:8px; align-items:center; font-size:12px; color:#dfe6ef; background:rgba(20,22,30,.6); border:1px solid var(--line); padding:7px 11px; border-radius:8px; opacity:0; transform:translateX(-6px); animation:lineIn .5s ease forwards; }
+    .camp-task:nth-child(2){animation-delay:.4s;} .camp-task:nth-child(3){animation-delay:.6s;} .camp-task:nth-child(4){animation-delay:.8s;}
+    .camp-task .ck { color:#8fd6a2; font-weight:800; } .camp-task .op { color:var(--gold); font-weight:800; }
 
     /* feature grid */
     .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
@@ -438,8 +444,37 @@
         </div>
       </div>
 
-      <!-- AI market search -->
+      <!-- campaign guide -->
       <div class="feature flip reveal">
+        <div>
+          <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h11a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H4z"/><path d="M20 4h-3a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h3z"/></svg><span data-i18n-zh>剧情引导</span><span data-i18n-en>Campaign guide</span></span>
+          <h3><span data-i18n-zh>跟着走，攻略自动浮现</span><span data-i18n-en>The walkthrough follows you</span></h3>
+          <p><span data-i18n-zh>魔镜监听你所在的区域，自动弹出该区的推荐等级、必做/可选任务与技能宝石——边打边看，不用切出去查攻略。</span><span data-i18n-en>Mirror watches the zone you're in and surfaces its recommended level, required/optional tasks and skill gems — read it mid-fight, no alt-tab to a guide.</span></p>
+          <ul>
+            <li class="feat-li" data-i18n-zh><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>跟随当前区域，自动切换攻略</li>
+            <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Follows your current zone, switches automatically</li>
+            <li class="feat-li" data-i18n-zh><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>必做 / 可选任务 + 技能宝石一目了然</li>
+            <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Required/optional tasks &amp; skill gems at a glance</li>
+            <li class="feat-li" data-i18n-zh><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>三语攻略（英 / 简 / 繁）</li>
+            <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Trilingual guide (EN / SC / TC)</li>
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <video data-demo="campaign" muted loop playsinline preload="none"></video>
+          <div class="demo-ph">
+            <div class="camp-mock">
+              <div class="camp-zone">🗺 <span data-i18n-zh>荆棘荒野 · Lv.12</span><span data-i18n-en>Bramble Wilds · Lv.12</span></div>
+              <div class="camp-task"><span class="ck">✔</span> <span data-i18n-zh>与 [Una] 对话领取任务</span><span data-i18n-en>Talk to [Una] for the quest</span></div>
+              <div class="camp-task"><span class="op">◆</span> <span data-i18n-zh>击败 [Rathbreaker] 获取技能石</span><span data-i18n-en>Defeat [Rathbreaker] for a skill gem</span></div>
+              <div class="camp-task"><span class="op">◆</span> <span data-i18n-zh>可选：拾取 [生命之泉]</span><span data-i18n-en>Optional: grab the [Life Spring]</span></div>
+            </div>
+          </div>
+          <div class="demo-hint"><span data-i18n-zh>▶ 演示占位 · 待替换真实录制</span><span data-i18n-en>▶ Placeholder · real clip coming</span></div>
+        </div>
+      </div>
+
+      <!-- AI market search -->
+      <div class="feature reveal">
         <div>
           <span class="tag soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></svg><span data-i18n-zh>AI 市集搜索 · 即将上线</span><span data-i18n-en>AI market search · Coming soon</span></span>
           <h3><span data-i18n-zh>用一句话，找到你要的装备</span><span data-i18n-en>Describe the gear — AI finds it</span></h3>
@@ -463,60 +498,113 @@
           <div class="demo-hint"><span data-i18n-zh>▶ 演示占位 · 待替换真实录制</span><span data-i18n-en>▶ Placeholder · real clip coming</span></div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- FEATURE GRID -->
-  <section id="more">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <div class="sec-eyebrow" data-i18n-zh>更多功能</div><div class="sec-eyebrow" data-i18n-en>Everything else</div>
-        <h2 class="sec-title" data-i18n-zh>你需要的，都在一个热键之内</h2>
-        <h2 class="sec-title" data-i18n-en>All a hotkey away</h2>
+      <!-- item appraisal -->
+      <div class="feature flip reveal">
+        <div>
+          <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span data-i18n-zh>物品查价</span><span data-i18n-en>Item appraisal</span></span>
+          <h3><span data-i18n-zh>悬停一下，立刻知道值多少</span><span data-i18n-en>Hover to know what it's worth</span></h3>
+          <p><span data-i18n-zh>悬停物品按下热键，魔镜读取物品文本、解析词缀、查询官方交易行，把实时挂单价与货币汇总浮现在游戏之上。</span><span data-i18n-en>Hover an item and press the hotkey — Mirror reads the text, parses affixes, queries the official market, and floats live listings and currency totals over the game.</span></p>
+          <ul>
+            <li class="feat-li" data-i18n-zh><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>官方交易行实时挂单</li>
+            <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Live listings from the official market</li>
+            <li class="feat-li" data-i18n-zh><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>词缀自动解析，过滤条件可微调</li>
+            <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Affixes parsed automatically, filters tweakable</li>
+            <li class="feat-li" data-i18n-zh><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>货币汇总一目了然</li>
+            <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Currency totals at a glance</li>
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <video data-demo="price" muted loop playsinline preload="none"></video>
+          <div class="demo-ph shimmer"><div class="demo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div></div>
+          <div class="demo-hint"><span data-i18n-zh>▶ 演示占位 · 待替换真实录制</span><span data-i18n-en>▶ Placeholder · real clip coming</span></div>
+        </div>
       </div>
-      <div class="grid" id="feature-grid">
-        <!-- cards injected below (each has a demo slot) -->
-        <div class="card reveal">
-          <div class="card-media"><video data-demo="price" muted loop playsinline preload="none"></video>
-            <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div></div>
-          <div class="card-body"><h3 data-i18n-zh>物品查价</h3><h3 data-i18n-en>Item appraisal</h3>
-            <p data-i18n-zh>悬停+热键，读取物品→官方交易行→实时挂单价与货币汇总。</p>
-            <p data-i18n-en>Hover + hotkey → read the item → official trade API → live listings and currency totals.</p></div>
+
+      <!-- regex presets -->
+      <div class="feature reveal">
+        <div>
+          <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h4M7 13h6"/><circle cx="17" cy="9" r="1.4"/></svg><span data-i18n-zh>快捷正则</span><span data-i18n-en>Regex presets</span></span>
+          <h3><span data-i18n-zh>常用正则，拖出来一键就用</span><span data-i18n-en>Your regex, one click away</span></h3>
+          <p><span data-i18n-zh>把常用正则存成可拖拽的卡片浮在游戏上，仓库/商店搜索时一键复制，不用再背那串符号。</span><span data-i18n-en>Keep your go-to regex as draggable chips floating over the game — one click to copy into stash or vendor search, no memorizing symbols.</span></p>
+          <ul>
+            <li class="feat-li" data-i18n-zh><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>可视化卡片画布，自由摆放</li>
+            <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Visual chip canvas, arrange freely</li>
+            <li class="feat-li" data-i18n-zh><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>一键复制到搜索框</li>
+            <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>One click to copy into any search box</li>
+            <li class="feat-li" data-i18n-zh><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>自定义任意预设</li>
+            <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Add any preset you like</li>
+          </ul>
         </div>
-        <div class="card reveal">
-          <div class="card-media"><video data-demo="campaign" muted loop playsinline preload="none"></video>
-            <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h20"/><path d="M4 7v12a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V7"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div></div>
-          <div class="card-body"><h3 data-i18n-zh>剧情引导</h3><h3 data-i18n-en>Campaign guide</h3>
-            <p data-i18n-zh>跟随当前区域，自动显示攻略、必做任务与技能宝石。</p>
-            <p data-i18n-en>Follows your zone — shows the walkthrough, key tasks and skill gems automatically.</p></div>
+        <div class="feat-media demo">
+          <video data-demo="regex" muted loop playsinline preload="none"></video>
+          <div class="demo-ph shimmer"><div class="demo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h5M7 13h8"/><circle cx="16" cy="9" r="1.4"/></svg></div></div>
+          <div class="demo-hint"><span data-i18n-zh>▶ 演示占位 · 待替换真实录制</span><span data-i18n-en>▶ Placeholder · real clip coming</span></div>
         </div>
-        <div class="card reveal">
-          <div class="card-media"><video data-demo="regex" muted loop playsinline preload="none"></video>
-            <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h4M7 13h6"/><circle cx="17" cy="9" r="1.4"/></svg></div></div>
-          <div class="card-body"><h3 data-i18n-zh>快捷正则</h3><h3 data-i18n-en>Regex presets</h3>
-            <p data-i18n-zh>可拖拽的正则预设卡片，一键复制用于仓库/商店筛选。</p>
-            <p data-i18n-en>Draggable regex preset chips — one click to copy for stash/vendor filtering.</p></div>
+      </div>
+
+      <!-- unique search -->
+      <div class="feature flip reveal">
+        <div>
+          <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 7v6c0 5 3.5 7.5 8 9 4.5-1.5 8-4 8-9V7z"/></svg><span data-i18n-zh>唯一物品搜索</span><span data-i18n-en>Unique search</span></span>
+          <h3><span data-i18n-zh>输入名字，跨语言秒查唯一物品</span><span data-i18n-en>Type a name, find any unique</span></h3>
+          <p><span data-i18n-zh>游戏内直接输入唯一物品名，跨英/简/繁三语模糊匹配，显示 poe.ninja 价格，可复制或直接发送到游戏聊天。</span><span data-i18n-en>Type a unique's name in-game, match it across EN/SC/TC, see its poe.ninja price, then copy it or send it straight to game chat.</span></p>
+          <ul>
+            <li class="feat-li" data-i18n-zh><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>三语模糊匹配，打错也能找到</li>
+            <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Fuzzy match across three languages</li>
+            <li class="feat-li" data-i18n-zh><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>显示实时 poe.ninja 价格</li>
+            <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Shows live poe.ninja prices</li>
+            <li class="feat-li" data-i18n-zh><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>一键复制或发送到游戏</li>
+            <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Copy or send to game in one click</li>
+          </ul>
         </div>
-        <div class="card reveal">
-          <div class="card-media"><video data-demo="unique" muted loop playsinline preload="none"></video>
-            <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 7v6c0 5 3.5 7.5 8 9 4.5-1.5 8-4 8-9V7z"/></svg></div></div>
-          <div class="card-body"><h3 data-i18n-zh>唯一物品搜索</h3><h3 data-i18n-en>Unique search</h3>
-            <p data-i18n-zh>游戏内跨三语查唯一物品、显示价格、复制/发送到游戏。</p>
-            <p data-i18n-en>Look up uniques across three languages in-game, see prices, copy or send to game.</p></div>
+        <div class="feat-media demo">
+          <video data-demo="unique" muted loop playsinline preload="none"></video>
+          <div class="demo-ph shimmer"><div class="demo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 7v6c0 5 3.5 7.5 8 9 4.5-1.5 8-4 8-9V7z"/></svg></div></div>
+          <div class="demo-hint"><span data-i18n-zh>▶ 演示占位 · 待替换真实录制</span><span data-i18n-en>▶ Placeholder · real clip coming</span></div>
         </div>
-        <div class="card reveal">
-          <div class="card-media"><video data-demo="exchange" muted loop playsinline preload="none"></video>
-            <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10h11l-3-3M17 14H6l3 3"/></svg></div></div>
-          <div class="card-body"><h3 data-i18n-zh>通货兑换</h3><h3 data-i18n-en>Currency exchange</h3>
-            <p data-i18n-zh>悬浮显示实时通货兑换比率，随手换算不用心算。</p>
-            <p data-i18n-en>A floating bar of live currency exchange rates — no more mental math.</p></div>
+      </div>
+
+      <!-- currency exchange -->
+      <div class="feature reveal">
+        <div>
+          <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10h11l-3-3M17 14H6l3 3"/></svg><span data-i18n-zh>通货兑换</span><span data-i18n-en>Currency exchange</span></span>
+          <h3><span data-i18n-zh>实时兑换比率，随手换算</span><span data-i18n-en>Live rates, no mental math</span></h3>
+          <p><span data-i18n-zh>一条悬浮通货比率条，随时看各通货之间的兑换价，倒货、定价再也不用心算或切网页。</span><span data-i18n-en>A floating bar of live currency-to-currency rates — flip, price and trade without doing math or opening a browser.</span></p>
+          <ul>
+            <li class="feat-li" data-i18n-zh><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>实时通货兑换比率</li>
+            <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Live currency exchange rates</li>
+            <li class="feat-li" data-i18n-zh><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>悬浮常驻、可置顶</li>
+            <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Always-on overlay, pinnable</li>
+            <li class="feat-li" data-i18n-zh><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>一眼看清换算，倒货更快</li>
+            <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Read conversions at a glance</li>
+          </ul>
         </div>
-        <div class="card reveal">
-          <div class="card-media"><video data-demo="timer" muted loop playsinline preload="none"></video>
-            <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div></div>
-          <div class="card-body"><h3 data-i18n-zh>计时器</h3><h3 data-i18n-en>Timers</h3>
-            <p data-i18n-zh>全局 + 地图计时悬浮条，掌握每张图的节奏。</p>
-            <p data-i18n-en>Global + per-map timer bar so you always know your pace.</p></div>
+        <div class="feat-media demo">
+          <video data-demo="exchange" muted loop playsinline preload="none"></video>
+          <div class="demo-ph shimmer"><div class="demo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10h11l-3-3M17 14H6l3 3"/></svg></div></div>
+          <div class="demo-hint"><span data-i18n-zh>▶ 演示占位 · 待替换真实录制</span><span data-i18n-en>▶ Placeholder · real clip coming</span></div>
+        </div>
+      </div>
+
+      <!-- timers -->
+      <div class="feature flip reveal">
+        <div>
+          <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-i18n-zh>计时器</span><span data-i18n-en>Timers</span></span>
+          <h3><span data-i18n-zh>全局 + 地图计时，掌握节奏</span><span data-i18n-en>Global + map timers, own your pace</span></h3>
+          <p><span data-i18n-zh>悬浮计时条同时显示全局计时与当前地图用时，刷图、卡时间、赶进度都心里有数。</span><span data-i18n-en>A floating timer bar shows both your global clock and the current map's elapsed time — pace your farming and never lose track.</span></p>
+          <ul>
+            <li class="feat-li" data-i18n-zh><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>全局计时随时可见</li>
+            <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Always-visible global timer</li>
+            <li class="feat-li" data-i18n-zh><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>进图自动计时当前地图</li>
+            <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Auto per-map timer on entering</li>
+            <li class="feat-li" data-i18n-zh><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>可拖动、可置顶</li>
+            <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Draggable and pinnable</li>
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <video data-demo="timer" muted loop playsinline preload="none"></video>
+          <div class="demo-ph shimmer"><div class="demo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div></div>
+          <div class="demo-hint"><span data-i18n-zh>▶ 演示占位 · 待替换真实录制</span><span data-i18n-en>▶ Placeholder · real clip coming</span></div>
         </div>
       </div>
     </div>
@@ -547,20 +635,18 @@
           <div class="dl-actions">
             <a class="btn btn-gold" id="dl-btn" href="#">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
-              <span data-i18n-zh>下载 Windows 版</span><span data-i18n-en>Download for Windows</span>
+              <span data-i18n-zh>立即下载</span><span data-i18n-en>Download</span>
             </a>
             <span id="dl-soon" style="display:none; font-size:13px; color:var(--muted-2)">
               <span data-i18n-zh>安装包即将上线</span><span data-i18n-en>Installer coming soon</span>
             </span>
           </div>
-          <p class="dl-meta"><span data-i18n-zh>版本 </span><span data-i18n-en>Version </span><span id="ver">0.1.x</span> · Windows 10 / 11</p>
         </div>
         <div class="req">
           <h4 data-i18n-zh>运行要求</h4><h4 data-i18n-en>Requirements</h4>
           <ul>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><span data-i18n-zh>Windows 10 / 11（64 位）</span><span data-i18n-en>Windows 10 / 11 (64-bit)</span></span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><span data-i18n-zh>《流放之路 2》PC 客户端</span><span data-i18n-en>Path of Exile 2 (PC)</span></span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><span data-i18n-zh>WebView2 运行时（通常已内置）</span><span data-i18n-en>WebView2 runtime (usually preinstalled)</span></span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><span data-i18n-zh>国服交易需填入会话 Cookie</span><span data-i18n-en>China realm needs a session cookie</span></span></li>
           </ul>
         </div>
@@ -627,10 +713,6 @@
         <span data-i18n-zh>有任何问题或建议，欢迎联系：</span><span data-i18n-en>Questions or feedback? Reach out:</span>
         <a href="mailto:kalandraeye@gmail.com">kalandraeye@gmail.com</a>
       </p>
-      <p class="disclaimer">
-        <span data-i18n-zh>本工具为非官方第三方助手，与 Grinding Gear Games 无隶属或背书关系。《流放之路 2》(Path of Exile 2) 为其各自所有者的商标。</span>
-        <span data-i18n-en>Unofficial third-party tool, not affiliated with or endorsed by Grinding Gear Games. Path of Exile 2 is a trademark of its respective owners.</span>
-      </p>
     </div>
   </footer>
 
@@ -683,7 +765,6 @@
       } else {
         btn.style.display = 'none'; soon.style.display = 'inline-flex';
       }
-      document.getElementById('ver').textContent = APP_VERSION;
       document.getElementById('year').textContent = '2026';
     })();
     function bumpDownloadCount(){
