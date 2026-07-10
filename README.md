@@ -10,56 +10,64 @@
 </p>
 
 <p align="center">
-  🔗 <b><a href="https://mirror.kalandraeye.com/">在线访问 / Live site</a></b>
+  🔗 <b><a href="https://mirror.kalandraeye.com/">在线访问 / Live site</a></b> ·
+  📐 <a href="DESIGN.md">设计文档 / Design doc</a>
 </p>
 
 ---
 
 ## 这是什么 / What is this
 
-这是「魔镜 / Mirror」这款 POE2 悬浮窗工具的**介绍与下载页面**（纯静态站点）。
-应用本体的源码保存在独立的私有仓库中；本仓库只包含公开的宣传页面与安装包。
+「魔镜 / Mirror」这款 POE2 悬浮窗工具的**介绍与下载页**——一个纯静态站点（中英双语、无构建、无框架、无外部依赖）。应用本体的源码在独立的私有仓库；本仓库只有公开的宣传页与安装包。
 
-This repository hosts the **landing & download page** for Mirror, a POE2 overlay tool.
-The app's own source lives in a separate private repository — only the public page and
-installer are kept here.
+The **landing & download page** for Mirror, a POE2 overlay tool. A single-file static site — bilingual, no build step, no framework, no external dependencies. The app's own source lives in a separate private repo.
 
 ## 目录结构 / Layout
 
 ```
-index.html      单文件落地页（中英双语，无外部依赖）
-assets/         logo / 图标 / 截图
-download/       Windows 安装包放这里
-.nojekyll       让 GitHub Pages 按纯静态站点处理
+index.html            落地页（中英双语，全部内联 CSS/JS）
+assets/               logo / 图标 / 货币图标 / 截图
+download/             Windows 安装包（Mirror_setup.zip）
+demos/                功能演示视频（<功能>_<语言>.mp4/webm，见 DESIGN.md）
+preview/              动效原型（早期设计验证页，noindex）
+robots.txt sitemap.xml   SEO
+CNAME .nojekyll       GitHub Pages 兼容（现主力托管在自有服务器，见下）
+.github/workflows/    自动部署工作流
+DESIGN.md             整站设计文档
 ```
 
 ## 本地预览 / Preview
 
 直接用浏览器打开 `index.html` 即可，无需构建或服务器。
-Just open `index.html` in a browser — no build step, no server.
+Just open `index.html` in a browser — no build, no server.
 
-## 部署到 GitHub Pages / Deploy
+## 托管与部署 / Hosting &amp; deploy
 
-1. 把本仓库设为 **public**。
-2. **Settings → Pages → Source** 选 **Deploy from a branch**，分支选 `main`，目录选 `/ (root)`。
-3. 等待几分钟，站点会发布到 `https://<用户名>.github.io/<仓库名>/`。
+**主力托管**：自有**香港服务器**（nginx，免备案、国内可访问），域名 `mirror.kalandraeye.com`。
+GitHub Pages 因 github.io 国内访问不稳，仅作**海外备份**。
+
+Primary hosting is a **Hong Kong server** (nginx) at `mirror.kalandraeye.com` — reachable from mainland China without ICP filing. GitHub Pages is kept only as an overseas backup.
+
+**更新流程 / Update flow**：`git push` → GitHub Actions（[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)）通过 SSH `rsync` 同步到服务器 nginx 目录。
+
+需要的仓库 Secrets（与 kaleye 仓库同约定）：
+`SSH_HOST` · `SSH_USER` · `SSH_KEY` · `SSH_PORT`（可选）· `SITE_PATH`（如 `/var/www/mirror-site`）。
+
+手动更新（服务器上）：`cd /var/www/mirror-site && git pull`。
 
 ## 更新安装包 / Update the installer
 
-1. 在应用仓库执行 `pnpm tauri build`，得到 Windows 安装包。
-2. 把安装包（如 `Mirror_Setup.exe`）放进 [`download/`](download/)。
-3. 确认 `index.html` 顶部脚本里的下载地址与版本号：
-
+1. 在应用仓库执行 `pnpm tauri build`，把产物打包成 `Mirror_setup.zip`。
+2. 放进 [`download/`](download/)。
+3. 确认 `index.html` 顶部的下载地址一致：
    ```js
-   var DOWNLOAD_URL = "download/Mirror_Setup.exe"; // 设为 "" 显示「即将上线」
-   var APP_VERSION  = "0.1.x";
+   var DOWNLOAD_URL = "download/Mirror_setup.zip"; // 设为 "" 显示「即将上线」
    ```
+4. `git push`，自动部署到服务器。
 
-4. 提交并推送，Pages 会自动更新。
+> 建议文件名带版本号（`Mirror_setup_0.1.5.zip`），GA4 可按文件名区分各版本下载量。
 
-> 单文件上限 100MB；Tauri 安装包通常远小于此，可直接提交到仓库由 Pages 公开分发。
+## 商标 / Trademark
 
-## 免责声明 / Disclaimer
-
-本工具为非官方第三方助手，与 Grinding Gear Games 无隶属或背书关系。
-Unofficial third-party tool, not affiliated with or endorsed by Grinding Gear Games.
+Path of Exile 2 是其各自所有者的商标。本项目为非官方粉丝工具。
+Path of Exile 2 is a trademark of its respective owners. This is an unofficial fan-made tool.
