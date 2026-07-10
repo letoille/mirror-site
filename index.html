@@ -243,6 +243,10 @@
     footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padding: 40px 0; margin-top: 40px; }
     .foot-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; justify-content: space-between; color: var(--muted-2); font-size: 13.5px; }
     .foot-inner .brand .cn { font-size: 15px; }
+    .foot-contact { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 22px; font-size: 14px; color: var(--muted); }
+    .foot-contact svg { width: 16px; height: 16px; color: var(--gold-soft); flex: none; }
+    .foot-contact a { color: var(--gold); font-weight: 600; }
+    .foot-contact a:hover { text-decoration: underline; }
     .disclaimer { max-width: 620px; font-size: 12.5px; color: var(--muted-2); margin-top: 18px; line-height: 1.7; }
 
     [data-i18n-en] { display: none; }
@@ -534,6 +538,12 @@
         </a>
         <span>© <span id="year">2026</span> 魔镜 · Mirror</span>
       </div>
+      <p class="foot-contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span data-i18n-zh>有任何问题或建议，欢迎联系：</span>
+        <span data-i18n-en>Questions or feedback? Reach out:</span>
+        <a href="mailto:kalandraeye@gmail.com">kalandraeye@gmail.com</a>
+      </p>
       <p class="disclaimer">
         <span data-i18n-zh>本工具为非官方第三方助手，与 Grinding Gear Games 无隶属或背书关系。《流放之路 2》(Path of Exile 2) 为其各自所有者的商标。</span>
         <span data-i18n-en>This is an unofficial third-party tool, not affiliated with or endorsed by Grinding Gear Games. Path of Exile 2 is a trademark of its respective owners.</span>
