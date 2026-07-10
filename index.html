@@ -537,15 +537,9 @@
       if (DOWNLOAD_URL) {
         btn.setAttribute('href', DOWNLOAD_URL);
         btn.setAttribute('download', '');
-        btn.addEventListener('click', function () {
-          if (typeof window.gtag === 'function') {
-            gtag('event', 'file_download', {
-              file_name: DOWNLOAD_URL,
-              app_version: APP_VERSION,
-              link_text: 'download-windows'
-            });
-          }
-        });
+        // Note: downloads are counted automatically by GA4 Enhanced Measurement
+        // ("File downloads"), which fires file_download for links ending in .exe.
+        // No manual event here — avoids double-counting.
       } else {
         btn.style.display = 'none';
         soon.style.display = 'inline-flex';
