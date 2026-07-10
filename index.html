@@ -553,7 +553,7 @@
 
   <script>
     // ---- Download target: point this at your installer, e.g. "download/Mirror_Setup.exe" ----
-    var DOWNLOAD_URL = "download/Mirror_Setup.exe"; // set to "" to show "coming soon"
+    var DOWNLOAD_URL = "download/Mirror_setup.zip"; // set to "" to show "coming soon"
     var APP_VERSION  = "0.1.x";
 
     (function initDownload() {
@@ -562,7 +562,7 @@
       if (DOWNLOAD_URL) {
         btn.setAttribute('href', DOWNLOAD_URL);
         btn.setAttribute('download', '');
-        // GA4 Enhanced Measurement auto-counts the .exe download (file_download event).
+        // GA4 Enhanced Measurement auto-counts the .zip download (file_download event).
         // Here we only bump the on-page public counter — a separate tally, no GA overlap.
         btn.addEventListener('click', bumpDownloadCount);
       } else {

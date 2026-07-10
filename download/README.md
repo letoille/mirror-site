@@ -1,20 +1,22 @@
 # 安装包放这里 / Put the installer here
 
-把打包好的 Windows 安装包放进本目录，例如 `Mirror_Setup.exe`。
-构建命令：`pnpm tauri build`（产物在 `src-tauri/target/release/bundle/` 下）。
+把打包好的 Windows 安装包放进本目录，例如 `Mirror_setup.zip`。
+构建命令：`pnpm tauri build`（产物在 `src-tauri/target/release/bundle/` 下），
+再把安装文件压缩成 `Mirror_setup.zip` 放进本目录。
 
-然后确认 `site/index.html` 顶部脚本里的下载地址与文件名一致：
+然后确认 `index.html` 顶部脚本里的下载地址与文件名一致：
 
 ```js
-var DOWNLOAD_URL = "download/Mirror_Setup.exe";
+var DOWNLOAD_URL = "download/Mirror_setup.zip";
 var APP_VERSION  = "0.1.x";
 ```
 
 - 若把 `DOWNLOAD_URL` 设为空字符串 `""`，页面会显示「即将上线」。
 - 单文件上限 100MB；Tauri 安装包通常远小于此，直接提交到仓库即可被 Pages 公开分发。
+- 建议把版本号写进文件名（如 `Mirror_setup_0.1.5.zip`），GA4 可按文件名区分各版本下载量。
 
 ---
 
-Drop the built Windows installer (e.g. `Mirror_Setup.exe`) into this folder, then make sure
-`DOWNLOAD_URL` in `site/index.html` matches its filename. Files here are served publicly by
+Drop the built Windows installer (zipped, e.g. `Mirror_setup.zip`) into this folder, then make
+sure `DOWNLOAD_URL` in `index.html` matches its filename. Files here are served publicly by
 GitHub Pages even when the source repository is private.
