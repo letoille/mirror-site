@@ -47,6 +47,24 @@
     }
   }
   </script>
+
+  <!-- Google Analytics 4 -->
+  <script>
+    // Paste your GA4 Measurement ID here (Google Analytics → Admin → Data streams → "G-XXXXXXXXXX").
+    // Leave as "" to disable analytics entirely (no requests sent).
+    window.GA_ID = "G-XXXXXXXXXX";
+    if (window.GA_ID && window.GA_ID.indexOf("G-") === 0) {
+      var gaScript = document.createElement("script");
+      gaScript.async = true;
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + window.GA_ID;
+      document.head.appendChild(gaScript);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag("js", new Date());
+      gtag("config", window.GA_ID);
+    }
+  </script>
+
   <style>
     :root {
       --bg: #0b0c10;
@@ -519,6 +537,15 @@
       if (DOWNLOAD_URL) {
         btn.setAttribute('href', DOWNLOAD_URL);
         btn.setAttribute('download', '');
+        btn.addEventListener('click', function () {
+          if (typeof window.gtag === 'function') {
+            gtag('event', 'file_download', {
+              file_name: DOWNLOAD_URL,
+              app_version: APP_VERSION,
+              link_text: 'download-windows'
+            });
+          }
+        });
       } else {
         btn.style.display = 'none';
         soon.style.display = 'inline-flex';
