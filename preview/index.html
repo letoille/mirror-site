@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="zh" data-lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>魔镜 Mirror — 动效原型 Preview</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="../assets/icon.png" />
+  <style>
+    :root {
+      --bg: #08090d;
+      --bg-soft: #0e0f15;
+      --panel: #14151d;
+      --panel-2: #1a1c26;
+      --line: #282a37;
+      --gold: #e3c072;
+      --gold-soft: #c9a35a;
+      --gold-dim: #8a7440;
+      --sapphire: #6ea0e0;
+      --sapphire-dim: #3f6ba8;
+      --rare: #f2e27a;      /* POE rare item yellow */
+      --text: #ece9e1;
+      --muted: #9a978f;
+      --muted-2: #6b6860;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: "Inter","Noto Sans SC",-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+      -webkit-font-smoothing: antialiased; line-height: 1.6; overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- ambient background ---------- */
+    .bg-fx { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .aurora { position: absolute; border-radius: 50%; filter: blur(100px); }
+    .aurora.a1 { width: 680px; height: 680px; top: -240px; left: -180px; background: radial-gradient(circle, rgba(227,192,114,.20), transparent 62%); animation: drift1 18s ease-in-out infinite; }
+    .aurora.a2 { width: 620px; height: 620px; top: 120px; right: -220px; background: radial-gradient(circle, rgba(110,160,224,.16), transparent 62%); animation: drift2 22s ease-in-out infinite; }
+    .aurora.a3 { width: 520px; height: 520px; bottom: -200px; left: 30%; background: radial-gradient(circle, rgba(227,192,114,.10), transparent 62%); animation: drift1 26s ease-in-out infinite reverse; }
+    @keyframes drift1 { 0%,100%{ transform: translate(0,0) scale(1);} 50%{ transform: translate(40px,30px) scale(1.08);} }
+    @keyframes drift2 { 0%,100%{ transform: translate(0,0) scale(1);} 50%{ transform: translate(-50px,20px) scale(1.1);} }
+    .grid-lines { position: absolute; inset: 0; opacity: .28;
+      background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 48px 48px; mask-image: radial-gradient(ellipse 75% 55% at 50% 0%, #000 30%, transparent 72%); }
+    .embers { position: absolute; inset: 0; }
+    .ember { position: absolute; bottom: -10px; width: 3px; height: 3px; border-radius: 50%;
+      background: var(--gold); box-shadow: 0 0 6px var(--gold); opacity: 0; animation: rise linear infinite; }
+    @keyframes rise {
+      0% { transform: translateY(0) translateX(0); opacity: 0; }
+      10% { opacity: .8; }
+      90% { opacity: .5; }
+      100% { transform: translateY(-100vh) translateX(var(--drift, 20px)); opacity: 0; }
+    }
+
+    /* ---------- nav ---------- */
+    nav { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px);
+      background: rgba(8,9,13,.7); border-bottom: 1px solid var(--line); }
+    .nav-inner { display: flex; align-items: center; gap: 16px; height: 62px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 700; }
+    .brand img { width: 30px; height: 30px; border-radius: 8px; box-shadow: 0 0 14px rgba(227,192,114,.3); }
+    .brand .cn { font-size: 17px; }
+    .brand .en { font-size: 11px; color: var(--muted); letter-spacing: 1.6px; text-transform: uppercase; display: block; }
+    .pill { margin-left: 6px; font-size: 10.5px; font-weight: 700; letter-spacing: 1px; color: var(--sapphire);
+      border: 1px solid rgba(110,160,224,.35); padding: 3px 8px; border-radius: 999px; text-transform: uppercase; }
+    .nav-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+    .lang-toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--panel); font-size: 12px; font-weight: 600; }
+    .lang-toggle button { border: 0; background: transparent; color: var(--muted); padding: 4px 12px; border-radius: 999px; cursor: pointer; font: inherit; transition: .15s; }
+    .lang-toggle button.active { background: var(--gold); color: #1a1400; }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 600; font-size: 14px;
+      border-radius: 11px; padding: 11px 20px; border: 1px solid transparent; transition: .18s; white-space: nowrap; }
+    .btn svg { width: 16px; height: 16px; }
+    .btn-gold { background: linear-gradient(180deg,#eccb78,#c99f45); color: #211900; box-shadow: 0 8px 26px -10px rgba(227,192,114,.7); }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 14px 34px -10px rgba(227,192,114,.85); }
+    .btn-ghost { background: var(--panel); border-color: var(--line); color: var(--text); }
+    .btn-ghost:hover { border-color: var(--gold-dim); color: var(--gold); }
+
+    /* ---------- hero ---------- */
+    header.hero { position: relative; z-index: 1; padding: 70px 0 90px; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 50px; align-items: center; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: .05s; } .d2 { transition-delay: .15s; } .d3 { transition-delay: .25s; } .d4 { transition-delay: .35s; } .d5 { transition-delay: .45s; }
+
+    .badge { display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 600; color: var(--gold);
+      border: 1px solid rgba(227,192,114,.3); background: rgba(227,192,114,.07); padding: 6px 14px; border-radius: 999px; margin-bottom: 24px; }
+    .badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 10px var(--gold); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{ opacity: 1; } 50%{ opacity: .35; } }
+
+    h1.title { font-size: clamp(38px, 5.4vw, 62px); line-height: 1.06; margin: 0 0 20px; font-weight: 800; letter-spacing: -1px; }
+    /* mirror-shimmer sweep on the brand word */
+    .shine { position: relative; background: linear-gradient(90deg, var(--gold) 0%, #fff6db 45%, var(--gold) 60%);
+      background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+      animation: shine 5.5s linear infinite; }
+    @keyframes shine { 0% { background-position: 120% 0; } 100% { background-position: -120% 0; } }
+    .lead { font-size: clamp(15px, 1.7vw, 18px); color: var(--muted); max-width: 560px; margin: 0 0 30px; }
+    .cta { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+
+    .stats { display: flex; gap: 26px; margin-top: 34px; }
+    .stat .n { font-size: 26px; font-weight: 800; color: var(--text); font-variant-numeric: tabular-nums; letter-spacing: .5px; }
+    .stat .l { font-size: 12.5px; color: var(--muted); }
+    .realms { margin-top: 26px; display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--muted-2); flex-wrap: wrap; }
+    .realms svg { width: 15px; height: 15px; color: var(--gold-dim); }
+    .realms b { color: var(--gold-soft); font-weight: 600; }
+
+    /* ---------- hero mock overlay (the "summoned" tooltip) ---------- */
+    .stage { position: relative; display: flex; justify-content: center; align-items: center; min-height: 430px; }
+    /* faux game backdrop */
+    .stage::before { content: ""; position: absolute; inset: 6% 2%; border-radius: 16px;
+      background: radial-gradient(120% 120% at 30% 10%, rgba(60,45,20,.35), transparent 55%),
+                  radial-gradient(120% 120% at 80% 90%, rgba(30,45,80,.35), transparent 55%),
+                  #0b0d13;
+      border: 1px solid var(--line); box-shadow: inset 0 0 80px rgba(0,0,0,.6); overflow: hidden; }
+    .stage-noise { position: absolute; inset: 6% 2%; border-radius: 16px; opacity: .5; pointer-events: none;
+      background-image: radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px); background-size: 5px 5px; }
+
+    .overlay-card { position: relative; width: 300px; background: rgba(10,7,3,.96);
+      border: 1px solid rgba(227,192,114,.4); border-radius: 8px; padding: 0; overflow: hidden;
+      box-shadow: 0 30px 70px -25px rgba(0,0,0,.9), 0 0 0 1px rgba(0,0,0,.5), 0 0 40px -8px rgba(227,192,114,.25);
+      animation: summon .9s cubic-bezier(.2,.9,.25,1) both, float 6s ease-in-out 1s infinite; }
+    @keyframes summon { 0% { opacity: 0; transform: translateY(18px) scale(.92); } 60% { opacity: 1; } 100% { opacity: 1; transform: none; } }
+    @keyframes float { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-9px); } }
+    /* summon ring */
+    .overlay-card::after { content: ""; position: absolute; inset: -2px; border-radius: 8px; pointer-events: none;
+      box-shadow: 0 0 0 2px rgba(227,192,114,.6); opacity: 0; animation: ring 1s ease-out .1s 1; }
+    @keyframes ring { 0% { opacity: .9; transform: scale(1); } 100% { opacity: 0; transform: scale(1.06); } }
+    /* shimmer sweep across card */
+    .overlay-card .sweep { position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.10) 50%, transparent 60%);
+      background-size: 250% 100%; animation: sweep 6s ease-in-out 2s infinite; }
+    @keyframes sweep { 0% { background-position: 130% 0; } 35%,100% { background-position: -130% 0; } }
+
+    .oc-head { text-align: center; padding: 12px 14px 10px; background: linear-gradient(180deg, rgba(90,72,30,.35), transparent);
+      border-bottom: 1px solid rgba(227,192,114,.18); }
+    .oc-name { color: var(--rare); font-weight: 700; font-size: 15px; letter-spacing: .3px; text-shadow: 0 0 10px rgba(242,226,122,.35); }
+    .oc-base { color: #c9b98a; font-size: 12px; margin-top: 2px; }
+    .oc-body { padding: 10px 14px 4px; }
+    .oc-line { display: flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--sapphire); padding: 3px 0;
+      opacity: 0; transform: translateX(-6px); animation: lineIn .5s ease forwards; }
+    .oc-line::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--sapphire-dim); flex: none; }
+    .oc-line:nth-child(1){ animation-delay: .5s; } .oc-line:nth-child(2){ animation-delay: .65s; }
+    .oc-line:nth-child(3){ animation-delay: .8s; } .oc-line:nth-child(4){ animation-delay: .95s; }
+    @keyframes lineIn { to { opacity: 1; transform: none; } }
+    .oc-price { margin: 10px 0 0; padding: 11px 14px; display: flex; align-items: center; justify-content: space-between;
+      background: linear-gradient(180deg, transparent, rgba(227,192,114,.08)); border-top: 1px solid rgba(227,192,114,.18);
+      opacity: 0; animation: lineIn .5s ease 1.15s forwards; }
+    .oc-price .label { font-size: 11px; color: var(--muted); }
+    .oc-price .val { display: flex; align-items: center; gap: 7px; font-size: 18px; font-weight: 800; color: var(--gold); }
+    .oc-price .val img { width: 22px; height: 22px; filter: drop-shadow(0 0 6px rgba(227,192,114,.5)); }
+    /* reflection */
+    .reflection { position: relative; width: 300px; margin: 8px auto 0; height: 90px; overflow: hidden;
+      -webkit-mask-image: linear-gradient(#000, transparent 75%); mask-image: linear-gradient(#000, transparent 75%); opacity: .22; transform: scaleY(-1); }
+    .cursor-badge { position: absolute; right: 18%; bottom: 22%; display: flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; color: #211900; background: var(--gold); padding: 4px 9px; border-radius: 7px;
+      box-shadow: 0 6px 16px -4px rgba(0,0,0,.6); animation: tap 6s ease-in-out infinite; }
+    @keyframes tap { 0%,100%{ transform: translateY(0);} 8%{ transform: translateY(3px) scale(.96);} 16%{ transform: translateY(0) scale(1);} }
+
+    /* ---------- feature showcase card ---------- */
+    section { position: relative; z-index: 1; padding: 40px 0 90px; }
+    .sec-eyebrow { font-size: 12.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 12px; }
+    .sec-title { font-size: clamp(24px,3vw,34px); font-weight: 800; text-align: center; margin: 0 0 8px; letter-spacing: -.5px; }
+    .sec-sub { text-align: center; color: var(--muted); margin: 0 auto 44px; max-width: 560px; }
+
+    .feature { display: grid; grid-template-columns: 1fr 1.1fr; gap: 44px; align-items: center;
+      background: linear-gradient(160deg, var(--panel), var(--bg-soft)); border: 1px solid var(--line);
+      border-radius: 22px; padding: 40px; position: relative; overflow: hidden; }
+    .feature::before { content: ""; position: absolute; inset: 0; border-radius: 22px; padding: 1px;
+      background: linear-gradient(150deg, rgba(227,192,114,.4), transparent 45%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+    .feature .tag { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 700; color: var(--sapphire);
+      border: 1px solid rgba(110,160,224,.3); background: rgba(110,160,224,.08); padding: 5px 12px; border-radius: 999px; margin-bottom: 16px; }
+    .feature h3 { font-size: 26px; margin: 0 0 12px; font-weight: 800; }
+    .feature p { color: var(--muted); font-size: 15px; margin: 0 0 20px; }
+    .feature ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .feature li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--text); }
+    .feature li svg { width: 17px; height: 17px; color: var(--gold-soft); flex: none; margin-top: 3px; }
+
+    /* demo slot: bilingual <video> with animated CSS placeholder fallback */
+    .demo { position: relative; aspect-ratio: 16/10; border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--line); background: #0a0c11; box-shadow: 0 30px 60px -30px rgba(0,0,0,.8); }
+    .demo video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .4s; }
+    .demo video.ready { opacity: 1; }
+    /* animated placeholder: a "screen scan" mock */
+    .demo-ph { position: absolute; inset: 0; background:
+        radial-gradient(120% 100% at 70% 20%, rgba(60,45,20,.3), transparent 55%),
+        radial-gradient(120% 100% at 20% 90%, rgba(30,45,80,.3), transparent 55%), #0b0d13; }
+    .scan-label { position: absolute; padding: 5px 9px; font-size: 11px; border-radius: 6px; background: rgba(10,7,3,.9);
+      border: 1px solid rgba(227,192,114,.3); color: var(--rare); white-space: nowrap; }
+    .scan-label .p { color: var(--gold); font-weight: 700; margin-left: 8px; opacity: 0; animation: priceReveal 3.4s ease infinite; }
+    @keyframes priceReveal { 0%,45%{ opacity: 0; transform: translateY(3px);} 55%,100%{ opacity: 1; transform: none; } }
+    .scan-beam { position: absolute; left: 0; right: 0; height: 46%; top: -46%;
+      background: linear-gradient(180deg, transparent, rgba(110,160,224,.12) 60%, rgba(110,160,224,.5));
+      border-bottom: 1.5px solid rgba(140,190,255,.8); box-shadow: 0 0 24px rgba(110,160,224,.5);
+      animation: beam 3.4s cubic-bezier(.5,0,.5,1) infinite; }
+    @keyframes beam { 0% { top: -46%; } 55% { top: 100%; } 100% { top: 100%; } }
+    .demo-hint { position: absolute; bottom: 10px; left: 12px; font-size: 11px; color: var(--muted-2);
+      background: rgba(0,0,0,.5); padding: 4px 9px; border-radius: 6px; }
+
+    /* prototype note */
+    .proto-note { text-align: center; color: var(--muted-2); font-size: 12.5px; padding: 24px 0 60px; }
+    .proto-note b { color: var(--gold-soft); }
+
+    [data-i18n-en] { display: none; }
+    html[data-lang="en"] [data-i18n-zh] { display: none; }
+    html[data-lang="en"] [data-i18n-en] { display: revert; }
+    html[data-lang="en"] .oc-line[data-i18n-zh] { display: none; }
+    html[data-lang="en"] .oc-line[data-i18n-en] { display: flex; }
+    html[data-lang="en"] .scan-label[data-i18n-zh] { display: none; }
+    html[data-lang="en"] .scan-label[data-i18n-en] { display: block; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+    @media (max-width: 900px) {
+      .hero-grid, .feature { grid-template-columns: 1fr; }
+      .stage { min-height: 360px; margin-top: 10px; }
+      .reflection { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-fx">
+    <div class="aurora a1"></div><div class="aurora a2"></div><div class="aurora a3"></div>
+    <div class="grid-lines"></div>
+    <div class="embers" id="embers"></div>
+  </div>
+
+  <nav>
+    <div class="wrap nav-inner">
+      <a class="brand" href="#">
+        <img src="../assets/logo.png" alt="魔镜" />
+        <span><span class="cn" data-i18n-zh>魔镜</span><span class="cn" data-i18n-en>Mirror</span>
+          <span class="en">Mirror for POE2</span></span>
+        <span class="pill">Preview</span>
+      </a>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button id="lang-zh" onclick="setLang('zh')">中文</button>
+          <button id="lang-en" onclick="setLang('en')">EN</button>
+        </div>
+        <a class="btn btn-gold" href="#"><span data-i18n-zh>下载</span><span data-i18n-en>Download</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="badge reveal d1"><span class="dot"></span>
+          <span data-i18n-zh>为《流放之路 2》打造 · Windows 悬浮窗助手</span>
+          <span data-i18n-en>Built for Path of Exile 2 · Windows overlay</span>
+        </div>
+        <h1 class="title reveal d2">
+          <span data-i18n-zh>一键比价，专注刷图<br>尽在 <span class="shine">魔镜</span></span>
+          <span data-i18n-en>Price-check in one key.<br>Stay in the game — with <span class="shine">Mirror</span></span>
+        </h1>
+        <p class="lead reveal d3">
+          <span data-i18n-zh>悬停物品、一个热键，实时挂单价立刻浮现在游戏之上——无需切窗。截图识别、AI 市集搜索、剧情引导、快捷正则、计时器，一站齐全。</span>
+          <span data-i18n-en>Hover an item, hit one hotkey, and live market prices appear right over your game — no alt-tab. Screen-scan, AI market search, campaign guide, regex presets, timers — all in one.</span>
+        </p>
+        <div class="cta reveal d4">
+          <a class="btn btn-gold" href="#">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+            <span data-i18n-zh>立即下载</span><span data-i18n-en>Download now</span>
+          </a>
+          <a class="btn btn-ghost" href="#"><span data-i18n-zh>看演示</span><span data-i18n-en>Watch demo</span></a>
+        </div>
+        <div class="stats reveal d5">
+          <div class="stat"><div class="n" data-count="12480">0</div><div class="l"><span data-i18n-zh>次访问</span><span data-i18n-en>visits</span></div></div>
+          <div class="stat"><div class="n" data-count="3260">0</div><div class="l"><span data-i18n-zh>次下载</span><span data-i18n-en>downloads</span></div></div>
+          <div class="stat"><div class="n" data-count="8">0</div><div class="l"><span data-i18n-zh>项功能</span><span data-i18n-en>features</span></div></div>
+        </div>
+        <div class="realms reveal d5">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span data-i18n-zh>支持 <b>国际服 / 国服 / 台服</b> · 英 / 简 / 繁 · 键盘与手柄</span>
+          <span data-i18n-en>Supports <b>Global / China / Taiwan</b> realms · EN / SC / TC · keyboard &amp; gamepad</span>
+        </div>
+      </div>
+
+      <!-- summoned overlay -->
+      <div class="stage reveal d3">
+        <div class="stage-noise"></div>
+        <div style="position:relative">
+          <div class="overlay-card" id="ocard">
+            <div class="sweep"></div>
+            <div class="oc-head">
+              <div class="oc-name" data-i18n-zh>暴风之冕</div><div class="oc-name" data-i18n-en>Tempest Crown</div>
+              <div class="oc-base" data-i18n-zh>华丽面甲</div><div class="oc-base" data-i18n-en>Ornate Barbute</div>
+            </div>
+            <div class="oc-body">
+              <div class="oc-line" data-i18n-zh>生命上限 +89</div><div class="oc-line" data-i18n-en>+89 to maximum Life</div>
+              <div class="oc-line" data-i18n-zh>冰霜抗性 +42%</div><div class="oc-line" data-i18n-en>+42% Cold Resistance</div>
+              <div class="oc-line" data-i18n-zh>物品稀有度提高 24%</div><div class="oc-line" data-i18n-en>24% increased Item Rarity</div>
+              <div class="oc-line" data-i18n-zh>闪避值 +130</div><div class="oc-line" data-i18n-en>+130 to Evasion Rating</div>
+            </div>
+            <div class="oc-price">
+              <span class="label" data-i18n-zh>参考成交价</span><span class="label" data-i18n-en>Market price</span>
+              <span class="val"><img src="../assets/divine.png" alt="divine" />≈ 2.5</span>
+            </div>
+          </div>
+          <div class="cursor-badge">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M4 2l7 18 2.5-7L20 10z"/></svg>
+            <span data-i18n-zh>Ctrl+D</span><span data-i18n-en>Ctrl+D</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- FEATURE SHOWCASE (screen scan) -->
+  <section>
+    <div class="wrap">
+      <div class="sec-eyebrow reveal">🔥 <span data-i18n-zh>王牌功能</span><span data-i18n-en>Signature feature</span></div>
+      <h2 class="sec-title reveal"><span data-i18n-zh>截图识别，一次看清整屏掉落</span><span data-i18n-en>Scan the screen, price every drop at once</span></h2>
+      <p class="sec-sub reveal"><span data-i18n-zh>这就是每个功能卡片将有的样子——文字在侧，右侧是该语言录制的演示。</span><span data-i18n-en>This is what every feature card will look like — copy on one side, a demo recorded in your language on the other.</span></p>
+
+      <div class="feature reveal">
+        <div>
+          <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m3 15 4-4 3 3 4-5 4 5"/></svg><span data-i18n-zh>截图识别查价</span><span data-i18n-en>Screen-scan pricing</span></span>
+          <h3><span data-i18n-zh>一个热键，整屏比价</span><span data-i18n-en>One hotkey, the whole screen priced</span></h3>
+          <p><span data-i18n-zh>按下 Ctrl+D，魔镜截取当前画面，本地 OCR 识别屏幕上的每一件物品，从 poe.ninja 拉取价格，一次性列出——判断"这波掉落值不值"只要一秒。</span><span data-i18n-en>Press Ctrl+D and Mirror grabs the frame, runs local OCR on every item on screen, pulls poe.ninja prices, and lists them all at once — "is this drop worth it?" answered in a second.</span></p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n-zh>一次识别多个物品，约 1–2 秒出结果</span><span data-i18n-en>Reads many items at once, results in ~1–2s</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n-zh>纯本地 OCR，简 / 繁 / 英通吃</span><span data-i18n-en>Fully local OCR — SC / TC / EN</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n-zh>不读内存、不改文件——只截一帧画面</span><span data-i18n-en>No memory reads, no file edits — just one frame</span></li>
+          </ul>
+        </div>
+        <!-- demo slot: video swaps with language; CSS mock shows until a real clip is dropped in -->
+        <div class="demo">
+          <video data-demo="scan" muted loop playsinline preload="none"></video>
+          <div class="demo-ph">
+            <div class="scan-beam"></div>
+            <div class="scan-label" style="top:16%; left:10%" data-i18n-zh>崇高石 <span class="p">◆ 12</span></div>
+            <div class="scan-label" style="top:16%; left:10%" data-i18n-en>Exalted Orb <span class="p">◆ 12</span></div>
+            <div class="scan-label" style="top:40%; left:18%" data-i18n-zh>神圣石 <span class="p">◆ 1</span></div>
+            <div class="scan-label" style="top:40%; left:18%" data-i18n-en>Divine Orb <span class="p">◆ 1</span></div>
+            <div class="scan-label" style="top:64%; left:12%" data-i18n-zh>魔甘娜的风暴 <span class="p">◆ 8.5</span></div>
+            <div class="scan-label" style="top:64%; left:12%" data-i18n-en>Morgana's Tempest <span class="p">◆ 8.5</span></div>
+          </div>
+          <div class="demo-hint"><span data-i18n-zh>▶ 演示占位（真实录制将替换此处，中/英各一版）</span><span data-i18n-en>▶ Placeholder demo (swapped for real ZH/EN clips)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="proto-note">
+    <span data-i18n-zh>这是 <b>动效原型</b>：展示 Hero 与单张功能卡的视觉与动效方向。满意后我会把这套铺到完整的 9 个区块。切换语言看看动图占位与文案如何联动。</span>
+    <span data-i18n-en>This is a <b>motion prototype</b> — it shows the hero and one feature card's look &amp; motion. Once approved, I'll roll it across all 9 sections. Toggle the language to see copy and demo slots swap together.</span>
+  </p>
+
+  <script>
+    /* ---- language ---- */
+    function setLang(lang) {
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'zh');
+      document.getElementById('lang-zh').classList.toggle('active', lang === 'zh');
+      document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+      swapDemoVideos(lang);
+      try { localStorage.setItem('mirror-lang', lang); } catch (e) {}
+    }
+    (function initLang(){
+      var saved; try { saved = localStorage.getItem('mirror-lang'); } catch(e){}
+      setLang(saved || (navigator.language && navigator.language.toLowerCase().indexOf('zh')===0 ? 'zh' : 'en'));
+    })();
+
+    /* ---- bilingual demo videos: load only the current language; fall back to the
+            other language, then to the CSS placeholder if neither exists ---- */
+    function swapDemoVideos(lang) {
+      var other = lang === 'en' ? 'zh' : 'en';
+      document.querySelectorAll('video[data-demo]').forEach(function (v) {
+        var key = v.getAttribute('data-demo');
+        var base = 'demos/' + key + '_';
+        // try current language; onerror cascades to the other; else placeholder stays
+        v.classList.remove('ready');
+        v.onloadeddata = function () { v.classList.add('ready'); v.play().catch(function(){}); };
+        v.onerror = function () {
+          if (v.dataset.tried !== other) { v.dataset.tried = other; setSources(v, base + other); }
+        };
+        v.dataset.tried = lang;
+        setSources(v, base + lang);
+      });
+    }
+    function setSources(v, path) {
+      v.innerHTML = '<source src="' + path + '.webm" type="video/webm"><source src="' + path + '.mp4" type="video/mp4">';
+      v.load();
+    }
+
+    /* ---- embers ---- */
+    (function embers(){
+      var c = document.getElementById('embers');
+      var n = window.innerWidth < 700 ? 10 : 22;
+      for (var i=0;i<n;i++){
+        var e = document.createElement('div'); e.className='ember';
+        var dur = 7 + Math.random()*9, delay = -Math.random()*dur;
+        e.style.left = (Math.random()*100)+'%';
+        e.style.animationDuration = dur+'s';
+        e.style.animationDelay = delay+'s';
+        e.style.setProperty('--drift', (Math.random()*80-40)+'px');
+        e.style.opacity = 0.3 + Math.random()*0.5;
+        var s = 2 + Math.random()*2; e.style.width=s+'px'; e.style.height=s+'px';
+        c.appendChild(e);
+      }
+    })();
+
+    /* ---- reveal on scroll ---- */
+    (function reveal(){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+      }, { threshold: .15 });
+      document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+    })();
+
+    /* ---- count-up stats ---- */
+    (function counters(){
+      function run(el){
+        var target = parseInt(el.getAttribute('data-count'),10) || 0, start = null, dur = 1400;
+        function step(ts){ if(!start) start=ts; var p=Math.min((ts-start)/dur,1);
+          var eased = 1-Math.pow(1-p,3);
+          el.textContent = Math.round(target*eased).toLocaleString();
+          if(p<1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ run(en.target); io.unobserve(en.target); } });
+      }, { threshold: .5 });
+      document.querySelectorAll('[data-count]').forEach(function(el){ io.observe(el); });
+    })();
+
+    /* ---- card 3D tilt on hover ---- */
+    (function tilt(){
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      document.querySelectorAll('.feature').forEach(function(card){
+        card.addEventListener('mousemove', function(e){
+          var r = card.getBoundingClientRect();
+          var rx = ((e.clientY-r.top)/r.height - .5) * -5;
+          var ry = ((e.clientX-r.left)/r.width - .5) * 6;
+          card.style.transform = 'perspective(900px) rotateX('+rx+'deg) rotateY('+ry+'deg)';
+        });
+        card.addEventListener('mouseleave', function(){ card.style.transform=''; });
+      });
+    })();
+  </script>
+</body>
+</html>
