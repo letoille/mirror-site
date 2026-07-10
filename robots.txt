@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://letoille.github.io/mirror-site/sitemap.xml
+Sitemap: https://mirror.kalandraeye.com/sitemap.xml
