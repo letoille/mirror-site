@@ -184,6 +184,8 @@
       background:linear-gradient(160deg,var(--panel),var(--bg-soft)); border:1px solid var(--line); border-radius:22px; padding:40px; position:relative; overflow:hidden; margin-bottom:24px; }
     .feature.flip { grid-template-columns:1.1fr 1fr; }
     .feature.flip .feat-media { order:-1; }
+    /* portrait-demo card: narrow media column hugs the tall vertical demo */
+    .feature.pcol { grid-template-columns:260px 1fr; }
     .feature::before { content:""; position:absolute; inset:0; border-radius:22px; padding:1px; background:linear-gradient(150deg,rgba(227,192,114,.4),transparent 45%);
       -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; }
     .feature .tag { display:inline-flex; align-items:center; gap:7px; font-size:12px; font-weight:700; color:var(--sapphire);
@@ -538,7 +540,7 @@
         </div>
       </div>
       <!-- item appraisal -->
-      <div class="feature flip reveal">
+      <div class="feature flip reveal pcol">
         <div>
           <h3><span data-i18n-zh>悬停一下，读懂每一条词缀</span><span data-i18n-en>Hover — Mirror reads every mod</span></h3>
           <p><span data-i18n-zh>悬停物品按热键，魔镜解析每一条词缀并查询官方交易行。破裂、工艺、腐化等不同类型词缀分色高亮，一眼看清；你只勾选在意的词缀、还能设最小值，搜索更精准高效。</span><span data-i18n-en>Hover an item and press the hotkey — Mirror parses every mod and queries the official market. Fractured, crafted and corrupted mods are colour-coded by type, and you tick only the affixes you care about (with min values) for a precise, efficient search.</span></p>
@@ -553,7 +555,7 @@
             <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Open in the official trade site with your filters intact</li>
           </ul>
         </div>
-        <div class="feat-media demo" style="aspect-ratio:9/16; height:440px; width:auto; justify-self:end">
+        <div class="feat-media demo" style="aspect-ratio:9/16">
           <video data-demo="price" muted loop playsinline preload="none" style="--zoom:1"></video>
           <div class="demo-ph"><div class="mock"><div class="mk-card">
             <div class="mk-title"><span data-i18n-zh>暴风之冕</span><span data-i18n-en>Tempest Crown</span></div>
