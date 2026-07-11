@@ -201,6 +201,9 @@
     .demo { position:relative; aspect-ratio:16/10; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:#0a0c11; box-shadow:0 30px 60px -30px rgba(0,0,0,.8); }
     .demo video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .4s; }
     .demo video.ready { opacity:1; }
+    /* real clip loaded → fade out the placeholder mock + hint so the video shows */
+    .demo video.ready ~ .demo-ph,
+    .demo video.ready ~ .demo-hint { opacity:0; pointer-events:none; transition:opacity .5s; }
     .demo-ph { position:absolute; inset:0; background:radial-gradient(120% 100% at 70% 20%,rgba(60,45,20,.3),transparent 55%),radial-gradient(120% 100% at 20% 90%,rgba(30,45,80,.3),transparent 55%),#0b0d13; }
     .demo-ph.shimmer::after { content:""; position:absolute; inset:0; background:linear-gradient(105deg,transparent 42%,rgba(227,192,114,.08) 50%,transparent 58%); background-size:250% 100%; animation:sweep 4.5s ease-in-out infinite; }
     .demo-hint { position:absolute; bottom:10px; left:12px; font-size:11px; color:var(--muted-2); background:rgba(0,0,0,.5); padding:4px 9px; border-radius:6px; }
