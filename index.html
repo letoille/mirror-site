@@ -199,7 +199,8 @@
 
     /* demo slot */
     .demo { position:relative; aspect-ratio:16/10; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:#0a0c11; box-shadow:0 30px 60px -30px rgba(0,0,0,.8); }
-    .demo video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .4s; }
+    .demo video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .4s;
+      transform:scale(var(--zoom,1)); transform-origin:var(--focus,50% 50%); }
     .demo video.ready { opacity:1; }
     /* real clip loaded → fade out the placeholder mock + hint so the video shows */
     .demo video.ready ~ .demo-ph,
@@ -550,7 +551,7 @@
           </ul>
         </div>
         <div class="feat-media demo">
-          <video data-demo="price" muted loop playsinline preload="none"></video>
+          <video data-demo="price" muted loop playsinline preload="none" style="--zoom:1.5; --focus:50% 50%"></video>
           <div class="demo-ph"><div class="mock"><div class="mk-card">
             <div class="mk-title"><span data-i18n-zh>暴风之冕</span><span data-i18n-en>Tempest Crown</span></div>
             <div class="mk-sub"><span data-i18n-zh>生命上限 +89 · 冰霜抗性 +42%</span><span data-i18n-en>+89 Life · +42% Cold Res</span></div>
