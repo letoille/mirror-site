@@ -187,8 +187,11 @@
     /* portrait-demo card: media column sized so the tall vertical demo sits
        centered with breathing room on both sides */
     .feature.pcol { grid-template-columns:380px 1fr; }
-    .feature.pcol-w { grid-template-columns:460px 1fr; }
-    .feature.pcol .feat-media, .feature.pcol-w .feat-media { justify-self:end; margin-right:40px; }
+    .feature.pcol .feat-media { justify-self:end; margin-right:40px; }
+    /* portrait clip (generic): media column auto-hugs the vertical demo, breathing room both sides */
+    .feature.port { grid-template-columns:1fr auto; column-gap:48px; }   /* non-flip: text | media(right) */
+    .feature.port.flip { grid-template-columns:auto 1fr; }               /* flip: media(left) | text */
+    .feature.port .feat-media { margin-inline:40px; }
     .feature::before { content:""; position:absolute; inset:0; border-radius:22px; padding:1px; background:linear-gradient(150deg,rgba(227,192,114,.4),transparent 45%);
       -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; }
     .feature .tag { display:inline-flex; align-items:center; gap:7px; font-size:12px; font-weight:700; color:var(--sapphire);
@@ -464,7 +467,7 @@
       </div>
 
       <!-- screen scan -->
-      <div class="feature reveal">
+      <div class="feature reveal port">
         <div>
           <h3><span data-i18n-zh>一个热键，整屏查价</span><span data-i18n-en>One hotkey, appraise the whole screen</span></h3>
           <p><span data-i18n-zh>按下 Ctrl+D，魔镜截取当前画面，本地 OCR 识别屏幕上的每一件物品，从 poe.ninja 拉取价格一次性列出——"这波掉落值不值"一秒判断。</span><span data-i18n-en>Press Ctrl+D and Mirror grabs the frame, runs local OCR on every item on screen, pulls poe.ninja prices, and lists them all at once — "is this drop worth it?" answered in a second.</span></p>
@@ -475,7 +478,7 @@
             <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Fully local OCR — SC / TC / EN</li>
           </ul>
         </div>
-        <div class="feat-media demo">
+        <div class="feat-media demo" style="aspect-ratio:3/4; height:440px; width:auto">
           <video data-demo="scan" muted loop playsinline preload="none"></video>
           <div class="demo-ph">
             <div class="scan-beam"></div>
@@ -504,7 +507,7 @@
             <li class="feat-li" data-i18n-en><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Trilingual guide (EN / SC / TC)</li>
           </ul>
         </div>
-        <div class="feat-media demo">
+        <div class="feat-media demo" style="aspect-ratio:4/3">
           <video data-demo="campaign" muted loop playsinline preload="none"></video>
           <div class="demo-ph">
             <div class="camp-mock">
@@ -595,7 +598,7 @@
       </div>
 
       <!-- unique search -->
-      <div class="feature flip reveal pcol-w">
+      <div class="feature flip reveal port">
         <div>
           <h3><span data-i18n-zh>输入名字，跨语言秒查唯一物品</span><span data-i18n-en>Type a name, find any unique</span></h3>
           <p><span data-i18n-zh>游戏内直接输入唯一物品名，跨英/简/繁三语模糊匹配，显示 poe.ninja 价格，可复制或直接发送到游戏聊天。</span><span data-i18n-en>Type a unique's name in-game, match it across EN/SC/TC, see its poe.ninja price, then copy it or send it straight to game chat.</span></p>
