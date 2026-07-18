@@ -689,7 +689,7 @@
           </ul>
         </div>
         <div class="feat-media demo">
-          <video data-demo="exchange" muted loop playsinline preload="none"></video>
+          <video data-demo="exchange" data-nolang muted loop playsinline preload="none"></video>
           <div class="demo-ph"><div class="mock"><div class="mk-bar">
             <span class="mk-rate"><img src="assets/divine.png" alt="" />1<span style="opacity:.55">=</span><b>210</b><img src="assets/exalted.png" alt="" /></span>
           </div></div></div>
@@ -888,9 +888,15 @@
     function swapDemoVideos(lang) {
       var other = lang === 'en' ? 'zh' : 'en';
       document.querySelectorAll('video[data-demo]').forEach(function (v) {
-        var base = 'demos/' + v.getAttribute('data-demo') + '_';
+        var key = v.getAttribute('data-demo');
         v.classList.remove('ready');
         v.onloadeddata = function(){ v.classList.add('ready'); v.play().catch(function(){}); };
+        if (v.hasAttribute('data-nolang')) {          // single language-agnostic clip: demos/<key>.mp4
+          v.onerror = null;
+          setSources(v, 'demos/' + key);
+          return;
+        }
+        var base = 'demos/' + key + '_';
         v.onerror = function(){ if (v.dataset.tried !== other) { v.dataset.tried = other; setSources(v, base + other); } };
         v.dataset.tried = lang;
         setSources(v, base + lang);

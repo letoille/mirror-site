@@ -73,6 +73,8 @@
 - **回退链**：当前语言文件缺失 → 自动回退另一语言 → 都没有则显示 **CSS 占位 mock**（见下），永不留白。
 - 进视口才 `play()`，离开 `pause()`。
 - **加视频只需**把 `demos/<key>_<lang>.mp4` + `.webm` 丢进 `demos/`，零改代码。命名：`功能_语言`，如 `scan_zh.mp4` / `ai_en.webm`。台服(繁体)默认复用中文或英文。
+- **语言无关的演示**：若某功能演示不含文字、无需分语言（如通货比例条 `exchange`），给 `<video>` 加 `data-nolang`，则只加载 `demos/<key>.mp4`（无语言后缀），切换语言不重载。
+- **⚠️ faststart**：录制/转码后的 MP4 需 `moov` 在 `mdat` 之前（qt-faststart），否则国内网络要下完整段才起播。无 ffmpeg 时可用纯 Node 移动 moov 并修正 `stco/co64` 偏移（本轮 exchange/timer/ai 即如此处理）。
 
 ### 4.3 演示占位 mock（真实视频前的替身）
 每个功能都有风格统一的 CSS 动效占位，视觉一致：
