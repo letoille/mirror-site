@@ -5,8 +5,8 @@
 <h1 align="center">魔镜 · Mirror — Landing Page</h1>
 
 <p align="center">
-  《流放之路 2》桌面悬浮窗助手的官方介绍与下载页<br>
-  Landing &amp; download page for <b>Mirror</b>, a Path of Exile 2 desktop overlay.
+  《流放之路》1 &amp; 2（POE1 · POE2）桌面悬浮窗助手的官方介绍与下载页<br>
+  Landing &amp; download page for <b>Mirror</b>, a Path of Exile 1 &amp; 2 desktop overlay.
 </p>
 
 <p align="center">
@@ -18,9 +18,9 @@
 
 ## 这是什么 / What is this
 
-「魔镜 / Mirror」这款 POE2 悬浮窗工具的**介绍与下载页**——一个纯静态站点（中英双语、无构建、无框架、无外部依赖）。应用本体的源码在独立的私有仓库；本仓库只有公开的宣传页与安装包。
+「魔镜 / Mirror」这款 POE1 & POE2 悬浮窗工具的**介绍与下载页**——一个纯静态站点（中英双语、无构建、无框架、无外部依赖）。应用本体的源码在独立的私有仓库；本仓库只有公开的宣传页与安装包。
 
-The **landing & download page** for Mirror, a POE2 overlay tool. A single-file static site — bilingual, no build step, no framework, no external dependencies. The app's own source lives in a separate private repo.
+The **landing & download page** for Mirror, a Path of Exile 1 & 2 overlay tool. A single-file static site — bilingual, no build step, no framework, no external dependencies. The app's own source lives in a separate private repo.
 
 ## 目录结构 / Layout
 
