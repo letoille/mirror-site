@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="zh" data-lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>下载魔镜 Mirror — 流放之路 1 & 2 (POE1·POE2) 查价悬浮窗</title>
+  <meta name="description" content="下载魔镜 Mirror：《流放之路》1 & 2（POE1 · POE2）桌面查价悬浮窗助手。提供直接下载与网盘两种方式，安装运行即用，仅 Windows 10 / 11。" />
+  <link rel="canonical" href="https://mirror.kalandraeye.com/download.html" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <meta name="theme-color" content="#08090d" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="魔镜 · Mirror" />
+  <meta property="og:url" content="https://mirror.kalandraeye.com/download.html" />
+  <meta property="og:title" content="下载魔镜 Mirror — 流放之路 1 & 2 查价悬浮窗" />
+  <meta property="og:description" content="直接下载或网盘下载，安装运行即用，仅 Windows 10 / 11。" />
+  <meta property="og:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+  <link rel="stylesheet" href="assets/site.css" />
+
+  <script>
+    window.GA_ID = "G-CYBLTV2J69";
+    if (window.GA_ID && window.GA_ID.indexOf("G-") === 0) {
+      var gaScript = document.createElement("script");
+      gaScript.async = true; gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + window.GA_ID;
+      document.head.appendChild(gaScript);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag("js", new Date()); gtag("config", window.GA_ID);
+    }
+  </script>
+
+  <style>
+    .dl-hero { position:relative; z-index:1; padding:64px 0 30px; text-align:center; }
+    .dl-hero h1 { font-size:clamp(32px,4.6vw,50px); line-height:1.08; margin:0 0 16px; font-weight:800; letter-spacing:-.5px; }
+    .dl-hero .lead { font-size:clamp(15px,1.6vw,17px); color:var(--muted); max-width:560px; margin:0 auto; }
+    .dl-facts { margin-top:22px; display:flex; justify-content:center; flex-wrap:wrap; gap:10px 18px; font-size:13px; color:var(--muted-2); }
+    .dl-facts b { color:var(--gold-soft); font-weight:700; font-variant-numeric:tabular-nums; }
+    .dl-facts .sep { color:var(--line); }
+
+    .dl-methods { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:1000px; margin:44px auto 0; }
+    .dl-card { position:relative; display:flex; flex-direction:column; background:linear-gradient(160deg,var(--panel),var(--bg-soft));
+      border:1px solid var(--line); border-radius:18px; padding:28px 24px; transition:.2s; }
+    .dl-card:hover { transform:translateY(-3px); border-color:var(--gold-dim); }
+    .dl-card.featured { border-color:var(--gold-dim); box-shadow:0 24px 60px -34px rgba(227,192,114,.5); }
+    .dl-card.featured::before { content:""; position:absolute; inset:0; border-radius:18px; padding:1px; pointer-events:none;
+      background:linear-gradient(150deg,rgba(227,192,114,.5),transparent 55%);
+      -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; }
+    .dl-rec { position:absolute; top:-11px; left:50%; transform:translateX(-50%); font-size:11px; font-weight:800; letter-spacing:.5px;
+      color:#211900; background:linear-gradient(180deg,#eccb78,#c99f45); padding:3px 12px; border-radius:999px; white-space:nowrap; }
+    .dl-ico { width:52px; height:52px; border-radius:13px; display:grid; place-items:center; margin-bottom:16px;
+      background:radial-gradient(circle at 30% 20%,rgba(227,192,114,.22),rgba(90,72,30,.1)); border:1px solid rgba(227,192,114,.28); }
+    .dl-ico svg { width:26px; height:26px; color:var(--gold); }
+    .dl-ico.blue { background:radial-gradient(circle at 30% 20%,rgba(110,160,224,.22),rgba(30,45,80,.1)); border-color:rgba(110,160,224,.3); }
+    .dl-ico.blue svg { color:var(--sapphire); }
+    .dl-ico.violet { background:radial-gradient(circle at 30% 20%,rgba(170,130,224,.22),rgba(60,40,90,.12)); border-color:rgba(170,130,224,.3); }
+    .dl-ico.violet svg { color:#b79ae6; }
+    .dl-card h3 { margin:0 0 6px; font-size:19px; font-weight:800; }
+    .dl-card p { margin:0 0 16px; color:var(--muted); font-size:13.5px; flex:1; }
+    .dl-code { display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--muted); background:var(--bg-soft);
+      border:1px solid var(--line); border-radius:9px; padding:7px 11px; margin-bottom:14px; align-self:flex-start; }
+    .dl-code b { color:var(--rare); font-weight:700; letter-spacing:1px; font-variant-numeric:tabular-nums; }
+    .dl-code button { border:0; background:transparent; color:var(--gold-soft); cursor:pointer; font:inherit; font-size:12px; display:inline-flex; align-items:center; gap:4px; }
+    .dl-code button:hover { color:var(--gold); }
+    .dl-code button svg { width:13px; height:13px; }
+    .dl-code.copied b::after { content:" ✓"; color:#8fd6a2; }
+    .dl-card .btn { width:100%; }
+    .dl-note { margin-top:11px; font-size:11.5px; color:var(--muted-2); text-align:center; }
+
+    .dl-info { max-width:1000px; margin:40px auto 0; display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .info-box { background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:24px 26px; }
+    .info-box.safe { border-color:rgba(120,180,120,.25); background:linear-gradient(150deg,rgba(20,28,22,.5),var(--bg-soft)); }
+    .info-box h4 { margin:0 0 14px; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); }
+    .info-box.safe h4 { color:#8fd6a2; }
+    .info-box ul { margin:0; padding:0; list-style:none; }
+    .info-box li { display:flex; gap:10px; align-items:flex-start; color:var(--muted); font-size:13.5px; padding:5px 0; }
+    .info-box li svg { width:16px; height:16px; color:var(--gold-soft); flex:none; margin-top:3px; }
+    .info-box.safe li svg { color:#8fd6a2; }
+    .info-box p { margin:0; color:var(--muted); font-size:13.5px; }
+    .info-box.safe b { color:#a7dcb5; font-weight:700; }
+
+    @media (max-width: 860px) {
+      .dl-methods { grid-template-columns:1fr; max-width:420px; }
+      .dl-info { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-fx">
+    <div class="aurora a1"></div><div class="aurora a2"></div>
+    <div class="grid-lines"></div>
+    <div class="embers" id="embers"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="魔镜 Mirror" />
+        <span><span class="cn" data-i18n-zh>魔镜</span><span class="cn" data-i18n-en>Mirror</span>
+          <span class="en">Mirror for POE1 &amp; POE2</span></span>
+      </a>
+      <div class="nav-links">
+        <a class="link" href="index.html#highlights"><span data-i18n-zh>功能</span><span data-i18n-en>Features</span></a>
+        <a class="link" href="about.html"><span data-i18n-zh>关于</span><span data-i18n-en>About</span></a>
+        <a class="link" href="index.html#faq">FAQ</a>
+        <div class="lang-toggle">
+          <button id="lang-zh" onclick="setLang('zh')">中文</button>
+          <button id="lang-en" onclick="setLang('en')">EN</button>
+        </div>
+        <a class="link" href="index.html"><span data-i18n-zh>← 返回首页</span><span data-i18n-en>← Home</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="dl-hero">
+    <div class="wrap reveal">
+      <div class="badge"><span class="dot"></span>
+        <span data-i18n-zh>下载 · Windows 10 / 11</span><span data-i18n-en>Download · Windows 10 / 11</span>
+      </div>
+      <h1><span data-i18n-zh>下载 <span class="shine">魔镜</span></span><span data-i18n-en>Download <span class="shine">Mirror</span></span></h1>
+      <p class="lead"><span data-i18n-zh>选择任意一种方式下载，安装运行即可开始——免费使用。</span><span data-i18n-en>Pick any method below, install and run to get started — free to use.</span></p>
+      <div class="dl-facts">
+        <span><span data-i18n-zh>已下载 </span><span data-i18n-en>Downloaded </span><b id="stat-downloads">—</b><span data-i18n-zh> 次</span><span data-i18n-en> times</span></span>
+        <span class="sep">·</span>
+        <span><span data-i18n-zh>支持 流放之路 1 & 2（POE1 · POE2）</span><span data-i18n-en>Path of Exile 1 & 2 (POE1 · POE2)</span></span>
+        <span class="sep">·</span>
+        <span><span data-i18n-zh>国际服 / 国服 / 台服</span><span data-i18n-en>Global / China / Taiwan</span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- METHODS -->
+  <section style="position:relative; z-index:1; padding:10px 0 0;">
+    <div class="wrap">
+      <div class="dl-methods reveal">
+
+        <!-- 1. Direct download (recommended) -->
+        <div class="dl-card featured">
+          <span class="dl-rec"><span data-i18n-zh>推荐 · 最快</span><span data-i18n-en>Recommended</span></span>
+          <div class="dl-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+          </div>
+          <h3><span data-i18n-zh>直接下载</span><span data-i18n-en>Direct download</span></h3>
+          <p><span data-i18n-zh>从官方服务器直接下载，无需登录或安装任何网盘客户端。</span><span data-i18n-en>Straight from the official server — no login or netdisk client needed.</span></p>
+          <a class="btn btn-gold" id="direct-btn" href="download/Mirror_setup.zip" download onclick="bump('direct')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+            <span data-i18n-zh>立即下载</span><span data-i18n-en>Download now</span>
+          </a>
+          <div class="dl-note">Mirror_setup.zip · <span id="file-size">~66 MB</span></div>
+        </div>
+
+        <!-- 2. Baidu Netdisk -->
+        <div class="dl-card">
+          <div class="dl-ico blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 19a4 4 0 0 1-.7-7.94A5.5 5.5 0 0 1 16.5 10 4.5 4.5 0 0 1 17 19H6z"/><path d="M12 12v6m0 0 2.2-2.2M12 18l-2.2-2.2"/></svg>
+          </div>
+          <h3><span data-i18n-zh>百度网盘</span><span data-i18n-en>Baidu Netdisk</span></h3>
+          <p><span data-i18n-zh>国内高速下载，建议使用百度网盘客户端。</span><span data-i18n-en>Fast in mainland China; Baidu Netdisk client recommended.</span></p>
+          <div class="dl-code" id="code-baidu" style="display:none">
+            <span data-i18n-zh>提取码</span><span data-i18n-en>Code</span> <b data-code>----</b>
+            <button onclick="copyCode('baidu', event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-i18n-zh>复制</span><span data-i18n-en>Copy</span></button>
+          </div>
+          <a class="btn btn-ghost" id="baidu-btn" href="#" target="_blank" rel="noopener" onclick="bump('baidu')">
+            <span data-i18n-zh>前往百度网盘</span><span data-i18n-en>Open Baidu Netdisk</span>
+          </a>
+        </div>
+
+        <!-- 3. Quark Drive -->
+        <div class="dl-card">
+          <div class="dl-ico violet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 19a4 4 0 0 1-.7-7.94A5.5 5.5 0 0 1 16.5 10 4.5 4.5 0 0 1 17 19H6z"/><path d="M12 12v6m0 0 2.2-2.2M12 18l-2.2-2.2"/></svg>
+          </div>
+          <h3><span data-i18n-zh>夸克网盘</span><span data-i18n-en>Quark Drive</span></h3>
+          <p><span data-i18n-zh>转存后高速下载，支持手机 / 电脑。</span><span data-i18n-en>Save to your drive, then download fast on PC or phone.</span></p>
+          <div class="dl-code" id="code-quark" style="display:none">
+            <span data-i18n-zh>提取码</span><span data-i18n-en>Code</span> <b data-code>----</b>
+            <button onclick="copyCode('quark', event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-i18n-zh>复制</span><span data-i18n-en>Copy</span></button>
+          </div>
+          <a class="btn btn-ghost" id="quark-btn" href="#" target="_blank" rel="noopener" onclick="bump('quark')">
+            <span data-i18n-zh>前往夸克网盘</span><span data-i18n-en>Open Quark Drive</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- requirements + safety -->
+      <div class="dl-info reveal">
+        <div class="info-box">
+          <h4 data-i18n-zh>运行要求</h4><h4 data-i18n-en>Requirements</h4>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><span data-i18n-zh>Windows 10 / 11（64 位）</span><span data-i18n-en>Windows 10 / 11 (64-bit)</span></span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><span data-i18n-zh>《流放之路》1 或 2 PC 客户端</span><span data-i18n-en>Path of Exile 1 or 2 (PC)</span></span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><span data-i18n-zh>下载后解压，运行安装程序即可</span><span data-i18n-en>Unzip, then run the installer</span></span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><span data-i18n-zh>国服交易需在设置中填入会话 Cookie</span><span data-i18n-en>China realm needs a session cookie in settings</span></span></li>
+          </ul>
+        </div>
+        <div class="info-box safe">
+          <h4 data-i18n-zh>🛡 安全下载</h4><h4 data-i18n-en>🛡 Safe download</h4>
+          <p data-i18n-zh>安装包由官方发布。魔镜<b>只读取游戏日志与你主动复制的内容</b>，绝不注入、读写游戏进程/内存，也不修改游戏文件。若杀软误报，属打包壳的常见误判，可放心添加信任。</p>
+          <p data-i18n-en>The installer is published by us. Mirror <b>only reads the game log and content you copy yourself</b> — it never injects into or modifies the game process, memory, or files. Any antivirus flag is a common false positive for packaged apps.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-inner">
+        <a class="brand" href="index.html">
+          <img src="assets/logo.png" alt="魔镜" style="width:26px;height:26px;border-radius:7px" />
+          <span><span class="cn" data-i18n-zh>魔镜 · Mirror</span><span class="cn" data-i18n-en>Mirror · 魔镜</span></span>
+        </a>
+        <span>© <span id="year">2026</span> 魔镜 · Mirror · <a class="beian" href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">滇ICP备2025052314号-2</a></span>
+      </div>
+      <nav class="foot-nav">
+        <a href="index.html"><span data-i18n-zh>首页</span><span data-i18n-en>Home</span></a><span class="dot-sep">·</span>
+        <a href="index.html#highlights"><span data-i18n-zh>功能</span><span data-i18n-en>Features</span></a><span class="dot-sep">·</span>
+        <a href="download.html"><span data-i18n-zh>下载</span><span data-i18n-en>Download</span></a><span class="dot-sep">·</span>
+        <a href="about.html"><span data-i18n-zh>关于我们</span><span data-i18n-en>About</span></a><span class="dot-sep">·</span>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <div class="foot-social">
+        <a class="social-btn discord" href="https://discord.gg/RTqazvQKKE" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.3.5c1.8.4 2.6 1 3.5 1.7a13.3 13.3 0 0 0-4.6-1.1 13.6 13.6 0 0 0-4.6.4c-.5.1-1.2.3-2 .7-.4.2-.7.3-.7.3s.8-.6 2.7-1.1L9 3a19.8 19.8 0 0 0-4.9 1.4C2 8.9 1.3 13.3 1.6 17.6A19.9 19.9 0 0 0 7.7 21l.9-1.3c-1-.3-1.9-.7-2.7-1.2l.6-.4a14.2 14.2 0 0 0 12.2 0l.6.4c-.8.5-1.7.9-2.7 1.2l.9 1.3a19.9 19.9 0 0 0 6-3.4c.5-5-.7-9.3-3.8-13.2zM8.9 15c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm6.2 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/></svg>
+          <span data-i18n-zh>加入 Discord</span><span data-i18n-en>Join Discord</span>
+        </a>
+        <a class="social-btn qq" id="qq-btn" href="#" onclick="copyQQ(event)" title="1057145969">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.395 15.035a39.55 39.55 0 00-.803-2.264l-1.079-2.695c.001-.032.014-.562.014-.836C19.526 4.632 17.351 0 12 0S4.474 4.632 4.474 9.241c0 .274.013.804.014.836l-1.08 2.695a38.97 38.97 0 00-.802 2.264c-1.021 3.283-.69 4.643-.438 4.673.54.065 2.103-2.472 2.103-2.472 0 1.469.756 3.387 2.394 4.771-.612.188-1.363.479-1.845.835-.434.32-.379.646-.301.778.343.578 5.883.369 7.482.189 1.6.18 7.14.389 7.483-.189.078-.132.132-.458-.301-.778-.483-.356-1.233-.646-1.846-.836 1.637-1.384 2.393-3.302 2.393-4.771 0 0 1.563 2.537 2.103 2.472.251-.03.581-1.39-.438-4.673z"/></svg>
+          <span class="qq-label"><span data-i18n-zh>QQ 群 1057145969</span><span data-i18n-en>QQ Group 1057145969</span></span>
+          <span class="qq-copied"><span data-i18n-zh>已复制群号 ✓</span><span data-i18n-en>Copied ✓</span></span>
+        </a>
+      </div>
+      <p class="foot-contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span data-i18n-zh>有任何问题或建议，欢迎联系：</span><span data-i18n-en>Questions or feedback? Reach out:</span>
+        <a href="mailto:kalandraeye@gmail.com">kalandraeye@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/site.js"></script>
+  <script>
+    /* netdisk links — fill when ready */
+    var NETDISK = {
+      baidu: { url: "", code: "" },
+      quark: { url: "", code: "" }
+    };
+    (function initNetdisk(){
+      ['baidu','quark'].forEach(function(k){
+        var d = NETDISK[k], btn = document.getElementById(k+'-btn');
+        if (d && d.url) { btn.setAttribute('href', d.url); }
+        else {
+          btn.setAttribute('href', '#'); btn.style.opacity = '.5'; btn.style.pointerEvents = 'none';
+          btn.querySelectorAll('span[data-i18n-zh]').forEach(function(s){ s.textContent = '即将开放'; });
+          btn.querySelectorAll('span[data-i18n-en]').forEach(function(s){ s.textContent = 'Coming soon'; });
+        }
+        if (d && d.code) {
+          var box = document.getElementById('code-'+k);
+          box.style.display = 'inline-flex';
+          box.querySelector('[data-code]').textContent = d.code;
+        }
+      });
+    })();
+    function copyCode(k, e){
+      e.preventDefault();
+      var d = NETDISK[k]; if (!d || !d.code) return;
+      try { navigator.clipboard && navigator.clipboard.writeText(d.code); } catch(_){}
+      var box = document.getElementById('code-'+k);
+      box.classList.add('copied'); clearTimeout(box._t);
+      box._t = setTimeout(function(){ box.classList.remove('copied'); }, 1600);
+    }
+    function bump(method){
+      try { if (window.gtag) gtag('event', 'app_download', { method: method }); } catch(e){}
+      fetch(COUNTER_BASE+"/hit/"+COUNTER_NS+"/downloads").then(function(r){return r.json();})
+        .then(function(d){ animateTo(document.getElementById('stat-downloads'), d.value); }).catch(function(){});
+    }
+    fetch(COUNTER_BASE+"/get/"+COUNTER_NS+"/downloads").then(function(r){return r.ok?r.json():{value:0};})
+      .then(function(d){ animateTo(document.getElementById('stat-downloads'), d.value||0); })
+      .catch(function(){ document.getElementById('stat-downloads').textContent='—'; });
+  </script>
+</body>
+</html>
