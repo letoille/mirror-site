@@ -435,8 +435,14 @@
       .feature.flip .feat-media { order:0; }
       .grid, .steps { grid-template-columns:1fr; }
       .stage { min-height:360px; }
-      .nav-links a.link { display:none; }
       .safety { text-align:center; justify-items:center; }
+    }
+    @media (max-width: 720px) {
+      /* keep the nav usable at the TOP on phones: wrap instead of hiding links */
+      .nav-inner { height:auto; flex-wrap:wrap; padding:8px 0; gap:6px 8px; }
+      .nav-links { margin-left:auto; flex-wrap:wrap; gap:4px 6px; }
+      .nav-links a.link { padding:6px 8px; font-size:13px; }
+      .nav-links .btn { padding:8px 13px; }
     }
   </style>
 </head>

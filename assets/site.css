@@ -115,5 +115,8 @@ html[data-lang="en"] [data-i18n-en] { display:revert; }
   .reveal { opacity:1; transform:none; }
 }
 @media (max-width: 860px) {
-  .nav-links a.link { display:none; }
+  /* keep the nav usable at the TOP on phones: wrap instead of hiding links */
+  .nav-inner { height:auto; flex-wrap:wrap; padding:8px 0; gap:6px 10px; }
+  .nav-links { margin-left:auto; flex-wrap:wrap; gap:4px 6px; }
+  .nav-links a.link { padding:6px 8px; font-size:13px; }
 }

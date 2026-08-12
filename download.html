@@ -136,19 +136,21 @@
     <div class="wrap">
       <div class="dl-methods reveal">
 
-        <!-- 1. Direct download (recommended) -->
+        <!-- 1. Quark Drive (recommended) -->
         <div class="dl-card featured">
-          <span class="dl-rec"><span data-i18n-zh>推荐 · 最快</span><span data-i18n-en>Recommended</span></span>
-          <div class="dl-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+          <span class="dl-rec"><span data-i18n-zh>推荐</span><span data-i18n-en>Recommended</span></span>
+          <div class="dl-ico violet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 19a4 4 0 0 1-.7-7.94A5.5 5.5 0 0 1 16.5 10 4.5 4.5 0 0 1 17 19H6z"/><path d="M12 12v6m0 0 2.2-2.2M12 18l-2.2-2.2"/></svg>
           </div>
-          <h3><span data-i18n-zh>直接下载</span><span data-i18n-en>Direct download</span></h3>
-          <p><span data-i18n-zh>从官方服务器直接下载，无需登录或安装任何网盘客户端。</span><span data-i18n-en>Straight from the official server — no login or netdisk client needed.</span></p>
-          <a class="btn btn-gold" id="direct-btn" href="download/Mirror_setup.zip" download onclick="bump('direct')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
-            <span data-i18n-zh>立即下载</span><span data-i18n-en>Download now</span>
+          <h3><span data-i18n-zh>夸克网盘</span><span data-i18n-en>Quark Drive</span></h3>
+          <p><span data-i18n-zh>转存后高速下载，支持手机 / 电脑，国内最快。</span><span data-i18n-en>Save to your drive, then download fast on PC or phone.</span></p>
+          <div class="dl-code" id="code-quark" style="display:none">
+            <span data-i18n-zh>提取码</span><span data-i18n-en>Code</span> <b data-code>----</b>
+            <button onclick="copyCode('quark', event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-i18n-zh>复制</span><span data-i18n-en>Copy</span></button>
+          </div>
+          <a class="btn btn-gold" id="quark-btn" href="#" target="_blank" rel="noopener" onclick="bump('quark')">
+            <span data-i18n-zh>前往夸克网盘</span><span data-i18n-en>Open Quark Drive</span>
           </a>
-          <div class="dl-note">Mirror_setup.zip · <span id="file-size">~66 MB</span></div>
         </div>
 
         <!-- 2. UC Drive -->
@@ -167,20 +169,18 @@
           </a>
         </div>
 
-        <!-- 3. Quark Drive -->
+        <!-- 3. Direct download -->
         <div class="dl-card">
-          <div class="dl-ico violet">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 19a4 4 0 0 1-.7-7.94A5.5 5.5 0 0 1 16.5 10 4.5 4.5 0 0 1 17 19H6z"/><path d="M12 12v6m0 0 2.2-2.2M12 18l-2.2-2.2"/></svg>
+          <div class="dl-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
           </div>
-          <h3><span data-i18n-zh>夸克网盘</span><span data-i18n-en>Quark Drive</span></h3>
-          <p><span data-i18n-zh>转存后高速下载，支持手机 / 电脑。</span><span data-i18n-en>Save to your drive, then download fast on PC or phone.</span></p>
-          <div class="dl-code" id="code-quark" style="display:none">
-            <span data-i18n-zh>提取码</span><span data-i18n-en>Code</span> <b data-code>----</b>
-            <button onclick="copyCode('quark', event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-i18n-zh>复制</span><span data-i18n-en>Copy</span></button>
-          </div>
-          <a class="btn btn-ghost" id="quark-btn" href="#" target="_blank" rel="noopener" onclick="bump('quark')">
-            <span data-i18n-zh>前往夸克网盘</span><span data-i18n-en>Open Quark Drive</span>
+          <h3><span data-i18n-zh>直接下载</span><span data-i18n-en>Direct download</span></h3>
+          <p><span data-i18n-zh>从官方服务器直接下载，无需登录或安装任何网盘客户端。</span><span data-i18n-en>Straight from the official server — no login or netdisk client needed.</span></p>
+          <a class="btn btn-ghost" id="direct-btn" href="download/Mirror_setup.zip" download onclick="bump('direct')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+            <span data-i18n-zh>立即下载</span><span data-i18n-en>Download now</span>
           </a>
+          <div class="dl-note">Mirror_setup.zip · <span id="file-size">~66 MB</span></div>
         </div>
 
       </div>
