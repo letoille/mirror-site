@@ -151,19 +151,19 @@
           <div class="dl-note">Mirror_setup.zip · <span id="file-size">~66 MB</span></div>
         </div>
 
-        <!-- 2. Baidu Netdisk -->
+        <!-- 2. UC Drive -->
         <div class="dl-card">
           <div class="dl-ico blue">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 19a4 4 0 0 1-.7-7.94A5.5 5.5 0 0 1 16.5 10 4.5 4.5 0 0 1 17 19H6z"/><path d="M12 12v6m0 0 2.2-2.2M12 18l-2.2-2.2"/></svg>
           </div>
-          <h3><span data-i18n-zh>百度网盘</span><span data-i18n-en>Baidu Netdisk</span></h3>
-          <p><span data-i18n-zh>国内高速下载，建议使用百度网盘客户端。</span><span data-i18n-en>Fast in mainland China; Baidu Netdisk client recommended.</span></p>
-          <div class="dl-code" id="code-baidu" style="display:none">
+          <h3><span data-i18n-zh>UC 网盘</span><span data-i18n-en>UC Drive</span></h3>
+          <p><span data-i18n-zh>转存后高速下载，网页或 UC / 夸克 APP 均可打开。</span><span data-i18n-en>Save then download fast — open in the browser or UC / Quark app.</span></p>
+          <div class="dl-code" id="code-uc" style="display:none">
             <span data-i18n-zh>提取码</span><span data-i18n-en>Code</span> <b data-code>----</b>
-            <button onclick="copyCode('baidu', event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-i18n-zh>复制</span><span data-i18n-en>Copy</span></button>
+            <button onclick="copyCode('uc', event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-i18n-zh>复制</span><span data-i18n-en>Copy</span></button>
           </div>
-          <a class="btn btn-ghost" id="baidu-btn" href="#" target="_blank" rel="noopener" onclick="bump('baidu')">
-            <span data-i18n-zh>前往百度网盘</span><span data-i18n-en>Open Baidu Netdisk</span>
+          <a class="btn btn-ghost" id="uc-btn" href="#" target="_blank" rel="noopener" onclick="bump('uc')">
+            <span data-i18n-zh>前往 UC 网盘</span><span data-i18n-en>Open UC Drive</span>
           </a>
         </div>
 
@@ -243,13 +243,13 @@
 
   <script src="assets/site.js"></script>
   <script>
-    /* netdisk links — fill when ready */
+    /* netdisk links */
     var NETDISK = {
-      baidu: { url: "", code: "" },
-      quark: { url: "", code: "" }
+      uc:    { url: "https://drive.uc.cn/s/5f695d69b5454", code: "eaaz" },
+      quark: { url: "https://pan.quark.cn/s/88d3ae4da328?pwd=Tx4q", code: "Tx4q" }
     };
     (function initNetdisk(){
-      ['baidu','quark'].forEach(function(k){
+      ['uc','quark'].forEach(function(k){
         var d = NETDISK[k], btn = document.getElementById(k+'-btn');
         if (d && d.url) { btn.setAttribute('href', d.url); }
         else {
