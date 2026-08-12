@@ -13,6 +13,12 @@
   <link rel="apple-touch-icon" href="/favicon.png" />
   <meta name="theme-color" content="#08090d" />
 
+  <!-- Warm the cache for the most likely next navigation (download page + its shared assets) -->
+  <link rel="prefetch" href="download.html" as="document" />
+  <link rel="prefetch" href="about.html" as="document" />
+  <link rel="prefetch" href="assets/site.css" as="style" />
+  <link rel="prefetch" href="assets/site.js" as="script" />
+
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="魔镜 · Mirror" />
