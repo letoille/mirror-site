@@ -41,6 +41,8 @@ nav { position:sticky; top:0; z-index:50; backdrop-filter:blur(12px); background
 .lang-toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; padding:3px; background:var(--panel); font-size:12px; font-weight:600; }
 .lang-toggle button { border:0; background:transparent; color:var(--muted); padding:4px 12px; border-radius:999px; cursor:pointer; font:inherit; transition:.15s; }
 .lang-toggle button.active { background:var(--gold); color:#1a1400; }
+/* i18n toggle temporarily disabled (Chinese only) — remove this rule to restore */
+.lang-toggle { display:none !important; }
 
 /* buttons */
 .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; cursor:pointer; font-weight:600; font-size:14px;

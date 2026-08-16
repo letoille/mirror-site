@@ -12,8 +12,10 @@
     try { localStorage.setItem('mirror-lang', lang); } catch (_) {}
   };
   (function initLang() {
-    var saved; try { saved = localStorage.getItem('mirror-lang'); } catch (_) {}
-    window.setLang(saved || (navigator.language && navigator.language.toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en'));
+    // i18n toggle temporarily disabled — force Chinese only.
+    // To restore bilingual: revert to the saved/navigator logic and remove
+    // the `.lang-toggle { display:none }` rule in site.css.
+    window.setLang('zh');
   })();
 
   /* counters (Abacus) */

@@ -475,7 +475,8 @@
           <span data-i18n-zh>下载</span><span data-i18n-en>Download</span>
         </a>
         <a class="link" href="about.html"><span data-i18n-zh>关于</span><span data-i18n-en>About</span></a>
-        <div class="lang-toggle">
+        <!-- i18n toggle temporarily hidden (Chinese only); remove the style to restore -->
+        <div class="lang-toggle" style="display:none">
           <button id="lang-zh" onclick="setLang('zh')">中文</button>
           <button id="lang-en" onclick="setLang('en')">EN</button>
         </div>
@@ -973,8 +974,10 @@
       try { localStorage.setItem('mirror-lang', lang); } catch (e) {}
     }
     (function initLang(){
-      var saved; try { saved = localStorage.getItem('mirror-lang'); } catch(e){}
-      setLang(saved || (navigator.language && navigator.language.toLowerCase().indexOf('zh')===0 ? 'zh' : 'en'));
+      // i18n toggle temporarily disabled — force Chinese only.
+      // To restore bilingual: revert to the saved/navigator logic below and
+      // un-hide .lang-toggle (CSS rule + nav element style).
+      setLang('zh');
     })();
 
     /* ---- copy QQ group number ---- */
