@@ -73,16 +73,56 @@ sudo certbot --nginx -d mirror.kalandraeye.com
 
 ---
 
-## 二、DNS 切换（备案合规的关键一步）
+## 二、DNS 分区解析（DNSPod）+ 证书
 
-在域名解析处，把 `mirror.kalandraeye.com` 的 **A 记录指向备案服务器 IP**。两种做法：
+DNS 托管在 **DNSPod（腾讯云）**，免费套餐即支持「境内 / 境外 / 默认」线路。
 
-- **简单**：单条 A 记录 → 备案（大陆）服务器。国内外都走它。
-- **分区解析（可选）**：国内线路 → 备案服务器；境外/默认线路 → 香港服务器。国内合规、海外更快。
+### 记录配置（两条就够）
 
-> certbot 申请证书走 HTTP-01 校验，**要求域名当时已解析到该服务器**。
-> 所以顺序是：先切 DNS → 等生效 → 再在该服务器上跑 certbot。
-> 若要零停机，可先用 DNS-01 方式签好证再切，麻烦一些，一般不必。
+| 主机记录 | 类型 | 线路 | 记录值 | 说明 |
+|---|---|---|---|---|
+| `mirror` | A | 默认 | `<备案服务器IP>` | 兜底 + 国内（国内无单独记录时走默认） |
+| `mirror` | A | 境外 | `<香港服务器IP>` | 海外用户 |
+
+> 现在 `mirror` 的默认记录指向香港——**把它的值改成备案服务器 IP**，再新增一条「境外」→ 香港 IP。
+> 结果：国内/默认 → 备案（大陆、合规），境外 → 香港（快）。TTL 先设 600s 方便回滚。
+
+### 证书：大陆服务器必须用 DNS-01
+
+Let's Encrypt 的验证服务器在海外，分区解析下海外解析到**香港**。所以：
+
+- **香港服务器**：`sudo certbot --nginx -d mirror.kalandraeye.com`（HTTP-01）正常——海外正好解析到它。
+- **大陆服务器**：HTTP-01 会**失败**（海外验证解析到香港，够不着大陆）。改用 **DNS-01**（加 TXT 记录，跟地域路由无关）。
+
+三种做法，任选：
+
+1. **DNSPod 插件自动签 + 自动续期（推荐）**
+   ```bash
+   sudo apt install -y python3-pip
+   sudo pip3 install certbot-dns-dnspod           # 或腾讯云官方 certbot-dns-tencentcloud（API v3）
+   # DNSPod Token：控制台 → 用户中心 → API密钥 → DNSPod Token → 创建，拿到 ID + Token
+   sudo mkdir -p /root/.secrets
+   printf 'dns_dnspod_api_id = <ID>\ndns_dnspod_api_token = <Token>\n' | sudo tee /root/.secrets/dnspod.ini
+   sudo chmod 600 /root/.secrets/dnspod.ini
+   sudo certbot certonly --authenticator dns-dnspod \
+     --dns-dnspod-credentials /root/.secrets/dnspod.ini -d mirror.kalandraeye.com
+   # 具体参数名以所装插件的文档为准；之后在 nginx 手动引用 /etc/letsencrypt/live/... 证书
+   ```
+2. **手动 DNS-01**（无需装插件，但续期也要手动，不适合长期）
+   ```bash
+   sudo certbot certonly --manual --preferred-challenges dns -d mirror.kalandraeye.com
+   # 按提示在 DNSPod 加一条 _acme-challenge TXT 记录，再回车继续
+   ```
+3. **在香港签、拷到大陆**（不碰 API）：证书绑域名不绑 IP，同域名通用。香港 `certbot --nginx` 签好后，
+   把 `/etc/letsencrypt/` 打包拷到大陆服务器；续期后再同步一次（可用 renewal 钩子 rsync）。
+
+### 上线顺序（避免国内白屏）
+
+1. 大陆服务器先装好 nginx + 克隆站点（此时 DNS 还指香港，只能用 IP 测）。
+2. 大陆服务器用 **DNS-01** 签好证书、配好 HTTPS（DNS-01 不需要域名先指过来）。
+3. `curl --resolve mirror.kalandraeye.com:443:<备案IP> https://mirror.kalandraeye.com/` 直连测大陆这台 OK。
+4. 再去 DNSPod 改记录：**默认 → 备案IP**，**新增 境外 → 香港IP**。
+5. 验证：国内命中大陆、境外命中香港（见第四节 `--resolve` 测法）。
 
 ---
 
