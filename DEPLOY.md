@@ -116,6 +116,43 @@ Let's Encrypt 的验证服务器在海外，分区解析下海外解析到**香�
 3. **在香港签、拷到大陆**（不碰 API）：证书绑域名不绑 IP，同域名通用。香港 `certbot --nginx` 签好后，
    把 `/etc/letsencrypt/` 打包拷到大陆服务器；续期后再同步一次（可用 renewal 钩子 rsync）。
 
+### nginx 引用证书（certonly / acme.sh 后手动加）
+
+`certbot certonly` 与 `acme.sh` 都**不改 nginx**，签好证书后手动加 443 块并把 80 跳转到 443：
+
+```nginx
+server {
+    listen 80;
+    listen [::]:80;
+    server_name mirror.kalandraeye.com;
+    return 301 https://$host$request_uri;          # HTTP 一律跳 HTTPS
+}
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name mirror.kalandraeye.com;
+    root /var/www/mirror-site;
+    index index.html;
+
+    # certbot 路径；用 acme.sh 装的话改成 /etc/nginx/ssl/mirror.crt 与 .key
+    ssl_certificate     /etc/letsencrypt/live/mirror.kalandraeye.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/mirror.kalandraeye.com/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    gzip on; gzip_vary on; gzip_comp_level 6; gzip_min_length 256;
+    gzip_types text/css application/javascript application/json image/svg+xml application/xml;
+
+    location / { try_files $uri $uri/ =404; }
+    location ~* \.(css|js|png|ico|jpg|jpeg|svg|webp|woff2?)$ {
+        expires 30d; add_header Cache-Control "public, max-age=2592000"; access_log off;
+    }
+    location ~* \.html?$ { add_header Cache-Control "no-cache"; }
+}
+```
+`sudo nginx -t && sudo systemctl reload nginx`。
+
+> 香港服务器无需上面这套：`sudo certbot --nginx -d mirror.kalandraeye.com`（HTTP-01）会**自动**写好 443 配置并自动续期。DNS-01 的坑只发生在大陆那台。
+
 ### 上线顺序（避免国内白屏）
 
 1. 大陆服务器先装好 nginx + 克隆站点（此时 DNS 还指香港，只能用 IP 测）。
