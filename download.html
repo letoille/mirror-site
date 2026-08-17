@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>下载魔镜 Mirror — 流放之路 1 & 2 (POE1·POE2) 查价悬浮窗</title>
-  <meta name="description" content="下载魔镜 Mirror：《流放之路》1 & 2（POE1 · POE2）桌面查价悬浮窗助手。夸克网盘 / UC 网盘 / GitHub（全球）下载，安装运行即用，仅 Windows 10 / 11。" />
+  <meta name="description" content="下载魔镜 Mirror：《流放之路》1 & 2（POE1 · POE2）桌面查价悬浮窗助手。夸克网盘 / GitHub（全球）下载，安装运行即用，仅 Windows 10 / 11。" />
   <link rel="canonical" href="https://mirror.kalandraeye.com/download.html" />
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512" />
@@ -14,7 +14,7 @@
   <meta property="og:site_name" content="魔镜 · Mirror" />
   <meta property="og:url" content="https://mirror.kalandraeye.com/download.html" />
   <meta property="og:title" content="下载魔镜 Mirror — 流放之路 1 & 2 查价悬浮窗" />
-  <meta property="og:description" content="夸克网盘 / UC 网盘 / GitHub（全球）下载，安装运行即用，仅 Windows 10 / 11。" />
+  <meta property="og:description" content="夸克网盘 / GitHub（全球）下载，安装运行即用，仅 Windows 10 / 11。" />
   <meta property="og:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
   <link rel="stylesheet" href="assets/site.css" />
 
@@ -38,7 +38,7 @@
     .dl-facts b { color:var(--gold-soft); font-weight:700; font-variant-numeric:tabular-nums; }
     .dl-facts .sep { color:var(--line); }
 
-    .dl-methods { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:1000px; margin:44px auto 0; }
+    .dl-methods { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; max-width:680px; margin:44px auto 0; }
     .dl-card { position:relative; display:flex; flex-direction:column; background:linear-gradient(160deg,var(--panel),var(--bg-soft));
       border:1px solid var(--line); border-radius:18px; padding:28px 24px; transition:.2s; }
     .dl-card:hover { transform:translateY(-3px); border-color:var(--gold-dim); }
@@ -160,23 +160,7 @@
           </a>
         </div>
 
-        <!-- 2. UC Drive -->
-        <div class="dl-card">
-          <div class="dl-ico blue">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 19a4 4 0 0 1-.7-7.94A5.5 5.5 0 0 1 16.5 10 4.5 4.5 0 0 1 17 19H6z"/><path d="M12 12v6m0 0 2.2-2.2M12 18l-2.2-2.2"/></svg>
-          </div>
-          <h3><span data-i18n-zh>UC 网盘</span><span data-i18n-en>UC Drive</span></h3>
-          <p><span data-i18n-zh>转存后高速下载，网页或 UC / 夸克 APP 均可打开。</span><span data-i18n-en>Save then download fast — open in the browser or UC / Quark app.</span></p>
-          <div class="dl-code" id="code-uc" style="display:none">
-            <span data-i18n-zh>提取码</span><span data-i18n-en>Code</span> <b data-code>----</b>
-            <button onclick="copyCode('uc', event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-i18n-zh>复制</span><span data-i18n-en>Copy</span></button>
-          </div>
-          <a class="btn btn-ghost" id="uc-btn" href="#" target="_blank" rel="noopener" onclick="bump('uc')">
-            <span data-i18n-zh>前往 UC 网盘</span><span data-i18n-en>Open UC Drive</span>
-          </a>
-        </div>
-
-        <!-- 3. GitHub (overseas) -->
+        <!-- 2. GitHub (overseas) -->
         <div class="dl-card">
           <span class="dl-tag"><span data-i18n-zh>全球</span><span data-i18n-en>Global</span></span>
           <div class="dl-ico gh">
@@ -245,11 +229,10 @@
   <script>
     /* netdisk links */
     var NETDISK = {
-      uc:    { url: "https://drive.uc.cn/s/5f695d69b5454", code: "eaaz" },
       quark: { url: "https://pan.quark.cn/s/88d3ae4da328?pwd=Tx4q", code: "Tx4q" }
     };
     (function initNetdisk(){
-      ['uc','quark'].forEach(function(k){
+      ['quark'].forEach(function(k){
         var d = NETDISK[k], btn = document.getElementById(k+'-btn');
         if (d && d.url) { btn.setAttribute('href', d.url); }
         else {
