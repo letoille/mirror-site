@@ -507,7 +507,6 @@
           </a>
         </div>
         <div class="stats reveal d5">
-          <div class="stat"><div class="n" id="stat-visits" data-count="0">–</div><div class="l"><span data-i18n-zh>次访问</span><span data-i18n-en>visits</span></div></div>
           <div class="stat"><div class="n" id="stat-downloads" data-count="0">–</div><div class="l"><span data-i18n-zh>次下载</span><span data-i18n-en>downloads</span></div></div>
         </div>
         <div class="realms reveal d5">
@@ -1038,15 +1037,12 @@
       // fixed count-up (features number)
       var io = new IntersectionObserver(function(entries){
         entries.forEach(function(en){ if(en.isIntersecting){ var el=en.target;
-          if (el.id!=='stat-visits' && el.id!=='stat-downloads') animateTo(el, el.getAttribute('data-count'));
+          if (el.id!=='stat-downloads') animateTo(el, el.getAttribute('data-count'));
           io.unobserve(el); } });
       }, { threshold:.5 });
       document.querySelectorAll('[data-count]').forEach(function(el){ io.observe(el); });
 
-      // live counters via Abacus
-      fetch(COUNTER_BASE+"/hit/"+COUNTER_NS+"/visits").then(function(r){return r.json();})
-        .then(function(d){ animateTo(document.getElementById('stat-visits'), d.value); })
-        .catch(function(){ document.getElementById('stat-visits').textContent='—'; });
+      // live download counter via Abacus (visits display removed)
       fetch(COUNTER_BASE+"/get/"+COUNTER_NS+"/downloads").then(function(r){return r.ok?r.json():{value:0};})
         .then(function(d){ animateTo(document.getElementById('stat-downloads'), d.value||0); })
         .catch(function(){ document.getElementById('stat-downloads').textContent='0'; });
