@@ -170,6 +170,47 @@ server {
 它的故障样子很吓人（新标记拿不到新样式，带 `width` 属性的图按原始尺寸把栅格顶爆）
 却完全不报错，开发时一次硬刷新就看不见了。
 
+### 国内那台不要直连 GitHub —— 香港当跳板
+
+国内服务器 `git pull` 慢，根因是仓库大（`.git` 257 MB，工作区 342 MB，其中 63 MB 是
+一个没人下的安装包、17 MB 是改版后已弃用的演示视频）叠上跨境链路。
+
+做法：**GitHub → 香港（海外，快）→ rsync → 国内（只传变化的字节）**。国内那台因此
+完全不碰 GitHub，连 git 都不用装。
+
+一次性准备（在**香港**那台上）：
+
+```bash
+ssh-keygen -t ed25519 -C 'hk->cn deploy'      # 已有就跳过
+ssh-copy-id deploy@<国内IP>                    # 国内那台要有个能写站点目录的账号
+ssh deploy@<国内IP> 'sudo mkdir -p /var/www/mirror-kalandraeye && \
+                     sudo chown deploy:deploy /var/www/mirror-kalandraeye'
+```
+
+此后每次发布（在**香港**那台上）：
+
+```bash
+cd /var/www/mirror-kalandraeye
+DST_HOST=<国内IP> scripts/deploy-cn.sh --dry-run   # 先看要传什么
+DST_HOST=<国内IP> scripts/deploy-cn.sh
+```
+
+脚本自己会先 `git pull --ff-only`，所以香港和国内一步到位。
+
+⚠️ **脚本分三趟传，顺序是有意的**：先资源、再 HTML、最后才 `--delete` 清理。
+HTML 里写的是带指纹的资源地址（`site.css?v=<hash>`），HTML 先到而资源没到的那一刻，
+访客拿到的是一份指向 404 的页面 —— 样式全丢，和站点挂了长得一模一样。
+
+⚠️ **`--delete` 配上写错的目标路径 = 清空别人的目录。** 脚本里挡了几个明显危险的
+值（`/`、`/var/www`、空），但那只是兜底，`DST_PATH` 仍然要自己核对。
+
+⚠️ **国内那台从此不是 git 仓库了**（rsync 排除了 `.git`）。别再在上面 `git pull` ——
+两套更新机制并存，迟早对不上。
+
+第一次同步会传 80 MB 左右（那个安装包和演示视频还在仓库里），之后每次只有几十 KB。
+要根治就把它们从仓库删掉：下载页链的是 GitHub Releases，不是 `/download/` 里那份；
+`demos/` 在改版换成 `<picture>` 之后已经没有任何构建产物在引用。
+
 ### 三种语言的地址
 
 站点现在出三份：简中在裸路径（`/`、`/client.html`、`/guide/market.html`），英文在 `/en/`，
