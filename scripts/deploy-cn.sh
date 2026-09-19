@@ -7,13 +7,15 @@
 # 国内那台因此完全不碰 GitHub，连 git 都不需要装。
 #
 #   用法：  scripts/deploy-cn.sh [--dry-run]
-#   前提：  香港 → 国内 的 SSH 免密（ssh-copy-id），且 $DST_USER 对目标目录可写。
+#   前提：  香港的 ~/.ssh/config 里有目标主机（默认叫 tx-gz），且那个账号对目标目录可写。
+#          换目标：  DST=别的别名 scripts/deploy-cn.sh
 #
 set -euo pipefail
 
 SRC="${SRC:-/var/www/mirror-kalandraeye}"      # 香港这台的站点目录（git 仓库）
-DST_HOST="${DST_HOST:?请设置 DST_HOST=<国内服务器地址>}"
-DST_USER="${DST_USER:-deploy}"
+# 目标写 ~/.ssh/config 里的别名就够 —— 用户名、端口、密钥都归它管，
+# 这里不再重复一遍（重复的那份迟早和 ssh config 对不上）。
+DST="${DST:-tx-gz}"
 DST_PATH="${DST_PATH:-/var/www/mirror-kalandraeye}"
 
 DRY=(); [ "${1:-}" = "--dry-run" ] && DRY=(--dry-run -v)
@@ -22,6 +24,11 @@ DRY=(); [ "${1:-}" = "--dry-run" ] && DRY=(--dry-run -v)
 case "$DST_PATH" in
   /|/root|/home|/var|/var/www|"") echo "DST_PATH 看起来不对：$DST_PATH" >&2; exit 2 ;;
 esac
+
+# ⚠️ 先探一下。不然别名拼错的表现是三趟 rsync 各报一次错，
+#    而第一趟报错时前面已经打印了「① 资源」，看起来像传到一半断了。
+ssh -o BatchMode=yes -o ConnectTimeout=10 "$DST" true \
+  || { echo "连不上 $DST —— 检查香港这台的 ~/.ssh/config" >&2; exit 3; }
 
 cd "$SRC"
 git pull --ff-only
@@ -37,12 +44,12 @@ COMMON=(-a --compress --skip-compress="$NOZ" --human-readable
 # 那一刻，访客拿到的是一份指向 404 的页面 —— 样式全丢，和站点挂了一模一样。
 # 所以：先铺资源（不删任何东西，新旧指纹并存）→ 再换 HTML → 最后才清理旧文件。
 echo "① 资源"
-rsync "${COMMON[@]}" --exclude '*.html' ./ "$DST_USER@$DST_HOST:$DST_PATH/"
+rsync "${COMMON[@]}" --exclude '*.html' ./ "$DST:$DST_PATH/"
 
 echo "② HTML"
-rsync "${COMMON[@]}" --include '*/' --include '*.html' --exclude '*' ./ "$DST_USER@$DST_HOST:$DST_PATH/"
+rsync "${COMMON[@]}" --include '*/' --include '*.html' --exclude '*' ./ "$DST:$DST_PATH/"
 
 echo "③ 清理已删除的文件"
-rsync "${COMMON[@]}" --delete ./ "$DST_USER@$DST_HOST:$DST_PATH/"
+rsync "${COMMON[@]}" --delete ./ "$DST:$DST_PATH/"
 
-echo "✓ 同步完成 → $DST_HOST:$DST_PATH"
+echo "✓ 同步完成 → $DST:$DST_PATH"

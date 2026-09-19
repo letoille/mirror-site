@@ -178,22 +178,26 @@ server {
 做法：**GitHub → 香港（海外，快）→ rsync → 国内（只传变化的字节）**。国内那台因此
 完全不碰 GitHub，连 git 都不用装。
 
-一次性准备（在**香港**那台上）：
+目标主机认的是香港那台 `~/.ssh/config` 里的别名，默认 **`tx-gz`** —— 用户名、端口、
+密钥都归 ssh config 管，脚本里不再重复一遍（重复的那份迟早和 ssh config 对不上）。
+
+一次性准备（在**香港**那台上，`tx-gz` 已经配好的话只剩建目录这一步）：
 
 ```bash
-ssh-keygen -t ed25519 -C 'hk->cn deploy'      # 已有就跳过
-ssh-copy-id deploy@<国内IP>                    # 国内那台要有个能写站点目录的账号
-ssh deploy@<国内IP> 'sudo mkdir -p /var/www/mirror-kalandraeye && \
-                     sudo chown deploy:deploy /var/www/mirror-kalandraeye'
+ssh tx-gz true                                 # 通不了就先修 ~/.ssh/config
+ssh tx-gz 'sudo mkdir -p /var/www/mirror-kalandraeye && \
+           sudo chown $USER /var/www/mirror-kalandraeye'
 ```
 
 此后每次发布（在**香港**那台上）：
 
 ```bash
 cd /var/www/mirror-kalandraeye
-DST_HOST=<国内IP> scripts/deploy-cn.sh --dry-run   # 先看要传什么
-DST_HOST=<国内IP> scripts/deploy-cn.sh
+scripts/deploy-cn.sh --dry-run    # 先看要传什么
+scripts/deploy-cn.sh
 ```
+
+换目标就 `DST=<别的别名> scripts/deploy-cn.sh`。
 
 脚本自己会先 `git pull --ff-only`，所以香港和国内一步到位。
 
