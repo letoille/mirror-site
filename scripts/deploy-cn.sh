@@ -35,8 +35,12 @@ git pull --ff-only
 
 # 已经压过的东西别再让 rsync 压一遍，纯浪费 CPU
 NOZ='zip/gz/mp4/webm/png/jpg/jpeg/webp/avif/woff/woff2/ico'
+# ⚠️ `.well-known` 必须排除：certbot 续期时把验证文件写在站点根下，而它只在目标
+#    那台上存在、源这边没有 —— 不排除的话第三趟 `--delete` 会在续期进行中把它删掉，
+#    表现是证书续期莫名其妙失败，而下一次手动续期又好了。
 COMMON=(-a --compress --skip-compress="$NOZ" --human-readable
-        --exclude '.git' --exclude 'node_modules' --exclude '.github' "${DRY[@]}")
+        --exclude '.git' --exclude 'node_modules' --exclude '.github'
+        --exclude '.well-known' "${DRY[@]}")
 
 # ⚠️ **三趟，顺序是有意的。**
 #
