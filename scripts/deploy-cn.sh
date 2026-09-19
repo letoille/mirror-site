@@ -18,7 +18,17 @@ SRC="${SRC:-/var/www/mirror-kalandraeye}"      # 香港这台的站点目录（g
 DST="${DST:-tx-gz}"
 DST_PATH="${DST_PATH:-/var/www/mirror-kalandraeye}"
 
-DRY=(); [ "${1:-}" = "--dry-run" ] && DRY=(--dry-run -v)
+DRY=(); [ "${1:-}" = "--dry-run" ] && DRY=(--dry-run)
+
+# 进度显示。`--info=progress2` 是一行总进度（百分比 / 速度 / 剩余），rsync 3.1+ 才有；
+# 旧版退回 `--progress`（每个文件一行）。`stats1` 是每趟结束时那句一行小结。
+if rsync --info=help >/dev/null 2>&1; then
+  PROG=(--info=progress2,stats1)
+else
+  PROG=(--progress --stats)
+fi
+# 预演时进度条没有意义，改成列文件
+[ -n "${DRY[*]:-}" ] && PROG=(-v --info=stats1)
 
 # ⚠️ 目标路径写错 + --delete = 把别人的目录清空。宁可在这里挡一下。
 case "$DST_PATH" in
@@ -40,20 +50,26 @@ NOZ='zip/gz/mp4/webm/png/jpg/jpeg/webp/avif/woff/woff2/ico'
 #    表现是证书续期莫名其妙失败，而下一次手动续期又好了。
 COMMON=(-a --compress --skip-compress="$NOZ" --human-readable
         --exclude '.git' --exclude 'node_modules' --exclude '.github'
-        --exclude '.well-known' "${DRY[@]}")
+        --exclude '.well-known' ${DRY[@]+"${DRY[@]}"})
+# ⚠️ `${DRY[@]+"${DRY[@]}"}` 不是啰嗦：`set -u` 下，bash 4.4 以前展开空数组算
+#    「未绑定变量」，脚本当场退出。服务器上多半是新 bash 看不出来，本机一跑就炸。
 
 # ⚠️ **三趟，顺序是有意的。**
 #
 # HTML 里写的是带内容指纹的资源地址（`site.css?v=<hash>`）。HTML 先到而资源没到的
 # 那一刻，访客拿到的是一份指向 404 的页面 —— 样式全丢，和站点挂了一模一样。
 # 所以：先铺资源（不删任何东西，新旧指纹并存）→ 再换 HTML → 最后才清理旧文件。
-echo "① 资源"
-rsync "${COMMON[@]}" --exclude '*.html' ./ "$DST:$DST_PATH/"
+step() {                       # step <序号> <标题> <rsync 额外参数...>
+  local n="$1" title="$2"; shift 2
+  printf '\n\033[1m[%s/3] %s\033[0m\n' "$n" "$title"
+  local t0=$SECONDS
+  rsync "${COMMON[@]}" "${PROG[@]}" "$@" ./ "$DST:$DST_PATH/"
+  printf '      用时 %ds\n' "$((SECONDS - t0))"
+}
 
-echo "② HTML"
-rsync "${COMMON[@]}" --include '*/' --include '*.html' --exclude '*' ./ "$DST:$DST_PATH/"
+T0=$SECONDS
+step 1 '资源（图片 / 样式 / 脚本，不删任何东西）' --exclude '*.html'
+step 2 'HTML（指纹指向的资源已经就位）' --include '*/' --include '*.html' --exclude '*'
+step 3 '清理源里已经不存在的文件' --delete
 
-echo "③ 清理已删除的文件"
-rsync "${COMMON[@]}" --delete ./ "$DST:$DST_PATH/"
-
-echo "✓ 同步完成 → $DST:$DST_PATH"
+printf '\n\033[32m✓\033[0m 同步完成 → %s:%s   总用时 %ds\n' "$DST" "$DST_PATH" "$((SECONDS - T0))"
