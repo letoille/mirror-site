@@ -1,0 +1,352 @@
+{
+  "@title": {
+    "zh": "魔镜网站 — 流放之路 2 交易搜索 · 角色试装 · 掉落过滤器 · 正则生成器",
+    "en": "Mirror Web — Path of Exile 2 Trade Search, Character Try-On, Loot Filters, Regex",
+    "tw": "魔鏡網站 — 流亡黯道 2 交易搜尋 · 角色試裝 · 掉落過濾器 · 正則產生器"
+  },
+  "@description": {
+    "zh": "魔镜网站是《流放之路》2 的网页工具集：按词缀搜装备的市集（词缀池跟着物品类别收窄，三个服随时切）、用你自己的角色跑真 Path of Building 做试装的角色页、基于 NeverSink 定制的掉落过滤器下载（开荒 / 刷图 / 速刷，含语音版）、仓库搜索正则生成器。过滤器与正则打开就能用；市集与角色需要魔镜客户端在运行，因为搜索走你自己的官方交易会话。",
+    "en": "Mirror's web toolset for Path of Exile 2: a trade search whose mod pool narrows to the item class you picked, character try-on running the real Path of Building, NeverSink-based loot filter downloads (Pushing / Farming / Speed, sound versions included), and a stash-search regex generator. Filters and regex work straight from the browser; market search and try-on need the Mirror client running, because searches use your own official trade session.",
+    "tw": "魔鏡網站是《流亡黯道》2 的網頁工具集：按詞綴搜裝備的市集（詞綴池跟著物品類別收窄，三個服隨時切）、用你自己的角色跑真 Path of Building 做試裝的角色頁、基於 NeverSink 定製的掉落過濾器下載（開荒 / 刷圖 / 速刷，含語音版）、倉庫搜尋正則產生器。過濾器與正則打開就能用；市集與角色需要魔鏡客戶端在執行，因為搜尋走你自己的官方交易工作階段。"
+  },
+  "@ogdesc": {
+    "zh": "流放之路 2 网页工具集：按词缀搜装备的市集、角色 Path of Building 试装、NeverSink 定制掉落过滤器下载、正则生成器。过滤器与正则免安装直接用。",
+    "en": "Path of Exile 2 web tools: mod-pool trade search, Path of Building character try-on, NeverSink loot filter downloads, regex generator. Filters and regex need no install.",
+    "tw": "流亡黯道 2 網頁工具集：按詞綴搜裝備的市集、角色 Path of Building 試裝、NeverSink 定製掉落過濾器下載、正則產生器。過濾器與正則免安裝直接用。"
+  },
+  "@keywords": {
+    "zh": "魔镜市集,魔镜网站,Mirror Market,流放之路2交易,POE2交易搜索,交易行,官方市集,按词缀搜装备,类别投影搜索,实时监听,角色试装,试装,Path of Building,POB,ΔDPS,掉落过滤器,拾取过滤,NeverSink,过滤器下载,语音包,loot filter,item filter,poe2 loot filter,正则生成器,流放之路2正则,POE2正则,引路石正则,石板正则,圣所遗物,巨灵币,贪婪战书,仓库搜索,regex generator,poe2 regex,trade search",
+    "en": "mirror market,poe2 trade search,path of exile 2 trade,search by modifier,item class projection,live search,character try-on,path of building,pob,delta dps,poe2 loot filter,neversink,filter download,filter sounds,poe2 regex,regex generator,waystone regex,stash search,trade site",
+    "tw": "魔鏡市集,魔鏡網站,Mirror Market,流亡黯道2交易,POE2交易搜尋,按詞綴搜裝備,類別投影,即時監聽,角色試裝,試裝,Path of Building,POB,掉落過濾器,撿取過濾,NeverSink,過濾器下載,語音包,正則產生器,流亡黯道2正則,POE2正則,換界石正則,碑牌正則,聖物,巨靈之幣,最後通牒,倉庫搜尋,regex generator,poe2 regex,trade search"
+  },
+  "浏览器 · 免安装": {
+    "zh": "浏览器 · 免安装",
+    "en": "Browser · nothing to install",
+    "tw": "瀏覽器 · 免安裝"
+  },
+  "魔镜网站": {
+    "zh": "魔镜网站",
+    "en": "Mirror Web",
+    "tw": "魔鏡網站"
+  },
+  "市集": {
+    "zh": "市集",
+    "en": "market",
+    "tw": "市集"
+  },
+  "角色页": {
+    "zh": "角色页",
+    "en": "character page",
+    "tw": "角色頁"
+  },
+  "、": {
+    "zh": "、",
+    "en": ", ",
+    "tw": "、"
+  },
+  "掉落过滤器": {
+    "zh": "掉落过滤器",
+    "en": "loot filter",
+    "tw": "掉落過濾器"
+  },
+  "下载、": {
+    "zh": "下载、",
+    "en": "downloads, and a",
+    "tw": "下載、"
+  },
+  "正则生成器": {
+    "zh": "正则生成器",
+    "en": "regex generator",
+    "tw": "正則產生器"
+  },
+  "。": {
+    "zh": "。",
+    "en": ". ",
+    "tw": "。"
+  },
+  "打开魔镜网站": {
+    "zh": "打开魔镜网站",
+    "en": "Open Mirror Web",
+    "tw": "打開魔鏡網站"
+  },
+  "市集搜索": {
+    "zh": "市集搜索",
+    "en": "Market search",
+    "tw": "市集搜尋"
+  },
+  "打开市集 →": {
+    "zh": "打开市集 →",
+    "en": "Open the market →",
+    "tw": "打開市集 →"
+  },
+  "角色 · 试装": {
+    "zh": "角色 · 试装",
+    "en": "Character · try-on",
+    "tw": "角色 · 試裝"
+  },
+  "打开角色页 →": {
+    "zh": "打开角色页 →",
+    "en": "Open the character page →",
+    "tw": "打開角色頁 →"
+  },
+  "独立运行": {
+    "zh": "独立运行",
+    "en": "standalone",
+    "tw": "獨立執行"
+  },
+  "基于": {
+    "zh": "基于",
+    "en": "Customised from",
+    "tw": "基於"
+  },
+  "NeverSink": {
+    "zh": "NeverSink",
+    "en": "NeverSink",
+    "tw": "NeverSink"
+  },
+  "开荒": {
+    "zh": "开荒",
+    "en": "Pushing",
+    "tw": "開荒"
+  },
+  "刷图": {
+    "zh": "刷图",
+    "en": "Farming",
+    "tw": "刷圖"
+  },
+  "速刷": {
+    "zh": "速刷",
+    "en": "Speed",
+    "tw": "速刷"
+  },
+  "下载过滤器 →": {
+    "zh": "下载过滤器 →",
+    "en": "Download filters →",
+    "tw": "下載過濾器 →"
+  },
+  "打开正则生成器 →": {
+    "zh": "打开正则生成器 →",
+    "en": "Open the regex generator →",
+    "tw": "打開正則產生器 →"
+  },
+  "角色试装": {
+    "zh": "角色试装",
+    "en": "character try-on",
+    "tw": "角色試裝"
+  },
+  "AI 助手": {
+    "zh": "AI 助手",
+    "en": "AI assistant",
+    "tw": "AI 助手"
+  },
+  "魔镜市集": {
+    "zh": "魔镜市集",
+    "en": "Mirror Market",
+    "tw": "魔鏡市集"
+  },
+  "魔镜市集 AI 助手：一句话自动填好《流放之路 2》交易搜索表单": {
+    "zh": "魔镜市集 AI 助手：一句话自动填好《流放之路 2》交易搜索表单",
+    "en": "Mirror Market AI assistant: one sentence fills in the Path of Exile 2 trade search form",
+    "tw": "魔鏡市集 AI 助手：一句話自動填好《流亡黯道 2》交易搜尋表單"
+  },
+  "闪电法杖要暴击，10 神圣以内": {
+    "zh": "闪电法杖要暴击，10 神圣以内",
+    "en": "lightning wand with crit, under 10 Divine",
+    "tw": "閃電法杖要爆擊，10 神聖以內"
+  },
+  "已生成交易搜索 · 匹配 42 件": {
+    "zh": "已生成交易搜索 · 匹配 42 件",
+    "en": "Trade search built · 42 matches",
+    "tw": "已產生交易搜尋 · 符合 42 件"
+  },
+  "示意图 · 实拍截图待补": {
+    "zh": "示意图 · 实拍截图待补",
+    "en": "Mock-up · real screenshot coming",
+    "tw": "示意圖 · 實拍截圖待補"
+  },
+  "下载客户端": {
+    "zh": "下载客户端",
+    "en": "Download the client",
+    "tw": "下載客戶端"
+  },
+  "更便捷的市集搜索，角色试装，一键分享，过滤每日更新下载，正则快速生成": {
+    "zh": "更便捷的市集搜索，角色试装，一键分享，过滤每日更新下载，正则快速生成",
+    "en": "Faster market search, character try-on, one-click sharing, daily filter downloads and quick regex generation",
+    "tw": "更便捷的市集搜尋，角色試裝，一鍵分享，過濾每日更新下載，正則快速產生"
+  },
+  "需下载客户端配合使用": {
+    "zh": "需下载客户端配合使用",
+    "en": "Requires the desktop client",
+    "tw": "需下載客戶端配合使用"
+  },
+  "需要安装客户端": {
+    "zh": "需要安装客户端",
+    "en": "Requires the client installed",
+    "tw": "需要安裝客戶端"
+  },
+  "选择物品类型，自动筛选物品词缀，搜索更方便": {
+    "zh": "选择物品类型，自动筛选物品词缀，搜索更方便",
+    "en": "Pick an item type and its modifier pool narrows itself",
+    "tw": "選擇物品類型，自動篩選物品詞綴，搜尋更方便"
+  },
+  "搜索条件保存，一键保存搜索": {
+    "zh": "搜索条件保存，一键保存搜索",
+    "en": "Save a set of conditions and recall the search in one click",
+    "tw": "搜尋條件保存，一鍵保存搜尋"
+  },
+  "购买更明确，加载角色，搜索物品展示 DPS 和 EHP 变化": {
+    "zh": "购买更明确，加载角色，搜索物品展示 DPS 和 EHP 变化",
+    "en": "Buy with certainty: load your character and every result shows its DPS and EHP change",
+    "tw": "購買更明確，載入角色，搜尋物品展示 DPS 和 EHP 變化"
+  },
+  "一个市集，同时支持国际服、国服": {
+    "zh": "一个市集，同时支持国际服、国服",
+    "en": "One market, covering both the global and Tencent realms",
+    "tw": "一個市集，同時支援國際服、國服"
+  },
+  "支持多种语言": {
+    "zh": "支持多种语言",
+    "en": "Multiple languages supported",
+    "tw": "支援多種語言"
+  },
+  "加载角色，计算技能伤害，角色防御等": {
+    "zh": "加载角色，计算技能伤害，角色防御等",
+    "en": "Load a character and get its skill damage, defences and more",
+    "tw": "載入角色，計算技能傷害，角色防禦等"
+  },
+  "与市集联动，基于角色试装": {
+    "zh": "与市集联动，基于角色试装",
+    "en": "Linked to the market: try items on against that character",
+    "tw": "與市集聯動，基於角色試裝"
+  },
+  "展示编辑角色天赋树，编辑后快速同步到游戏": {
+    "zh": "展示编辑角色天赋树，编辑后快速同步到游戏",
+    "en": "View and edit the passive tree, then sync it straight into the game",
+    "tw": "展示編輯角色天賦樹，編輯後快速同步到遊戲"
+  },
+  "一键分享角色 BD": {
+    "zh": "一键分享角色 BD",
+    "en": "Share a character build in one click",
+    "tw": "一鍵分享角色 BD"
+  },
+  "适配游戏不同阶段，剧情开荒，异界提升，后期速刷": {
+    "zh": "适配游戏不同阶段，剧情开荒，异界提升，后期速刷",
+    "en": "Tuned to each stage of the game: levelling, the Atlas climb and late-game speed farming",
+    "tw": "適配遊戲不同階段，劇情開荒，異界提升，後期速刷"
+  },
+  "提供自定义语音版，支持自定义修改提示语音": {
+    "zh": "提供自定义语音版，支持自定义修改提示语音",
+    "en": "A voiced edition is provided, and its alert sounds can be replaced with your own",
+    "tw": "提供自訂語音版，支援自訂修改提示語音"
+  },
+  "每日根据物价实时更新，免费下载": {
+    "zh": "每日根据物价实时更新，免费下载",
+    "en": "Updated daily against live prices, free to download",
+    "tw": "每日根據物價即時更新，免費下載"
+  },
+  "无需了解正则语法，选择即生成正则": {
+    "zh": "无需了解正则语法，选择即生成正则",
+    "en": "No regex syntax to learn — tick the conditions and the expression is generated",
+    "tw": "無需了解正則語法，選擇即產生正則"
+  },
+  "支持各种物品种类正则生成": {
+    "zh": "支持各种物品种类正则生成",
+    "en": "Modifier pools for every kind of item",
+    "tw": "支援各種物品種類正則產生"
+  },
+  "支持生成简中、繁中、英文正则": {
+    "zh": "支持生成简中、繁中、英文正则",
+    "en": "Generates expressions for Simplified Chinese, Traditional Chinese and English",
+    "tw": "支援產生簡中、繁中、英文正則"
+  },
+  "快速同步到魔镜客户端中常用正则": {
+    "zh": "快速同步到魔镜客户端中常用正则",
+    "en": "Save it straight into the Mirror client's preset library",
+    "tw": "快速同步到魔鏡客戶端中常用正則"
+  },
+  "全方位 AI 智能助手": {
+    "zh": "全方位 AI 智能助手",
+    "en": "An AI assistant across the board",
+    "tw": "全方位 AI 智慧助手"
+  },
+  "一句话，找到你想要的装备": {
+    "zh": "一句话，找到你想要的装备",
+    "en": "One sentence, and the gear you want",
+    "tw": "一句話，找到你想要的裝備"
+  },
+  "描述想要的装备，自动填充搜索词缀": {
+    "zh": "描述想要的装备，自动填充搜索词缀",
+    "en": "Describe the gear you want and the modifiers fill themselves in",
+    "tw": "描述想要的裝備，自動填充搜尋詞綴"
+  },
+  "支持多种物品种类搜索": {
+    "zh": "支持多种物品种类搜索",
+    "en": "Works across every kind of item",
+    "tw": "支援多種物品種類搜尋"
+  },
+  "安装客户端": {
+    "zh": "安装客户端",
+    "en": "Install the client",
+    "tw": "安裝客戶端"
+  },
+  "网站功能需配合客户端使用": {
+    "zh": "网站功能需配合客户端使用",
+    "en": "What the client is needed for",
+    "tw": "網站功能需配合客戶端使用"
+  },
+  "角色数据加载与计算": {
+    "zh": "角色数据加载与计算",
+    "en": "Loading and evaluating character data",
+    "tw": "角色資料載入與計算"
+  },
+  "过滤自动同步": {
+    "zh": "过滤自动同步",
+    "en": "Filter auto-sync",
+    "tw": "過濾自動同步"
+  },
+  "后续开发支持": {
+    "zh": "后续开发支持",
+    "en": "Planned",
+    "tw": "後續開發支援"
+  },
+  "根据正则表达式搜索市集": {
+    "zh": "根据正则表达式搜索市集",
+    "en": "Search the market from a stash regex",
+    "tw": "根據正則表示式搜尋市集"
+  },
+  "智能分析角色数据，提供角色提升建议": {
+    "zh": "智能分析角色数据，提供角色提升建议",
+    "en": "Reads your character data and suggests where to improve it",
+    "tw": "智慧分析角色資料，提供角色提升建議"
+  },
+  "魔镜 AI 角色分析：读取角色数据并给出提升建议": {
+    "zh": "魔镜 AI 角色分析：读取角色数据并给出提升建议",
+    "en": "Mirror AI character analysis: reads the character and suggests where to improve it",
+    "tw": "魔鏡 AI 角色分析：讀取角色資料並給出提升建議"
+  },
+  "提供 BD 文档，智能分析 BD": {
+    "zh": "提供 BD 文档，智能分析 BD",
+    "en": "Build documents, analysed for you",
+    "tw": "提供 BD 文件，智慧分析 BD"
+  },
+  "导入魔镜客户端开荒 BD": {
+    "zh": "导入魔镜客户端开荒 BD",
+    "en": "Imported into the Mirror client as a levelling build",
+    "tw": "匯入魔鏡客戶端開荒 BD"
+  },
+  "魔镜 AI BD 助手：分析构筑文档并导入客户端开荒 BD": {
+    "zh": "魔镜 AI BD 助手：分析构筑文档并导入客户端开荒 BD",
+    "en": "Mirror AI build assistant: analyses a build document and imports it into the client as a levelling build",
+    "tw": "魔鏡 AI BD 助手：分析構築文件並匯入客戶端開荒 BD"
+  },
+  "BD 快速导入魔镜": {
+    "zh": "BD 快速导入魔镜",
+    "en": "Builds imported into Mirror",
+    "tw": "BD 快速匯入魔鏡"
+  },
+  "BD 助手，角色分析": {
+    "zh": "BD 助手，角色分析",
+    "en": "Build assistant, character analysis",
+    "tw": "BD 助手，角色分析"
+  }
+}

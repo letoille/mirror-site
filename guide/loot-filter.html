@@ -1,0 +1,181 @@
+<!doctype html>
+<!--
+  ⚠️ 这个文件是 `node build.mjs` 生成的，**手改会在下一次构建时被覆盖**。
+  要改内容：src/pages/guide/loot-filter.zh.md
+  要改外壳（导航 / 页脚 / head）：src/shell.html + src/site.mjs
+-->
+<html lang="zh-Hans" data-lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>流放之路 2 掉落过滤器怎么装 — 魔镜 / NeverSink 定制版指南</title>
+  <meta name="description" content="《流放之路》2 掉落过滤器安装指南：开荒 / 刷图 / 速刷三份怎么选、带语音的版本是什么、由客户端一键装进游戏与 GGG 账号和手动放进目录的区别、游戏里怎么切换、什么时候该换一份。基于 NeverSink 过滤定制。" />
+  <meta name="keywords" content="流放之路2掉落过滤器,POE2过滤器,掉落过滤,拾取过滤,过滤器怎么装,NeverSink,过滤器下载,语音包,filter怎么用,poe2 loot filter,poe2 item filter,开荒过滤,刷图过滤,速刷过滤" />
+  <meta name="author" content="Mirror" />
+  <link rel="canonical" href="https://mirror.kalandraeye.com/guide/loot-filter.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://mirror.kalandraeye.com/guide/loot-filter.html" />
+  <link rel="alternate" hreflang="en" href="https://mirror.kalandraeye.com/en/guide/loot-filter.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://mirror.kalandraeye.com/tw/guide/loot-filter.html" />
+  <link rel="alternate" hreflang="x-default" href="https://mirror.kalandraeye.com/guide/loot-filter.html" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <meta name="theme-color" content="#08090d" />
+  <link rel="stylesheet" href="/assets/site.css?v=2a98372cf5" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="魔镜 · Mirror" />
+  <meta property="og:url" content="https://mirror.kalandraeye.com/guide/loot-filter.html" />
+  <meta property="og:title" content="流放之路 2 掉落过滤器怎么装 — 魔镜 / NeverSink 定制版指南" />
+  <meta property="og:description" content="《流放之路》2 掉落过滤器安装指南：开荒 / 刷图 / 速刷三份怎么选、带语音的版本是什么、由客户端一键装进游戏与 GGG 账号和手动放进目录的区别、游戏里怎么切换、什么时候该换一份。基于 NeverSink 过滤定制。" />
+  <meta property="og:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+  <meta property="og:locale" content="zh_CN" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="流放之路 2 掉落过滤器怎么装 — 魔镜 / NeverSink 定制版指南" />
+  <meta name="twitter:description" content="《流放之路》2 掉落过滤器安装指南：开荒 / 刷图 / 速刷三份怎么选、带语音的版本是什么、由客户端一键装进游戏与 GGG 账号和手动放进目录的区别、游戏里怎么切换、什么时候该换一份。基于 NeverSink 过滤定制。" />
+  <meta name="twitter:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+
+  <!-- Google Analytics 4 -->
+  <script>
+    window.GA_ID = "G-CYBLTV2J69";
+    if (window.GA_ID && window.GA_ID.indexOf("G-") === 0) {
+      var gaScript = document.createElement("script");
+      gaScript.async = true;
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + window.GA_ID;
+      document.head.appendChild(gaScript);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag("js", new Date());
+      gtag("config", window.GA_ID);
+    }
+  </script>
+</head>
+<body>
+  <div class="bg-fx">
+    <div class="aurora a1"></div><div class="aurora a2"></div>
+    <div class="grid-lines"></div>
+    <div class="embers" id="embers"></div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/">
+        <img src="/assets/logo.png" alt="魔镜" />
+        <span><span class="cn">魔镜</span>
+          <span class="en">Mirror for POE1 &amp; POE2</span></span>
+      </a>
+      <div class="nav-links">
+        <a class="link" href="/client.html"><span>客户端</span></a>
+        <a class="link" href="/web.html"><span>网站</span></a>
+        <a class="link" href="/guide/"><span>使用指南</span></a>
+        <a class="btn btn-gold" href="/download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg><span>下载</span></a>
+        <a class="link" href="/about.html"><span>关于</span></a>
+        <div class="lang-switch">
+          <a href="/guide/loot-filter.html" hreflang="zh-Hans" lang="zh-Hans" aria-current="true" class="on">简体</a>
+          <a href="/en/guide/loot-filter.html" hreflang="en" lang="en">EN</a>
+          <a href="/tw/guide/loot-filter.html" hreflang="zh-Hant" lang="zh-Hant">繁體</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<main class="prose-page"><div class="wrap">
+<h1>掉落过滤器怎么装</h1>
+<p>《流放之路》2 中，单张地图掉落的物品绝大多数不具备拾取价值。掉落过滤器决定<strong>哪些显示、哪些完全不绘制于地面</strong>，并可为高价值物品附加提示音与光柱。</p>
+<p>这是本作中<strong>收益最高的一项配置</strong>：一次安装，此后每张地图均可节省时间。</p>
+<h2>我们发的是什么</h2>
+<p>我们不自行编写过滤规则，而是转发 <strong><a href="https://github.com/NeverSinkDev">NeverSink</a></strong> 的版本——社区公认的那一份，采用 MIT 许可。我们所做的是依据当前经济数据定制，并划分为三份：</p>
+<table>
+<thead>
+<tr>
+<th>哪一份</th>
+<th>适合什么时候</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>开荒</strong></td>
+<td>自开局至异界 T15。显示范围较宽，避免遗漏</td>
+</tr>
+<tr>
+<td><strong>刷图</strong></td>
+<td>T15 阶段：升级装备、积累通货、补齐配装所缺部件</td>
+</tr>
+<tr>
+<td><strong>速刷</strong></td>
+<td>配装成型之后。仅保留高价值物品，地面显著简洁</td>
+</tr>
+</tbody>
+</table>
+<p>每一份另提供<strong>带语音的版本</strong>：高价值物品掉落时给出语音提示。</p>
+<p>⚠️ 语音版只有《流放之路》2 有。POE1 不支持自定义提示音，所以那几份不会出现在界面里。</p>
+<p><strong>三份可同时安装</strong>，游戏内随时切换，无需预先取舍：开荒阶段使用开荒，进入刷图阶段后更换即可。</p>
+<h2>方式一：客户端一键安装（推荐）</h2>
+<p>打开魔镜客户端 →「过滤」页 → 选一份 → 装。</p>
+<p>客户端将执行两项操作：写入游戏目录，并推送至你的 GGG 账号，以便在其他设备登录时同样可用。装入游戏后的名称形如 <code>魔镜 - 开荒</code>，带语音的版本为 <code>魔镜 - 开荒语音版</code>。</p>
+<p>此后客户端将持续跟踪版本：上游更新、界面语言变更或语音包更换时，均会提示重新安装。</p>
+<blockquote>
+<p>查看是否存在新版本无需登录；<strong>安装</strong>则需要登录并开通。二者分开处理：过滤文件本身不收费，详见下一节。</p>
+</blockquote>
+<h2>方式二：手动放入目录</h2>
+<p>若不希望登录，或仅需试用，可直接下载文件：</p>
+<p><strong><a href="https://trade.kalandraeye.com/filters">trade.kalandraeye.com/filters</a></strong></p>
+<p>三份及其语音版均可自由下载。下载后放入：</p>
+<pre><code>Documents/My Games/Path of Exile 2/
+</code></pre>
+<p>⚠️ 若已启用 OneDrive 备份，<code>Documents</code> 可能已被重定向至其他位置。请以游戏内能否识别为准，不要手动拼接路径。</p>
+<p>语音版的 mp3 也放同一个目录。</p>
+<h2>在游戏里切换</h2>
+<p><kbd>Esc</kbd> → <strong>选项</strong> → <strong>界面</strong> → 从下拉框里选中它。</p>
+<p>安装几份即有几个选项，可随时切换，无需重启游戏。</p>
+<h2>什么时候该换一份</h2>
+<ul>
+<li><strong>地面物品过多、难以辨识</strong> → 向「速刷」方向调整</li>
+<li><strong>疑似遗漏应拾取的物品</strong> → 向「开荒」方向调整</li>
+<li><strong>赛季初</strong> → 先用开荒，T15 稳定后更换为刷图</li>
+<li><strong>上游更新</strong> → 客户端会提示；手动安装者可定期查看下载页</li>
+</ul>
+<h2>常见问题</h2>
+<p><strong>安装后没有变化。</strong> 请先确认游戏内已选中该过滤器（见上一节三步）。过滤器不会自动生效，必须在选项中选定。</p>
+<p><strong>没有提示音。</strong> mp3 需与过滤文件位于同一目录。此外我们叠加的是「可选提示音」，文件缺失不会使整条规则失声，因此也可能只是未触发该条规则。</p>
+<p><strong>是否存在封号风险。</strong> 掉落过滤器是<strong>游戏官方支持的功能</strong>，Esc 菜单中的下拉列表即由官方提供。它只是一个文本文件，不接触游戏进程。</p>
+<hr>
+<p><strong>下一篇</strong>：<a href="/guide/price-check.html">怎么查一件装备值多少钱</a> · <a href="/guide/market.html">魔镜市集怎么用</a></p>
+
+</div></main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-inner">
+        <a class="brand" href="/">
+          <img src="/assets/logo.png" alt="魔镜" style="width:26px;height:26px;border-radius:7px" />
+          <span><span class="cn">魔镜 · Mirror</span></span>
+        </a>
+        <span>© <span id="year">2026</span> 魔镜 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer" style="color:var(--muted-2)">滇ICP备2025052314号-2</a> · <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=53010202002415" target="_blank" rel="noreferrer" style="color:var(--muted-2)"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="vertical-align:-1px;margin-right:3px"><path d="M12 2 4 5v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V5l-8-3zm0 2.2 6 2.25V11c0 3.9-2.5 6.7-6 8.05C8.5 17.7 6 14.9 6 11V6.45l6-2.25z"/><path d="M12 7.3 12.85 9l1.95.2-1.45 1.3.42 1.9L12 11.55l-1.77.85.42-1.9L9.2 9.2 11.15 9 12 7.3z"/></svg>滇公网安备53010202002415号</a></span>
+      </div>
+      <div class="foot-social">
+        <a class="social-btn discord" href="https://discord.gg/RTqazvQKKE" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.3.5c1.8.4 2.6 1 3.5 1.7a13.3 13.3 0 0 0-4.6-1.1 13.6 13.6 0 0 0-4.6.4c-.5.1-1.2.3-2 .7-.4.2-.7.3-.7.3s.8-.6 2.7-1.1L9 3a19.8 19.8 0 0 0-4.9 1.4C2 8.9 1.3 13.3 1.6 17.6A19.9 19.9 0 0 0 7.7 21l.9-1.3c-1-.3-1.9-.7-2.7-1.2l.6-.4a14.2 14.2 0 0 0 12.2 0l.6.4c-.8.5-1.7.9-2.7 1.2l.9 1.3a19.9 19.9 0 0 0 6-3.4c.5-5-.7-9.3-3.8-13.2zM8.9 15c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm6.2 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/></svg>
+          <span>加入 Discord</span>
+        </a>
+        <a class="social-btn qq" id="qq-btn" href="#" onclick="copyQQ(event)" title="1057145969">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.395 15.035a39.55 39.55 0 00-.803-2.264l-1.079-2.695c.001-.032.014-.562.014-.836C19.526 4.632 17.351 0 12 0S4.474 4.632 4.474 9.241c0 .274.013.804.014.836l-1.08 2.695a38.97 38.97 0 00-.802 2.264c-1.021 3.283-.69 4.643-.438 4.673.54.065 2.103-2.472 2.103-2.472 0 1.469.756 3.387 2.394 4.771-.612.188-1.363.479-1.845.835-.434.32-.379.646-.301.778.343.578 5.883.369 7.482.189 1.6.18 7.14.389 7.483-.189.078-.132.132-.458-.301-.778-.483-.356-1.233-.646-1.846-.836 1.637-1.384 2.393-3.302 2.393-4.771 0 0 1.563 2.537 2.103 2.472.251-.03.581-1.39-.438-4.673z"/></svg>
+          <span class="qq-label">QQ 群 1057145969</span>
+          <span class="qq-copied">已复制群号 ✓</span>
+        </a>
+      </div>
+      <p class="foot-contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span>有任何问题或建议，欢迎联系：</span>
+        <a href="mailto:kalandraeye@gmail.com">kalandraeye@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="/assets/shell.js?v=14afd07232" defer></script>
+
+</body>
+</html>

@@ -2,72 +2,112 @@
   <img src="assets/logo.png" width="88" alt="魔镜 Mirror" />
 </p>
 
-<h1 align="center">魔镜 · Mirror — Landing Page</h1>
+<h1 align="center">魔镜 · Mirror — 官网</h1>
 
 <p align="center">
-  《流放之路》1 &amp; 2（POE1 · POE2）桌面悬浮窗助手的官方介绍与下载页<br>
-  Landing &amp; download page for <b>Mirror</b>, a Path of Exile 1 &amp; 2 desktop overlay.
+  《流放之路》1 &amp; 2（POE1 · POE2）<b>魔镜客户端</b>与<b>魔镜网站</b>的官方介绍、下载与使用指南<br>
+  Landing, download &amp; guides for <b>Mirror</b>, a Path of Exile 1 &amp; 2 toolset.
 </p>
 
 <p align="center">
-  🔗 <b><a href="https://mirror.kalandraeye.com/">在线访问 / Live site</a></b> ·
-  📐 <a href="DESIGN.md">设计文档 / Design doc</a>
+  🔗 <b><a href="https://mirror.kalandraeye.com/">在线访问</a></b> ·
+  🛒 <a href="https://trade.kalandraeye.com/">魔镜网站（市集 / 过滤 / 正则）</a> ·
+  📐 <a href="DESIGN.md">设计文档</a> ·
+  🚀 <a href="DEPLOY.md">部署</a>
 </p>
 
 ---
 
-## 这是什么 / What is this
+## 两个产品，两个域名
 
-「魔镜 / Mirror」这款 POE1 & POE2 悬浮窗工具的**介绍与下载页**——一个纯静态站点（中英双语、无构建、无框架、无外部依赖）。应用本体的源码在独立的私有仓库；本仓库只有公开的宣传页与安装包。
+| | 是什么 | 在哪 |
+|---|---|---|
+| **魔镜客户端** | Windows 悬浮窗：查价、截图识别、剧情引导、快捷正则、收益统计、速查图…… | 下载安装 |
+| **魔镜网站** | 浏览器里的四件工具：市集搜索、角色试装、掉落过滤器、正则生成器 | `trade.kalandraeye.com`（另一个仓库） |
 
-The **landing & download page** for Mirror, a Path of Exile 1 & 2 overlay tool. A single-file static site — bilingual, no build step, no framework, no external dependencies. The app's own source lives in a separate private repo.
+⚠️ **网站那四件里有两件要客户端在运行**：市集搜索用的是用户自己的官方交易会话，
+角色试装跑的是客户端进程里的 Path of Building。过滤器和正则打开就能用。
+**这条信息在官网上是明写的，不是小字** —— 写漏了，访客会选「网站」然后撞墙。
 
-## 目录结构 / Layout
+## 怎么改这个站
+
+这个仓库现在**有构建**，但**产物也提交**：
+
+```bash
+pnpm install     # 只装一个 markdown-it
+pnpm build       # src/pages/** → 仓库根下的 HTML + sitemap.xml
+pnpm serve       # 构建 + 起一个 http://127.0.0.1:8765
+```
+
+> **为什么产物进 git**：部署模型是 `git clone` + nginx，更新就是一句 `git pull`
+> （见 [DEPLOY.md](DEPLOY.md)），两台服务器都靠它。那个模型一个字都不该改 ——
+> 所以服务器永远不需要装 node。构建只发生在作者的机器上。
+
+### 目录
 
 ```
-index.html            落地页（中英双语，全部内联 CSS/JS）
-assets/               logo / 图标 / 货币图标 / 截图
-download/             Windows 安装包（Mirror_setup.zip）
-demos/                功能演示视频（<功能>_<语言>.mp4/webm，见 DESIGN.md）
-preview/              动效原型（早期设计验证页，noindex）
-robots.txt sitemap.xml   SEO
-CNAME .nojekyll       GitHub Pages 兼容（现主力托管在自有服务器，见下）
-.github/workflows/    自动部署工作流
-DESIGN.md             整站设计文档
+src/
+  site.mjs          域名 / 语言 / 导航 / sitemap 权重 —— 全站常量只有这一份
+  shell.html        壳：head、导航、页脚。改一次全站生效
+  pages/            页面源码。文件名就是路由，见下
+    index.zh.html     → /
+    client.zh.html    → /client.html
+    web.zh.html       → /web.html
+    download.zh.html  → /download.html
+    about.zh.html     → /about.html
+    guide/index.zh.md → /guide/
+    guide/*.zh.md     → /guide/*.html
+  jsonld/           结构化数据片段，由页面 front matter 的 `jsonld:` 引用
+assets/             site.css（全站一份）、shell.js、download.js、图片
+shots/              功能卡配图（见 shots/README.md）
+demos/              演示视频 —— 现在只有「一键查价」那一张卡还在用
+download/           Windows 安装包
+preview/            早期动效原型（noindex）
 ```
 
-## 本地预览 / Preview
+**⚠️ 仓库根下的 `.html` 是生成的**，手改会被下一次构建覆盖。每份文件开头都写着它的源在哪。
 
-直接用浏览器打开 `index.html` 即可，无需构建或服务器。
-Just open `index.html` in a browser — no build, no server.
+### 加一页
 
-## 托管与部署 / Hosting &amp; deploy
+1. 在 `src/pages/` 下建 `<名字>.zh.md`（指南）或 `.zh.html`（设计页）
+2. 顶上写 front matter：`title` / `description` / `keywords`，可选 `ogdesc`、`jsonld`
+3. 要进导航就改 `src/site.mjs` 的 `NAV`；要进 sitemap 就改 `SITEMAP`
+   （`/guide/**` 自动进，用 `GUIDE_DEFAULT` 的权重）
+4. `pnpm build`
 
-**主力托管**：自有**香港服务器**（nginx，免备案、国内可访问），域名 `mirror.kalandraeye.com`。
-GitHub Pages 因 github.io 国内访问不稳，仅作**海外备份**。
+### 三种语言
 
-Primary hosting is a **Hong Kong server** (nginx) at `mirror.kalandraeye.com` — reachable from mainland China without ICP filing. GitHub Pages is kept only as an overseas backup.
+九条路由现在都出三份：简中裸路径、英文 `/en/*`、繁中 `/tw/*`。加一页的话，三种各写一个文件即可。
 
-**更新流程 / Update flow**：`git push` → GitHub Actions（[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)）通过 SSH `rsync` 同步到服务器 nginx 目录。
+- **简中是裸路径**（`/client.html`），因为那几个地址已经在被收录，搬走等于重来一轮
+- **语言首页带尾斜杠**（`/en/`，不是 `/en`）—— 磁盘上就是 `en/index.html`，nginx 不用额外配
+- **hreflang 只声明真的存在的那几种** —— 指向 404 的 hreflang 比不声明更糟
+- ⚠️ **台服那套词和简中零重叠**（引路石 / 換界石、石板 / 碑牌、巨灵币 / 巨靈之幣，
+  连游戏名都是「流亡黯道」不是「流放之路」），繁简转换换不出来。术语一律查
+  [src/GLOSSARY.md](src/GLOSSARY.md)，**不要自己编**
 
-需要的仓库 Secrets（与 kaleye 仓库同约定）：
-`SSH_HOST` · `SSH_USER` · `SSH_KEY` · `SSH_PORT`（可选）· `SITE_PATH`（如 `/var/www/mirror-site`）。
+#### 设计页怎么翻
 
-手动更新（服务器上）：`cd /var/www/mirror-site && git pull`。
+设计页（`.html`）是**三份各自的 HTML**，不是一套模板 —— 一句话在英文里是一行、在中文里是两行，
+卡片高度都不一样，撑不住共用。代价是 markup 有三份，而**改了一份忘了另两份是静默的**。
 
-## 更新安装包 / Update the installer
+两样东西管这件事：
 
-1. 在应用仓库执行 `pnpm tauri build`，把产物打包成 `Mirror_setup.zip`。
-2. 放进 [`download/`](download/)。
-3. 确认 `index.html` 顶部的下载地址一致：
-   ```js
-   var DOWNLOAD_URL = "download/Mirror_setup.zip"; // 设为 "" 显示「即将上线」
-   ```
-4. `git push`，自动部署到服务器。
+- `node src/i18n-tool.mjs extract <页> / apply <页>` —— 从简中那份抽文本节点，配上
+  `src/i18n/<页>.json` 里的短语表，产出另外两份。**它只换文字不碰标签**，所以三份结构天生一致
+- `build.mjs` 的**结构漂移检查** —— 每次构建比一遍标签序列 + class 序列，一动就喊。
+  指南页（`.md`）不比：那是正文，段落数本来就该随语言不同
 
-> 建议文件名带版本号（`Mirror_setup_0.1.5.zip`），GA4 可按文件名区分各版本下载量。
+改设计页的流程：改简中 → `extract` → 补 `src/i18n/<页>.json` 里新增的那几条 → `apply` → `build`。
 
-## 商标 / Trademark
+## 更新安装包
 
-Path of Exile 2 是其各自所有者的商标。本项目为非官方粉丝工具。
-Path of Exile 2 is a trademark of its respective owners. This is an unofficial fan-made tool.
+1. 应用仓库 `pnpm tauri build`，产物打成 `Mirror_setup.zip`
+2. 放进 [`download/`](download/)
+3. 网盘链接在 [`assets/download.js`](assets/download.js) 的 `NETDISK`
+4. `git push`，两台服务器各 `git pull` 一次
+
+## 商标
+
+Path of Exile / 流放之路 是其各自所有者的商标。本项目为非官方粉丝工具。
+掉落过滤器基于 [NeverSink](https://github.com/NeverSinkDev) 的过滤定制（MIT）。

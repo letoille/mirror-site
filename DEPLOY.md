@@ -3,6 +3,14 @@
 魔镜官网是**纯静态站点**（就是这个 git 仓库本身）。部署 = 克隆仓库 → nginx 托管 → 配 HTTPS。
 更新 = 在服务器上 `git pull`。可同时部署在多台服务器。
 
+> ⚠️ **仓库现在有构建，但服务器上不跑它。** 页面由 `node build.mjs` 从 `src/pages/**`
+> 生成，**产物跟源码一起提交** —— 正是为了让这一节写的东西一个字都不用改：服务器不装
+> node，nginx 不动，更新还是 `git pull`。
+>
+> 代价是作者必须记得 `pnpm build` 之后再提交。**判据**：`git status` 里只有 `src/` 的
+> 改动而根下的 `.html` 没跟着动，就是忘了构建 —— 那种情况下 `git pull` 拉过去的是旧页面，
+> 而仓库看起来完全正常。
+
 > ⚠️ **备案要求**：`mirror.kalandraeye.com` 的 DNS 必须解析到**已备案的大陆服务器 IP**，
 > 否则接入核查通不过。海外服务器（香港）只能作为**备份 / 分区解析的海外线路**，不能是国内主线路。
 
@@ -52,7 +60,7 @@ server {
     location / { try_files $uri $uri/ =404; }
 
     # 静态资源长缓存
-    location ~* \.(css|js|png|ico|jpg|jpeg|svg|webp|woff2?)$ {
+    location ~* \.(css|js|png|ico|jpg|jpeg|svg|webp|avif|woff2?)$ {
         expires 30d;
         add_header Cache-Control "public, max-age=2592000";
         access_log off;
@@ -143,7 +151,7 @@ server {
     gzip_types text/css application/javascript application/json image/svg+xml application/xml;
 
     location / { try_files $uri $uri/ =404; }
-    location ~* \.(css|js|png|ico|jpg|jpeg|svg|webp|woff2?)$ {
+    location ~* \.(css|js|png|ico|jpg|jpeg|svg|webp|avif|woff2?)$ {
         expires 30d; add_header Cache-Control "public, max-age=2592000"; access_log off;
     }
     location ~* \.html?$ { add_header Cache-Control "no-cache"; }
@@ -152,6 +160,116 @@ server {
 `sudo nginx -t && sudo systemctl reload nginx`。
 
 > 香港服务器无需上面这套：`sudo certbot --nginx -d mirror.kalandraeye.com`（HTTP-01）会**自动**写好 443 配置并自动续期。DNS-01 的坑只发生在大陆那台。
+
+### 静态资源的缓存与指纹
+
+`assets/*.css` 和 `*.js` 由构建加上内容指纹（`site.css?v=8f37b226bb`），指纹随字节变。
+
+⚠️ **别把这一段去掉换成"改完清一次 CDN"。** nginx 给 `assets/` 配的是 `expires 30d`，
+而文件名是固定的——老访客手里会出现「HTML 是新的、CSS 是旧的」这种组合，最长一个月。
+它的故障样子很吓人（新标记拿不到新样式，带 `width` 属性的图按原始尺寸把栅格顶爆）
+却完全不报错，开发时一次硬刷新就看不见了。
+
+### 三种语言的地址
+
+站点现在出三份：简中在裸路径（`/`、`/client.html`、`/guide/market.html`），英文在 `/en/`，
+繁中在 `/tw/`。**nginx 不用为此加任何规则** —— 它们就是磁盘上的目录，
+`location / { try_files $uri $uri/ =404; }` 加 `index index.html` 已经够了：
+`/en/` 落到 `en/index.html`，`/en` 由 nginx 自己 301 到 `/en/`。
+
+### 裸根按浏览器语言分流（为海外用户）
+
+海外访客直接打开 `mirror.kalandraeye.com` 会拿到简中。这一段让 nginx **只把裸根
+`/` 302 到对应语言**，其余地址一概不动。
+
+`map` 只能在 `http` 级，所以单独放一个文件：**`/etc/nginx/conf.d/mirror-lang.conf`**
+
+```nginx
+# Accept-Language 的首选语言 → 该去哪个前缀（空 = 简中，留在裸路径）
+map $http_accept_language $lang_pref {
+    default                   "/en";   # 既不是中文也不是英文：英文版更可能读得懂
+    "~*^zh-(hant|tw|hk|mo)"   "/tw";
+    "~*^zh"                   "";
+    "~*^en"                   "/en";
+}
+
+# 用户做过选择就按他选的来。这枚 cookie 由 assets/shell.js 写：
+# 点顶部提示条的「切换」、点它的 ×、或用导航栏的语言切换器，都算做出了选择。
+# ⚠️ 它不只是「别再跳了」—— 选过繁中的人回到裸根，要送去 /tw/ 而不是发简中。
+map $cookie_mirror_lang $lang_cookie {
+    default "";      # 没选过
+    "zh"    "-";     # 明确选了简中：留在裸路径，且别再按 Accept-Language 猜
+    "tw"    "/tw";
+    "en"    "/en";
+}
+
+# ⚠️ **爬虫不跳。** 不是为了给它们看别的东西（内容一字不差，也不是 cloaking），
+#    而是 Googlebot 抓取时带的是 `Accept-Language: en` —— 跳转会让它再也抓不到
+#    裸路径那几页，而那正是已经被收录的一批 URL。hreflang 已经把三份的对应关系
+#    告诉它了，它自己会挑对的那份给对的人。
+map $http_user_agent $lang_bot {
+    default "";
+    "~*(googlebot|bingbot|baiduspider|yandexbot|duckduckbot|slurp|sogou|360spider|bytespider|applebot|petalbot|ahrefsbot|semrushbot)" "bot";
+}
+
+# 拼起来定最终去向。两条规则按顺序试，第一条命中为准：
+#   ①「cookie 说了算」—— 选过就照选的走，不再看 Accept-Language
+#   ②「没选过、又不是爬虫」—— 才轮到 Accept-Language
+# 其余一律落 default（空）= 原样发简中。
+map "$lang_cookie|$lang_bot$lang_pref" $lang_go {
+    default             "";
+    "~^(/en|/tw)\|"     $1;
+    "~^\|(/en|/tw)$"    $1;
+}
+```
+
+`server {}` **里面**，放在 `location / {}` 之前：
+
+```nginx
+# ⚠️ 必须是 `location = /`（精确匹配）—— 它的优先级高于所有前缀和正则 location。
+# ⚠️ `Vary` 不能省：同一个 `/` 会按语言和 cookie 给出不同答复，
+#    少了它，CDN 会把第一个访客拿到的那份 302 发给所有人。
+# ⚠️ `add_header` 在 `if` 里外**各写一份**：`if` 里的 `return` 由 rewrite 模块
+#    直接出响应，拿不到 location 级的 `add_header` —— 少写就是 302 上没有 `Vary`，
+#    而那恰恰是最需要它的那个响应。
+location = / {
+    if ($lang_go) {
+        add_header Vary "Accept-Language, Cookie" always;
+        return 302 $lang_go/;
+    }
+    add_header Vary "Accept-Language, Cookie" always;
+    add_header Cache-Control "no-cache" always;
+    try_files /index.html =404;
+}
+```
+
+⚠️ **只跳裸根，不跳深链。** 别人分享的 `/en/client.html` 要原样打开 —— 按语言把它
+改道，等于把分享出去的链接变成一件不可预测的事。深层页面由页面顶部那条提示条负责
+（`shell.js` 的 `langHint`），它**只提示不跳转**。
+
+⚠️ **302 不是 301。** 这个答复取决于请求头，不是这个地址永久搬走了；发 301 会被
+浏览器和 CDN 永久记住，用户此后再也回不到裸根。
+
+验证（海外那台）：
+
+```bash
+H=https://mirror.kalandraeye.com
+curl -sI -H 'Accept-Language: en-US'  $H/ | head -3   # → 302 /en/
+curl -sI -H 'Accept-Language: zh-TW'  $H/ | head -3   # → 302 /tw/
+curl -sI -H 'Accept-Language: zh-CN'  $H/ | head -3   # → 200
+curl -sI -H 'Accept-Language: ja-JP'  $H/ | head -3   # → 302 /en/
+curl -sI -H 'Accept-Language: en-US' -H 'Cookie: mirror_lang=zh' $H/ | head -3   # → 200（选过了）
+curl -sI -H 'Accept-Language: en-US' -A 'Googlebot/2.1' $H/ | head -3            # → 200（爬虫不跳）
+curl -sI -H 'Accept-Language: zh-CN'  $H/en/client.html | head -3                # → 200（深链不动）
+```
+
+验证（三条都该是 200）：
+
+```bash
+for p in / /en/ /tw/ /client.html /en/client.html /tw/guide/market.html; do
+  printf '%-26s %s\n' "$p" "$(curl -s -o /dev/null -w '%{http_code}' https://mirror.kalandraeye.com$p)"
+done
+```
 
 ### 上线顺序（避免国内白屏）
 

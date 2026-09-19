@@ -1,0 +1,167 @@
+<!doctype html>
+<!--
+  ⚠️ 这个文件是 `node build.mjs` 生成的，**手改会在下一次构建时被覆盖**。
+  要改内容：src/pages/guide/market.tw.md
+  要改外壳（导航 / 页脚 / head）：src/shell.html + src/site.mjs
+-->
+<html lang="zh-Hant" data-lang="tw">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>魔鏡市集怎麼用 — 流亡黯道 2 按詞綴搜裝備、角色試裝、即時監聽</title>
+  <meta name="description" content="魔鏡市集（trade.kalandraeye.com）使用指南：詞綴池如何隨物品類別收窄、三個服如何切換、變更排序為何需重新檢索、即時監聽的啟用方式、聯絡賣家與前往藏身處，以及市集搜尋需要魔鏡客戶端在執行的原因。" />
+  <meta name="keywords" content="魔鏡市集,Mirror Market,流亡黯道2交易搜尋,POE2交易站,按詞綴搜裝備,類別投影,即時監聽,live search,角色試裝,Path of Building,聯絡賣家,前往藏身處,國際服,國服,台服,交易搜尋怎麼用" />
+  <meta name="author" content="Mirror" />
+  <link rel="canonical" href="https://mirror.kalandraeye.com/tw/guide/market.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://mirror.kalandraeye.com/guide/market.html" />
+  <link rel="alternate" hreflang="en" href="https://mirror.kalandraeye.com/en/guide/market.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://mirror.kalandraeye.com/tw/guide/market.html" />
+  <link rel="alternate" hreflang="x-default" href="https://mirror.kalandraeye.com/guide/market.html" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <meta name="theme-color" content="#08090d" />
+  <link rel="stylesheet" href="/assets/site.css?v=2a98372cf5" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="魔镜 · Mirror" />
+  <meta property="og:url" content="https://mirror.kalandraeye.com/tw/guide/market.html" />
+  <meta property="og:title" content="魔鏡市集怎麼用 — 流亡黯道 2 按詞綴搜裝備、角色試裝、即時監聽" />
+  <meta property="og:description" content="魔鏡市集（trade.kalandraeye.com）使用指南：詞綴池如何隨物品類別收窄、三個服如何切換、變更排序為何需重新檢索、即時監聽的啟用方式、聯絡賣家與前往藏身處，以及市集搜尋需要魔鏡客戶端在執行的原因。" />
+  <meta property="og:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="魔鏡市集怎麼用 — 流亡黯道 2 按詞綴搜裝備、角色試裝、即時監聽" />
+  <meta name="twitter:description" content="魔鏡市集（trade.kalandraeye.com）使用指南：詞綴池如何隨物品類別收窄、三個服如何切換、變更排序為何需重新檢索、即時監聽的啟用方式、聯絡賣家與前往藏身處，以及市集搜尋需要魔鏡客戶端在執行的原因。" />
+  <meta name="twitter:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+
+  <!-- Google Analytics 4 -->
+  <script>
+    window.GA_ID = "G-CYBLTV2J69";
+    if (window.GA_ID && window.GA_ID.indexOf("G-") === 0) {
+      var gaScript = document.createElement("script");
+      gaScript.async = true;
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + window.GA_ID;
+      document.head.appendChild(gaScript);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag("js", new Date());
+      gtag("config", window.GA_ID);
+    }
+  </script>
+</head>
+<body>
+  <div class="bg-fx">
+    <div class="aurora a1"></div><div class="aurora a2"></div>
+    <div class="grid-lines"></div>
+    <div class="embers" id="embers"></div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/tw/">
+        <img src="/assets/logo.png" alt="魔鏡" />
+        <span><span class="cn">魔鏡</span>
+          <span class="en">Mirror for POE1 &amp; POE2</span></span>
+      </a>
+      <div class="nav-links">
+        <a class="link" href="/tw/client.html"><span>客戶端</span></a>
+        <a class="link" href="/tw/web.html"><span>網站</span></a>
+        <a class="link" href="/tw/guide/"><span>使用指南</span></a>
+        <a class="btn btn-gold" href="/tw/download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg><span>下載</span></a>
+        <a class="link" href="/tw/about.html"><span>關於</span></a>
+        <div class="lang-switch">
+          <a href="/guide/market.html" hreflang="zh-Hans" lang="zh-Hans">简体</a>
+          <a href="/en/guide/market.html" hreflang="en" lang="en">EN</a>
+          <a href="/tw/guide/market.html" hreflang="zh-Hant" lang="zh-Hant" aria-current="true" class="on">繁體</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<main class="prose-page"><div class="wrap">
+<h1>魔鏡市集怎麼用</h1>
+<p>官方交易站的問題不在於功能不足，而在於<strong>條目過多</strong>：單個下拉選單包含數千條詞綴，其中絕大多數在目前物品類別上根本無法滾出。</p>
+<p>魔鏡市集只做一件事：<strong>表單隨物品收窄</strong>。選定弓後，詞綴池收窄至弓可滾出的 55 條、過濾器收窄至 32 個，「目標條目位於第幾個下拉選單」這一問題隨之消失。</p>
+<p>打開網址：<a href="https://trade.kalandraeye.com/tw">trade.kalandraeye.com</a></p>
+<h2>前提：需要客戶端在執行</h2>
+<p>市集搜尋與角色試裝<strong>需要魔鏡客戶端在執行</strong>。同一站點上的<a href="/tw/guide/loot-filter.html">掉落過濾器</a>與正則產生器無此要求，打開網頁即可使用。</p>
+<p>這一依賴的原因如下：</p>
+<ul>
+<li><strong>搜尋使用你本人的官方交易工作階段</strong>。每一次搜尋、翻頁與聯絡賣家，均由你本機的客戶端發出，使用你的帳號與 IP。我們的伺服器對官方交易介面<strong>不發起任何請求</strong>，這是合規要求。</li>
+<li><strong>角色試裝執行的是 Path of Building 本體</strong>，而非我們自行實作的傷害公式。該引擎駐留於客戶端行程內，無法在瀏覽器中承載。</li>
+</ul>
+<p>頁面首次打開時會自動連接本機客戶端。連線失敗時將顯示「連接客戶端」按鈕，點擊後會將客戶端喚至前台；若客戶端未啟動，則一併啟動。</p>
+<h2>搜一件東西</h2>
+<ol>
+<li>在頂部選擇<strong>類別</strong>（弓、法杖、戒指等）</li>
+<li>詞綴池與過濾器隨即收窄至該類別</li>
+<li>加入條件：所需詞綴、數值下限、價格上限、插槽、等級等</li>
+<li>搜尋</li>
+</ol>
+<p>三語檢索：物品名以英文、簡中、繁中任一語言輸入均可命中。同一物品在三個服的名稱差異往往很大（「獵首」與 &quot;Headhunter&quot;），此處無需先行翻譯。</p>
+<h2>三個服怎麼切</h2>
+<p>頂欄一個下拉選單，國際服 / 國服 / 台服。切過去之後：</p>
+<ul>
+<li>賽季列表按服重新取（各服的賽季不一樣）</li>
+<li>基底名按目標服的語言改寫</li>
+</ul>
+<p>⚠️ 台服和簡中<strong>不是繁簡轉換的關係</strong>。換界石 / 引路石、碑牌 / 石板、巨靈之幣 / 巨灵币——它們是兩套完全不同的詞。所以切服不只是換個開關，是整份名字目錄換掉。</p>
+<h2>排序：兩組，不能混著理解</h2>
+<p>頁面上有兩組排序，它們做的事完全不同：</p>
+<p><strong>GGG 的排序</strong>（價格、DPS、等級等）決定<strong>三千條中回傳哪一百條</strong>。變更排序鍵必須重新檢索，因為「最靠前的 100 條」隨排序而變。若需觸及第 100 條以外的結果，更換排序鍵重新檢索是唯一途徑。</p>
+<p><strong>本地排序</strong>（ΔDPS、ΔEHP、CP 值）僅重排<strong>已取回的十條結果</strong>。它們基於你的角色計算，因此只能作用於已取得的資料。</p>
+<p>⚠️ 這兩組<strong>未繪製為同一排同款按鈕</strong>，目的是避免「CP 值最高」被理解為全市場結論——該結論僅適用於已取回的這十條。</p>
+<h2>角色試裝</h2>
+<p>載入角色後，每條掛單將直接給出換裝後的 DPS 與有效血量變化。</p>
+<p>⚠️ 有一條必須知曉：<strong>Path of Building 對未滿足的屬性需求不作任何懲罰</strong>。一把力量不足、實際無法裝備的武器，POB 仍會給出 +40% DPS。因此頁面會單獨標出「無法裝備」——這不是註腳，而是結論。</p>
+<p>⚠️ 另需注意：角色頁上的天賦樹可點擊，但改動<strong>僅存在於頁面中</strong>，不會計入 DPS。該樹目前是一個可互動的檢視器。若需帶入遊戲，使用「同步到遊戲」按鈕——它會寫出一份 <code>.build</code> 檔案，在遊戲內按 <kbd>P</kbd> 即可查看走線。</p>
+<h2>即時監聽</h2>
+<p>檢索完成後可開啟即時監聽：符合本次搜尋條件的新掛單將自動送達，無需手動重新整理。</p>
+<p>監聽連線由客戶端持有（握手需要你的工作階段），因此<strong>關閉頁面即終止監聽</strong>。在賽季初或搜尋緊俏物品時，該功能遠優於反覆手動檢索。</p>
+<h2>聯絡賣家 / 前往藏身處</h2>
+<p>結果列上有這兩顆按鈕。</p>
+<p>⚠️ <strong>離線賣家的按鈕同樣不會停用</strong>，此為有意設計。實測中幾乎每一個「前往藏身處」憑據都屬於離線賣家，停用將導致該功能永遠無法使用。</p>
+<p>技術層面的原因：GGG 簽發的此類憑據有效期僅 300 秒，而一條掛單在螢幕上通常停留數小時。因此頁面不儲存該值，而是在點擊的瞬間即時取得並發送。</p>
+<h2>收藏和分享</h2>
+<p>搜尋條件可收藏並按資料夾整理，亦可發布為分享快照——<strong>分享頁免登入、無需客戶端</strong>，對方打開即可查看結果。可查看不等同於可檢索。</p>
+<hr>
+<p><strong>下一篇</strong>：<a href="/tw/guide/price-check.html">怎麼查一件裝備值多少錢</a> · <a href="/tw/guide/loot-filter.html">掉落過濾器怎麼裝</a></p>
+
+</div></main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-inner">
+        <a class="brand" href="/tw/">
+          <img src="/assets/logo.png" alt="魔鏡" style="width:26px;height:26px;border-radius:7px" />
+          <span><span class="cn">魔鏡 · Mirror</span></span>
+        </a>
+        <span>© <span id="year">2026</span> 魔鏡</span>
+      </div>
+      <div class="foot-social">
+        <a class="social-btn discord" href="https://discord.gg/RTqazvQKKE" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.3.5c1.8.4 2.6 1 3.5 1.7a13.3 13.3 0 0 0-4.6-1.1 13.6 13.6 0 0 0-4.6.4c-.5.1-1.2.3-2 .7-.4.2-.7.3-.7.3s.8-.6 2.7-1.1L9 3a19.8 19.8 0 0 0-4.9 1.4C2 8.9 1.3 13.3 1.6 17.6A19.9 19.9 0 0 0 7.7 21l.9-1.3c-1-.3-1.9-.7-2.7-1.2l.6-.4a14.2 14.2 0 0 0 12.2 0l.6.4c-.8.5-1.7.9-2.7 1.2l.9 1.3a19.9 19.9 0 0 0 6-3.4c.5-5-.7-9.3-3.8-13.2zM8.9 15c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm6.2 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/></svg>
+          <span>加入 Discord</span>
+        </a>
+        <a class="social-btn qq" id="qq-btn" href="#" onclick="copyQQ(event)" title="1057145969">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.395 15.035a39.55 39.55 0 00-.803-2.264l-1.079-2.695c.001-.032.014-.562.014-.836C19.526 4.632 17.351 0 12 0S4.474 4.632 4.474 9.241c0 .274.013.804.014.836l-1.08 2.695a38.97 38.97 0 00-.802 2.264c-1.021 3.283-.69 4.643-.438 4.673.54.065 2.103-2.472 2.103-2.472 0 1.469.756 3.387 2.394 4.771-.612.188-1.363.479-1.845.835-.434.32-.379.646-.301.778.343.578 5.883.369 7.482.189 1.6.18 7.14.389 7.483-.189.078-.132.132-.458-.301-.778-.483-.356-1.233-.646-1.846-.836 1.637-1.384 2.393-3.302 2.393-4.771 0 0 1.563 2.537 2.103 2.472.251-.03.581-1.39-.438-4.673z"/></svg>
+          <span class="qq-label">QQ 群 1057145969</span>
+          <span class="qq-copied">已複製群號 ✓</span>
+        </a>
+      </div>
+      <p class="foot-contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span>有任何問題或建議，歡迎聯繫：</span>
+        <a href="mailto:kalandraeye@gmail.com">kalandraeye@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="/assets/shell.js?v=14afd07232" defer></script>
+
+</body>
+</html>

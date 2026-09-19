@@ -1,0 +1,370 @@
+---
+title: Mirror — Path of Exile 1 & 2 (POE1·POE2) Price Checker, Trade Search & Overlay
+description: Mirror is a free price-check and trading toolset for Path of Exile 1 & 2. The Windows client overlays the game: one-key price checks, whole-screen scanning, a campaign guide, regex presets, currency rates, timers, drop tallies, wealth tracking, cheat sheets and an in-game build planner. The web app adds trade search by modifier, Path of Building character try-on, loot filter downloads and a regex generator. Global, China and Taiwan realms, in English, Simplified and Traditional Chinese.
+ogdesc: Free POE1 & POE2 price checker and trading toolset. Client: one-key pricing, screen scan, campaign guide, wealth tracking, build planner. Web: search by modifier, character try-on, loot filters, regex generator.
+keywords: path of exile 2,poe2,path of exile,poe1,price checker,poe2 price check,item pricing,trade search,official trade,overlay,screen scan,ocr,campaign guide,levelling guide,regex,map regex,waystone regex,currency exchange,timer,drop tally,wealth tracker,stash value,profit per hour,loot filter,neversink,filter download,filter sounds,regex generator,character try-on,path of building,pob,build planner,passive tree,cheat sheet,gamepad,mirror,mirror market,poe tool,poe2 tool
+jsonld: jsonld/home.html
+---
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="badge reveal d1"><span class="dot"></span>
+          Built for Path of Exile 1 &amp; 2 · client + web market
+        </div>
+        <h1 class="title reveal d2" style="font-size:clamp(30px,4vw,45px)">
+          Price it. Find it. Count it.<br>All in <span class="shine">Mirror</span>
+        </h1>
+        <p class="lead reveal d3">
+          Hover an item in game and press the hotkey: live listing prices from the official trade API appear over your screen. In the browser, search gear by modifier, evaluate an upgrade against your own character, and get loot filters and stash regex.
+        </p>
+        <div class="cta reveal d4">
+          <a class="btn btn-gold" href="/download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>Download now</a>
+          <a class="btn btn-ghost" href="/web.html">See the web market</a>
+        </div>
+        <div class="stats reveal d5">
+          <div class="stat"><div class="n" id="stat-downloads" data-count="0">–</div><div class="l">downloads</div></div>
+        </div>
+        <div class="realms reveal d5">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Supports <b>Global / China / Taiwan</b> · EN / SC / TC
+
+          <span class="gp-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h4M8 10v4"/><circle cx="15.5" cy="11" r="1"/><circle cx="17.5" cy="13.5" r="1"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+            Keyboard + gamepad
+          </span>
+        </div>
+      </div>
+      <div class="stage reveal d3">
+        <div class="stage-noise"></div>
+        <div class="hero-deck" data-interval="5000">
+          <div class="hero-track">
+            <div class="hero-slide is-mock">
+              <div style="position:relative">
+          <div class="overlay-card">
+            <div class="sweep"></div>
+            <div class="oc-head">
+              <div class="oc-name">Tempest Crown</div>
+              <div class="oc-base">Ornate Barbute</div>
+            </div>
+            <div class="oc-body">
+              <div class="oc-line">+89 to maximum Life</div>
+              <div class="oc-line">+42% to Cold Resistance</div>
+              <div class="oc-line">24% increased Rarity of Items found</div>
+              <div class="oc-line">+130 to Evasion Rating</div>
+            </div>
+            <div class="oc-price">
+              <span class="label">Market price</span>
+              <span class="val"><img src="/assets/divine.png" alt="" />≈ 2.5</span>
+            </div>
+          </div>
+          <div class="cursor-badge">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M4 2l7 18 2.5-7L20 10z"/></svg>Ctrl+D
+          </div>
+        </div>
+            </div>
+        <div class="hero-slide" data-shot>
+          <picture>
+            <source type="image/avif" srcset="/shots/hero-scan.avif" />
+            <source type="image/webp" srcset="/shots/hero-scan.webp" />
+            <img src="/shots/hero-scan.webp" alt="Mirror screen scan: one hotkey outlines every item on screen with its price, recognised entirely on your own machine" width="1200" height="900" decoding="async" loading="lazy" />
+          </picture>
+        </div>
+        <div class="hero-slide" data-shot>
+          <picture>
+            <source type="image/avif" srcset="/shots/hero-wealth.avif" />
+            <source type="image/webp" srcset="/shots/hero-wealth.webp" />
+            <img src="/shots/hero-wealth.webp" alt="Mirror wealth tracking: total asset value, income per hour and income per map" width="1200" height="900" decoding="async" loading="lazy" />
+          </picture>
+        </div>
+        <div class="hero-slide" data-shot>
+          <picture>
+            <source type="image/avif" srcset="/shots/hero-market.avif" />
+            <source type="image/webp" srcset="/shots/hero-market.webp" />
+            <img src="/shots/hero-market.webp" alt="Mirror Market: the modifier pool narrows with the item class, so gear is searched by modifier" width="1200" height="900" decoding="async" loading="lazy" />
+          </picture>
+        </div>
+          </div>
+          <div class="hero-dots"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 两个入口 -->
+  <section id="pick">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-eyebrow">Two ways in</div>
+      </div>
+      <div class="pick reveal">
+        <div class="pick-card">
+          <div class="kind">Windows client</div>
+          <h3>Mirror client</h3>
+          <p>An overlay drawn on top of the game. Hover an item, press the hotkey, and the price is returned — without switching windows or opening a browser.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>One-key pricing · whole-screen scan</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Campaign guide · regex presets · timers · currency rates</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Wealth tracking · drop tally · cheat sheets · market prices</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>One-click loot filter install · in-game build planner</li>
+          </ul>
+          <div class="acts">
+            <a class="btn btn-gold" href="/download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>Download the client</a>
+            <a class="more" href="/client.html">All features →</a>
+          </div>
+        </div>
+        <div class="pick-card">
+          <div class="kind">Browser</div>
+          <h3>Mirror Web</h3>
+          <p>Four tools: a market that searches by modifier, a character page that evaluates gear against your build, loot filter downloads and a regex generator.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Market: modifiers filtered automatically by item class, plus AI search</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Character: load yours, and searched gear reports the DPS and EHP change</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Filters: Pushing / Farming / Speed, kept current with economy data, sound versions included</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Regex: no regex syntax to learn — choose conditions, get the expression</li>
+          </ul>
+          <div class="acts">
+            <a class="btn btn-ghost" href="https://trade.kalandraeye.com/en/filters" target="_blank" rel="noopener">Open the web app</a>
+            <a class="more" href="/web.html">What it does →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 功能一览 -->
+  <section id="features">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-eyebrow">At a glance</div>
+      </div>
+      <div class="feat-group key reveal"><span>Core</span><i></i></div>
+      <div class="feat-lead reveal">
+        <div class="item">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></svg></div>
+          <h4>Campaign guide</h4>
+          <p>Zone quest and reward guidance.<br>Custom build skill sets to speed up levelling.</p>
+        </div>
+        <div class="item">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 12 22l-9-9V4a1 1 0 0 1 1-1h8.6z"/><circle cx="7.5" cy="7.5" r="1.4"/></svg></div>
+          <h4>Item pricing</h4>
+          <p>One hotkey, with the right modifiers pre-selected — faster and more accurate.<br>Works for currency and every other kind of item.</p>
+        </div>
+        <div class="item">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M6 17V9"/><path d="M11 17V5"/><path d="M16 17v-6"/></svg></div>
+          <h4>Wealth tracking</h4>
+          <p>Values the items in your stash and shows which strategy actually pays.<br>Works in PoE1 and PoE2.</p>
+        </div>
+      </div>
+      <div class="feat-group more reveal"><span>Also included</span><i></i></div>
+      <div class="feat-rest reveal">
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Market search<em>Web</em></h4>
+          <p>Full multi-language support, Chinese included — a faster way to search</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 4.5 3.4 7.5 8 8 4.6-.5 8-3.5 8-8V7z"/><path d="m9 12 2 2 4-4"/></svg>character try-on<em>Web</em></h4>
+          <p>Load your character and searched gear reports the DPS and EHP change</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5 4 12l4 7M16 5l4 7-4 7"/></svg>regex generator<em>Web</em></h4>
+          <p>No regex syntax to learn — choose conditions and the expression is generated.</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M12 7v4m0 0-5 5m5-5 5 5"/></svg>Build planner</h4>
+          <p>Plan your passives and sync them straight into the game.</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8V5a2 2 0 0 1 2-2h3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M21 16v3a2 2 0 0 1-2 2h-3"/><path d="M7 12h10"/></svg>Screen price check</h4>
+          <p>One key recognises the items on screen and prices them.</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m6 15 4-4 3 3 2-2 3 3"/></svg>Custom cheat sheets</h4>
+          <p>Upload your own images and pull them up mid-run.</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>Live market prices</h4>
+          <p>Prices for currency, uniques and more, grouped by mechanic — a read on what each strategy pays</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5 4 12l4 7M16 5l4 7-4 7"/></svg>Regex presets</h4>
+          <p>Go-to expressions as chips over the game, copied into a search box in one click</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m7 8 4 4-4 4"/><path d="M13 16h4"/><rect x="2" y="4" width="20" height="16" rx="3"/></svg>Quick commands</h4>
+          <p>One click back to your hideout; chat commands send on click</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/><path d="M8.5 11h5"/></svg>Quick lookup</h4>
+          <p>Type an item name; fuzzy matching across three languages, then copy or search</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v8m-3-6 3-2 3 2"/></svg>Drop tally</h4>
+          <p>Track what a farming target pays, with run counts logged automatically.</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>Timers</h4>
+          <p>Times each act while levelling, and each map afterwards.</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18l-7 8v7l-4 2v-9z"/></svg>Loot filters</h4>
+          <p>Customised from NeverSink's, updated daily from market prices and synced into the game automatically.</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg>Live currency rates</h4>
+          <p>Currency-to-currency ratios, readable at a glance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- SAFETY -->
+  <section id="safety">
+    <div class="wrap">
+      <div class="safety reveal">
+        <div class="shield"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div>
+          <h3>🛡 Safe by design · never touches the game process</h3>
+          <p>Mirror <b>never injects into, reads or modifies the game process or memory, and never modifies any game file</b>. It only ever: reads the game log, reads item text you <b>copy yourself</b>, and captures one screen frame for <b>local</b> OCR when you press the scan hotkey. All price lookups go through the <b>official trade API</b>, exactly the way the official trade site works.</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 指南入口 -->
+  <section id="learn">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-eyebrow">Getting started</div>
+        <h2 class="sec-title">More features, described in detail</h2>
+      </div>
+      <div style="text-align:center" class="reveal">
+        <a class="btn btn-gold" href="/guide/">Open the guides</a>
+      </div>
+    </div>
+  </section>
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-eyebrow">FAQ</div>
+        <h2 class="sec-title">Frequently asked</h2>
+      </div>
+      <div class="faq reveal">
+        <details class="qa">
+          <summary><span>Will using Mirror get me banned?</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            Mirror never injects into or modifies the game process, memory or files. It only reads the game log, item text you copy yourself, and one screen frame for local OCR when you press the scan hotkey; pricing uses the official trade API — the same way the official trade site works. Always follow the game's Terms of Service.
+
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>Which realms and languages are supported?</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            Global, China and Taiwan realms, with an English, Simplified Chinese or Traditional Chinese interface. China-realm trade search needs a valid session cookie in settings.
+
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>What's the difference between the Mirror client and Mirror Web?</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            <b>Mirror client</b> is a Windows overlay application covering in-game operations: hover pricing, screen scanning, the campaign guide, regex presets, timers, currency rates, drop tallies, wealth tracking, cheat sheets, and writing loot filters and build plans into the game. <b>Mirror Web</b> (<a class="inline" href="https://trade.kalandraeye.com/en/" target="_blank" rel="noopener">trade.kalandraeye.com</a>) runs in the browser and contains four tools: a market that searches by modifier, a character page that evaluates gear via Path of Building, loot filter downloads and a regex generator. Both share one account.
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>Do I have to install the client to use Mirror Web?</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            Not always — it depends which tool. <b>Loot filter downloads</b> and <b>regex generator</b> work from the browser alone. <b>Market search</b> and <b>character try-on</b> require the client to be running: searches use your own official trade session (our servers issue no requests at all to the official trade API — a compliance requirement), and the Path of Building engine likewise runs inside the client process.
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>Does it support Path of Exile 1 (POE1)?</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            Yes. Mirror supports both Path of Exile 1 and 2, and most features (pricing, screen scan, campaign guide, regex presets, currency rates, timers, drop tallies, loot filters, wealth tracking) work in both. <b>Wealth tracking</b> is available in both; only the source of the assets differs — Path of Exile 1 reads your stash, Path of Exile 2 reads your public listings on the trade site. Either way you get tracked-asset value, profit over the period, and income per hour and per map. POE1 additionally values <b>Thaumaturgic Dust</b> and <b>mercenary warrants</b>.
+
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>Where does the installer come from?</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            From this site — download, run, done. All it needs is Windows 10 / 11.
+
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>Is Mirror free?</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            Yes. The download, item pricing, screen scanning, the campaign guide, regex presets, currency rates, timers, drop tallies, quick search, market prices and wealth tracking are all available as-is; several of them carry a quantity limit on the free tier. <b>Membership</b> unlocks Mirror Market (class-projected search, character try-on, the AI assistant), one-click loot-filter installs into the game and your GGG account, config cloud sync, faster market refresh, and higher limits on the features above; AI features are metered by usage. The loot filters themselves are not paid — anyone can download the files (sound packs included) from this site or the web app and drop them into the game folder by hand.
+
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>How do I use Mirror?</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            Download, install and run — the hotkeys are preconfigured. Hover an item in game and press the hotkey to price it; press Ctrl+D to scan and price a whole screen.
+
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>Does it work with a gamepad?</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            Yes. Pricing and every other feature can be triggered from either a keyboard shortcut or a gamepad button.
+
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>Do you upload my screenshots or data?</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            No. Item recognition runs entirely on your own PC; no screenshots or account details are uploaded, and pricing only calls the official trade API.
+
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>Why does the Tencent (CN) realm need administrator rights?</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            That client runs elevated. Unless Mirror is started at the same level, hotkeys and overlays have no effect over the game window.
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>Will it cover a fullscreen game?</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            No. Overlays are anchored to the game's client area — in fullscreen that is the whole monitor — and they hide themselves when you switch away.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>  <!-- DOWNLOAD -->
+  <section id="download">
+    <div class="wrap">
+      <div class="dl-panel reveal">
+        <div>
+          <h2>Download Mirror</h2>
+          <p class="desc">Ready to use as soon as it is downloaded.</p>
+
+          <div class="dl-actions">
+            <a class="btn btn-gold" id="dl-btn" href="/download.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              Go to downloads
+            </a>
+          </div>
+        </div>
+        <div class="req">
+          <h4>Requirements</h4>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Windows 10 / 11 (64-bit)</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>The Path of Exile 1 or 2 PC client</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,160 @@
+---
+title: 魔鏡網站 — 流亡黯道 2 交易搜尋 · 角色試裝 · 掉落過濾器 · 正則產生器
+description: 魔鏡網站是《流亡黯道》2 的網頁工具集：按詞綴搜裝備的市集（詞綴池跟著物品類別收窄，三個服隨時切）、用你自己的角色跑真 Path of Building 做試裝的角色頁、基於 NeverSink 定製的掉落過濾器下載（開荒 / 刷圖 / 速刷，含語音版）、倉庫搜尋正則產生器。過濾器與正則打開就能用；市集與角色需要魔鏡客戶端在執行，因為搜尋走你自己的官方交易工作階段。
+ogdesc: 流亡黯道 2 網頁工具集：按詞綴搜裝備的市集、角色 Path of Building 試裝、NeverSink 定製掉落過濾器下載、正則產生器。過濾器與正則免安裝直接用。
+keywords: 魔鏡市集,魔鏡網站,Mirror Market,流亡黯道2交易,POE2交易搜尋,按詞綴搜裝備,類別投影,即時監聽,角色試裝,試裝,Path of Building,POB,掉落過濾器,撿取過濾,NeverSink,過濾器下載,語音包,正則產生器,流亡黯道2正則,POE2正則,換界石正則,碑牌正則,聖物,巨靈之幣,最後通牒,倉庫搜尋,regex generator,poe2 regex,trade search
+jsonld: jsonld/web.html
+---
+  <header class="hero" id="top" style="padding-bottom:10px">
+    <div class="wrap" style="max-width:840px;text-align:center">
+      <div class="badge reveal d1"><span class="dot"></span>瀏覽器 · 免安裝</div>
+      <h1 class="title reveal d2" style="font-size:clamp(30px,4.2vw,46px)">魔鏡網站</h1>
+      <p class="lead reveal d3" style="margin-inline:auto">
+        更便捷的市集搜尋，角色試裝，一鍵分享，過濾每日更新下載，正則快速產生
+      </p>
+      <div class="cta reveal d4" style="justify-content:center">
+        <a class="btn btn-gold" href="https://trade.kalandraeye.com/tw/filters" target="_blank" rel="noopener">打開魔鏡網站</a>
+      </div>
+      <p class="cta-note reveal d4">需下載客戶端配合使用</p>
+    </div>
+  </header>
+
+  <section id="tools">
+    <div class="wrap">
+      <div class="tools reveal">
+      <div class="tool">
+        <div class="tool-head"><h3>市集搜尋</h3><span class="need pair"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 0 1 0 10h-2"/><path d="M8 12h8"/></svg>需要安裝客戶端</span></div>
+        <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>選擇物品類型，自動篩選物品詞綴，搜尋更方便</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>搜尋條件保存，一鍵保存搜尋</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>購買更明確，載入角色，搜尋物品展示 DPS 和 EHP 變化</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>一個市集，同時支援國際服、國服</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>支援多種語言</li>
+        </ul>
+        <a class="go" href="https://trade.kalandraeye.com/tw/" target="_blank" rel="noopener">打開市集 →</a>
+      </div>
+      <div class="tool">
+        <div class="tool-head"><h3>角色 · 試裝</h3><span class="need pair"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 0 1 0 10h-2"/><path d="M8 12h8"/></svg>需要安裝客戶端</span></div>
+        <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>載入角色，計算技能傷害，角色防禦等</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>與市集聯動，基於角色試裝</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>展示編輯角色天賦樹，編輯後快速同步到遊戲</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>一鍵分享角色 BD</li>
+        </ul>
+        <a class="go" href="https://trade.kalandraeye.com/tw/" target="_blank" rel="noopener">打開角色頁 →</a>
+      </div>
+      <div class="tool">
+        <div class="tool-head"><h3>掉落過濾器</h3></div>
+        <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>適配遊戲不同階段，劇情開荒，異界提升，後期速刷</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>提供自訂語音版，支援自訂修改提示語音</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>每日根據物價即時更新，免費下載</li>
+        </ul>
+        <a class="go" href="https://trade.kalandraeye.com/tw/filters" target="_blank" rel="noopener">下載過濾器 →</a>
+      </div>
+      <div class="tool">
+        <div class="tool-head"><h3>正則產生器</h3></div>
+        <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>無需了解正則語法，選擇即產生正則</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>支援各種物品種類正則產生</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>支援產生簡中、繁中、英文正則</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>快速同步到魔鏡客戶端中常用正則</li>
+        </ul>
+        <a class="go" href="https://trade.kalandraeye.com/tw/regex" target="_blank" rel="noopener">打開正則產生器 →</a>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ai">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-eyebrow">AI 助手</div>
+        <h2 class="sec-title">全方位 AI 智慧助手</h2>
+      </div>
+<div class="feature reveal">
+        <div>
+          <h3>一句話，找到你想要的裝備<span class="poe1-chip">魔鏡市集</span></h3>
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>描述想要的裝備，自動填充搜尋詞綴</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>支援多種物品種類搜尋</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>根據正則表示式搜尋市集<span class="soon-chip">後續開發支援</span></li>
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <picture>
+            <source type="image/avif" srcset="/shots/ai.avif" />
+            <source type="image/webp" srcset="/shots/ai.webp" />
+            <img src="/shots/ai.webp" alt="魔鏡市集 AI 助手：一句話自動填好《流亡黯道 2》交易搜尋表單" width="1440" height="900" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph">
+            <div class="ai-chat">
+              <div class="ai-q">閃電法杖要爆擊，10 神聖以內</div>
+
+              <div class="ai-a">已產生交易搜尋 · 符合 42 件 <span class="dots"><span></span><span></span><span></span></span></div>
+            </div>
+          </div>
+          <div class="demo-hint">示意圖 · 實拍截圖待補</div>
+        </div>
+      </div>
+<div class="feature flip reveal">
+        <div>
+          <h3>BD 助手，角色分析<span class="soon-chip">後續開發支援</span></h3>
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>智慧分析角色資料，提供角色提升建議</li>
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <picture>
+            <source type="image/avif" srcset="/shots/ai-character.avif" />
+            <source type="image/webp" srcset="/shots/ai-character.webp" />
+            <img src="/shots/ai-character.webp" alt="魔鏡 AI 角色分析：讀取角色資料並給出提升建議" width="1440" height="900" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph shimmer"></div>
+          <div class="demo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20a7 7 0 0 1 14 0"/><path d="M19 4.5 20 7l2.5 1-2.5 1-1 2.5-1-2.5L15.5 8 18 7z"/></svg></div>
+          <div class="demo-hint">示意圖 · 實拍截圖待補</div>
+        </div>
+      </div>
+
+<div class="feature reveal">
+        <div>
+          <h3>BD 快速匯入魔鏡<span class="soon-chip">後續開發支援</span></h3>
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>提供 BD 文件，智慧分析 BD</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>匯入魔鏡客戶端開荒 BD</li>
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <picture>
+            <source type="image/avif" srcset="/shots/ai-build.avif" />
+            <source type="image/webp" srcset="/shots/ai-build.webp" />
+            <img src="/shots/ai-build.webp" alt="魔鏡 AI BD 助手：分析構築文件並匯入客戶端開荒 BD" width="1440" height="900" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph shimmer"></div>
+          <div class="demo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h9l5 5v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M14 4v5h5"/><path d="M8 13h6M8 17h4"/></svg></div>
+          <div class="demo-hint">示意圖 · 實拍截圖待補</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="get">
+    <div class="wrap">
+      <div class="dl-panel reveal">
+        <div>
+          <h2>安裝客戶端</h2>
+          <div class="dl-actions">
+            <a class="btn btn-gold" href="/download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>下載客戶端</a>
+          </div>
+        </div>
+        <div class="req">
+          <h4>網站功能需配合客戶端使用</h4>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>市集搜尋</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>角色資料載入與計算</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>過濾自動同步</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>

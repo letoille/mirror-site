@@ -1,0 +1,181 @@
+<!doctype html>
+<!--
+  ⚠️ 这个文件是 `node build.mjs` 生成的，**手改会在下一次构建时被覆盖**。
+  要改内容：src/pages/guide/loot-filter.tw.md
+  要改外壳（导航 / 页脚 / head）：src/shell.html + src/site.mjs
+-->
+<html lang="zh-Hant" data-lang="tw">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>流亡黯道 2 掉落過濾器怎麼裝 — 魔鏡 / NeverSink 定製版指南</title>
+  <meta name="description" content="《流亡黯道》2 掉落過濾器安裝指南：開荒 / 刷圖 / 速刷三份怎麼選、帶語音的版本是什麼、由客戶端一鍵裝進遊戲與 GGG 帳號和手動放進目錄的區別、遊戲裡怎麼切換、什麼時候該換一份。基於 NeverSink 過濾定製。" />
+  <meta name="keywords" content="流亡黯道2掉落過濾器,POE2過濾器,掉落過濾,撿取過濾,過濾器怎麼裝,NeverSink,過濾器下載,語音包,filter怎麼用,poe2 loot filter,poe2 item filter,開荒過濾,刷圖過濾,速刷過濾" />
+  <meta name="author" content="Mirror" />
+  <link rel="canonical" href="https://mirror.kalandraeye.com/tw/guide/loot-filter.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://mirror.kalandraeye.com/guide/loot-filter.html" />
+  <link rel="alternate" hreflang="en" href="https://mirror.kalandraeye.com/en/guide/loot-filter.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://mirror.kalandraeye.com/tw/guide/loot-filter.html" />
+  <link rel="alternate" hreflang="x-default" href="https://mirror.kalandraeye.com/guide/loot-filter.html" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <meta name="theme-color" content="#08090d" />
+  <link rel="stylesheet" href="/assets/site.css?v=2a98372cf5" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="魔镜 · Mirror" />
+  <meta property="og:url" content="https://mirror.kalandraeye.com/tw/guide/loot-filter.html" />
+  <meta property="og:title" content="流亡黯道 2 掉落過濾器怎麼裝 — 魔鏡 / NeverSink 定製版指南" />
+  <meta property="og:description" content="《流亡黯道》2 掉落過濾器安裝指南：開荒 / 刷圖 / 速刷三份怎麼選、帶語音的版本是什麼、由客戶端一鍵裝進遊戲與 GGG 帳號和手動放進目錄的區別、遊戲裡怎麼切換、什麼時候該換一份。基於 NeverSink 過濾定製。" />
+  <meta property="og:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="流亡黯道 2 掉落過濾器怎麼裝 — 魔鏡 / NeverSink 定製版指南" />
+  <meta name="twitter:description" content="《流亡黯道》2 掉落過濾器安裝指南：開荒 / 刷圖 / 速刷三份怎麼選、帶語音的版本是什麼、由客戶端一鍵裝進遊戲與 GGG 帳號和手動放進目錄的區別、遊戲裡怎麼切換、什麼時候該換一份。基於 NeverSink 過濾定製。" />
+  <meta name="twitter:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+
+  <!-- Google Analytics 4 -->
+  <script>
+    window.GA_ID = "G-CYBLTV2J69";
+    if (window.GA_ID && window.GA_ID.indexOf("G-") === 0) {
+      var gaScript = document.createElement("script");
+      gaScript.async = true;
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + window.GA_ID;
+      document.head.appendChild(gaScript);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag("js", new Date());
+      gtag("config", window.GA_ID);
+    }
+  </script>
+</head>
+<body>
+  <div class="bg-fx">
+    <div class="aurora a1"></div><div class="aurora a2"></div>
+    <div class="grid-lines"></div>
+    <div class="embers" id="embers"></div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/tw/">
+        <img src="/assets/logo.png" alt="魔鏡" />
+        <span><span class="cn">魔鏡</span>
+          <span class="en">Mirror for POE1 &amp; POE2</span></span>
+      </a>
+      <div class="nav-links">
+        <a class="link" href="/tw/client.html"><span>客戶端</span></a>
+        <a class="link" href="/tw/web.html"><span>網站</span></a>
+        <a class="link" href="/tw/guide/"><span>使用指南</span></a>
+        <a class="btn btn-gold" href="/tw/download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg><span>下載</span></a>
+        <a class="link" href="/tw/about.html"><span>關於</span></a>
+        <div class="lang-switch">
+          <a href="/guide/loot-filter.html" hreflang="zh-Hans" lang="zh-Hans">简体</a>
+          <a href="/en/guide/loot-filter.html" hreflang="en" lang="en">EN</a>
+          <a href="/tw/guide/loot-filter.html" hreflang="zh-Hant" lang="zh-Hant" aria-current="true" class="on">繁體</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<main class="prose-page"><div class="wrap">
+<h1>掉落過濾器怎麼裝</h1>
+<p>《流亡黯道》2 中，單張地圖掉落的物品絕大多數不具備撿取價值。掉落過濾器決定<strong>哪些顯示、哪些完全不繪製於地面</strong>，並可為高價值物品附加提示音與光柱。</p>
+<p>這是本作中<strong>效益最高的一項設定</strong>：一次安裝，此後每張地圖均可節省時間。</p>
+<h2>我們發的是什麼</h2>
+<p>我們不自行撰寫過濾規則，而是轉發 <strong><a href="https://github.com/NeverSinkDev">NeverSink</a></strong> 的版本——社群公認的那一份，採用 MIT 授權。我們所做的是依據目前經濟資料定製，並劃分為三份：</p>
+<table>
+<thead>
+<tr>
+<th>哪一份</th>
+<th>適合什麼時候</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>開荒</strong></td>
+<td>自開局至異界 T15。顯示範圍較寬，避免遺漏</td>
+</tr>
+<tr>
+<td><strong>刷圖</strong></td>
+<td>T15 階段：升級裝備、累積通貨、補齊配裝所缺部件</td>
+</tr>
+<tr>
+<td><strong>速刷</strong></td>
+<td>配裝成型之後。僅保留高價值物品，地面顯著簡潔</td>
+</tr>
+</tbody>
+</table>
+<p>每一份另提供<strong>帶語音的版本</strong>：高價值物品掉落時給出語音提示。</p>
+<p>⚠️ 語音版只有《流亡黯道》2 有。POE1 不支援自訂提示音，所以那幾份不會出現在介面裡。</p>
+<p><strong>三份可同時安裝</strong>，遊戲內隨時切換，無需預先取捨：開荒階段使用開荒，進入刷圖階段後更換即可。</p>
+<h2>方式一：客戶端一鍵安裝（建議）</h2>
+<p>打開魔鏡客戶端 →「過濾」頁 → 選一份 → 裝。</p>
+<p>客戶端將執行兩項操作：寫入遊戲目錄，並推送至你的 GGG 帳號，以便在其他裝置登入時同樣可用。裝入遊戲後的名稱形如 <code>魔鏡 - 開荒</code>，帶語音的版本為 <code>魔鏡 - 開荒語音版</code>。</p>
+<p>此後客戶端將持續追蹤版本：上游更新、介面語言變更或語音包更換時，均會提示重新安裝。</p>
+<blockquote>
+<p>查看是否存在新版本無需登入；<strong>安裝</strong>則需要登入並開通。兩者分開處理：過濾檔案本身不收費，詳見下一節。</p>
+</blockquote>
+<h2>方式二：手動放入目錄</h2>
+<p>若不希望登入，或僅需試用，可直接下載檔案：</p>
+<p><strong><a href="https://trade.kalandraeye.com/tw/filters">trade.kalandraeye.com/tw/filters</a></strong></p>
+<p>三份及其語音版均可自由下載。下載後放入：</p>
+<pre><code>Documents/My Games/Path of Exile 2/
+</code></pre>
+<p>⚠️ 若已啟用 OneDrive 備份，<code>Documents</code> 可能已被重新導向至其他位置。請以遊戲內能否識別為準，不要手動拼接路徑。</p>
+<p>語音版的 mp3 也放同一個目錄。</p>
+<h2>在遊戲裡切換</h2>
+<p><kbd>Esc</kbd> → <strong>選項</strong> → <strong>介面</strong> → 從下拉選單裡選中它。</p>
+<p>安裝幾份即有幾個選項，可隨時切換，無需重開遊戲。</p>
+<h2>什麼時候該換一份</h2>
+<ul>
+<li><strong>地面物品過多、難以辨識</strong> → 向「速刷」方向調整</li>
+<li><strong>疑似遺漏應撿取的物品</strong> → 向「開荒」方向調整</li>
+<li><strong>賽季初</strong> → 先用開荒，T15 穩定後更換為刷圖</li>
+<li><strong>上游更新</strong> → 客戶端會提示；手動安裝者可定期查看下載頁</li>
+</ul>
+<h2>常見問題</h2>
+<p><strong>安裝後沒有變化。</strong> 請先確認遊戲內已選中該過濾器（見上一節三步）。過濾器不會自動生效，必須在選項中選定。</p>
+<p><strong>沒有提示音。</strong> mp3 需與過濾檔案位於同一目錄。此外我們疊加的是「可選提示音」，檔案缺失不會使整條規則失聲，因此也可能只是未觸發該條規則。</p>
+<p><strong>是否存在封號風險。</strong> 掉落過濾器是<strong>遊戲官方支援的功能</strong>，Esc 選單中的下拉選單即由官方提供。它只是一個文字檔，不接觸遊戲行程。</p>
+<hr>
+<p><strong>下一篇</strong>：<a href="/tw/guide/price-check.html">怎麼查一件裝備值多少錢</a> · <a href="/tw/guide/market.html">魔鏡市集怎麼用</a></p>
+
+</div></main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-inner">
+        <a class="brand" href="/tw/">
+          <img src="/assets/logo.png" alt="魔鏡" style="width:26px;height:26px;border-radius:7px" />
+          <span><span class="cn">魔鏡 · Mirror</span></span>
+        </a>
+        <span>© <span id="year">2026</span> 魔鏡</span>
+      </div>
+      <div class="foot-social">
+        <a class="social-btn discord" href="https://discord.gg/RTqazvQKKE" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.3.5c1.8.4 2.6 1 3.5 1.7a13.3 13.3 0 0 0-4.6-1.1 13.6 13.6 0 0 0-4.6.4c-.5.1-1.2.3-2 .7-.4.2-.7.3-.7.3s.8-.6 2.7-1.1L9 3a19.8 19.8 0 0 0-4.9 1.4C2 8.9 1.3 13.3 1.6 17.6A19.9 19.9 0 0 0 7.7 21l.9-1.3c-1-.3-1.9-.7-2.7-1.2l.6-.4a14.2 14.2 0 0 0 12.2 0l.6.4c-.8.5-1.7.9-2.7 1.2l.9 1.3a19.9 19.9 0 0 0 6-3.4c.5-5-.7-9.3-3.8-13.2zM8.9 15c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm6.2 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/></svg>
+          <span>加入 Discord</span>
+        </a>
+        <a class="social-btn qq" id="qq-btn" href="#" onclick="copyQQ(event)" title="1057145969">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.395 15.035a39.55 39.55 0 00-.803-2.264l-1.079-2.695c.001-.032.014-.562.014-.836C19.526 4.632 17.351 0 12 0S4.474 4.632 4.474 9.241c0 .274.013.804.014.836l-1.08 2.695a38.97 38.97 0 00-.802 2.264c-1.021 3.283-.69 4.643-.438 4.673.54.065 2.103-2.472 2.103-2.472 0 1.469.756 3.387 2.394 4.771-.612.188-1.363.479-1.845.835-.434.32-.379.646-.301.778.343.578 5.883.369 7.482.189 1.6.18 7.14.389 7.483-.189.078-.132.132-.458-.301-.778-.483-.356-1.233-.646-1.846-.836 1.637-1.384 2.393-3.302 2.393-4.771 0 0 1.563 2.537 2.103 2.472.251-.03.581-1.39-.438-4.673z"/></svg>
+          <span class="qq-label">QQ 群 1057145969</span>
+          <span class="qq-copied">已複製群號 ✓</span>
+        </a>
+      </div>
+      <p class="foot-contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span>有任何問題或建議，歡迎聯繫：</span>
+        <a href="mailto:kalandraeye@gmail.com">kalandraeye@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="/assets/shell.js?v=14afd07232" defer></script>
+
+</body>
+</html>

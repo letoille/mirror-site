@@ -1,0 +1,205 @@
+<!doctype html>
+<!--
+  ⚠️ 这个文件是 `node build.mjs` 生成的，**手改会在下一次构建时被覆盖**。
+  要改内容：src/pages/about.tw.html
+  要改外壳（导航 / 页脚 / head）：src/shell.html + src/site.mjs
+-->
+<html lang="zh-Hant" data-lang="tw">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>關於魔鏡 Mirror — 流亡黯道 1 &amp; 2 (POE1·POE2) 查價懸浮窗與網頁市集</title>
+  <meta name="description" content="關於魔鏡 Mirror：《流亡黯道》1 &amp; 2（POE1 · POE2）桌面查價懸浮窗助手，另配有網頁版魔鏡市集。了解它是什麼、能做什麼、支援哪些伺服器與語言、安全與隱私承諾、收費方式，以及聯絡方式。" />
+  <meta name="keywords" content="關於魔鏡,魔鏡是什麼,Mirror POE,流亡黯道輔助,安全,隱私,不注入,官方市集API,非官方粉絲工具,聯絡方式,Discord,QQ群" />
+  <meta name="author" content="Mirror" />
+  <link rel="canonical" href="https://mirror.kalandraeye.com/tw/about.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://mirror.kalandraeye.com/about.html" />
+  <link rel="alternate" hreflang="en" href="https://mirror.kalandraeye.com/en/about.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://mirror.kalandraeye.com/tw/about.html" />
+  <link rel="alternate" hreflang="x-default" href="https://mirror.kalandraeye.com/about.html" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <meta name="theme-color" content="#08090d" />
+  <link rel="stylesheet" href="/assets/site.css?v=2a98372cf5" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="魔镜 · Mirror" />
+  <meta property="og:url" content="https://mirror.kalandraeye.com/tw/about.html" />
+  <meta property="og:title" content="關於魔鏡 Mirror — 流亡黯道 1 &amp; 2 (POE1·POE2) 查價懸浮窗與網頁市集" />
+  <meta property="og:description" content="關於魔鏡 Mirror：《流亡黯道》1 &amp; 2（POE1 · POE2）桌面查價懸浮窗助手，另配有網頁版魔鏡市集。了解它是什麼、能做什麼、支援哪些伺服器與語言、安全與隱私承諾、收費方式，以及聯絡方式。" />
+  <meta property="og:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="關於魔鏡 Mirror — 流亡黯道 1 &amp; 2 (POE1·POE2) 查價懸浮窗與網頁市集" />
+  <meta name="twitter:description" content="關於魔鏡 Mirror：《流亡黯道》1 &amp; 2（POE1 · POE2）桌面查價懸浮窗助手，另配有網頁版魔鏡市集。了解它是什麼、能做什麼、支援哪些伺服器與語言、安全與隱私承諾、收費方式，以及聯絡方式。" />
+  <meta name="twitter:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+
+  <!-- Google Analytics 4 -->
+  <script>
+    window.GA_ID = "G-CYBLTV2J69";
+    if (window.GA_ID && window.GA_ID.indexOf("G-") === 0) {
+      var gaScript = document.createElement("script");
+      gaScript.async = true;
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + window.GA_ID;
+      document.head.appendChild(gaScript);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag("js", new Date());
+      gtag("config", window.GA_ID);
+    }
+  </script>
+</head>
+<body>
+  <div class="bg-fx">
+    <div class="aurora a1"></div><div class="aurora a2"></div>
+    <div class="grid-lines"></div>
+    <div class="embers" id="embers"></div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/tw/">
+        <img src="/assets/logo.png" alt="魔鏡" />
+        <span><span class="cn">魔鏡</span>
+          <span class="en">Mirror for POE1 &amp; POE2</span></span>
+      </a>
+      <div class="nav-links">
+        <a class="link" href="/tw/client.html"><span>客戶端</span></a>
+        <a class="link" href="/tw/web.html"><span>網站</span></a>
+        <a class="link" href="/tw/guide/"><span>使用指南</span></a>
+        <a class="btn btn-gold" href="/tw/download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg><span>下載</span></a>
+        <a class="link here" href="/tw/about.html" aria-current="page"><span>關於</span></a>
+        <div class="lang-switch">
+          <a href="/about.html" hreflang="zh-Hans" lang="zh-Hans">简体</a>
+          <a href="/en/about.html" hreflang="en" lang="en">EN</a>
+          <a href="/tw/about.html" hreflang="zh-Hant" lang="zh-Hant" aria-current="true" class="on">繁體</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<!-- HERO -->
+  <header class="page-hero">
+    <div class="wrap reveal">
+      <div class="badge"><span class="dot"></span>
+        關於我們
+      </div>
+      <h1>關於 <span class="shine">魔鏡</span></h1>
+      <p class="lead">魔鏡（Mirror）是面向《流亡黯道》1 & 2（POE1 · POE2）的桌面懸浮窗助手，可在不切出遊戲的前提下完成查價、攻略查閱與收益統計。下載後開箱即用。</p>
+      <div class="about-cta">
+        <a class="btn btn-gold" href="/download.html">下載魔鏡</a>
+        <a class="btn btn-ghost" href="/#highlights">查看全部功能</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="prose">
+    <section class="block reveal">
+      <h2><span class="k">01</span>魔鏡是什麼</h2>
+      <p>魔鏡是執行於 Windows 的《流亡黯道》桌面輔助工具，以懸浮窗形式將常用資訊疊加於遊戲畫面之上。在遊戲內停在一件物品上並按下熱鍵，即時查詢官方市集的掛單價並顯示在物品旁，全程無需切出遊戲或手動開啟網頁。查價之外，另整合截圖辨識、劇情引導、快捷正則、通貨兌換、計時器、獎勵掉落統計等刷圖常用功能。</p>
+
+    </section>
+
+    <section class="block reveal">
+      <h2><span class="k">02</span>核心功能</h2>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>物品查價</b>：停在物品上一鍵查詢官方市集即時價格。</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>截圖辨識查價</b>：一幀截圖在本機辨識整螢幕物品名並批次查價。</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>劇情引導</b>：自動辨識所在區域，跟著切換任務與導航。</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>快捷正則</b>：將常用正則儲存為卡片，一鍵複製到商店或倉庫搜尋框。</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>通貨兌換 / 計時器</b>：即時通貨比率與全域＋地圖計時。</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>獎勵計數 / 收益統計</b>：統計刷圖掉落與收益，得出資產總值、每小時收益與每圖收益。兩代通用，區別在於資產來源——流亡黯道 1 讀取倉庫，流亡黯道 2 讀取交易站上的公開掛單。</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>掉落過濾器</b>：基於 NeverSink 定製的開荒 / 刷圖 / 速刷三份，跟著經濟資料更新，另有語音版，客戶端可一鍵裝進遊戲目錄或你的 GGG 帳號。</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>遊戲內配裝天賦規劃器</b>：把配裝寫成遊戲認得的 <code>.build</code> 檔案，天賦走線直接畫在遊戲自帶的規劃器裡，內建 33 套配裝，開荒與終局兩套天賦分別給。</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>速查圖</b>：Shift+Space 喚出自行上傳的速查圖縮圖帶，停留後以原尺寸展開於遊戲中央。</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>魔鏡市集（網頁）</b>：<a class="inline" href="https://trade.kalandraeye.com/tw/" target="_blank" rel="noopener">trade.kalandraeye.com</a> —— 詞綴池隨物品類別收窄的交易搜尋、基於 Path of Building 本體的角色試裝，以及由一句話填寫表單的 AI 助手。</li>
+      </ul>
+    </section>
+
+    <section class="block reveal">
+      <h2><span class="k">03</span>支援範圍</h2>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>兩代遊戲</b>：《流亡黯道》1 與 2（POE1 · POE2）。</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>三大伺服器</b>：國際服 / 國服 / 台服。</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>三種語言</b>：英文 / 簡體中文 / 繁體中文。</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>鍵盤 + 手把</b>：所有功能均可由手把按鍵觸發。</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>系統需求</b>：Windows 10 / 11（64 位元）。</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>兩個入口</b>：Windows 客戶端（懸浮窗）與網頁版魔鏡市集，後者在瀏覽器中即可使用。</li>
+      </ul>
+    </section>
+
+    <section class="block reveal">
+      <h2><span class="k">04</span>安全與隱私承諾</h2>
+      <p>魔鏡<b>絕不注入、讀取或修改遊戲行程與記憶體，也不修改任何遊戲檔案</b>。它只會：讀取遊戲的日誌檔案、讀取你<b>主動複製</b>的物品文字、以及在你按下辨識熱鍵時擷取一幀螢幕做<b>本機</b> OCR。所有查價均透過<b>官方市集 API</b> 完成，運作方式與官方交易網站一致。</p>
+      <p>物品辨識全程在你本機電腦完成，<b>不上傳截圖或帳號資訊</b>。國服交易搜尋需要你在設定中自行填入工作階段 Cookie，該資訊僅保存在本機、僅用於向官方介面發起查詢。請你同時自行遵守遊戲的服務條款。</p>
+
+    </section>
+
+    <section class="block reveal">
+      <h2><span class="k">05</span>關於團隊與非官方聲明</h2>
+      <p>魔鏡由一個獨立的玩家團隊開發與維護。下載與核心功能免費；少數功能（魔鏡市集、過濾器一鍵安裝、設定雲端同步、AI 類功能）由會員支應，用於支付伺服器與模型成本。我們持續根據社群回饋迭代。</p>
+      <p>本產品為<b>非官方粉絲工具</b>，與 Grinding Gear Games 及其營運方沒有任何隸屬或授權關係。「Path of Exile」「流亡黯道」為其各自所有者的商標，此處僅作說明性使用。</p>
+
+    </section>
+
+    <section class="block reveal">
+      <h2><span class="k">06</span>聯絡我們</h2>
+      <p>有任何問題、建議或合作意向，歡迎透過以下方式聯絡我們：</p>
+
+      <p class="foot-contact" style="margin-top:10px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        信箱：<a class="inline" href="mailto:kalandraeye@gmail.com">kalandraeye@gmail.com</a>
+      </p>
+      <div class="foot-social contact-grid">
+        <a class="social-btn discord" href="https://discord.gg/RTqazvQKKE" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.3.5c1.8.4 2.6 1 3.5 1.7a13.3 13.3 0 0 0-4.6-1.1 13.6 13.6 0 0 0-4.6.4c-.5.1-1.2.3-2 .7-.4.2-.7.3-.7.3s.8-.6 2.7-1.1L9 3a19.8 19.8 0 0 0-4.9 1.4C2 8.9 1.3 13.3 1.6 17.6A19.9 19.9 0 0 0 7.7 21l.9-1.3c-1-.3-1.9-.7-2.7-1.2l.6-.4a14.2 14.2 0 0 0 12.2 0l.6.4c-.8.5-1.7.9-2.7 1.2l.9 1.3a19.9 19.9 0 0 0 6-3.4c.5-5-.7-9.3-3.8-13.2zM8.9 15c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm6.2 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/></svg>
+          加入 Discord
+        </a>
+        <a class="social-btn qq" id="qq-btn" href="#" onclick="copyQQ(event)" title="1057145969">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.395 15.035a39.55 39.55 0 00-.803-2.264l-1.079-2.695c.001-.032.014-.562.014-.836C19.526 4.632 17.351 0 12 0S4.474 4.632 4.474 9.241c0 .274.013.804.014.836l-1.08 2.695a38.97 38.97 0 00-.802 2.264c-1.021 3.283-.69 4.643-.438 4.673.54.065 2.103-2.472 2.103-2.472 0 1.469.756 3.387 2.394 4.771-.612.188-1.363.479-1.845.835-.434.32-.379.646-.301.778.343.578 5.883.369 7.482.189 1.6.18 7.14.389 7.483-.189.078-.132.132-.458-.301-.778-.483-.356-1.233-.646-1.846-.836 1.637-1.384 2.393-3.302 2.393-4.771 0 0 1.563 2.537 2.103 2.472.251-.03.581-1.39-.438-4.673z"/></svg>
+          <span class="qq-label">QQ 群 1057145969</span>
+          <span class="qq-copied">已複製群號 ✓</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-inner">
+        <a class="brand" href="/tw/">
+          <img src="/assets/logo.png" alt="魔鏡" style="width:26px;height:26px;border-radius:7px" />
+          <span><span class="cn">魔鏡 · Mirror</span></span>
+        </a>
+        <span>© <span id="year">2026</span> 魔鏡</span>
+      </div>
+      <div class="foot-social">
+        <a class="social-btn discord" href="https://discord.gg/RTqazvQKKE" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.3.5c1.8.4 2.6 1 3.5 1.7a13.3 13.3 0 0 0-4.6-1.1 13.6 13.6 0 0 0-4.6.4c-.5.1-1.2.3-2 .7-.4.2-.7.3-.7.3s.8-.6 2.7-1.1L9 3a19.8 19.8 0 0 0-4.9 1.4C2 8.9 1.3 13.3 1.6 17.6A19.9 19.9 0 0 0 7.7 21l.9-1.3c-1-.3-1.9-.7-2.7-1.2l.6-.4a14.2 14.2 0 0 0 12.2 0l.6.4c-.8.5-1.7.9-2.7 1.2l.9 1.3a19.9 19.9 0 0 0 6-3.4c.5-5-.7-9.3-3.8-13.2zM8.9 15c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm6.2 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/></svg>
+          <span>加入 Discord</span>
+        </a>
+        <a class="social-btn qq" id="qq-btn" href="#" onclick="copyQQ(event)" title="1057145969">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.395 15.035a39.55 39.55 0 00-.803-2.264l-1.079-2.695c.001-.032.014-.562.014-.836C19.526 4.632 17.351 0 12 0S4.474 4.632 4.474 9.241c0 .274.013.804.014.836l-1.08 2.695a38.97 38.97 0 00-.802 2.264c-1.021 3.283-.69 4.643-.438 4.673.54.065 2.103-2.472 2.103-2.472 0 1.469.756 3.387 2.394 4.771-.612.188-1.363.479-1.845.835-.434.32-.379.646-.301.778.343.578 5.883.369 7.482.189 1.6.18 7.14.389 7.483-.189.078-.132.132-.458-.301-.778-.483-.356-1.233-.646-1.846-.836 1.637-1.384 2.393-3.302 2.393-4.771 0 0 1.563 2.537 2.103 2.472.251-.03.581-1.39-.438-4.673z"/></svg>
+          <span class="qq-label">QQ 群 1057145969</span>
+          <span class="qq-copied">已複製群號 ✓</span>
+        </a>
+      </div>
+      <p class="foot-contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span>有任何問題或建議，歡迎聯繫：</span>
+        <a href="mailto:kalandraeye@gmail.com">kalandraeye@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="/assets/shell.js?v=14afd07232" defer></script>
+
+</body>
+</html>

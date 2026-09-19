@@ -1,0 +1,162 @@
+{
+  "@title": {
+    "zh": "下载魔镜 Mirror — 流放之路 1 & 2 (POE1·POE2) 查价悬浮窗",
+    "en": "Download Mirror — Path of Exile 1 & 2 (POE1·POE2) Price-Check Overlay",
+    "tw": "下載魔鏡 Mirror — 流亡黯道 1 & 2 (POE1·POE2) 查價懸浮窗"
+  },
+  "@description": {
+    "zh": "下载魔镜客户端，Windows 10 / 11 安装即用。《流放之路》1 & 2 查价悬浮窗：一键查价、截图识别整屏价格、剧情引导、快捷正则、计时器、收益统计。支持国际服 / 国服 / 台服。",
+    "en": "Download the Mirror client for Windows 10 / 11 — install and go. A price-check overlay for Path of Exile 1 & 2: one-key pricing, whole-screen scan, campaign guide, regex presets, timers and wealth tracking. Global, China and Taiwan realms.",
+    "tw": "下載魔鏡客戶端，Windows 10 / 11 安裝即用。《流亡黯道》1 & 2 查價懸浮窗：一鍵查價、截圖辨識整螢幕價格、劇情引導、快捷正則、計時器、收益統計。支援國際服 / 國服 / 台服。"
+  },
+  "@keywords": {
+    "zh": "魔镜下载,Mirror下载,流放之路2查价器下载,POE2查价器,查价器下载,悬浮窗下载,安装包,Windows,夸克网盘,GitHub Releases",
+    "en": "mirror download,poe2 price checker download,path of exile 2 overlay,price check tool,poe overlay download,windows,github releases",
+    "tw": "魔鏡下載,Mirror下載,流亡黯道2查價器下載,POE2查價器,查價器下載,懸浮窗下載,安裝包,Windows,夸克網盤,GitHub Releases"
+  },
+  "下载 · Windows 10 / 11": {
+    "zh": "下载 · Windows 10 / 11",
+    "en": "Download · Windows 10 / 11",
+    "tw": "下載 · Windows 10 / 11"
+  },
+  "下载": {
+    "zh": "下载",
+    "en": "Download",
+    "tw": "下載"
+  },
+  "魔镜": {
+    "zh": "魔镜",
+    "en": "Mirror",
+    "tw": "魔鏡"
+  },
+  "选择任意一种方式下载，开箱即用。": {
+    "zh": "选择任意一种方式下载，开箱即用。",
+    "en": "Choose either method below — ready to use once downloaded.",
+    "tw": "選擇任一種方式下載，開箱即用。"
+  },
+  "已下载": {
+    "zh": "已下载",
+    "en": "Downloaded",
+    "tw": "已下載"
+  },
+  "次": {
+    "zh": "次",
+    "en": "times",
+    "tw": "次"
+  },
+  "支持 流放之路 1 & 2（POE1 · POE2）": {
+    "zh": "支持 流放之路 1 & 2（POE1 · POE2）",
+    "en": "Supports Path of Exile 1 & 2 (POE1 · POE2)",
+    "tw": "支援 流亡黯道 1 & 2（POE1 · POE2）"
+  },
+  "国际服 / 国服 / 台服": {
+    "zh": "国际服 / 国服 / 台服",
+    "en": "Global / China / Taiwan realms",
+    "tw": "國際服 / 國服 / 台服"
+  },
+  "推荐": {
+    "zh": "推荐",
+    "en": "Recommended",
+    "tw": "推薦"
+  },
+  "夸克网盘": {
+    "zh": "夸克网盘",
+    "en": "Quark Drive",
+    "tw": "夸克網盤"
+  },
+  "转存后可高速下载，支持手机与电脑，中国大陆访问最快。": {
+    "zh": "转存后可高速下载，支持手机与电脑，中国大陆访问最快。",
+    "en": "Save to your own drive for full-speed download. Works on phone and PC; fastest option inside mainland China.",
+    "tw": "轉存後可高速下載，支援手機與電腦，中國大陸存取最快。"
+  },
+  "提取码": {
+    "zh": "提取码",
+    "en": "Access code",
+    "tw": "提取碼"
+  },
+  "复制": {
+    "zh": "复制",
+    "en": "Copy",
+    "tw": "複製"
+  },
+  "前往夸克网盘": {
+    "zh": "前往夸克网盘",
+    "en": "Open Quark Drive",
+    "tw": "前往夸克網盤"
+  },
+  "全球": {
+    "zh": "全球",
+    "en": "Global",
+    "tw": "全球"
+  },
+  "GitHub": {
+    "zh": "GitHub",
+    "en": "GitHub",
+    "tw": "GitHub"
+  },
+  "从 GitHub 官方发布页获取，无需网盘客户端，适合海外访问。": {
+    "zh": "从 GitHub 官方发布页获取，无需网盘客户端，适合海外访问。",
+    "en": "Fetched from the official GitHub releases page; no drive client required. Best outside mainland China.",
+    "tw": "從 GitHub 官方發布頁取得，無需網盤客戶端，適合海外存取。"
+  },
+  "从 GitHub 下载": {
+    "zh": "从 GitHub 下载",
+    "en": "Download from GitHub",
+    "tw": "從 GitHub 下載"
+  },
+  "推荐国外用户使用": {
+    "zh": "推荐国外用户使用",
+    "en": "Recommended outside mainland China",
+    "tw": "建議海外使用者使用"
+  },
+  "受服务器流量成本限制，本站暂不提供直接下载，敬请谅解。请通过上方网盘或 GitHub 获取安装包。": {
+    "zh": "受服务器流量成本限制，本站暂不提供直接下载，敬请谅解。请通过上方网盘或 GitHub 获取安装包。",
+    "en": "Bandwidth costs prevent us from hosting the installer directly here. Please obtain it from the drive or GitHub above.",
+    "tw": "受伺服器流量成本限制，本站暫不提供直接下載，敬請見諒。請透過上方網盤或 GitHub 取得安裝包。"
+  },
+  "运行要求": {
+    "zh": "运行要求",
+    "en": "Requirements",
+    "tw": "執行需求"
+  },
+  "Windows 10 / 11（64 位）": {
+    "zh": "Windows 10 / 11（64 位）",
+    "en": "Windows 10 / 11 (64-bit)",
+    "tw": "Windows 10 / 11（64 位元）"
+  },
+  "《流放之路》1 或 2 PC 客户端": {
+    "zh": "《流放之路》1 或 2 PC 客户端",
+    "en": "The Path of Exile 1 or 2 PC client",
+    "tw": "《流亡黯道》1 或 2 PC 客戶端"
+  },
+  "下载后解压并运行安装程序": {
+    "zh": "下载后解压并运行安装程序",
+    "en": "Unzip and run the installer",
+    "tw": "下載後解壓縮並執行安裝程式"
+  },
+  "国服交易需在设置中填入会话 Cookie": {
+    "zh": "国服交易需在设置中填入会话 Cookie",
+    "en": "China-realm trade search needs a session cookie in settings",
+    "tw": "國服交易需在設定中填入工作階段 Cookie"
+  },
+  "🛡 安全下载": {
+    "zh": "🛡 安全下载",
+    "en": "🛡 Safe download",
+    "tw": "🛡 安全下載"
+  },
+  "安装包由官方发布。魔镜": {
+    "zh": "安装包由官方发布。魔镜",
+    "en": "The installer is published by us. Mirror",
+    "tw": "安裝包由官方發布。魔鏡"
+  },
+  "只读取游戏日志与你主动复制的内容": {
+    "zh": "只读取游戏日志与你主动复制的内容",
+    "en": "only reads the game log and text you copy yourself",
+    "tw": "只讀取遊戲日誌與你主動複製的內容"
+  },
+  "，绝不注入、读写游戏进程与内存，也不修改游戏文件。若杀毒软件误报，属安装包加壳的常见误判，可添加信任。": {
+    "zh": "，绝不注入、读写游戏进程与内存，也不修改游戏文件。若杀毒软件误报，属安装包加壳的常见误判，可添加信任。",
+    "en": ". It never injects into, reads or writes the game process or memory, and never modifies game files. Antivirus flags are the usual false positive on the installer packer; adding it to the allowlist is safe.",
+    "tw": "，絕不注入、讀寫遊戲行程與記憶體，也不修改遊戲檔案。若防毒軟體誤報，屬安裝包加殼的常見誤判，可加入信任。"
+  }
+}

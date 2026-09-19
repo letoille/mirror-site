@@ -1,0 +1,165 @@
+<!doctype html>
+<!--
+  ⚠️ 这个文件是 `node build.mjs` 生成的，**手改会在下一次构建时被覆盖**。
+  要改内容：src/pages/guide/price-check.tw.md
+  要改外壳（导航 / 页脚 / head）：src/shell.html + src/site.mjs
+-->
+<html lang="zh-Hant" data-lang="tw">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>流亡黯道 2 怎麼查一件裝備值多少錢 — 魔鏡查價指南</title>
+  <meta name="description" content="在《流亡黯道》1 &amp; 2 中為裝備定價的完整方法：停在物品上並按下 Ctrl+E、解讀浮層各項、為何應自行勾選詞綴而非全選、綜合詞綴（總抗性 / 總生命）的用法，以及未鑑定傳奇僅能按基底檢索的原因。" />
+  <meta name="keywords" content="流亡黯道2查價,POE2查價,怎麼查價,裝備值多少錢,物品查價,查價器怎麼用,詞綴勾選,綜合詞綴,總抗性,總生命,未鑑定傳奇,交易行搜尋,Ctrl+E,魔鏡查價" />
+  <meta name="author" content="Mirror" />
+  <link rel="canonical" href="https://mirror.kalandraeye.com/tw/guide/price-check.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://mirror.kalandraeye.com/guide/price-check.html" />
+  <link rel="alternate" hreflang="en" href="https://mirror.kalandraeye.com/en/guide/price-check.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://mirror.kalandraeye.com/tw/guide/price-check.html" />
+  <link rel="alternate" hreflang="x-default" href="https://mirror.kalandraeye.com/guide/price-check.html" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <meta name="theme-color" content="#08090d" />
+  <link rel="stylesheet" href="/assets/site.css?v=2a98372cf5" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="魔镜 · Mirror" />
+  <meta property="og:url" content="https://mirror.kalandraeye.com/tw/guide/price-check.html" />
+  <meta property="og:title" content="流亡黯道 2 怎麼查一件裝備值多少錢 — 魔鏡查價指南" />
+  <meta property="og:description" content="在《流亡黯道》1 &amp; 2 中為裝備定價的完整方法：停在物品上並按下 Ctrl+E、解讀浮層各項、為何應自行勾選詞綴而非全選、綜合詞綴（總抗性 / 總生命）的用法，以及未鑑定傳奇僅能按基底檢索的原因。" />
+  <meta property="og:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="流亡黯道 2 怎麼查一件裝備值多少錢 — 魔鏡查價指南" />
+  <meta name="twitter:description" content="在《流亡黯道》1 &amp; 2 中為裝備定價的完整方法：停在物品上並按下 Ctrl+E、解讀浮層各項、為何應自行勾選詞綴而非全選、綜合詞綴（總抗性 / 總生命）的用法，以及未鑑定傳奇僅能按基底檢索的原因。" />
+  <meta name="twitter:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+
+  <!-- Google Analytics 4 -->
+  <script>
+    window.GA_ID = "G-CYBLTV2J69";
+    if (window.GA_ID && window.GA_ID.indexOf("G-") === 0) {
+      var gaScript = document.createElement("script");
+      gaScript.async = true;
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + window.GA_ID;
+      document.head.appendChild(gaScript);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag("js", new Date());
+      gtag("config", window.GA_ID);
+    }
+  </script>
+</head>
+<body>
+  <div class="bg-fx">
+    <div class="aurora a1"></div><div class="aurora a2"></div>
+    <div class="grid-lines"></div>
+    <div class="embers" id="embers"></div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/tw/">
+        <img src="/assets/logo.png" alt="魔鏡" />
+        <span><span class="cn">魔鏡</span>
+          <span class="en">Mirror for POE1 &amp; POE2</span></span>
+      </a>
+      <div class="nav-links">
+        <a class="link" href="/tw/client.html"><span>客戶端</span></a>
+        <a class="link" href="/tw/web.html"><span>網站</span></a>
+        <a class="link" href="/tw/guide/"><span>使用指南</span></a>
+        <a class="btn btn-gold" href="/tw/download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg><span>下載</span></a>
+        <a class="link" href="/tw/about.html"><span>關於</span></a>
+        <div class="lang-switch">
+          <a href="/guide/price-check.html" hreflang="zh-Hans" lang="zh-Hans">简体</a>
+          <a href="/en/guide/price-check.html" hreflang="en" lang="en">EN</a>
+          <a href="/tw/guide/price-check.html" hreflang="zh-Hant" lang="zh-Hant" aria-current="true" class="on">繁體</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<main class="prose-page"><div class="wrap">
+<h1>怎麼查一件裝備值多少錢</h1>
+<p>《流亡黯道》沒有官方定價。一件裝備的價值取決於<strong>目前有多少人掛出條件相近的物品、定價幾何</strong>。因此「查價」本質上是一次交易行檢索：將該裝備的特徵轉換為搜尋條件，再觀察回傳掛單的開價區間。</p>
+<p>手動完成這一流程需要：在遊戲內複製物品 → 開啟交易網站 → 從上千條詞綴中定位相關條目 → 逐條勾選 → 填寫數值下限 → 執行搜尋。單件約一分鐘，整個背包則需半小時。</p>
+<p>魔鏡將該流程壓縮為一個熱鍵。</p>
+<h2>操作步驟</h2>
+<ol>
+<li>啟動魔鏡客戶端並保持背景執行（它不會奪取遊戲焦點）</li>
+<li>在遊戲內將滑鼠<strong>停在</strong>目標裝備上</li>
+<li>按下 <kbd>Ctrl</kbd> + <kbd>E</kbd></li>
+</ol>
+<p>浮層將出現在物品旁，列出該裝備的全部詞綴與一個參考成交價。</p>
+<blockquote>
+<p>熱鍵可在客戶端「快捷鍵」頁修改，亦可綁定至手把——所有功能均支援手把按鍵觸發。</p>
+</blockquote>
+<h2>浮層各項說明</h2>
+<p><strong>詞綴按類型分色。</strong> 破裂、工藝、汙染各有對應顏色，因其價值差異顯著：一條高階破裂詞綴的價值可能超過該裝備其餘部分之和；而工藝詞綴為買家自行可加，通常不計入溢價。</p>
+<p><strong>每條詞綴前設有核取方塊。</strong> 預設僅勾選數條，此為有意設計，原因見下節。</p>
+<p><strong>數值可設定下限。</strong> 勾選「最大生命」後，浮層將依該裝備實際滾出的數值給出下限；可手動下調，以擴大結果範圍、增加樣本量。</p>
+<h2>為何不應全部勾選</h2>
+<p>全部勾選等同於詢問「市場上是否存在與此<strong>完全一致</strong>的物品」。答案通常是否定的，檢索回傳零條結果——而零條結果並不代表價格高，它代表<strong>未獲得任何資訊</strong>。</p>
+<p>更有效的提問方式是「與此<strong>條件相近</strong>的物品成交價幾何」。因此：</p>
+<ul>
+<li>勾選<strong>買家願意付費</strong>的條目（生命、抗性、傷害、技能等級）</li>
+<li>不勾選無人檢索的條目（多數工藝詞綴、低階隨機詞綴）</li>
+<li>適度下調數值下限，以取得足夠樣本</li>
+</ul>
+<p>這一步是查價流程中唯一需要判斷的環節，也是魔鏡不代為決定的原因：哪些詞綴具備價值，取決於目前版本、目前賽季，以及市場上正在流行的配裝。</p>
+<h2>綜合詞綴：一次檢索「總抗性」</h2>
+<p>買家選購戒指時，考量的通常不是「火抗 ≥ 30」，而是三抗總和是否達標。交易站原生支援該問法，稱為<strong>綜合詞綴</strong>（pseudo）——總元素抗性、總生命等。</p>
+<p>浮層將這些條目單獨列出，點擊即可加入檢索條件。相比逐條勾選抗性，使用綜合詞綴更為準確，因為市場定價依據的正是總量。</p>
+<h2>若干特殊情形</h2>
+<p><strong>未鑑定傳奇。</strong> 此類物品沒有名稱，交易站亦不為未鑑定物品索引名稱，因此只能按「基底 + 未鑑定」檢索，其結果本質上是一個<strong>賭性定價</strong>。魔鏡會由基底反查該基底可產出的全部傳奇並列出，選定後整條查詢才切換至對應檔位。</p>
+<p><strong>關聯物品。</strong> 檢索碎片、門票或傳奇時，浮層會一併列出上游資料中與其同組的物品及價格，便於比較。須注意該關係表示「相關」，並不代表「此物必定產出彼物」。</p>
+<p><strong>分解粉塵</strong>（流亡黯道 1）。傳奇在君鋒鎮分解可得的粉塵數量直接計算於浮層上——部分情況下分解收益高於直接出售。</p>
+<h2>檢索完成之後</h2>
+<p>浮層底部提供數個出口：</p>
+<ul>
+<li><strong>Search</strong> —— 以目前勾選條件在官方市集開啟，篩選條件原樣帶入</li>
+<li><strong>兩個市集入口</strong> —— 其一攜帶 GGG 的存檔 id（將消耗一次搜尋配額），其二攜帶<strong>查詢本身</strong>進入<a href="/tw/guide/market.html">魔鏡市集</a>，在該處表單以可編輯副本形式呈現，可繼續調整</li>
+</ul>
+<h2>批次檢索整螢幕物品</h2>
+<p>逐件停留效率有限。按下 <kbd>Ctrl</kbd> + <kbd>D</kbd> 擷取目前畫面一幀，魔鏡將<strong>在本機</strong>辨識螢幕上的全部物品名並批次查價，約一至兩秒回傳結果。截圖不會上傳。</p>
+<p>該路徑僅依據名稱辨識，因此適用於通貨、傳奇、命運卡等由名稱決定價格的物品；帶隨機詞綴的裝備仍需逐件停留查詢。</p>
+<hr>
+<p><strong>下一篇</strong>：<a href="/tw/guide/market.html">魔鏡市集怎麼用</a> · <a href="/tw/guide/loot-filter.html">掉落過濾器怎麼裝</a></p>
+
+</div></main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-inner">
+        <a class="brand" href="/tw/">
+          <img src="/assets/logo.png" alt="魔鏡" style="width:26px;height:26px;border-radius:7px" />
+          <span><span class="cn">魔鏡 · Mirror</span></span>
+        </a>
+        <span>© <span id="year">2026</span> 魔鏡</span>
+      </div>
+      <div class="foot-social">
+        <a class="social-btn discord" href="https://discord.gg/RTqazvQKKE" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.3.5c1.8.4 2.6 1 3.5 1.7a13.3 13.3 0 0 0-4.6-1.1 13.6 13.6 0 0 0-4.6.4c-.5.1-1.2.3-2 .7-.4.2-.7.3-.7.3s.8-.6 2.7-1.1L9 3a19.8 19.8 0 0 0-4.9 1.4C2 8.9 1.3 13.3 1.6 17.6A19.9 19.9 0 0 0 7.7 21l.9-1.3c-1-.3-1.9-.7-2.7-1.2l.6-.4a14.2 14.2 0 0 0 12.2 0l.6.4c-.8.5-1.7.9-2.7 1.2l.9 1.3a19.9 19.9 0 0 0 6-3.4c.5-5-.7-9.3-3.8-13.2zM8.9 15c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm6.2 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/></svg>
+          <span>加入 Discord</span>
+        </a>
+        <a class="social-btn qq" id="qq-btn" href="#" onclick="copyQQ(event)" title="1057145969">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.395 15.035a39.55 39.55 0 00-.803-2.264l-1.079-2.695c.001-.032.014-.562.014-.836C19.526 4.632 17.351 0 12 0S4.474 4.632 4.474 9.241c0 .274.013.804.014.836l-1.08 2.695a38.97 38.97 0 00-.802 2.264c-1.021 3.283-.69 4.643-.438 4.673.54.065 2.103-2.472 2.103-2.472 0 1.469.756 3.387 2.394 4.771-.612.188-1.363.479-1.845.835-.434.32-.379.646-.301.778.343.578 5.883.369 7.482.189 1.6.18 7.14.389 7.483-.189.078-.132.132-.458-.301-.778-.483-.356-1.233-.646-1.846-.836 1.637-1.384 2.393-3.302 2.393-4.771 0 0 1.563 2.537 2.103 2.472.251-.03.581-1.39-.438-4.673z"/></svg>
+          <span class="qq-label">QQ 群 1057145969</span>
+          <span class="qq-copied">已複製群號 ✓</span>
+        </a>
+      </div>
+      <p class="foot-contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span>有任何問題或建議，歡迎聯繫：</span>
+        <a href="mailto:kalandraeye@gmail.com">kalandraeye@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="/assets/shell.js?v=14afd07232" defer></script>
+
+</body>
+</html>

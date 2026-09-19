@@ -1,0 +1,317 @@
+<!doctype html>
+<!--
+  ⚠️ 这个文件是 `node build.mjs` 生成的，**手改会在下一次构建时被覆盖**。
+  要改内容：src/pages/web.zh.html
+  要改外壳（导航 / 页脚 / head）：src/shell.html + src/site.mjs
+-->
+<html lang="zh-Hans" data-lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>魔镜网站 — 流放之路 2 交易搜索 · 角色试装 · 掉落过滤器 · 正则生成器</title>
+  <meta name="description" content="魔镜网站是《流放之路》2 的网页工具集：按词缀搜装备的市集（词缀池跟着物品类别收窄，三个服随时切）、用你自己的角色跑真 Path of Building 做试装的角色页、基于 NeverSink 定制的掉落过滤器下载（开荒 / 刷图 / 速刷，含语音版）、仓库搜索正则生成器。过滤器与正则独立运行；市集与角色需要魔镜客户端在运行，因为搜索走你自己的官方交易会话。" />
+  <meta name="keywords" content="魔镜市集,魔镜网站,Mirror Market,流放之路2交易,POE2交易搜索,交易行,官方市集,按词缀搜装备,类别投影搜索,实时监听,角色试装,试装,Path of Building,POB,ΔDPS,掉落过滤器,拾取过滤,NeverSink,过滤器下载,语音包,loot filter,item filter,poe2 loot filter,正则生成器,流放之路2正则,POE2正则,引路石正则,石板正则,圣所遗物,巨灵币,贪婪战书,仓库搜索,regex generator,poe2 regex,trade search" />
+  <meta name="author" content="Mirror" />
+  <link rel="canonical" href="https://mirror.kalandraeye.com/web.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://mirror.kalandraeye.com/web.html" />
+  <link rel="alternate" hreflang="en" href="https://mirror.kalandraeye.com/en/web.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://mirror.kalandraeye.com/tw/web.html" />
+  <link rel="alternate" hreflang="x-default" href="https://mirror.kalandraeye.com/web.html" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <meta name="theme-color" content="#08090d" />
+  <link rel="stylesheet" href="/assets/site.css?v=2a98372cf5" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="魔镜 · Mirror" />
+  <meta property="og:url" content="https://mirror.kalandraeye.com/web.html" />
+  <meta property="og:title" content="魔镜网站 — 流放之路 2 交易搜索 · 角色试装 · 掉落过滤器 · 正则生成器" />
+  <meta property="og:description" content="流放之路 2 网页工具集：按词缀搜装备的市集、角色 Path of Building 试装、NeverSink 定制掉落过滤器下载、正则生成器。过滤器与正则免安装直接用。" />
+  <meta property="og:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+  <meta property="og:locale" content="zh_CN" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="魔镜网站 — 流放之路 2 交易搜索 · 角色试装 · 掉落过滤器 · 正则生成器" />
+  <meta name="twitter:description" content="流放之路 2 网页工具集：按词缀搜装备的市集、角色 Path of Building 试装、NeverSink 定制掉落过滤器下载、正则生成器。过滤器与正则免安装直接用。" />
+  <meta name="twitter:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+<!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "魔镜网站",
+  "alternateName": [
+    "魔镜市集",
+    "Mirror Market"
+  ],
+  "applicationCategory": "GameApplication",
+  "browserRequirements": "需要支持 WebSocket 的现代浏览器",
+  "operatingSystem": "Any",
+  "description": "《流放之路》2 的网页工具集：按词缀搜装备的市集、用自己的角色跑 Path of Building 做试装的角色页、基于 NeverSink 定制的掉落过滤器下载、仓库搜索正则生成器。",
+  "url": "https://trade.kalandraeye.com/",
+  "image": "https://mirror.kalandraeye.com/assets/logo.png",
+  "inLanguage": [
+    "zh-CN",
+    "zh-TW",
+    "en"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "魔镜 Mirror",
+      "item": "https://mirror.kalandraeye.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "魔镜网站",
+      "item": "https://mirror.kalandraeye.com/web.html"
+    }
+  ]
+}
+  </script>
+  <!-- Google Analytics 4 -->
+  <script>
+    window.GA_ID = "G-CYBLTV2J69";
+    if (window.GA_ID && window.GA_ID.indexOf("G-") === 0) {
+      var gaScript = document.createElement("script");
+      gaScript.async = true;
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + window.GA_ID;
+      document.head.appendChild(gaScript);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag("js", new Date());
+      gtag("config", window.GA_ID);
+    }
+  </script>
+</head>
+<body>
+  <div class="bg-fx">
+    <div class="aurora a1"></div><div class="aurora a2"></div>
+    <div class="grid-lines"></div>
+    <div class="embers" id="embers"></div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/">
+        <img src="/assets/logo.png" alt="魔镜" />
+        <span><span class="cn">魔镜</span>
+          <span class="en">Mirror for POE1 &amp; POE2</span></span>
+      </a>
+      <div class="nav-links">
+        <a class="link" href="/client.html"><span>客户端</span></a>
+        <a class="link here" href="/web.html" aria-current="page"><span>网站</span></a>
+        <a class="link" href="/guide/"><span>使用指南</span></a>
+        <a class="btn btn-gold" href="/download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg><span>下载</span></a>
+        <a class="link" href="/about.html"><span>关于</span></a>
+        <div class="lang-switch">
+          <a href="/web.html" hreflang="zh-Hans" lang="zh-Hans" aria-current="true" class="on">简体</a>
+          <a href="/en/web.html" hreflang="en" lang="en">EN</a>
+          <a href="/tw/web.html" hreflang="zh-Hant" lang="zh-Hant">繁體</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<header class="hero" id="top" style="padding-bottom:10px">
+    <div class="wrap" style="max-width:840px;text-align:center">
+      <div class="badge reveal d1"><span class="dot"></span>浏览器 · 免安装</div>
+      <h1 class="title reveal d2" style="font-size:clamp(30px,4.2vw,46px)">魔镜网站</h1>
+      <p class="lead reveal d3" style="margin-inline:auto">
+        更便捷的市集搜索，角色试装，一键分享，过滤每日更新下载，正则快速生成
+      </p>
+      <div class="cta reveal d4" style="justify-content:center">
+        <a class="btn btn-gold" href="https://trade.kalandraeye.com/filters" target="_blank" rel="noopener">打开魔镜网站</a>
+      </div>
+      <p class="cta-note reveal d4">需下载客户端配合使用</p>
+    </div>
+  </header>
+
+  <section id="tools">
+    <div class="wrap">
+      <div class="tools reveal">
+      <div class="tool">
+        <div class="tool-head"><h3>市集搜索</h3><span class="need pair"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 0 1 0 10h-2"/><path d="M8 12h8"/></svg>需要安装客户端</span></div>
+        <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>选择物品类型，自动筛选物品词缀，搜索更方便</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>搜索条件保存，一键保存搜索</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>购买更明确，加载角色，搜索物品展示 DPS 和 EHP 变化</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>一个市集，同时支持国际服、国服</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>支持多种语言</li>
+        </ul>
+        <a class="go" href="https://trade.kalandraeye.com/" target="_blank" rel="noopener">打开市集 →</a>
+      </div>
+      <div class="tool">
+        <div class="tool-head"><h3>角色 · 试装</h3><span class="need pair"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 0 1 0 10h-2"/><path d="M8 12h8"/></svg>需要安装客户端</span></div>
+        <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>加载角色，计算技能伤害，角色防御等</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>与市集联动，基于角色试装</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>展示编辑角色天赋树，编辑后快速同步到游戏</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>一键分享角色 BD</li>
+        </ul>
+        <a class="go" href="https://trade.kalandraeye.com/" target="_blank" rel="noopener">打开角色页 →</a>
+      </div>
+      <div class="tool">
+        <div class="tool-head"><h3>掉落过滤器</h3></div>
+        <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>适配游戏不同阶段，剧情开荒，异界提升，后期速刷</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>提供自定义语音版，支持自定义修改提示语音</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>每日根据物价实时更新，免费下载</li>
+        </ul>
+        <a class="go" href="https://trade.kalandraeye.com/filters" target="_blank" rel="noopener">下载过滤器 →</a>
+      </div>
+      <div class="tool">
+        <div class="tool-head"><h3>正则生成器</h3></div>
+        <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>无需了解正则语法，选择即生成正则</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>支持各种物品种类正则生成</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>支持生成简中、繁中、英文正则</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>快速同步到魔镜客户端中常用正则</li>
+        </ul>
+        <a class="go" href="https://trade.kalandraeye.com/regex" target="_blank" rel="noopener">打开正则生成器 →</a>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ai">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-eyebrow">AI 助手</div>
+        <h2 class="sec-title">全方位 AI 智能助手</h2>
+      </div>
+<div class="feature reveal">
+        <div>
+          <h3>一句话，找到你想要的装备<span class="poe1-chip">魔镜市集</span></h3>
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>描述想要的装备，自动填充搜索词缀</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>支持多种物品种类搜索</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>根据正则表达式搜索市集<span class="soon-chip">后续开发支持</span></li>
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <picture>
+            <source type="image/avif" srcset="/shots/ai.avif" />
+            <source type="image/webp" srcset="/shots/ai.webp" />
+            <img src="/shots/ai.webp" alt="魔镜市集 AI 助手：一句话自动填好《流放之路 2》交易搜索表单" width="1440" height="900" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph">
+            <div class="ai-chat">
+              <div class="ai-q">闪电法杖要暴击，10 神圣以内</div>
+
+              <div class="ai-a">已生成交易搜索 · 匹配 42 件 <span class="dots"><span></span><span></span><span></span></span></div>
+            </div>
+          </div>
+          <div class="demo-hint">示意图 · 实拍截图待补</div>
+        </div>
+      </div>
+<div class="feature flip reveal">
+        <div>
+          <h3>BD 助手，角色分析<span class="soon-chip">后续开发支持</span></h3>
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>智能分析角色数据，提供角色提升建议</li>
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <picture>
+            <source type="image/avif" srcset="/shots/ai-character.avif" />
+            <source type="image/webp" srcset="/shots/ai-character.webp" />
+            <img src="/shots/ai-character.webp" alt="魔镜 AI 角色分析：读取角色数据并给出提升建议" width="1440" height="900" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph shimmer"></div>
+          <div class="demo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20a7 7 0 0 1 14 0"/><path d="M19 4.5 20 7l2.5 1-2.5 1-1 2.5-1-2.5L15.5 8 18 7z"/></svg></div>
+          <div class="demo-hint">示意图 · 实拍截图待补</div>
+        </div>
+      </div>
+
+<div class="feature reveal">
+        <div>
+          <h3>BD 快速导入魔镜<span class="soon-chip">后续开发支持</span></h3>
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>提供 BD 文档，智能分析 BD</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>导入魔镜客户端开荒 BD</li>
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <picture>
+            <source type="image/avif" srcset="/shots/ai-build.avif" />
+            <source type="image/webp" srcset="/shots/ai-build.webp" />
+            <img src="/shots/ai-build.webp" alt="魔镜 AI BD 助手：分析构筑文档并导入客户端开荒 BD" width="1440" height="900" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph shimmer"></div>
+          <div class="demo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h9l5 5v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M14 4v5h5"/><path d="M8 13h6M8 17h4"/></svg></div>
+          <div class="demo-hint">示意图 · 实拍截图待补</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="get">
+    <div class="wrap">
+      <div class="dl-panel reveal">
+        <div>
+          <h2>安装客户端</h2>
+          <div class="dl-actions">
+            <a class="btn btn-gold" href="/download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>下载客户端</a>
+          </div>
+        </div>
+        <div class="req">
+          <h4>网站功能需配合客户端使用</h4>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>市集搜索</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>角色数据加载与计算</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>过滤自动同步</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-inner">
+        <a class="brand" href="/">
+          <img src="/assets/logo.png" alt="魔镜" style="width:26px;height:26px;border-radius:7px" />
+          <span><span class="cn">魔镜 · Mirror</span></span>
+        </a>
+        <span>© <span id="year">2026</span> 魔镜 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer" style="color:var(--muted-2)">滇ICP备2025052314号-2</a> · <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=53010202002415" target="_blank" rel="noreferrer" style="color:var(--muted-2)"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="vertical-align:-1px;margin-right:3px"><path d="M12 2 4 5v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V5l-8-3zm0 2.2 6 2.25V11c0 3.9-2.5 6.7-6 8.05C8.5 17.7 6 14.9 6 11V6.45l6-2.25z"/><path d="M12 7.3 12.85 9l1.95.2-1.45 1.3.42 1.9L12 11.55l-1.77.85.42-1.9L9.2 9.2 11.15 9 12 7.3z"/></svg>滇公网安备53010202002415号</a></span>
+      </div>
+      <div class="foot-social">
+        <a class="social-btn discord" href="https://discord.gg/RTqazvQKKE" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.3.5c1.8.4 2.6 1 3.5 1.7a13.3 13.3 0 0 0-4.6-1.1 13.6 13.6 0 0 0-4.6.4c-.5.1-1.2.3-2 .7-.4.2-.7.3-.7.3s.8-.6 2.7-1.1L9 3a19.8 19.8 0 0 0-4.9 1.4C2 8.9 1.3 13.3 1.6 17.6A19.9 19.9 0 0 0 7.7 21l.9-1.3c-1-.3-1.9-.7-2.7-1.2l.6-.4a14.2 14.2 0 0 0 12.2 0l.6.4c-.8.5-1.7.9-2.7 1.2l.9 1.3a19.9 19.9 0 0 0 6-3.4c.5-5-.7-9.3-3.8-13.2zM8.9 15c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm6.2 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/></svg>
+          <span>加入 Discord</span>
+        </a>
+        <a class="social-btn qq" id="qq-btn" href="#" onclick="copyQQ(event)" title="1057145969">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.395 15.035a39.55 39.55 0 00-.803-2.264l-1.079-2.695c.001-.032.014-.562.014-.836C19.526 4.632 17.351 0 12 0S4.474 4.632 4.474 9.241c0 .274.013.804.014.836l-1.08 2.695a38.97 38.97 0 00-.802 2.264c-1.021 3.283-.69 4.643-.438 4.673.54.065 2.103-2.472 2.103-2.472 0 1.469.756 3.387 2.394 4.771-.612.188-1.363.479-1.845.835-.434.32-.379.646-.301.778.343.578 5.883.369 7.482.189 1.6.18 7.14.389 7.483-.189.078-.132.132-.458-.301-.778-.483-.356-1.233-.646-1.846-.836 1.637-1.384 2.393-3.302 2.393-4.771 0 0 1.563 2.537 2.103 2.472.251-.03.581-1.39-.438-4.673z"/></svg>
+          <span class="qq-label">QQ 群 1057145969</span>
+          <span class="qq-copied">已复制群号 ✓</span>
+        </a>
+      </div>
+      <p class="foot-contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span>有任何问题或建议，欢迎联系：</span>
+        <a href="mailto:kalandraeye@gmail.com">kalandraeye@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="/assets/shell.js?v=14afd07232" defer></script>
+
+</body>
+</html>

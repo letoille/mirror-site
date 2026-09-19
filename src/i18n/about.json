@@ -1,0 +1,367 @@
+{
+  "@title": {
+    "zh": "关于魔镜 Mirror — 流放之路 1 & 2 (POE1·POE2) 查价悬浮窗与网页市集",
+    "en": "About Mirror — Path of Exile 1 & 2 Price-Check Overlay & Web Market",
+    "tw": "關於魔鏡 Mirror — 流亡黯道 1 & 2 (POE1·POE2) 查價懸浮窗與網頁市集"
+  },
+  "@description": {
+    "zh": "关于魔镜 Mirror：《流放之路》1 & 2（POE1 · POE2）桌面查价悬浮窗助手，另配有网页版魔镜市集。了解它是什么、能做什么、支持哪些服务器与语言、安全与隐私承诺、收费方式，以及联系方式。",
+    "en": "About Mirror: a desktop price-check overlay for Path of Exile 1 & 2, plus a web market app. What it is, what it does, which realms and languages it supports, its safety and privacy commitments, how it's funded, and how to reach us.",
+    "tw": "關於魔鏡 Mirror：《流亡黯道》1 & 2（POE1 · POE2）桌面查價懸浮窗助手，另配有網頁版魔鏡市集。了解它是什麼、能做什麼、支援哪些伺服器與語言、安全與隱私承諾、收費方式，以及聯絡方式。"
+  },
+  "@keywords": {
+    "zh": "关于魔镜,魔镜是什么,Mirror POE,流放之路辅助,安全,隐私,不注入,官方市集API,非官方粉丝工具,联系方式,Discord,QQ群",
+    "en": "about mirror,what is mirror poe,path of exile overlay,safety,privacy,no injection,official trade api,unofficial fan tool,contact,discord",
+    "tw": "關於魔鏡,魔鏡是什麼,Mirror POE,流亡黯道輔助,安全,隱私,不注入,官方市集API,非官方粉絲工具,聯絡方式,Discord,QQ群"
+  },
+  "关于我们": {
+    "zh": "关于我们",
+    "en": "About us",
+    "tw": "關於我們"
+  },
+  "关于": {
+    "zh": "关于",
+    "en": "About",
+    "tw": "關於"
+  },
+  "魔镜": {
+    "zh": "魔镜",
+    "en": "Mirror",
+    "tw": "魔鏡"
+  },
+  "魔镜（Mirror）是面向《流放之路》1 & 2（POE1 · POE2）的桌面悬浮窗助手，可在不切出游戏的前提下完成查价、攻略查阅与收益统计。下载后开箱即用。": {
+    "zh": "魔镜（Mirror）是面向《流放之路》1 & 2（POE1 · POE2）的桌面悬浮窗助手，可在不切出游戏的前提下完成查价、攻略查阅与收益统计。下载后开箱即用。",
+    "en": "Mirror is a desktop overlay for Path of Exile 1 & 2 (POE1 · POE2) that handles price checks, guide reference and profit tracking without leaving the game. Ready to use as soon as it is downloaded.",
+    "tw": "魔鏡（Mirror）是面向《流亡黯道》1 & 2（POE1 · POE2）的桌面懸浮窗助手，可在不切出遊戲的前提下完成查價、攻略查閱與收益統計。下載後開箱即用。"
+  },
+  "下载魔镜": {
+    "zh": "下载魔镜",
+    "en": "Download Mirror",
+    "tw": "下載魔鏡"
+  },
+  "查看全部功能": {
+    "zh": "查看全部功能",
+    "en": "See all features",
+    "tw": "查看全部功能"
+  },
+  "魔镜是什么": {
+    "zh": "魔镜是什么",
+    "en": "What Mirror is",
+    "tw": "魔鏡是什麼"
+  },
+  "魔镜是运行于 Windows 的《流放之路》桌面辅助工具，以悬浮窗形式将常用信息叠加于游戏画面之上。在游戏内悬停一件物品并按下热键，即实时查询官方市集的挂单价并显示在物品旁，全程无需切出游戏或手动打开网页。查价之外，另整合截图识别、剧情引导、快捷正则、通货兑换、计时器、奖励掉落统计等刷图常用功能。": {
+    "zh": "魔镜是运行于 Windows 的《流放之路》桌面辅助工具，以悬浮窗形式将常用信息叠加于游戏画面之上。在游戏内悬停一件物品并按下热键，即实时查询官方市集的挂单价并显示在物品旁，全程无需切出游戏或手动打开网页。查价之外，另整合截图识别、剧情引导、快捷正则、通货兑换、计时器、奖励掉落统计等刷图常用功能。",
+    "en": "Mirror is a Windows desktop companion for Path of Exile that overlays the information you need on top of the game. Hover an item in game and press a hotkey: it queries live listings from the official trade API and shows the price beside the item, without leaving the game or opening a browser. Beyond pricing it integrates screen scanning, a campaign guide, regex presets, currency rates, timers and drop tallies.",
+    "tw": "魔鏡是執行於 Windows 的《流亡黯道》桌面輔助工具，以懸浮窗形式將常用資訊疊加於遊戲畫面之上。在遊戲內停在一件物品上並按下熱鍵，即時查詢官方市集的掛單價並顯示在物品旁，全程無需切出遊戲或手動開啟網頁。查價之外，另整合截圖辨識、劇情引導、快捷正則、通貨兌換、計時器、獎勵掉落統計等刷圖常用功能。"
+  },
+  "核心功能": {
+    "zh": "核心功能",
+    "en": "Core features",
+    "tw": "核心功能"
+  },
+  "物品查价": {
+    "zh": "物品查价",
+    "en": "Item pricing",
+    "tw": "物品查價"
+  },
+  "：悬停物品一键查询官方市集实时价格。": {
+    "zh": "：悬停物品一键查询官方市集实时价格。",
+    "en": " — hover an item, one hotkey, live official-trade prices.",
+    "tw": "：停在物品上一鍵查詢官方市集即時價格。"
+  },
+  "截图识别查价": {
+    "zh": "截图识别查价",
+    "en": "Screen scan",
+    "tw": "截圖辨識查價"
+  },
+  "：一帧截图本地识别整屏物品名并批量查价。": {
+    "zh": "：一帧截图本地识别整屏物品名并批量查价。",
+    "en": " — one frame, local OCR reads every item name on screen and prices them all.",
+    "tw": "：一幀截圖在本機辨識整螢幕物品名並批次查價。"
+  },
+  "剧情引导": {
+    "zh": "剧情引导",
+    "en": "Campaign guide",
+    "tw": "劇情引導"
+  },
+  "：自动识别所在区域，跟随切换任务与导航。": {
+    "zh": "：自动识别所在区域，跟随切换任务与导航。",
+    "en": " — detects your zone and switches tasks and navigation along with you.",
+    "tw": "：自動辨識所在區域，跟著切換任務與導航。"
+  },
+  "快捷正则": {
+    "zh": "快捷正则",
+    "en": "Regex presets",
+    "tw": "快捷正則"
+  },
+  "：将常用正则保存为卡片，一键复制到商店或仓库搜索框。": {
+    "zh": "：将常用正则保存为卡片，一键复制到商店或仓库搜索框。",
+    "en": " — keep frequently used expressions as chips and copy one into a vendor or stash search in a click.",
+    "tw": "：將常用正則儲存為卡片，一鍵複製到商店或倉庫搜尋框。"
+  },
+  "通货兑换 / 计时器": {
+    "zh": "通货兑换 / 计时器",
+    "en": "Currency rates & timers",
+    "tw": "通貨兌換 / 計時器"
+  },
+  "：实时通货比率与全局+地图计时。": {
+    "zh": "：实时通货比率与全局+地图计时。",
+    "en": " — live exchange rates, plus a global and a per-map clock.",
+    "tw": "：即時通貨比率與全域＋地圖計時。"
+  },
+  "奖励计数 / 收益统计": {
+    "zh": "奖励计数 / 收益统计",
+    "en": "Drop tally & wealth tracking",
+    "tw": "獎勵計數 / 收益統計"
+  },
+  "：统计刷图掉落与收益，得出资产总值、每小时收益与每图收益。两代通用，区别在于资产来源——流放之路 1 读取仓库，流放之路 2 读取交易站上的公开挂单。": {
+    "zh": "：统计刷图掉落与收益，得出资产总值、每小时收益与每图收益。两代通用，区别在于资产来源——流放之路 1 读取仓库，流放之路 2 读取交易站上的公开挂单。",
+    "en": " — track drops and profit, reporting total asset value plus income per hour and per map. Available in both games; only the source differs — Path of Exile 1 reads your stash, Path of Exile 2 reads your public trade listings.",
+    "tw": "：統計刷圖掉落與收益，得出資產總值、每小時收益與每圖收益。兩代通用，區別在於資產來源——流亡黯道 1 讀取倉庫，流亡黯道 2 讀取交易站上的公開掛單。"
+  },
+  "掉落过滤器": {
+    "zh": "掉落过滤器",
+    "en": "Loot filters",
+    "tw": "掉落過濾器"
+  },
+  "：基于 NeverSink 定制的开荒 / 刷图 / 速刷三份，跟着经济数据更新，另有语音版，客户端可一键装进游戏目录或你的 GGG 账号。": {
+    "zh": "：基于 NeverSink 定制的开荒 / 刷图 / 速刷三份，跟着经济数据更新，另有语音版，客户端可一键装进游戏目录或你的 GGG 账号。",
+    "en": " — Pushing / Farming / Speed, built on NeverSink's and kept current with economy data, each also with alert sounds; the client installs them into the game folder or your GGG account in one click.",
+    "tw": "：基於 NeverSink 定製的開荒 / 刷圖 / 速刷三份，跟著經濟資料更新，另有語音版，客戶端可一鍵裝進遊戲目錄或你的 GGG 帳號。"
+  },
+  "游戏内 BD 天赋规划器": {
+    "zh": "游戏内 BD 天赋规划器",
+    "en": "In-game build planner",
+    "tw": "遊戲內配裝天賦規劃器"
+  },
+  "：把构筑写成游戏认的": {
+    "zh": "：把构筑写成游戏认的",
+    "en": " — writes your build into a",
+    "tw": "：把配裝寫成遊戲認得的"
+  },
+  ".build": {
+    "zh": ".build",
+    "en": ".build",
+    "tw": ".build"
+  },
+  "文件，天赋走线直接画在游戏自带的规划器里，内置 33 套 BD，开荒与终局两套天赋分别给。": {
+    "zh": "文件，天赋走线直接画在游戏自带的规划器里，内置 33 套 BD，开荒与终局两套天赋分别给。",
+    "en": "file the game itself reads, so the passive route is drawn in the game's own planner. 33 builds included, each with a separate levelling and endgame tree.",
+    "tw": "檔案，天賦走線直接畫在遊戲自帶的規劃器裡，內建 33 套配裝，開荒與終局兩套天賦分別給。"
+  },
+  "速查图": {
+    "zh": "速查图",
+    "en": "Cheat sheets",
+    "tw": "速查圖"
+  },
+  "：Shift+Space 唤出自行上传的速查图缩略图带，悬停后以原尺寸展开于游戏中央。": {
+    "zh": "：Shift+Space 唤出自行上传的速查图缩略图带，悬停后以原尺寸展开于游戏中央。",
+    "en": " — Shift+Space brings up a strip of images you uploaded; hover one and it opens at full size in the centre of the game.",
+    "tw": "：Shift+Space 喚出自行上傳的速查圖縮圖帶，停留後以原尺寸展開於遊戲中央。"
+  },
+  "魔镜市集（网页）": {
+    "zh": "魔镜市集（网页）",
+    "en": "Mirror Market (web)",
+    "tw": "魔鏡市集（網頁）"
+  },
+  "：": {
+    "zh": "：",
+    "en": ": ",
+    "tw": "："
+  },
+  "trade.kalandraeye.com": {
+    "zh": "trade.kalandraeye.com",
+    "en": "trade.kalandraeye.com",
+    "tw": "trade.kalandraeye.com"
+  },
+  "—— 词缀池随物品类别收窄的交易搜索、基于 Path of Building 本体的角色试装，以及由一句话填写表单的 AI 助手。": {
+    "zh": "—— 词缀池随物品类别收窄的交易搜索、基于 Path of Building 本体的角色试装，以及由一句话填写表单的 AI 助手。",
+    "en": " — trade search whose modifier pool narrows to the item class, character try-on running Path of Building itself, and an AI assistant that fills the form from a single sentence.",
+    "tw": "—— 詞綴池隨物品類別收窄的交易搜尋、基於 Path of Building 本體的角色試裝，以及由一句話填寫表單的 AI 助手。"
+  },
+  "支持范围": {
+    "zh": "支持范围",
+    "en": "What it supports",
+    "tw": "支援範圍"
+  },
+  "两代游戏": {
+    "zh": "两代游戏",
+    "en": "Both games",
+    "tw": "兩代遊戲"
+  },
+  "：《流放之路》1 与 2（POE1 · POE2）。": {
+    "zh": "：《流放之路》1 与 2（POE1 · POE2）。",
+    "en": " — Path of Exile 1 and 2 (POE1 · POE2).",
+    "tw": "：《流亡黯道》1 與 2（POE1 · POE2）。"
+  },
+  "三大服务器": {
+    "zh": "三大服务器",
+    "en": "Three realms",
+    "tw": "三大伺服器"
+  },
+  "：国际服 / 国服 / 台服。": {
+    "zh": "：国际服 / 国服 / 台服。",
+    "en": " — Global / China / Taiwan.",
+    "tw": "：國際服 / 國服 / 台服。"
+  },
+  "三种语言": {
+    "zh": "三种语言",
+    "en": "Three languages",
+    "tw": "三種語言"
+  },
+  "：英文 / 简体中文 / 繁体中文。": {
+    "zh": "：英文 / 简体中文 / 繁体中文。",
+    "en": " — English / Simplified Chinese / Traditional Chinese.",
+    "tw": "：英文 / 簡體中文 / 繁體中文。"
+  },
+  "键盘 + 手柄": {
+    "zh": "键盘 + 手柄",
+    "en": "Keyboard + gamepad",
+    "tw": "鍵盤 + 手把"
+  },
+  "：所有功能均可由手柄按键触发。": {
+    "zh": "：所有功能均可由手柄按键触发。",
+    "en": " — every feature can be triggered from a gamepad button.",
+    "tw": "：所有功能均可由手把按鍵觸發。"
+  },
+  "系统要求": {
+    "zh": "系统要求",
+    "en": "System",
+    "tw": "系統需求"
+  },
+  "：Windows 10 / 11（64 位）。": {
+    "zh": "：Windows 10 / 11（64 位）。",
+    "en": " — Windows 10 / 11 (64-bit).",
+    "tw": "：Windows 10 / 11（64 位元）。"
+  },
+  "两个入口": {
+    "zh": "两个入口",
+    "en": "Two ways in",
+    "tw": "兩個入口"
+  },
+  "：Windows 客户端（悬浮窗）与网页版魔镜市集，后者在浏览器中即可使用。": {
+    "zh": "：Windows 客户端（悬浮窗）与网页版魔镜市集，后者在浏览器中即可使用。",
+    "en": " — the Windows client (overlays) and Mirror Market, which runs in any browser.",
+    "tw": "：Windows 客戶端（懸浮窗）與網頁版魔鏡市集，後者在瀏覽器中即可使用。"
+  },
+  "安全与隐私承诺": {
+    "zh": "安全与隐私承诺",
+    "en": "Safety & privacy",
+    "tw": "安全與隱私承諾"
+  },
+  "绝不注入、读取或修改游戏进程与内存，也不修改任何游戏文件": {
+    "zh": "绝不注入、读取或修改游戏进程与内存，也不修改任何游戏文件",
+    "en": "never injects into, reads or modifies the game process or memory, and never modifies any game file",
+    "tw": "絕不注入、讀取或修改遊戲行程與記憶體，也不修改任何遊戲檔案"
+  },
+  "。它只会：读取游戏的日志文件、读取你": {
+    "zh": "。它只会：读取游戏的日志文件、读取你",
+    "en": ". It only ever: reads the game's log file, reads item text you",
+    "tw": "。它只會：讀取遊戲的日誌檔案、讀取你"
+  },
+  "主动复制": {
+    "zh": "主动复制",
+    "en": "copy yourself",
+    "tw": "主動複製"
+  },
+  "的物品文本、以及在你按下识别热键时截取一帧屏幕做": {
+    "zh": "的物品文本、以及在你按下识别热键时截取一帧屏幕做",
+    "en": ", and captures one screen frame for",
+    "tw": "的物品文字、以及在你按下辨識熱鍵時擷取一幀螢幕做"
+  },
+  "本地": {
+    "zh": "本地",
+    "en": "local",
+    "tw": "本機"
+  },
+  "OCR。所有查价均通过": {
+    "zh": "OCR。所有查价均通过",
+    "en": "OCR when you press the scan hotkey. All price lookups go through the",
+    "tw": "OCR。所有查價均透過"
+  },
+  "官方市集 API": {
+    "zh": "官方市集 API",
+    "en": "official trade API",
+    "tw": "官方市集 API"
+  },
+  "完成，工作方式与官方交易网站一致。": {
+    "zh": "完成，工作方式与官方交易网站一致。",
+    "en": ", exactly the way the official trade site works.",
+    "tw": "完成，運作方式與官方交易網站一致。"
+  },
+  "物品识别全程在你本地电脑完成，": {
+    "zh": "物品识别全程在你本地电脑完成，",
+    "en": "Item recognition runs entirely on your own PC — ",
+    "tw": "物品辨識全程在你本機電腦完成，"
+  },
+  "不上传截图或账号信息": {
+    "zh": "不上传截图或账号信息",
+    "en": "no screenshots or account details are uploaded",
+    "tw": "不上傳截圖或帳號資訊"
+  },
+  "。国服交易搜索需要你在设置中自行填入会话 Cookie，该信息仅保存在本地、仅用于向官方接口发起查询。请你同时自行遵守游戏的服务条款。": {
+    "zh": "。国服交易搜索需要你在设置中自行填入会话 Cookie，该信息仅保存在本地、仅用于向官方接口发起查询。请你同时自行遵守游戏的服务条款。",
+    "en": ". The China-realm session cookie you enter is stored locally and used only to query the official endpoints. Please also follow the game's Terms of Service.",
+    "tw": "。國服交易搜尋需要你在設定中自行填入工作階段 Cookie，該資訊僅保存在本機、僅用於向官方介面發起查詢。請你同時自行遵守遊戲的服務條款。"
+  },
+  "关于团队与非官方声明": {
+    "zh": "关于团队与非官方声明",
+    "en": "About the team & disclaimer",
+    "tw": "關於團隊與非官方聲明"
+  },
+  "魔镜由一个独立的玩家团队开发与维护。下载与核心功能免费；少数功能（魔镜市集、过滤器一键安装、配置云同步、AI 类功能）由会员覆盖，用于支付服务器与模型成本。我们持续根据社区反馈迭代。": {
+    "zh": "魔镜由一个独立的玩家团队开发与维护。下载与核心功能免费；少数功能（魔镜市集、过滤器一键安装、配置云同步、AI 类功能）由会员覆盖，用于支付服务器与模型成本。我们持续根据社区反馈迭代。",
+    "en": "Mirror is built and maintained by an independent team of players. The download and core features are free; a small number of features (Mirror Market, one-click filter installs, config cloud sync and the AI features) are covered by a membership that pays for servers and model usage. We continue to iterate on community feedback.",
+    "tw": "魔鏡由一個獨立的玩家團隊開發與維護。下載與核心功能免費；少數功能（魔鏡市集、過濾器一鍵安裝、設定雲端同步、AI 類功能）由會員支應，用於支付伺服器與模型成本。我們持續根據社群回饋迭代。"
+  },
+  "本产品为": {
+    "zh": "本产品为",
+    "en": "This is an",
+    "tw": "本產品為"
+  },
+  "非官方粉丝工具": {
+    "zh": "非官方粉丝工具",
+    "en": "unofficial, fan-made tool",
+    "tw": "非官方粉絲工具"
+  },
+  "，与 Grinding Gear Games 及其运营方没有任何隶属或授权关系。「Path of Exile」「流放之路」为其各自所有者的商标，此处仅作说明性使用。": {
+    "zh": "，与 Grinding Gear Games 及其运营方没有任何隶属或授权关系。「Path of Exile」「流放之路」为其各自所有者的商标，此处仅作说明性使用。",
+    "en": " with no affiliation with or endorsement by Grinding Gear Games or its operators. “Path of Exile” is a trademark of its respective owners, used here descriptively.",
+    "tw": "，與 Grinding Gear Games 及其營運方沒有任何隸屬或授權關係。「Path of Exile」「流亡黯道」為其各自所有者的商標，此處僅作說明性使用。"
+  },
+  "联系我们": {
+    "zh": "联系我们",
+    "en": "Contact us",
+    "tw": "聯絡我們"
+  },
+  "有任何问题、建议或合作意向，欢迎通过以下方式联系我们：": {
+    "zh": "有任何问题、建议或合作意向，欢迎通过以下方式联系我们：",
+    "en": "Questions, feedback or partnership — reach us here:",
+    "tw": "有任何問題、建議或合作意向，歡迎透過以下方式聯絡我們："
+  },
+  "邮箱：": {
+    "zh": "邮箱：",
+    "en": "Email:",
+    "tw": "信箱："
+  },
+  "kalandraeye@gmail.com": {
+    "zh": "kalandraeye@gmail.com",
+    "en": "kalandraeye@gmail.com",
+    "tw": "kalandraeye@gmail.com"
+  },
+  "加入 Discord": {
+    "zh": "加入 Discord",
+    "en": "Join Discord",
+    "tw": "加入 Discord"
+  },
+  "QQ 群 1057145969": {
+    "zh": "QQ 群 1057145969",
+    "en": "QQ Group 1057145969",
+    "tw": "QQ 群 1057145969"
+  },
+  "已复制群号 ✓": {
+    "zh": "已复制群号 ✓",
+    "en": "Copied ✓",
+    "tw": "已複製群號 ✓"
+  }
+}

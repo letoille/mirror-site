@@ -1,0 +1,632 @@
+{
+  "@title": {
+    "zh": "魔镜客户端 — 流放之路 1 & 2 (POE1·POE2) 查价悬浮窗 · 截图识别 · 收益统计",
+    "en": "Mirror Client — Path of Exile 1 & 2 Price-Check Overlay, Screen Scan, Wealth Tracking",
+    "tw": "魔鏡客戶端 — 流亡黯道 1 & 2 (POE1·POE2) 查價懸浮窗 · 截圖辨識 · 收益統計"
+  },
+  "@description": {
+    "zh": "魔镜客户端是《流放之路》1 & 2 的 Windows 悬浮窗助手：悬停物品一键查询官方市集实时价格、截图识别整屏物品批量查价、剧情引导跟随区域切换、快捷正则卡片、通货兑换比率、全局与地图计时、奖励掉落计数、收益统计（资产总值 / 每小时收益 / 每图收益）、速查图、行情、命令条，还能把掉落过滤器和 BD 天赋规划装进游戏。支持国际服 / 国服 / 台服，键盘与手柄。",
+    "en": "The Mirror client is a Windows overlay for Path of Exile 1 & 2: hover an item and get live official-trade prices, scan a whole screen of items at once, follow a zone-aware campaign guide, keep regex presets on screen, watch currency rates, run global and per-map timers, tally drops, track wealth (asset value, profit per hour, profit per map), pin cheat sheets, and install loot filters and build plans into the game. Global, China and Taiwan realms, keyboard and gamepad.",
+    "tw": "魔鏡客戶端是《流亡黯道》1 & 2 的 Windows 懸浮窗助手：停在物品上一鍵查詢官方市集即時價格、截圖辨識整螢幕物品批次查價、劇情引導跟著區域切換、快捷正則卡片、通貨兌換比率、全域與地圖計時、獎勵掉落計數、收益統計（資產總值 / 每小時收益 / 每圖收益）、速查圖、行情、命令列，還能把掉落過濾器和配裝天賦規劃裝進遊戲。支援國際服 / 國服 / 台服，鍵盤與手把。"
+  },
+  "@ogdesc": {
+    "zh": "流放之路 1 & 2 的 Windows 查价悬浮窗：一键查价、截图识别整屏价格、剧情引导、快捷正则、计时器、奖励计数、收益统计、速查图，还能把掉落过滤器与 BD 天赋规划装进游戏。",
+    "en": "A Windows price-check overlay for Path of Exile 1 & 2: one-key pricing, whole-screen scan, campaign guide, regex presets, timers, drop tally, wealth tracking, cheat sheets — plus loot filter and build-planner installs.",
+    "tw": "流亡黯道 1 & 2 的 Windows 查價懸浮窗：一鍵查價、截圖辨識整螢幕價格、劇情引導、快捷正則、計時器、獎勵計數、收益統計、速查圖，還能把掉落過濾器與配裝天賦規劃裝進遊戲。"
+  },
+  "@keywords": {
+    "zh": "魔镜客户端,流放之路2查价器,流放之路查价器,POE2查价,悬浮窗,懸浮窗,overlay,price check,截图识别,OCR查价,整屏查价,剧情引导,升级攻略,快捷正则,地图正则,引路石正则,通货兑换,计时器,地图计时,奖励计数,掉落统计,收益统计,仓库估价,每小时收益,每图收益,速查图,cheat sheet,行情,命令条,掉落过滤器安装,BD天赋规划器,build planner,手柄查价,国服查价器,台服查價,Windows,POE2插件",
+    "en": "mirror client,poe2 price checker,path of exile overlay,price check,screen scan,ocr pricing,campaign guide,levelling guide,regex presets,map regex,currency exchange,timer,map timer,drop tally,wealth tracker,stash value,profit per hour,profit per map,cheat sheet,market prices,command bar,loot filter install,build planner,gamepad,windows",
+    "tw": "魔鏡客戶端,流亡黯道2查價器,流亡黯道查價器,POE2查價,懸浮窗,overlay,price check,截圖辨識,OCR查價,整螢幕查價,劇情引導,升級攻略,快捷正則,換界石正則,通貨兌換,計時器,地圖計時,獎勵計數,掉落統計,收益統計,倉庫估價,每小時收益,每圖收益,速查圖,cheat sheet,行情,命令列,掉落過濾器安裝,配裝天賦規劃器,build planner,手把查價,國際服,台服,Windows,POE2插件"
+  },
+  "Windows 10 / 11 · 悬浮窗": {
+    "zh": "Windows 10 / 11 · 悬浮窗",
+    "en": "Windows 10 / 11 · overlay",
+    "tw": "Windows 10 / 11 · 懸浮窗"
+  },
+  "魔镜客户端": {
+    "zh": "魔镜客户端",
+    "en": "Mirror client",
+    "tw": "魔鏡客戶端"
+  },
+  "叠加于《流放之路》画面之上的悬浮窗层。悬停物品并按下热键，官方市集的实时挂单价即显示在物品旁，无需切换窗口或打开网页。": {
+    "zh": "叠加于《流放之路》画面之上的悬浮窗层。悬停物品并按下热键，官方市集的实时挂单价即显示在物品旁，无需切换窗口或打开网页。",
+    "en": "A layer of overlays drawn on top of Path of Exile. Hover an item, press the hotkey, and the live official-trade price is shown beside it — without switching windows or opening a browser.",
+    "tw": "疊加於《流亡黯道》畫面之上的懸浮窗層。停在物品上並按下熱鍵，官方市集的即時掛單價即顯示在物品旁，無需切換視窗或開啟網頁。"
+  },
+  "支持": {
+    "zh": "支持",
+    "en": "Supports",
+    "tw": "支援"
+  },
+  "国际服 / 国服 / 台服": {
+    "zh": "国际服 / 国服 / 台服",
+    "en": "Global / China / Taiwan",
+    "tw": "國際服 / 國服 / 台服"
+  },
+  "· 英 / 简 / 繁": {
+    "zh": "· 英 / 简 / 繁",
+    "en": "· EN / SC / TC",
+    "tw": "· 英 / 簡 / 繁"
+  },
+  "键盘 + 手柄操作": {
+    "zh": "键盘 + 手柄操作",
+    "en": "Keyboard + gamepad",
+    "tw": "鍵盤 + 手把操作"
+  },
+  "流放之路 1 与 2": {
+    "zh": "流放之路 1 与 2",
+    "en": "Path of Exile 1 and 2",
+    "tw": "流亡黯道 1 與 2"
+  },
+  "剧情开荒，任务奖励自动提示": {
+    "zh": "剧情开荒，任务奖励自动提示",
+    "en": "Levelling, with quests and rewards surfaced automatically",
+    "tw": "劇情開荒，任務獎勵自動提示"
+  },
+  "支持国际服，国服，台服": {
+    "zh": "支持国际服，国服，台服",
+    "en": "Global, China and Taiwan realms",
+    "tw": "支援國際服、國服、台服"
+  },
+  "必做 / 可选任务 + 技能宝石一目了然": {
+    "zh": "必做 / 可选任务 + 技能宝石一目了然",
+    "en": "Required and optional quests, plus skill gems, at a glance",
+    "tw": "必做 / 可選任務 + 技能寶石一目了然"
+  },
+  "自定义 BD 技能组，点击快速搜索技能": {
+    "zh": "自定义 BD 技能组，点击快速搜索技能",
+    "en": "Custom build skill sets — click a gem to search for it fast",
+    "tw": "自訂配裝技能組，點擊快速搜尋技能"
+  },
+  "魔镜剧情引导浮层：自动跟随当前区域切换任务、奖励与技能宝石": {
+    "zh": "魔镜剧情引导浮层：自动跟随当前区域切换任务、奖励与技能宝石",
+    "en": "Mirror campaign guide overlay: follows your current zone and switches quests, rewards and skill gems automatically",
+    "tw": "魔鏡劇情引導浮層：自動跟隨目前區域切換任務、獎勵與技能寶石"
+  },
+  "🗺 荆棘荒野 · Lv.12": {
+    "zh": "🗺 荆棘荒野 · Lv.12",
+    "en": "🗺 Bramble Wilds · Lv.12",
+    "tw": "🗺 荊棘荒野 · Lv.12"
+  },
+  "与 [Una] 对话领取任务": {
+    "zh": "与 [Una] 对话领取任务",
+    "en": "Talk to [Una] for the quest",
+    "tw": "與 [Una] 對話領取任務"
+  },
+  "击败 [Rathbreaker] 获取技能石": {
+    "zh": "击败 [Rathbreaker] 获取技能石",
+    "en": "Defeat [Rathbreaker] for a skill gem",
+    "tw": "擊敗 [Rathbreaker] 取得技能石"
+  },
+  "可选：拾取 [生命之泉]": {
+    "zh": "可选：拾取 [生命之泉]",
+    "en": "Optional: grab the [Life Spring]",
+    "tw": "可選：撿取 [生命之泉]"
+  },
+  "示意图 · 实拍截图待补": {
+    "zh": "示意图 · 实拍截图待补",
+    "en": "Mock-up · real screenshot coming",
+    "tw": "示意圖 · 實拍截圖待補"
+  },
+  "一键查价，智能选择词缀": {
+    "zh": "一键查价，智能选择词缀",
+    "en": "One key to price it, with the right modifiers pre-selected",
+    "tw": "一鍵查價，智慧選擇詞綴"
+  },
+  "智能选择词缀与搜索条件，查价更准确": {
+    "zh": "智能选择词缀与搜索条件，查价更准确",
+    "en": "Modifiers and search conditions chosen for you, for a more accurate check",
+    "tw": "智慧選擇詞綴與搜尋條件，查價更準確"
+  },
+  "破裂 / 工艺 / 腐化 各类词缀分色区分与切换": {
+    "zh": "破裂 / 工艺 / 腐化 各类词缀分色区分与切换",
+    "en": "Fractured / crafted / corrupted colour-coded by type, and toggleable",
+    "tw": "破裂 / 工藝 / 汙染 各類詞綴分色區分與切換"
+  },
+  "各种物品查价，装备，通货，佣兵查价": {
+    "zh": "各种物品查价，装备，通货，佣兵查价",
+    "en": "Prices anything — gear, currency, mercenary warrants",
+    "tw": "各種物品查價，裝備、通貨、傭兵憑證"
+  },
+  "根据查价物品，一键打开市集": {
+    "zh": "根据查价物品，一键打开市集",
+    "en": "Open the market on the item you just priced, in one click",
+    "tw": "根據查價物品，一鍵打開市集"
+  },
+  "暴风之冕": {
+    "zh": "暴风之冕",
+    "en": "Tempest Crown",
+    "tw": "風暴之冕"
+  },
+  "生命上限 +89 · 冰霜抗性 +42%": {
+    "zh": "生命上限 +89 · 冰霜抗性 +42%",
+    "en": "+89 Life · +42% Cold Res",
+    "tw": "+89 最大生命 · +42% 冰冷抗性"
+  },
+  "收益统计，看清策略收益": {
+    "zh": "收益统计，看清策略收益",
+    "en": "Wealth stats — see which strategy actually pays",
+    "tw": "收益統計，看清策略收益"
+  },
+  "追踪资产总值 + 每次上线收益": {
+    "zh": "追踪资产总值 + 每次上线收益",
+    "en": "Tracked-asset value + profit per session",
+    "tw": "追蹤資產總值 + 每次上線收益"
+  },
+  "自动刷新收益统计，明确策略收益": {
+    "zh": "自动刷新收益统计，明确策略收益",
+    "en": "Refreshes automatically and shows which strategy actually pays",
+    "tw": "自動更新收益統計，明確策略收益"
+  },
+  "支持 流放之路1 和 流放之路2": {
+    "zh": "支持 流放之路1 和 流放之路2",
+    "en": "Works in both Path of Exile 1 and 2",
+    "tw": "支援 流亡黯道1 和 流亡黯道2"
+  },
+  "快捷复制搜索高价值物品": {
+    "zh": "快捷复制搜索高价值物品",
+    "en": "Copy or search your high-value items in one click",
+    "tw": "快捷複製搜尋高價值物品"
+  },
+  "魔镜收益统计：追踪资产总值、每小时收益与每图收益": {
+    "zh": "魔镜收益统计：追踪资产总值、每小时收益与每图收益",
+    "en": "Mirror wealth tracking: total asset value, income per hour and income per map",
+    "tw": "魔鏡收益統計：追蹤資產總值、每小時收益與每圖收益"
+  },
+  "追踪资产": {
+    "zh": "追踪资产",
+    "en": "Tracked assets",
+    "tw": "追蹤資產"
+  },
+  "每小时收益": {
+    "zh": "每小时收益",
+    "en": "Per hour",
+    "tw": "每小時收益"
+  },
+  "混沌石 ×146": {
+    "zh": "混沌石 ×146",
+    "en": "Chaos Orb ×146",
+    "tw": "混沌石 ×146"
+  },
+  "146c": {
+    "zh": "146c",
+    "en": "146c",
+    "tw": "146c"
+  },
+  "金珏之缮 ×1": {
+    "zh": "金珏之缮 ×1",
+    "en": "Kintsugi ×1",
+    "tw": "金繕 ×1"
+  },
+  "1.1 div": {
+    "zh": "1.1 div",
+    "en": "1.1 div",
+    "tw": "1.1 div"
+  },
+  "BD 规划，自动同步游戏内天赋": {
+    "zh": "BD 规划，自动同步游戏内天赋",
+    "en": "Plan a build, synced into the game's own passive tree",
+    "tw": "配裝規劃，自動同步遊戲內天賦"
+  },
+  "内置多套热门 BD，助力萌新开荒": {
+    "zh": "内置多套热门 BD，助力萌新开荒",
+    "en": "A library of popular builds to carry new players through the campaign",
+    "tw": "內建多套熱門配裝，助力新手開荒"
+  },
+  "自定义 BD，快速同步到游戏中": {
+    "zh": "自定义 BD，快速同步到游戏中",
+    "en": "Custom builds sync into the game just as fast",
+    "tw": "自訂配裝，快速同步到遊戲中"
+  },
+  "同时支持两套天赋切换": {
+    "zh": "同时支持两套天赋切换",
+    "en": "Two passive routes, switchable",
+    "tw": "同時支援兩套天賦切換"
+  },
+  "一键分享，快速导出与导入": {
+    "zh": "一键分享，快速导出与导入",
+    "en": "Share codes for one-click export and import",
+    "tw": "一鍵分享，快速匯出與匯入"
+  },
+  "魔镜游戏内 BD 天赋规划器：构筑写成 .build 文件，游戏内按 P 直接看到天赋走线": {
+    "zh": "魔镜游戏内 BD 天赋规划器：构筑写成 .build 文件，游戏内按 P 直接看到天赋走线",
+    "en": "Mirror in-game build planner: the build is written to a .build file and the passive route appears in the game's own planner",
+    "tw": "魔鏡遊戲內配裝天賦規劃器：配裝寫成 .build 檔案，遊戲內按 P 直接看到天賦走線"
+  },
+  "一键截图查价": {
+    "zh": "一键截图查价",
+    "en": "Price a screen in one key",
+    "tw": "一鍵截圖查價"
+  },
+  "简 / 繁 / 英物品名 OCR 识别，全程本地不上传": {
+    "zh": "简 / 繁 / 英物品名 OCR 识别，全程本地不上传",
+    "en": "Local OCR reads item names in SC / TC / EN — nothing is uploaded",
+    "tw": "簡 / 繁 / 英物品名 OCR 辨識，全程本機不上傳"
+  },
+  "快速识别屏幕上的多个物品，实时显示价格": {
+    "zh": "快速识别屏幕上的多个物品，实时显示价格",
+    "en": "Recognises several items on screen at once and shows their prices live",
+    "tw": "快速辨識螢幕上的多個物品，即時顯示價格"
+  },
+  "魔镜截图识别查价：按一次热键识别整屏《流放之路 2》物品名并批量查询官方市集价格": {
+    "zh": "魔镜截图识别查价：按一次热键识别整屏《流放之路 2》物品名并批量查询官方市集价格",
+    "en": "Mirror screen scan: one hotkey recognises every Path of Exile 2 item name on screen and prices them from the official trade API",
+    "tw": "魔鏡截圖辨識查價：按一次熱鍵辨識整螢幕《流亡黯道 2》物品名並批次查詢官方市集價格"
+  },
+  "崇高石": {
+    "zh": "崇高石",
+    "en": "Exalted Orb",
+    "tw": "崇高石"
+  },
+  "神圣石": {
+    "zh": "神圣石",
+    "en": "Divine Orb",
+    "tw": "神聖石"
+  },
+  "魔甘娜的风暴": {
+    "zh": "魔甘娜的风暴",
+    "en": "Morgana's Tempest",
+    "tw": "魔甘娜的風暴"
+  },
+  "图片快速查看": {
+    "zh": "图片快速查看",
+    "en": "Your images, on call",
+    "tw": "圖片快速查看"
+  },
+  "上传自定义图片，游戏中快速展开": {
+    "zh": "上传自定义图片，游戏中快速展开",
+    "en": "Upload your own images and open them full-size in game",
+    "tw": "上傳自訂圖片，遊戲中快速展開"
+  },
+  "避免切换窗口，玩法资料实时查看": {
+    "zh": "避免切换窗口，玩法资料实时查看",
+    "en": "Check your reference material without switching windows",
+    "tw": "避免切換視窗，玩法資料即時查看"
+  },
+  "魔镜速查图：Shift+Space 唤出自行上传的攻略图，停留后以原尺寸展开": {
+    "zh": "魔镜速查图：Shift+Space 唤出自行上传的攻略图，停留后以原尺寸展开",
+    "en": "Mirror cheat sheets: Shift+Space brings up your own uploaded images, hover to open at full size",
+    "tw": "魔鏡速查圖：Shift+Space 喚出自行上傳的攻略圖，停留後以原尺寸展開"
+  },
+  "实时行情": {
+    "zh": "实时行情",
+    "en": "Live market prices",
+    "tw": "即時行情"
+  },
+  "根据玩法分类，提示各玩法收益": {
+    "zh": "根据玩法分类，提示各玩法收益",
+    "en": "Grouped by mechanic, with a read on what each one pays",
+    "tw": "根據玩法分類，提示各玩法收益"
+  },
+  "各类物品价格展示，点击查询物品资料": {
+    "zh": "各类物品价格展示，点击查询物品资料",
+    "en": "Prices for every kind of item — click one for its details",
+    "tw": "各類物品價格展示，點擊查詢物品資料"
+  },
+  "价格异常变动提示，快速感知市场行情": {
+    "zh": "价格异常变动提示，快速感知市场行情",
+    "en": "Unusual price moves are flagged, so shifts in the market are hard to miss",
+    "tw": "價格異常變動提示，快速感知市場行情"
+  },
+  "魔镜行情面板：通货、传奇、技能石的实时价格，按玩法分组": {
+    "zh": "魔镜行情面板：通货、传奇、技能石的实时价格，按玩法分组",
+    "en": "Mirror market panel: live prices for currency, uniques and skill gems, grouped by mechanic",
+    "tw": "魔鏡行情面板：通貨、傳奇、技能石的即時價格，按玩法分組"
+  },
+  "常用正则快速使用": {
+    "zh": "常用正则快速使用",
+    "en": "Your go-to expressions, one click away",
+    "tw": "常用正則快速使用"
+  },
+  "预设正则，支持多语言": {
+    "zh": "预设正则，支持多语言",
+    "en": "Built-in presets, in every supported language",
+    "tw": "預設正則，支援多語言"
+  },
+  "保存常用正则，游戏中随时用": {
+    "zh": "保存常用正则，游戏中随时用",
+    "en": "Save your own and reach them any time in game",
+    "tw": "保存常用正則，遊戲中隨時用"
+  },
+  "网页正则生成器，勾选条件即可生成": {
+    "zh": "网页正则生成器，勾选条件即可生成",
+    "en": "The web generator builds one from the conditions you tick",
+    "tw": "網頁正則產生器，勾選條件即可產生"
+  },
+  "魔镜快捷正则：常用正则卡片浮在游戏上，一键复制到仓库或商店搜索框": {
+    "zh": "魔镜快捷正则：常用正则卡片浮在游戏上，一键复制到仓库或商店搜索框",
+    "en": "Mirror regex presets: frequently used expressions as chips over the game, copied into a stash or vendor search in one click",
+    "tw": "魔鏡快捷正則：常用正則卡片浮在遊戲上，一鍵複製到倉庫或商店搜尋框"
+  },
+  "\"生命\" \"抗性\"": {
+    "zh": "\"生命\" \"抗性\"",
+    "en": "\"life\" \"resist\"",
+    "tw": "\"生命\" \"抗性\""
+  },
+  "品质 ≥ 15": {
+    "zh": "品质 ≥ 15",
+    "en": "quality ≥ 15",
+    "tw": "品質 ≥ 15"
+  },
+  "6 插槽": {
+    "zh": "6 插槽",
+    "en": "6 sockets",
+    "tw": "6 插槽"
+  },
+  "快捷指令": {
+    "zh": "快捷指令",
+    "en": "Quick commands",
+    "tw": "快捷指令"
+  },
+  "一键回藏身处，一键屏蔽聊天": {
+    "zh": "一键回藏身处，一键屏蔽聊天",
+    "en": "One click to your hideout, one to mute chat",
+    "tw": "一鍵回藏身處，一鍵封鎖聊天"
+  },
+  "支持多种快捷指令，自定义快捷键触发": {
+    "zh": "支持多种快捷指令，自定义快捷键触发",
+    "en": "A range of commands, each bindable to a hotkey of your own",
+    "tw": "支援多種快捷指令，自訂快捷鍵觸發"
+  },
+  "魔镜命令条：聊天指令整理成一排按钮，点击即发送": {
+    "zh": "魔镜命令条：聊天指令整理成一排按钮，点击即发送",
+    "en": "Mirror command bar: chat commands as a row of buttons, click to send",
+    "tw": "魔鏡命令條：聊天指令整理成一排按鈕，點擊即發送"
+  },
+  "物品快速搜索": {
+    "zh": "物品快速搜索",
+    "en": "Quick item lookup",
+    "tw": "物品快速搜尋"
+  },
+  "三语模糊匹配，容错输入": {
+    "zh": "三语模糊匹配，容错输入",
+    "en": "Fuzzy matching across three languages, typo-tolerant",
+    "tw": "三語模糊比對，容錯輸入"
+  },
+  "支持技能、传奇、通货 等物品快速搜索": {
+    "zh": "支持技能、传奇、通货 等物品快速搜索",
+    "en": "Quick-search skills, uniques, currency and more",
+    "tw": "支援技能、傳奇、通貨 等物品快速搜尋"
+  },
+  "复制或一键填入游戏商店 / 仓库搜索框": {
+    "zh": "复制或一键填入游戏商店 / 仓库搜索框",
+    "en": "Copy it, or drop it straight into the in-game vendor or stash search",
+    "tw": "複製或一鍵填入遊戲商店 / 倉庫搜尋框"
+  },
+  "同一物品的简 / 繁 / 英名称差异较大，任一语言均可检索": {
+    "zh": "同一物品的简 / 繁 / 英名称差异较大，任一语言均可检索",
+    "en": "One item's SC / TC / EN names can differ substantially — any of them will find it",
+    "tw": "同一物品的簡 / 繁 / 英名稱差異較大，任一語言均可檢索"
+  },
+  "魔镜快速搜索：英文、简体、繁体三语模糊查询《流放之路》物品名并查价": {
+    "zh": "魔镜快速搜索：英文、简体、繁体三语模糊查询《流放之路》物品名并查价",
+    "en": "Mirror quick search: fuzzy matching of Path of Exile item names across English, Simplified and Traditional Chinese, with pricing",
+    "tw": "魔鏡快速搜尋：英文、簡體、繁體三語模糊查詢《流亡黯道》物品名並查價"
+  },
+  "猎首": {
+    "zh": "猎首",
+    "en": "Headhunter",
+    "tw": "獵首"
+  },
+  "攻坚收益统计": {
+    "zh": "攻坚收益统计",
+    "en": "Farming-target profit",
+    "tw": "攻堅收益統計"
+  },
+  "自定义配置统计奖励": {
+    "zh": "自定义配置统计奖励",
+    "en": "Configure which rewards you want counted",
+    "tw": "自訂設定統計獎勵"
+  },
+  "自动刷图计数，奖励计数，收益计算": {
+    "zh": "自动刷图计数，奖励计数，收益计算",
+    "en": "Run counts, drop counts and total value, all computed for you",
+    "tw": "自動刷圖計數、獎勵計數、收益計算"
+  },
+  "流放之路 1 与 2 均支持": {
+    "zh": "流放之路 1 与 2 均支持",
+    "en": "Works in both Path of Exile 1 and 2",
+    "tw": "流亡黯道 1 與 2 均支援"
+  },
+  "魔镜奖励计数：自动记录刷图次数并实时计算掉落总收益": {
+    "zh": "魔镜奖励计数：自动记录刷图次数并实时计算掉落总收益",
+    "en": "Mirror drop tally: run counts logged automatically, total drop value computed live",
+    "tw": "魔鏡獎勵計數：自動記錄刷圖次數並即時計算掉落總收益"
+  },
+  "沉沦之地": {
+    "zh": "沉沦之地",
+    "en": "Sinking Spire",
+    "tw": "沉淪之地"
+  },
+  "血脉宝石": {
+    "zh": "血脉宝石",
+    "en": "Blood Gem",
+    "tw": "血脈寶石"
+  },
+  "命运卡": {
+    "zh": "命运卡",
+    "en": "Divination Card",
+    "tw": "命運卡"
+  },
+  "计时器": {
+    "zh": "计时器",
+    "en": "Timers",
+    "tw": "計時器"
+  },
+  "章节计时器，每章节自动计时": {
+    "zh": "章节计时器，每章节自动计时",
+    "en": "Act timer — each act is timed automatically",
+    "tw": "章節計時器，每章節自動計時"
+  },
+  "地图计时，进入自动计时": {
+    "zh": "地图计时，进入自动计时",
+    "en": "Map timer — starts the moment you enter",
+    "tw": "地圖計時，進入自動計時"
+  },
+  "全局计时，统计游玩时间": {
+    "zh": "全局计时，统计游玩时间",
+    "en": "Global timer, for total time played",
+    "tw": "全域計時，統計遊玩時間"
+  },
+  "魔镜计时器浮层：同时显示全局计时与当前地图用时": {
+    "zh": "魔镜计时器浮层：同时显示全局计时与当前地图用时",
+    "en": "Mirror timer overlay: the global clock alongside the current map's elapsed time",
+    "tw": "魔鏡計時器浮層：同時顯示全域計時與目前地圖用時"
+  },
+  "全局": {
+    "zh": "全局",
+    "en": "Total",
+    "tw": "全域"
+  },
+  "地图": {
+    "zh": "地图",
+    "en": "Map",
+    "tw": "地圖"
+  },
+  "过滤器": {
+    "zh": "过滤器",
+    "en": "Loot filters",
+    "tw": "過濾器"
+  },
+  "剧情开荒，异界提升，后期速刷适配，刷图更省心": {
+    "zh": "剧情开荒，异界提升，后期速刷适配，刷图更省心",
+    "en": "Tuned for levelling, for the Atlas climb and for late-game speed farming",
+    "tw": "劇情開荒、異界提升、後期速刷適配，刷圖更省心"
+  },
+  "每日根据物价更新": {
+    "zh": "每日根据物价更新",
+    "en": "Updated daily from market prices",
+    "tw": "每日根據物價更新"
+  },
+  "提供游戏默认音效版、语言音效版": {
+    "zh": "提供游戏默认音效版、语言音效版",
+    "en": "Available with the game's built-in alert sounds or with voice packs",
+    "tw": "提供遊戲預設音效版、語音音效版"
+  },
+  "语音音效版支持自定义音效": {
+    "zh": "语音音效版支持自定义音效",
+    "en": "Voice versions let you pick your own sound pack",
+    "tw": "語音音效版支援自訂音效"
+  },
+  "魔镜掉落过滤器：基于 NeverSink 定制的开荒 / 刷图 / 速刷三份，含语音版": {
+    "zh": "魔镜掉落过滤器：基于 NeverSink 定制的开荒 / 刷图 / 速刷三份，含语音版",
+    "en": "Mirror loot filters: Pushing, Farming and Speed, customised from NeverSink's, with alert sound versions",
+    "tw": "魔鏡掉落過濾器：基於 NeverSink 定製的開荒 / 刷圖 / 速刷三份，含語音版"
+  },
+  "常用通货兑换比率": {
+    "zh": "常用通货兑换比率",
+    "en": "Exchange rates for the currencies you use",
+    "tw": "常用通貨兌換比率"
+  },
+  "实时通货兑换比率": {
+    "zh": "实时通货兑换比率",
+    "en": "Live currency exchange rates",
+    "tw": "即時通貨兌換比率"
+  },
+  "悬浮常驻": {
+    "zh": "悬浮常驻",
+    "en": "Always on screen",
+    "tw": "懸浮常駐"
+  },
+  "魔镜通货兑换比率条：实时显示各通货之间的兑换价": {
+    "zh": "魔镜通货兑换比率条：实时显示各通货之间的兑换价",
+    "en": "Mirror currency rate bar: live exchange rates between currencies",
+    "tw": "魔鏡通貨兌換比率條：即時顯示各通貨之間的兌換價"
+  },
+  "佣兵查价": {
+    "zh": "佣兵查价",
+    "en": "Mercenary pricing",
+    "tw": "傭兵查價"
+  },
+  "下载魔镜客户端": {
+    "zh": "下载魔镜客户端",
+    "en": "Download the Mirror client",
+    "tw": "下載魔鏡客戶端"
+  },
+  "下载后开箱即用。": {
+    "zh": "下载后开箱即用。",
+    "en": "Ready to use as soon as it is downloaded.",
+    "tw": "下載後開箱即用。"
+  },
+  "前往下载页": {
+    "zh": "前往下载页",
+    "en": "Go to downloads",
+    "tw": "前往下載頁"
+  },
+  "运行要求": {
+    "zh": "运行要求",
+    "en": "Requirements",
+    "tw": "執行需求"
+  },
+  "Windows 10 / 11（64 位）": {
+    "zh": "Windows 10 / 11（64 位）",
+    "en": "Windows 10 / 11 (64-bit)",
+    "tw": "Windows 10 / 11（64 位元）"
+  },
+  "《流放之路》1 或 2 PC 客户端": {
+    "zh": "《流放之路》1 或 2 PC 客户端",
+    "en": "The Path of Exile 1 or 2 PC client",
+    "tw": "《流亡黯道》1 或 2 PC 客戶端"
+  },
+  "佣兵凭证识别，技能组展示": {
+    "zh": "佣兵凭证识别，技能组展示",
+    "en": "Reads the warrant and lays out its skill setup",
+    "tw": "傭兵憑證辨識，技能組展示"
+  },
+  "根据技能组智能查价": {
+    "zh": "根据技能组智能查价",
+    "en": "Prices it from that skill setup",
+    "tw": "根據技能組智慧查價"
+  },
+  "魔镜佣兵查价：识别佣兵凭证并展示技能组，按技能组查价": {
+    "zh": "魔镜佣兵查价：识别佣兵凭证并展示技能组，按技能组查价",
+    "en": "Mirror mercenary pricing: the warrant is read, its skill group shown, and the price follows from it",
+    "tw": "魔鏡傭兵查價：辨識傭兵憑證並展示技能組，依技能組查價"
+  },
+  "配置云同步": {
+    "zh": "配置云同步",
+    "en": "Config sync",
+    "tw": "設定雲端同步"
+  },
+  "热键、正则预设、指令与剧情 BD 跟随账号": {
+    "zh": "热键、正则预设、指令与剧情 BD 跟随账号",
+    "en": "Hotkeys, regex presets, commands and campaign builds follow your account",
+    "tw": "熱鍵、正規表示式預設、指令與 BD 技能組跟隨帳號"
+  },
+  "换机器或重装后登录即恢复": {
+    "zh": "换机器或重装后登录即恢复",
+    "en": "Sign in on a new machine, or after a reinstall, and they come back",
+    "tw": "換機器或重裝後登入即復原"
+  },
+  "魔镜配置云同步：热键、正则预设与剧情 BD 跟随账号，换机器登录即恢复": {
+    "zh": "魔镜配置云同步：热键、正则预设与剧情 BD 跟随账号，换机器登录即恢复",
+    "en": "Mirror config sync: hotkeys, regex presets and campaign builds follow your account and come back on a new machine",
+    "tw": "魔鏡設定雲端同步：熱鍵、正規表示式預設與 BD 技能組跟隨帳號，換機器登入即復原"
+  },
+  "过滤自动同步": {
+    "zh": "过滤自动同步",
+    "en": "Filters keep themselves current",
+    "tw": "過濾自動同步"
+  },
+  "魔镜过滤自动同步：检测到新版本后自动装进游戏目录与 GGG 账号": {
+    "zh": "魔镜过滤自动同步：检测到新版本后自动装进游戏目录与 GGG 账号",
+    "en": "Mirror filter auto-sync: a new version is installed into the game directory and the GGG account on its own",
+    "tw": "魔鏡過濾自動同步：偵測到新版本後自動裝進遊戲目錄與 GGG 帳號"
+  },
+  "自动更新同步过滤": {
+    "zh": "自动更新同步过滤",
+    "en": "Filters sync and update on their own",
+    "tw": "自動更新同步過濾"
+  },
+  "切换不同的过滤音效": {
+    "zh": "切换不同的过滤音效",
+    "en": "Switch between sound packs",
+    "tw": "切換不同的過濾音效"
+  },
+  "支持国服与国际服过滤同步": {
+    "zh": "支持国服与国际服过滤同步",
+    "en": "Works on both the Tencent and global realms",
+    "tw": "支援國服與國際服過濾同步"
+  }
+}

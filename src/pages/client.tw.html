@@ -1,0 +1,463 @@
+---
+title: 魔鏡客戶端 — 流亡黯道 1 & 2 (POE1·POE2) 查價懸浮窗 · 截圖辨識 · 收益統計
+description: 魔鏡客戶端是《流亡黯道》1 & 2 的 Windows 懸浮窗助手：停在物品上一鍵查詢官方市集即時價格、截圖辨識整螢幕物品批次查價、劇情引導跟著區域切換、快捷正則卡片、通貨兌換比率、全域與地圖計時、獎勵掉落計數、收益統計（資產總值 / 每小時收益 / 每圖收益）、速查圖、行情、命令列，還能把掉落過濾器和配裝天賦規劃裝進遊戲。支援國際服 / 國服 / 台服，鍵盤與手把。
+ogdesc: 流亡黯道 1 & 2 的 Windows 查價懸浮窗：一鍵查價、截圖辨識整螢幕價格、劇情引導、快捷正則、計時器、獎勵計數、收益統計、速查圖，還能把掉落過濾器與配裝天賦規劃裝進遊戲。
+keywords: 魔鏡客戶端,流亡黯道2查價器,流亡黯道查價器,POE2查價,懸浮窗,overlay,price check,截圖辨識,OCR查價,整螢幕查價,劇情引導,升級攻略,快捷正則,換界石正則,通貨兌換,計時器,地圖計時,獎勵計數,掉落統計,收益統計,倉庫估價,每小時收益,每圖收益,速查圖,cheat sheet,行情,命令列,掉落過濾器安裝,配裝天賦規劃器,build planner,手把查價,國際服,台服,Windows,POE2插件
+jsonld: jsonld/client.html
+---
+  <header class="hero" id="top" style="padding-bottom:10px">
+    <div class="wrap" style="max-width:820px;text-align:center">
+      <div class="badge reveal d1"><span class="dot"></span>Windows 10 / 11 · 懸浮窗</div>
+      <h1 class="title reveal d2" style="font-size:clamp(30px,4.2vw,46px)">魔鏡客戶端</h1>
+      <p class="lead reveal d3" style="margin-inline:auto">
+        疊加於《流亡黯道》畫面之上的懸浮窗層。停在物品上並按下熱鍵，官方市集的即時掛單價即顯示在物品旁，無需切換視窗或開啟網頁。
+      </p>
+      <div class="hero-badges reveal d5" style="justify-content:center">
+        <span class="hb">支援 <b>國際服 / 國服 / 台服</b> · 英 / 簡 / 繁</span>
+        <span class="hb">鍵盤 + 手把操作</span>
+        <span class="hb">支援 <b>流亡黯道 1 與 2</b></span>
+      </div>
+    </div>
+  </header>
+  <!-- HIGHLIGHTS -->
+  <section id="highlights">
+    <div class="wrap">
+      <div class="sec-head reveal">
+
+      </div>
+
+      <!-- screen scan -->
+      <div class="feature reveal">
+        <div>
+          <h3>劇情開荒，任務獎勵自動提示</h3>
+          
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>支援國際服、國服、台服</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>必做 / 可選任務 + 技能寶石一目了然</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>自訂配裝技能組，點擊快速搜尋技能</li>
+          </ul>
+        </div>
+        <div class="feat-media demo" style="aspect-ratio:4/3">
+          <picture>
+            <source type="image/avif" srcset="/shots/campaign.avif" />
+            <source type="image/webp" srcset="/shots/campaign.webp" />
+            <img src="/shots/campaign.webp" alt="魔鏡劇情引導浮層：自動跟隨目前區域切換任務、獎勵與技能寶石" width="1200" height="900" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph">
+            <div class="camp-mock">
+              <div class="camp-zone">🗺 荊棘荒野 · Lv.12</div>
+              <div class="camp-task"><span class="ck">✔</span> 與 [Una] 對話領取任務</div>
+              <div class="camp-task"><span class="op">◆</span> 擊敗 [Rathbreaker] 取得技能石</div>
+              <div class="camp-task"><span class="op">◆</span> 可選：撿取 [生命之泉]</div>
+            </div>
+          </div>
+          <div class="demo-hint">示意圖 · 實拍截圖待補</div>
+        </div>
+      </div>
+
+<div class="feature flip reveal pcol">
+        <div>
+          <h3>一鍵查價，智慧選擇詞綴</h3>
+          
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>智慧選擇詞綴與搜尋條件，查價更準確</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>破裂 / 工藝 / 汙染 各類詞綴分色區分與切換</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>各種物品查價，裝備、通貨、傭兵憑證</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>根據查價物品，一鍵打開市集</li>
+          </ul>
+        </div>
+        <div class="feat-media demo" style="aspect-ratio:9/16; height:440px; width:auto">
+          <video data-demo="price" muted loop playsinline preload="none" style="--zoom:1"></video>
+          <div class="demo-ph"><div class="mock"><div class="mk-card">
+            <div class="mk-title">風暴之冕</div>
+            <div class="mk-sub">+89 最大生命 · +42% 冰冷抗性</div>
+            <div class="mk-price"><img src="/assets/divine.png" alt="" />≈ 2.5</div>
+          </div></div></div>
+          <div class="demo-hint">示意圖 · 實拍截圖待補</div>
+        </div>
+      </div>
+
+<div class="feature reveal">
+        <div>
+          <h3>收益統計，看清策略收益</h3>
+          
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>追蹤資產總值 + 每次上線收益</li>
+
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>自動更新收益統計，明確策略收益</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>支援 流亡黯道1 和 流亡黯道2</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>快捷複製搜尋高價值物品</li>
+
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <picture>
+            <source type="image/avif" srcset="/shots/wealth.avif" />
+            <source type="image/webp" srcset="/shots/wealth.webp" />
+            <img src="/shots/wealth.webp" alt="魔鏡收益統計：追蹤資產總值、每小時收益與每圖收益" width="1440" height="900" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph"><div class="mock"><div class="mk-wealth">
+            <div class="mk-wl-sum">
+              <div class="mk-wl-cell"><div class="k">追蹤資產</div><div class="v"><img src="/assets/divine.png" alt="" />128.6</div></div>
+              <div class="mk-wl-cell"><div class="k">每小時收益</div><div class="v"><img src="/assets/divine.png" alt="" />6.4</div></div>
+            </div>
+            <div class="mk-wl-row">混沌石 ×146<span class="p">146c</span></div>
+            <div class="mk-wl-row">金繕 ×1<span class="p">1.1 div</span></div>
+          </div></div></div>
+          <div class="demo-hint">示意圖 · 實拍截圖待補</div>
+        </div>
+      </div>
+
+<div class="feature flip reveal port">
+        <div>
+          <h3>配裝規劃，自動同步遊戲內天賦</h3>
+          
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>內建多套熱門配裝，助力新手開荒</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>自訂配裝，快速同步到遊戲中</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>同時支援兩套天賦切換</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>一鍵分享，快速匯出與匯入</li>
+          </ul>
+        </div>
+        <div class="feat-media demo" style="aspect-ratio:3/4;height:440px;width:auto">
+          <picture>
+            <source type="image/avif" srcset="/shots/build-planner.avif" />
+            <source type="image/webp" srcset="/shots/build-planner.webp" />
+            <img src="/shots/build-planner.webp" alt="魔鏡遊戲內配裝天賦規劃器：配裝寫成 .build 檔案，遊戲內按 P 直接看到天賦走線" width="900" height="1200" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph shimmer"></div>
+          <div class="demo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M12 7v4m0 0-5 5m5-5 5 5"/></svg></div>
+          <div class="demo-hint">示意圖 · 實拍截圖待補</div>
+        </div>
+      </div>
+
+<div class="feature reveal port">
+        <div>
+          <h3>一鍵截圖查價</h3>
+          
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>簡 / 繁 / 英物品名 OCR 辨識，全程本機不上傳</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>快速辨識螢幕上的多個物品，即時顯示價格</li>
+          </ul>
+        </div>
+        <div class="feat-media demo" style="aspect-ratio:3/4; height:440px; width:auto">
+          <picture>
+            <source type="image/avif" srcset="/shots/scan.avif" />
+            <source type="image/webp" srcset="/shots/scan.webp" />
+            <img src="/shots/scan.webp" alt="魔鏡截圖辨識查價：按一次熱鍵辨識整螢幕《流亡黯道 2》物品名並批次查詢官方市集價格" width="900" height="1200" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph">
+            <div class="scan-beam"></div>
+            <div class="scan-label" style="top:16%; left:10%">崇高石 <span class="p">◆ 12</span></div>
+
+            <div class="scan-label" style="top:42%; left:18%">神聖石 <span class="p">◆ 1</span></div>
+
+            <div class="scan-label" style="top:66%; left:12%">魔甘娜的風暴 <span class="p">◆ 8.5</span></div>
+
+          </div>
+          <div class="demo-hint">示意圖 · 實拍截圖待補</div>
+        </div>
+      </div>
+
+<div class="feature flip reveal">
+        <div>
+          <h3>圖片快速查看</h3>
+          
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>上傳自訂圖片，遊戲中快速展開</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>避免切換視窗，玩法資料即時查看</li>
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <picture>
+            <source type="image/avif" srcset="/shots/cheatsheet.avif" />
+            <source type="image/webp" srcset="/shots/cheatsheet.webp" />
+            <img src="/shots/cheatsheet.webp" alt="魔鏡速查圖：Shift+Space 喚出自行上傳的攻略圖，停留後以原尺寸展開" width="1440" height="900" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph shimmer"></div>
+          <div class="demo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m6 15 4-4 3 3 2-2 3 3"/></svg></div>
+          <div class="demo-hint">示意圖 · 實拍截圖待補</div>
+        </div>
+      </div>
+
+<div class="feature reveal">
+        <div>
+          <h3>即時行情</h3>
+          
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>根據玩法分類，提示各玩法收益</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>各類物品價格展示，點擊查詢物品資料</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>價格異常變動提示，快速感知市場行情</li>
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <picture>
+            <source type="image/avif" srcset="/shots/market.avif" />
+            <source type="image/webp" srcset="/shots/market.webp" />
+            <img src="/shots/market.webp" alt="魔鏡行情面板：通貨、傳奇、技能石的即時價格，按玩法分組" width="1440" height="900" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph shimmer"></div>
+          <div class="demo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
+          <div class="demo-hint">示意圖 · 實拍截圖待補</div>
+        </div>
+      </div>
+
+<div class="feature flip reveal">
+        <div>
+          <h3>過濾自動同步</h3>
+          
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>自動更新同步過濾</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>切換不同的過濾音效</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>支援國服與國際服過濾同步</li>
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <picture>
+            <source type="image/avif" srcset="/shots/filter-sync.avif" />
+            <source type="image/webp" srcset="/shots/filter-sync.webp" />
+            <img src="/shots/filter-sync.webp" alt="魔鏡過濾自動同步：偵測到新版本後自動裝進遊戲目錄與 GGG 帳號" width="1440" height="900" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph shimmer"></div>
+          <div class="demo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-15.2 6.5L3 16"/><path d="M3 12a9 9 0 0 1 15.2-6.5L21 8"/><path d="M3 21v-5h5M21 3v5h-5"/></svg></div>
+          <div class="demo-hint">示意圖 · 實拍截圖待補</div>
+        </div>
+      </div>
+
+<div class="feature reveal port">
+        <div>
+          <h3>常用正則快速使用</h3>
+          
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>預設正則，支援多語言</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>保存常用正則，遊戲中隨時用</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>網頁正則產生器，勾選條件即可產生</li>
+          </ul>
+        </div>
+        <div class="feat-media demo" style="aspect-ratio:3/4; height:440px; width:auto">
+          <picture>
+            <source type="image/avif" srcset="/shots/regex.avif" />
+            <source type="image/webp" srcset="/shots/regex.webp" />
+            <img src="/shots/regex.webp" alt="魔鏡快捷正則：常用正則卡片浮在遊戲上，一鍵複製到倉庫或商店搜尋框" width="900" height="1200" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph"><div class="mock"><div class="mk-chips">
+            <span class="mk-chip">"生命" "抗性"</span>
+            <span class="mk-chip">品質 ≥ 15</span>
+            <span class="mk-chip">6 插槽</span>
+          </div></div></div>
+          <div class="demo-hint">示意圖 · 實拍截圖待補</div>
+        </div>
+      </div>
+
+<div class="feature flip reveal">
+        <div>
+          <h3>快捷指令</h3>
+          
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>一鍵回藏身處，一鍵封鎖聊天</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>支援多種快捷指令，自訂快捷鍵觸發</li>
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <picture>
+            <source type="image/avif" srcset="/shots/command.avif" />
+            <source type="image/webp" srcset="/shots/command.webp" />
+            <img src="/shots/command.webp" alt="魔鏡命令條：聊天指令整理成一排按鈕，點擊即發送" width="1440" height="900" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph shimmer"></div>
+          <div class="demo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m7 8 4 4-4 4"/><path d="M13 16h4"/><rect x="2" y="4" width="20" height="16" rx="3"/></svg></div>
+          <div class="demo-hint">示意圖 · 實拍截圖待補</div>
+        </div>
+      </div>
+
+<div class="feature reveal port">
+        <div>
+          <h3>物品快速搜尋</h3>
+          
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>三語模糊比對，容錯輸入</li>
+
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>支援技能、傳奇、通貨 等物品快速搜尋</li>
+
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>複製或一鍵填入遊戲商店 / 倉庫搜尋框</li>
+
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>同一物品的簡 / 繁 / 英名稱差異較大，任一語言均可檢索</li>
+
+          </ul>
+        </div>
+        <div class="feat-media demo" style="aspect-ratio:3/4; height:440px; width:auto">
+          <picture>
+            <source type="image/avif" srcset="/shots/unique.avif" />
+            <source type="image/webp" srcset="/shots/unique.webp" />
+            <img src="/shots/unique.webp" alt="魔鏡快速搜尋：英文、簡體、繁體三語模糊查詢《流亡黯道》物品名並查價" width="900" height="1200" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph"><div class="mock"><div>
+            <div class="mk-input"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>獵首</div>
+            <div class="mk-result">獵首<span class="rp"><img src="/assets/divine.png" alt="" />≈ 120</span></div>
+          </div></div></div>
+          <div class="demo-hint">示意圖 · 實拍截圖待補</div>
+        </div>
+      </div>
+
+<div class="feature flip reveal port">
+        <div>
+          <h3>攻堅收益統計</h3>
+          
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>自訂設定統計獎勵</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>自動刷圖計數、獎勵計數、收益計算</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>流亡黯道 1 與 2 均支援</li>
+          </ul>
+        </div>
+        <div class="feat-media demo" style="aspect-ratio:3/4; height:440px; width:auto">
+          <picture>
+            <source type="image/avif" srcset="/shots/reward.avif" />
+            <source type="image/webp" srcset="/shots/reward.webp" />
+            <img src="/shots/reward.webp" alt="魔鏡獎勵計數：自動記錄刷圖次數並即時計算掉落總收益" width="900" height="1200" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph"><div class="mock"><div class="mk-reward">
+            <div class="mk-rw-map">沉淪之地<span class="c">×37</span></div>
+            <div class="mk-rw-drop">血脈寶石<span class="q">×4</span></div>
+            <div class="mk-rw-drop">命運卡<span class="q">×12</span></div>
+            <div class="mk-rw-total"><img src="/assets/divine.png" alt="" />≈ 8.4</div>
+          </div></div></div>
+          <div class="demo-hint">示意圖 · 實拍截圖待補</div>
+        </div>
+      </div>
+
+<div class="feature reveal">
+        <div>
+          <h3>計時器</h3>
+          
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>章節計時器，每章節自動計時</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>地圖計時，進入自動計時</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>全域計時，統計遊玩時間</li>
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <picture>
+            <source type="image/avif" srcset="/shots/timer.avif" />
+            <source type="image/webp" srcset="/shots/timer.webp" />
+            <img src="/shots/timer.webp" alt="魔鏡計時器浮層：同時顯示全域計時與目前地圖用時" width="1440" height="900" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph"><div class="mock"><div class="mk-timer">
+            <span class="mk-tchip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>全域<b class="t-global">12:34</b></span>
+            <span class="mk-tchip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.2"/></svg>地圖<b class="t-map">02:15</b></span>
+          </div></div></div>
+          <div class="demo-hint">示意圖 · 實拍截圖待補</div>
+        </div>
+      </div>
+
+<div class="feature flip reveal">
+        <div>
+          <h3>過濾器</h3>
+          
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>劇情開荒、異界提升、後期速刷適配，刷圖更省心</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>每日根據物價更新</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>提供遊戲預設音效版、語音音效版</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>語音音效版支援自訂音效</li>
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <picture>
+            <source type="image/avif" srcset="/shots/filter.avif" />
+            <source type="image/webp" srcset="/shots/filter.webp" />
+            <img src="/shots/filter.webp" alt="魔鏡掉落過濾器：基於 NeverSink 定製的開荒 / 刷圖 / 速刷三份，含語音版" width="1440" height="900" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph shimmer"></div>
+          <div class="demo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18l-7 8v7l-4 2v-9z"/></svg></div>
+          <div class="demo-hint">示意圖 · 實拍截圖待補</div>
+        </div>
+      </div>
+
+<div class="feature reveal">
+        <div>
+          <h3>常用通貨兌換比率</h3>
+          
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>即時通貨兌換比率</li>
+
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>懸浮常駐</li>
+
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <picture>
+            <source type="image/avif" srcset="/shots/exchange.avif" />
+            <source type="image/webp" srcset="/shots/exchange.webp" />
+            <img src="/shots/exchange.webp" alt="魔鏡通貨兌換比率條：即時顯示各通貨之間的兌換價" width="1440" height="900" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph"><div class="mock"><div class="mk-bar">
+            <span class="mk-rate"><img src="/assets/divine.png" alt="" />1<span style="opacity:.55">=</span><b>210</b><img src="/assets/exalted.png" alt="" /></span>
+          </div></div></div>
+          <div class="demo-hint">示意圖 · 實拍截圖待補</div>
+        </div>
+      </div>
+
+<div class="feature flip reveal">
+        <div>
+          <h3>傭兵查價</h3>
+          
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>傭兵憑證辨識，技能組展示</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>根據技能組智慧查價</li>
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <picture>
+            <source type="image/avif" srcset="/shots/mercenary.avif" />
+            <source type="image/webp" srcset="/shots/mercenary.webp" />
+            <img src="/shots/mercenary.webp" alt="魔鏡傭兵查價：辨識傭兵憑證並展示技能組，依技能組查價" width="1440" height="900" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph shimmer"></div>
+          <div class="demo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4m0 10v4M3 12h4m10 0h4"/><circle cx="12" cy="12" r="3.2"/><path d="m6 6 2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></svg></div>
+          <div class="demo-hint">示意圖 · 實拍截圖待補</div>
+        </div>
+      </div>
+
+<div class="feature reveal">
+        <div>
+          <h3>設定雲端同步</h3>
+          
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>熱鍵、正規表示式預設、指令與 BD 技能組跟隨帳號</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>換機器或重裝後登入即復原</li>
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <picture>
+            <source type="image/avif" srcset="/shots/sync.avif" />
+            <source type="image/webp" srcset="/shots/sync.webp" />
+            <img src="/shots/sync.webp" alt="魔鏡設定雲端同步：熱鍵、正規表示式預設與 BD 技能組跟隨帳號，換機器登入即復原" width="1440" height="900" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph shimmer"></div>
+          <div class="demo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 18A4.5 4.5 0 0 1 6 9.05 6 6 0 0 1 17.7 8.2 4.4 4.4 0 0 1 18 17"/><path d="M12 12v7m0-7-2.5 2.5M12 12l2.5 2.5"/></svg></div>
+          <div class="demo-hint">示意圖 · 實拍截圖待補</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="download">
+    <div class="wrap">
+      <div class="dl-panel reveal">
+        <div>
+          <h2>下載魔鏡客戶端</h2>
+          <p class="desc">下載後開箱即用。</p>
+          <div class="dl-actions">
+            <a class="btn btn-gold" href="/download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>前往下載頁</a>
+          </div>
+        </div>
+        <div class="req">
+          <h4>執行需求</h4>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Windows 10 / 11（64 位元）</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>《流亡黯道》1 或 2 PC 客戶端</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>

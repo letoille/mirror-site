@@ -4,3 +4,9 @@ Thumbs.db
 *.log
 .vscode/
 .idea/
+
+# 构建用的依赖（产物 HTML 是提交的，服务器不需要 node）
+node_modules/
+
+# 截图调试用的临时副本
+_dbg_*.html

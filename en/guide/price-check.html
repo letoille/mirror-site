@@ -1,0 +1,165 @@
+<!doctype html>
+<!--
+  ⚠️ 这个文件是 `node build.mjs` 生成的，**手改会在下一次构建时被覆盖**。
+  要改内容：src/pages/guide/price-check.en.md
+  要改外壳（导航 / 页脚 / head）：src/shell.html + src/site.mjs
+-->
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to Tell What an Item Is Worth in Path of Exile 2 — Mirror Price-Check Guide</title>
+  <meta name="description" content="The complete method for pricing gear in Path of Exile 1 &amp; 2: hover an item and press Ctrl+E, interpret each part of the overlay, why you should select modifiers yourself rather than all of them, how pseudo modifiers (total resistance / total life) work, and why unidentified uniques can only be searched by base type." />
+  <meta name="keywords" content="poe2 price check,how much is this item worth,item pricing,poe2 price checker,how to price items,trade search,pseudo mods,total resistance,unidentified unique,ctrl+e,mirror price check" />
+  <meta name="author" content="Mirror" />
+  <link rel="canonical" href="https://mirror.kalandraeye.com/en/guide/price-check.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://mirror.kalandraeye.com/guide/price-check.html" />
+  <link rel="alternate" hreflang="en" href="https://mirror.kalandraeye.com/en/guide/price-check.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://mirror.kalandraeye.com/tw/guide/price-check.html" />
+  <link rel="alternate" hreflang="x-default" href="https://mirror.kalandraeye.com/guide/price-check.html" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <meta name="theme-color" content="#08090d" />
+  <link rel="stylesheet" href="/assets/site.css?v=2a98372cf5" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="魔镜 · Mirror" />
+  <meta property="og:url" content="https://mirror.kalandraeye.com/en/guide/price-check.html" />
+  <meta property="og:title" content="How to Tell What an Item Is Worth in Path of Exile 2 — Mirror Price-Check Guide" />
+  <meta property="og:description" content="The complete method for pricing gear in Path of Exile 1 &amp; 2: hover an item and press Ctrl+E, interpret each part of the overlay, why you should select modifiers yourself rather than all of them, how pseudo modifiers (total resistance / total life) work, and why unidentified uniques can only be searched by base type." />
+  <meta property="og:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How to Tell What an Item Is Worth in Path of Exile 2 — Mirror Price-Check Guide" />
+  <meta name="twitter:description" content="The complete method for pricing gear in Path of Exile 1 &amp; 2: hover an item and press Ctrl+E, interpret each part of the overlay, why you should select modifiers yourself rather than all of them, how pseudo modifiers (total resistance / total life) work, and why unidentified uniques can only be searched by base type." />
+  <meta name="twitter:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+
+  <!-- Google Analytics 4 -->
+  <script>
+    window.GA_ID = "G-CYBLTV2J69";
+    if (window.GA_ID && window.GA_ID.indexOf("G-") === 0) {
+      var gaScript = document.createElement("script");
+      gaScript.async = true;
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + window.GA_ID;
+      document.head.appendChild(gaScript);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag("js", new Date());
+      gtag("config", window.GA_ID);
+    }
+  </script>
+</head>
+<body>
+  <div class="bg-fx">
+    <div class="aurora a1"></div><div class="aurora a2"></div>
+    <div class="grid-lines"></div>
+    <div class="embers" id="embers"></div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/en/">
+        <img src="/assets/logo.png" alt="Mirror" />
+        <span><span class="cn">Mirror</span>
+          <span class="en">Mirror for POE1 &amp; POE2</span></span>
+      </a>
+      <div class="nav-links">
+        <a class="link" href="/en/client.html"><span>Client</span></a>
+        <a class="link" href="/en/web.html"><span>Web</span></a>
+        <a class="link" href="/en/guide/"><span>Guides</span></a>
+        <a class="btn btn-gold" href="/en/download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg><span>Download</span></a>
+        <a class="link" href="/en/about.html"><span>About</span></a>
+        <div class="lang-switch">
+          <a href="/guide/price-check.html" hreflang="zh-Hans" lang="zh-Hans">简体</a>
+          <a href="/en/guide/price-check.html" hreflang="en" lang="en" aria-current="true" class="on">EN</a>
+          <a href="/tw/guide/price-check.html" hreflang="zh-Hant" lang="zh-Hant">繁體</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<main class="prose-page"><div class="wrap">
+<h1>How to tell what an item is worth</h1>
+<p>Path of Exile has no official prices. An item's value depends on <strong>how many comparable items are currently listed, and at what price</strong>. Pricing is therefore a trade search: translate the item's attributes into search conditions, then observe the range the returned listings ask for.</p>
+<p>Performing this manually requires copying the item in game, opening the trade site, locating the relevant entries among thousands of modifiers, selecting each one, entering minimum values and running the search. Roughly a minute per item; half an hour for a stash tab.</p>
+<p>Mirror compresses that into a single hotkey.</p>
+<h2>Procedure</h2>
+<ol>
+<li>Start the Mirror client and leave it running in the background (it does not take focus from the game)</li>
+<li><strong>Hover</strong> the target item in game</li>
+<li>Press <kbd>Ctrl</kbd> + <kbd>E</kbd></li>
+</ol>
+<p>An overlay appears beside the item, listing every modifier it rolled together with a reference price.</p>
+<blockquote>
+<p>The hotkey can be changed on the client's <strong>Shortcuts</strong> page, or bound to a gamepad — every feature supports gamepad triggers.</p>
+</blockquote>
+<h2>Reading the overlay</h2>
+<p><strong>Modifiers are colour-coded by type.</strong> Fractured, crafted and corrupted each have their own colour, because their value differs substantially: a high-tier fractured modifier can be worth more than the rest of the item combined, whereas crafted modifiers can be added by the buyer and generally carry no premium.</p>
+<p><strong>Each modifier has a checkbox.</strong> Only a few are selected by default. This is deliberate; the reason follows below.</p>
+<p><strong>Values accept a lower bound.</strong> Selecting &quot;maximum Life&quot; proposes a floor based on what the item actually rolled. It can be lowered manually to widen the result set and increase the sample.</p>
+<h2>Why not select everything</h2>
+<p>Selecting everything asks whether the market holds an item <strong>identical</strong> to this one. Usually it does not, and the search returns nothing — and an empty result does not indicate a high price, it indicates <strong>no information at all</strong>.</p>
+<p>The more useful question is what <strong>comparable</strong> items sell for. Therefore:</p>
+<ul>
+<li>Select the entries <strong>buyers pay for</strong> — life, resistances, damage, skill levels</li>
+<li>Omit entries nobody searches for — most crafted modifiers, low-tier fillers</li>
+<li>Lower the minimums moderately, to obtain a sufficient sample</li>
+</ul>
+<p>This is the only step in the process that calls for judgement, and the reason Mirror does not decide on your behalf: which modifiers carry value depends on the patch, the league, and which builds the market is currently assembling.</p>
+<h2>Pseudo modifiers: searching &quot;total resistance&quot; in one step</h2>
+<p>When buying a ring, a player rarely thinks &quot;fire resistance ≥ 30&quot;; they consider whether the three resistances sum to enough. The trade site supports this natively — these are <strong>pseudo modifiers</strong>: total elemental resistance, total life, and so on.</p>
+<p>The overlay lists them separately, and a click adds them to the search. They are more accurate than selecting resistances individually, because the market prices the total rather than the parts.</p>
+<h2>Special cases</h2>
+<p><strong>Unidentified uniques.</strong> These have no name, and the trade site does not index names for unidentified items, so the only available search is &quot;base type + unidentified&quot; — which is fundamentally <strong>a speculative price</strong>. Mirror derives every unique that base can produce and lists them; selecting one switches the whole query to that tier.</p>
+<p><strong>Related items.</strong> When pricing a fragment, ticket or unique, the overlay also lists items grouped with it in the upstream data, prices included. Note that this relationship means &quot;related&quot;, not &quot;this necessarily drops that&quot;.</p>
+<p><strong>Thaumaturgic Dust</strong> (Path of Exile 1). The amount of dust a unique disenchants into is computed directly on the overlay — in some cases disenchanting yields more than selling.</p>
+<h2>After the search</h2>
+<p>Several exits are provided along the bottom of the overlay:</p>
+<ul>
+<li><strong>Search</strong> — opens the official trade site with the current conditions, filters carried over intact</li>
+<li><strong>Two market entries</strong> — one carries GGG's saved-search id (which consumes a search from your quota); the other carries <strong>the query itself</strong> into <a href="/en/guide/market.html">Mirror Market</a>, where it arrives as an editable copy you can continue to adjust</li>
+</ul>
+<h2>Pricing a whole screen at once</h2>
+<p>Hovering items individually is slow. Pressing <kbd>Ctrl</kbd> + <kbd>D</kbd> captures one frame; Mirror recognises every item name on it <strong>locally</strong> and prices them in bulk, returning results in one to two seconds. The capture is not uploaded.</p>
+<p>That path identifies items by name only, so it suits currency, uniques and divination cards — items whose name determines the price. Gear with random modifiers still requires an individual hover.</p>
+<hr>
+<p><strong>Next</strong>: <a href="/en/guide/market.html">Using Mirror Market</a> · <a href="/en/guide/loot-filter.html">Installing a loot filter</a></p>
+
+</div></main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-inner">
+        <a class="brand" href="/en/">
+          <img src="/assets/logo.png" alt="Mirror" style="width:26px;height:26px;border-radius:7px" />
+          <span><span class="cn">Mirror · 魔镜</span></span>
+        </a>
+        <span>© <span id="year">2026</span> Mirror</span>
+      </div>
+      <div class="foot-social">
+        <a class="social-btn discord" href="https://discord.gg/RTqazvQKKE" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.3.5c1.8.4 2.6 1 3.5 1.7a13.3 13.3 0 0 0-4.6-1.1 13.6 13.6 0 0 0-4.6.4c-.5.1-1.2.3-2 .7-.4.2-.7.3-.7.3s.8-.6 2.7-1.1L9 3a19.8 19.8 0 0 0-4.9 1.4C2 8.9 1.3 13.3 1.6 17.6A19.9 19.9 0 0 0 7.7 21l.9-1.3c-1-.3-1.9-.7-2.7-1.2l.6-.4a14.2 14.2 0 0 0 12.2 0l.6.4c-.8.5-1.7.9-2.7 1.2l.9 1.3a19.9 19.9 0 0 0 6-3.4c.5-5-.7-9.3-3.8-13.2zM8.9 15c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm6.2 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/></svg>
+          <span>Join Discord</span>
+        </a>
+        <a class="social-btn qq" id="qq-btn" href="#" onclick="copyQQ(event)" title="1057145969">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.395 15.035a39.55 39.55 0 00-.803-2.264l-1.079-2.695c.001-.032.014-.562.014-.836C19.526 4.632 17.351 0 12 0S4.474 4.632 4.474 9.241c0 .274.013.804.014.836l-1.08 2.695a38.97 38.97 0 00-.802 2.264c-1.021 3.283-.69 4.643-.438 4.673.54.065 2.103-2.472 2.103-2.472 0 1.469.756 3.387 2.394 4.771-.612.188-1.363.479-1.845.835-.434.32-.379.646-.301.778.343.578 5.883.369 7.482.189 1.6.18 7.14.389 7.483-.189.078-.132.132-.458-.301-.778-.483-.356-1.233-.646-1.846-.836 1.637-1.384 2.393-3.302 2.393-4.771 0 0 1.563 2.537 2.103 2.472.251-.03.581-1.39-.438-4.673z"/></svg>
+          <span class="qq-label">QQ Group 1057145969</span>
+          <span class="qq-copied">Copied ✓</span>
+        </a>
+      </div>
+      <p class="foot-contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span>Questions or feedback? Reach out:</span>
+        <a href="mailto:kalandraeye@gmail.com">kalandraeye@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="/assets/shell.js?v=14afd07232" defer></script>
+
+</body>
+</html>

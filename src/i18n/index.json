@@ -1,0 +1,727 @@
+{
+  "@title": {
+    "zh": "魔镜 Mirror — 流放之路 1 & 2 / 流亡黯道 (POE1·POE2) 查价器 · 交易搜索 · 悬浮窗助手",
+    "en": "Mirror — Path of Exile 1 & 2 (POE1·POE2) Price Checker, Trade Search & Overlay",
+    "tw": "魔鏡 Mirror — 流亡黯道 1 & 2 (POE1·POE2) 查價器 · 交易搜尋 · 懸浮窗助手"
+  },
+  "@description": {
+    "zh": "魔镜 Mirror 是《流放之路》1 & 2（POE1 · POE2 · 台服流亡黯道）的查价与交易工具，核心功能免费。Windows 客户端：一键查价、截图识别整屏价格、剧情引导、快捷正则、通货兑换、计时器、奖励计数、收益统计、速查图、游戏内 BD 天赋规划器。网页市集：按词缀搜装备、用你的角色做 Path of Building 试装、掉落过滤器下载、正则生成器。支持国际服 / 国服 / 台服（英 / 简 / 繁）。",
+    "en": "Mirror is a free price-check and trading toolset for Path of Exile 1 & 2. The Windows client overlays the game: one-key price checks, whole-screen scanning, a campaign guide, regex presets, currency rates, timers, drop tallies, wealth tracking, cheat sheets and an in-game build planner. The web app adds trade search by modifier, Path of Building character try-on, loot filter downloads and a regex generator. Global, China and Taiwan realms, in English, Simplified and Traditional Chinese.",
+    "tw": "魔鏡 Mirror 是《流亡黯道》1 & 2（POE1 · POE2）的查價與交易工具，核心功能免費。Windows 客戶端：一鍵查價、截圖辨識整螢幕價格、劇情引導、快捷正則、通貨兌換、計時器、獎勵計數、收益統計、速查圖、遊戲內配裝天賦規劃器。網頁市集：按詞綴搜裝備、用你的角色做 Path of Building 試裝、掉落過濾器下載、正則產生器。支援國際服 / 國服 / 台服（英 / 簡 / 繁）。"
+  },
+  "@ogdesc": {
+    "zh": "免费 POE1 & POE2 查价器与交易工具。客户端：一键查价 · 截图识别 · 剧情引导 · 收益统计 · BD 天赋规划器。网页市集：按词缀搜装备 · 角色试装 · 掉落过滤器 · 正则生成器。支持国际服/国服/台服。",
+    "en": "Free POE1 & POE2 price checker and trading toolset. Client: one-key pricing, screen scan, campaign guide, wealth tracking, build planner. Web: search by modifier, character try-on, loot filters, regex generator.",
+    "tw": "免費 POE1 & POE2 查價器與交易工具。客戶端：一鍵查價 · 截圖辨識 · 劇情引導 · 收益統計 · 配裝天賦規劃器。網頁市集：按詞綴搜裝備 · 角色試裝 · 掉落過濾器 · 正則產生器。支援國際服/國服/台服。"
+  },
+  "@keywords": {
+    "zh": "流放之路2,流放之路,流亡黯道2,流亡黯道,POE2,POE1,Path of Exile 2,Path of Exile,查价器,流放之路查价器,流放之路2查价器,查價器,物品查价,价格查询,截图识别,OCR,交易行,官方市集,交易搜索,魔镜市集,悬浮窗,懸浮窗,overlay,price check,price checker,剧情攻略,升级攻略,快捷正则,地图正则,引路石正则,碑牌正则,通货兑换,通货换算,计时器,地图计时,奖励计数,掉落统计,收益统计,打金收益,仓库估价,每小时收益,每图收益,wealth tracker,stash value,掉落过滤器,拾取过滤,NeverSink,过滤器下载,语音包,loot filter,item filter,正则生成器,regex generator,角色试装,Path of Building,POB,BD规划器,天赋规划器,天赋树,build planner,速查图,手柄,手柄查价,传奇,BD,配装,搬砖,打金,倒货,国服查价器,台服查價,魔镜,Mirror,POE工具,POE2工具,POE2插件,poe.ninja",
+    "en": "path of exile 2,poe2,path of exile,poe1,price checker,poe2 price check,item pricing,trade search,official trade,overlay,screen scan,ocr,campaign guide,levelling guide,regex,map regex,waystone regex,currency exchange,timer,drop tally,wealth tracker,stash value,profit per hour,loot filter,neversink,filter download,filter sounds,regex generator,character try-on,path of building,pob,build planner,passive tree,cheat sheet,gamepad,mirror,mirror market,poe tool,poe2 tool",
+    "tw": "流亡黯道2,流亡黯道,POE2,POE1,Path of Exile 2,查價器,流亡黯道查價器,流亡黯道2查價器,物品查價,價格查詢,截圖辨識,OCR,交易行,官方市集,交易搜尋,魔鏡市集,懸浮窗,overlay,price check,劇情攻略,升級攻略,快捷正則,換界石正則,碑牌正則,通貨兌換,計時器,地圖計時,獎勵計數,掉落統計,收益統計,倉庫估價,每小時收益,每圖收益,掉落過濾器,撿取過濾,NeverSink,過濾器下載,語音包,正則產生器,角色試裝,Path of Building,POB,配裝規劃器,天賦樹,速查圖,手把,傳奇,配裝,國際服,台服,魔鏡,Mirror,POE工具,POE2工具"
+  },
+  "为《流放之路》1 &amp; 2 打造 · 客户端 + 网页市集": {
+    "zh": "为《流放之路》1 &amp; 2 打造 · 客户端 + 网页市集",
+    "en": "Built for Path of Exile 1 &amp; 2 · client + web market",
+    "tw": "為《流亡黯道》1 &amp; 2 打造 · 客戶端 + 網頁市集"
+  },
+  "查价 · 搜装备 · 算收益": {
+    "zh": "查价 · 搜装备 · 算收益",
+    "en": "Price it. Find it. Count it.",
+    "tw": "查價 · 搜裝備 · 算收益"
+  },
+  "尽在": {
+    "zh": "尽在",
+    "en": "All in",
+    "tw": "盡在"
+  },
+  "魔镜": {
+    "zh": "魔镜",
+    "en": "Mirror",
+    "tw": "魔鏡"
+  },
+  "游戏内悬停物品按下热键，官方市集的实时挂单价即刻叠加在画面上；浏览器端按词缀检索装备、以你的角色评估换装收益，并提供掉落过滤器与仓库正则。": {
+    "zh": "游戏内悬停物品按下热键，官方市集的实时挂单价即刻叠加在画面上；浏览器端按词缀检索装备、以你的角色评估换装收益，并提供掉落过滤器与仓库正则。",
+    "en": "Hover an item in game and press the hotkey: live listing prices from the official trade API appear over your screen. In the browser, search gear by modifier, evaluate an upgrade against your own character, and get loot filters and stash regex.",
+    "tw": "遊戲內停在物品上按下熱鍵，官方市集的即時掛單價即刻疊加在畫面上；瀏覽器端按詞綴檢索裝備、以你的角色評估換裝收益，並提供掉落過濾器與倉庫正則。"
+  },
+  "立即下载": {
+    "zh": "立即下载",
+    "en": "Download now",
+    "tw": "立即下載"
+  },
+  "看看网页市集": {
+    "zh": "看看网页市集",
+    "en": "See the web market",
+    "tw": "看看網頁市集"
+  },
+  "次下载": {
+    "zh": "次下载",
+    "en": "downloads",
+    "tw": "次下載"
+  },
+  "支持": {
+    "zh": "支持",
+    "en": "Supports",
+    "tw": "支援"
+  },
+  "国际服 / 国服 / 台服": {
+    "zh": "国际服 / 国服 / 台服",
+    "en": "Global / China / Taiwan",
+    "tw": "國際服 / 國服 / 台服"
+  },
+  "· 英 / 简 / 繁": {
+    "zh": "· 英 / 简 / 繁",
+    "en": "· EN / SC / TC",
+    "tw": "· 英 / 簡 / 繁"
+  },
+  "键盘 + 手柄操作": {
+    "zh": "键盘 + 手柄操作",
+    "en": "Keyboard + gamepad",
+    "tw": "鍵盤 + 手把操作"
+  },
+  "暴风之冕": {
+    "zh": "暴风之冕",
+    "en": "Tempest Crown",
+    "tw": "風暴之冕"
+  },
+  "华丽面甲": {
+    "zh": "华丽面甲",
+    "en": "Ornate Barbute",
+    "tw": "華麗面甲"
+  },
+  "生命上限 +89": {
+    "zh": "生命上限 +89",
+    "en": "+89 to maximum Life",
+    "tw": "+89 最大生命"
+  },
+  "冰霜抗性 +42%": {
+    "zh": "冰霜抗性 +42%",
+    "en": "+42% to Cold Resistance",
+    "tw": "+42% 冰冷抗性"
+  },
+  "物品稀有度提高 24%": {
+    "zh": "物品稀有度提高 24%",
+    "en": "24% increased Rarity of Items found",
+    "tw": "增加 24% 找到的物品稀有度"
+  },
+  "闪避值 +130": {
+    "zh": "闪避值 +130",
+    "en": "+130 to Evasion Rating",
+    "tw": "+130 閃避值"
+  },
+  "参考成交价": {
+    "zh": "参考成交价",
+    "en": "Market price",
+    "tw": "參考成交價"
+  },
+  "Ctrl+D": {
+    "zh": "Ctrl+D",
+    "en": "Ctrl+D",
+    "tw": "Ctrl+D"
+  },
+  "魔镜截图识别：一次热键框出整屏物品并给出价格，识别全程在本机完成": {
+    "zh": "魔镜截图识别：一次热键框出整屏物品并给出价格，识别全程在本机完成",
+    "en": "Mirror screen scan: one hotkey outlines every item on screen with its price, recognised entirely on your own machine",
+    "tw": "魔鏡截圖辨識：一次熱鍵框出整螢幕物品並給出價格，辨識全程在本機完成"
+  },
+  "魔镜收益统计：追踪资产总值、每小时收益与每图收益": {
+    "zh": "魔镜收益统计：追踪资产总值、每小时收益与每图收益",
+    "en": "Mirror wealth tracking: total asset value, income per hour and income per map",
+    "tw": "魔鏡收益統計：追蹤資產總值、每小時收益與每圖收益"
+  },
+  "魔镜市集：词缀池随物品类别收窄，按词缀检索装备": {
+    "zh": "魔镜市集：词缀池随物品类别收窄，按词缀检索装备",
+    "en": "Mirror Market: the modifier pool narrows with the item class, so gear is searched by modifier",
+    "tw": "魔鏡市集：詞綴池隨物品類別收窄，按詞綴檢索裝備"
+  },
+  "两个入口": {
+    "zh": "两个入口",
+    "en": "Two ways in",
+    "tw": "兩個入口"
+  },
+  "Windows 客户端": {
+    "zh": "Windows 客户端",
+    "en": "Windows client",
+    "tw": "Windows 客戶端"
+  },
+  "魔镜客户端": {
+    "zh": "魔镜客户端",
+    "en": "Mirror client",
+    "tw": "魔鏡客戶端"
+  },
+  "叠加于游戏画面之上的悬浮窗。悬停物品并按下热键即返回定价，无需切换窗口或打开网页。": {
+    "zh": "叠加于游戏画面之上的悬浮窗。悬停物品并按下热键即返回定价，无需切换窗口或打开网页。",
+    "en": "An overlay drawn on top of the game. Hover an item, press the hotkey, and the price is returned — without switching windows or opening a browser.",
+    "tw": "疊加於遊戲畫面之上的懸浮窗。停在物品上並按下熱鍵即回傳定價，無需切換視窗或開啟網頁。"
+  },
+  "一键查价 · 截图识别整屏价格": {
+    "zh": "一键查价 · 截图识别整屏价格",
+    "en": "One-key pricing · whole-screen scan",
+    "tw": "一鍵查價 · 截圖辨識整螢幕價格"
+  },
+  "剧情引导 · 快捷正则 · 计时器 · 通货兑换": {
+    "zh": "剧情引导 · 快捷正则 · 计时器 · 通货兑换",
+    "en": "Campaign guide · regex presets · timers · currency rates",
+    "tw": "劇情引導 · 快捷正則 · 計時器 · 通貨兌換"
+  },
+  "收益统计 · 奖励计数 · 速查图 · 行情": {
+    "zh": "收益统计 · 奖励计数 · 速查图 · 行情",
+    "en": "Wealth tracking · drop tally · cheat sheets · market prices",
+    "tw": "收益統計 · 獎勵計數 · 速查圖 · 行情"
+  },
+  "掉落过滤器一键安装 · 游戏内 BD 天赋规划器": {
+    "zh": "掉落过滤器一键安装 · 游戏内 BD 天赋规划器",
+    "en": "One-click loot filter install · in-game build planner",
+    "tw": "掉落過濾器一鍵安裝 · 遊戲內配裝天賦規劃器"
+  },
+  "下载客户端": {
+    "zh": "下载客户端",
+    "en": "Download the client",
+    "tw": "下載客戶端"
+  },
+  "全部功能 →": {
+    "zh": "全部功能 →",
+    "en": "All features →",
+    "tw": "全部功能 →"
+  },
+  "浏览器": {
+    "zh": "浏览器",
+    "en": "Browser",
+    "tw": "瀏覽器"
+  },
+  "魔镜网站": {
+    "zh": "魔镜网站",
+    "en": "Mirror Web",
+    "tw": "魔鏡網站"
+  },
+  "四件工具：按词缀检索装备的市集、基于角色数据试装的角色页、掉落过滤器下载与正则生成器。": {
+    "zh": "四件工具：按词缀检索装备的市集、基于角色数据试装的角色页、掉落过滤器下载与正则生成器。",
+    "en": "Four tools: a market that searches by modifier, a character page that evaluates gear against your build, loot filter downloads and a regex generator.",
+    "tw": "四件工具：按詞綴檢索裝備的市集、基於角色資料試裝的角色頁、掉落過濾器下載與正則產生器。"
+  },
+  "市集：词缀按装备类型自动过滤，也支持 AI 搜索": {
+    "zh": "市集：词缀按装备类型自动过滤，也支持 AI 搜索",
+    "en": "Market: modifiers filtered automatically by item class, plus AI search",
+    "tw": "市集：詞綴按裝備類型自動過濾，也支援 AI 搜尋"
+  },
+  "角色：载入角色后，搜到的装备给出 DPS 与有效血量变化": {
+    "zh": "角色：载入角色后，搜到的装备给出 DPS 与有效血量变化",
+    "en": "Character: load yours, and searched gear reports the DPS and EHP change",
+    "tw": "角色：載入角色後，搜到的裝備給出 DPS 與有效血量變化"
+  },
+  "过滤器：开荒 / 刷图 / 速刷，随经济数据更新，含语音版": {
+    "zh": "过滤器：开荒 / 刷图 / 速刷，随经济数据更新，含语音版",
+    "en": "Filters: Pushing / Farming / Speed, kept current with economy data, sound versions included",
+    "tw": "過濾器：開荒 / 刷圖 / 速刷，隨經濟資料更新，含語音版"
+  },
+  "正则：无需了解正则语法，选择条件，生成正则表达式": {
+    "zh": "正则：无需了解正则语法，选择条件，生成正则表达式",
+    "en": "Regex: no regex syntax to learn — choose conditions, get the expression",
+    "tw": "正則：無需了解正則語法，選擇條件，產生正則運算式"
+  },
+  "打开网站": {
+    "zh": "打开网站",
+    "en": "Open the web app",
+    "tw": "打開網站"
+  },
+  "它能做什么 →": {
+    "zh": "它能做什么 →",
+    "en": "What it does →",
+    "tw": "它能做什麼 →"
+  },
+  "功能一览": {
+    "zh": "功能一览",
+    "en": "At a glance",
+    "tw": "功能一覽"
+  },
+  "核心功能": {
+    "zh": "核心功能",
+    "en": "Core",
+    "tw": "核心功能"
+  },
+  "剧情引导": {
+    "zh": "剧情引导",
+    "en": "Campaign guide",
+    "tw": "劇情引導"
+  },
+  "区域任务指引，奖励指引": {
+    "zh": "区域任务指引，奖励指引",
+    "en": "Zone quest and reward guidance.",
+    "tw": "區域任務指引，獎勵指引"
+  },
+  "自定义 BD 技能组，助力开荒": {
+    "zh": "自定义 BD 技能组，助力开荒",
+    "en": "Custom build skill sets to speed up levelling.",
+    "tw": "自訂配裝技能組，助力開荒"
+  },
+  "物品查价": {
+    "zh": "物品查价",
+    "en": "Item pricing",
+    "tw": "物品查價"
+  },
+  "一键触发，智能选择词缀，查价更准确便捷": {
+    "zh": "一键触发，智能选择词缀，查价更准确便捷",
+    "en": "One hotkey, with the right modifiers pre-selected — faster and more accurate.",
+    "tw": "一鍵觸發，智慧選擇詞綴，查價更準確便捷"
+  },
+  "支持通货与各类物品查价": {
+    "zh": "支持通货与各类物品查价",
+    "en": "Works for currency and every other kind of item.",
+    "tw": "支援通貨與各類物品查價"
+  },
+  "收益统计": {
+    "zh": "收益统计",
+    "en": "Wealth tracking",
+    "tw": "收益統計"
+  },
+  "支持 PoE1 与 PoE2": {
+    "zh": "支持 PoE1 与 PoE2",
+    "en": "Works in PoE1 and PoE2.",
+    "tw": "支援 PoE1 與 PoE2"
+  },
+  "其余功能": {
+    "zh": "其余功能",
+    "en": "Also included",
+    "tw": "其餘功能"
+  },
+  "市集搜索": {
+    "zh": "市集搜索",
+    "en": "Market search",
+    "tw": "市集搜尋"
+  },
+  "网页": {
+    "zh": "网页",
+    "en": "Web",
+    "tw": "網頁"
+  },
+  "角色试装": {
+    "zh": "角色试装",
+    "en": "character try-on",
+    "tw": "角色試裝"
+  },
+  "载入角色后，搜到的装备给出 DPS 与有效血量变化": {
+    "zh": "载入角色后，搜到的装备给出 DPS 与有效血量变化",
+    "en": "Load your character and searched gear reports the DPS and EHP change",
+    "tw": "載入角色後，搜到的裝備給出 DPS 與有效血量變化"
+  },
+  "正则生成器": {
+    "zh": "正则生成器",
+    "en": "regex generator",
+    "tw": "正則產生器"
+  },
+  "无需了解正则语法，选择条件即可生成正则": {
+    "zh": "无需了解正则语法，选择条件即可生成正则",
+    "en": "No regex syntax to learn — choose conditions and the expression is generated.",
+    "tw": "無需了解正則語法，選擇條件即可產生正則"
+  },
+  "BD 天赋规划器": {
+    "zh": "BD 天赋规划器",
+    "en": "Build planner",
+    "tw": "配裝天賦規劃器"
+  },
+  "天赋规划，快速同步到游戏天赋": {
+    "zh": "天赋规划，快速同步到游戏天赋",
+    "en": "Plan your passives and sync them straight into the game.",
+    "tw": "天賦規劃，快速同步到遊戲天賦"
+  },
+  "截图查价": {
+    "zh": "截图查价",
+    "en": "Screen price check",
+    "tw": "截圖查價"
+  },
+  "一键识别物品，快速查价": {
+    "zh": "一键识别物品，快速查价",
+    "en": "One key recognises the items on screen and prices them.",
+    "tw": "一鍵辨識物品，快速查價"
+  },
+  "自定义攻略图": {
+    "zh": "自定义攻略图",
+    "en": "Custom cheat sheets",
+    "tw": "自訂攻略圖"
+  },
+  "上传图片，游戏中快速打开": {
+    "zh": "上传图片，游戏中快速打开",
+    "en": "Upload your own images and pull them up mid-run.",
+    "tw": "上傳圖片，遊戲中快速開啟"
+  },
+  "实时行情": {
+    "zh": "实时行情",
+    "en": "Live market prices",
+    "tw": "即時行情"
+  },
+  "通货、传奇等各类物品价格，按玩法给出收益提示": {
+    "zh": "通货、传奇等各类物品价格，按玩法给出收益提示",
+    "en": "Prices for currency, uniques and more, grouped by mechanic — a read on what each strategy pays",
+    "tw": "通貨、傳奇等各類物品價格，按玩法給出收益提示"
+  },
+  "快捷正则": {
+    "zh": "快捷正则",
+    "en": "Regex presets",
+    "tw": "快捷正則"
+  },
+  "常用正则做成卡片浮在游戏上，一键复制到搜索框": {
+    "zh": "常用正则做成卡片浮在游戏上，一键复制到搜索框",
+    "en": "Go-to expressions as chips over the game, copied into a search box in one click",
+    "tw": "常用正則做成卡片浮在遊戲上，一鍵複製到搜尋框"
+  },
+  "快捷指令": {
+    "zh": "快捷指令",
+    "en": "Quick commands",
+    "tw": "快捷指令"
+  },
+  "一键回藏身处，聊天指令点击即发送": {
+    "zh": "一键回藏身处，聊天指令点击即发送",
+    "en": "One click back to your hideout; chat commands send on click",
+    "tw": "一鍵回藏身處，聊天指令點擊即發送"
+  },
+  "快速查询": {
+    "zh": "快速查询",
+    "en": "Quick lookup",
+    "tw": "快速查詢"
+  },
+  "输入物品名，三语模糊匹配后复制或直接检索": {
+    "zh": "输入物品名，三语模糊匹配后复制或直接检索",
+    "en": "Type an item name; fuzzy matching across three languages, then copy or search",
+    "tw": "輸入物品名，三語模糊比對後複製或直接檢索"
+  },
+  "奖励计数": {
+    "zh": "奖励计数",
+    "en": "Drop tally",
+    "tw": "獎勵計數"
+  },
+  "便捷攻坚收益统计，自动记录刷图次数": {
+    "zh": "便捷攻坚收益统计，自动记录刷图次数",
+    "en": "Track what a farming target pays, with run counts logged automatically.",
+    "tw": "便捷攻堅收益統計，自動記錄刷圖次數"
+  },
+  "计时器": {
+    "zh": "计时器",
+    "en": "Timers",
+    "tw": "計時器"
+  },
+  "开荒章节计时，刷图计时": {
+    "zh": "开荒章节计时，刷图计时",
+    "en": "Times each act while levelling, and each map afterwards.",
+    "tw": "開荒章節計時，刷圖計時"
+  },
+  "过滤器": {
+    "zh": "过滤器",
+    "en": "Loot filters",
+    "tw": "過濾器"
+  },
+  "基于 NeverSink 定制，每日根据物价更新，自动同步游戏": {
+    "zh": "基于 NeverSink 定制，每日根据物价更新，自动同步游戏",
+    "en": "Customised from NeverSink's, updated daily from market prices and synced into the game automatically.",
+    "tw": "基於 NeverSink 定製，每日根據物價更新，自動同步遊戲"
+  },
+  "实时通货比例": {
+    "zh": "实时通货比例",
+    "en": "Live currency rates",
+    "tw": "即時通貨比例"
+  },
+  "通货价格比例，一眼了解": {
+    "zh": "通货价格比例，一眼了解",
+    "en": "Currency-to-currency ratios, readable at a glance.",
+    "tw": "通貨價格比例，一眼了解"
+  },
+  "🛡 安全设计 · 绝不碰游戏进程": {
+    "zh": "🛡 安全设计 · 绝不碰游戏进程",
+    "en": "🛡 Safe by design · never touches the game process",
+    "tw": "🛡 安全設計 · 絕不碰遊戲行程"
+  },
+  "绝不注入、读取或修改游戏进程与内存，也不修改任何游戏文件": {
+    "zh": "绝不注入、读取或修改游戏进程与内存，也不修改任何游戏文件",
+    "en": "never injects into, reads or modifies the game process or memory, and never modifies any game file",
+    "tw": "絕不注入、讀取或修改遊戲行程與記憶體，也不修改任何遊戲檔案"
+  },
+  "。它只会：读取游戏日志文件、读取你": {
+    "zh": "。它只会：读取游戏日志文件、读取你",
+    "en": ". It only ever: reads the game log, reads item text you",
+    "tw": "。它只會：讀取遊戲日誌檔案、讀取你"
+  },
+  "主动复制": {
+    "zh": "主动复制",
+    "en": "copy yourself",
+    "tw": "主動複製"
+  },
+  "的物品文本、以及按识别热键时截取一帧屏幕做": {
+    "zh": "的物品文本、以及按识别热键时截取一帧屏幕做",
+    "en": ", and captures one screen frame for",
+    "tw": "的物品文字、以及按辨識熱鍵時擷取一幀螢幕做"
+  },
+  "本地": {
+    "zh": "本地",
+    "en": "local",
+    "tw": "本機"
+  },
+  "OCR。所有查价均通过": {
+    "zh": "OCR。所有查价均通过",
+    "en": "OCR when you press the scan hotkey. All price lookups go through the",
+    "tw": "OCR。所有查價均透過"
+  },
+  "官方市集 API": {
+    "zh": "官方市集 API",
+    "en": "official trade API",
+    "tw": "官方市集 API"
+  },
+  "，与官方交易网站工作方式一致。": {
+    "zh": "，与官方交易网站工作方式一致。",
+    "en": ", exactly the way the official trade site works.",
+    "tw": "，與官方交易網站運作方式一致。"
+  },
+  "上手": {
+    "zh": "上手",
+    "en": "Getting started",
+    "tw": "上手"
+  },
+  "更多功能详细介绍": {
+    "zh": "更多功能详细介绍",
+    "en": "More features, described in detail",
+    "tw": "更多功能詳細介紹"
+  },
+  "查看使用指南": {
+    "zh": "查看使用指南",
+    "en": "Open the guides",
+    "tw": "查看使用指南"
+  },
+  "FAQ": {
+    "zh": "FAQ",
+    "en": "FAQ",
+    "tw": "FAQ"
+  },
+  "常见问题": {
+    "zh": "常见问题",
+    "en": "Frequently asked",
+    "tw": "常見問題"
+  },
+  "使用魔镜会被封号吗？": {
+    "zh": "使用魔镜会被封号吗？",
+    "en": "Will using Mirror get me banned?",
+    "tw": "使用魔鏡會被封號嗎？"
+  },
+  "魔镜不注入、不读写游戏进程与内存，也不修改任何游戏文件。它只读取游戏日志、你主动复制的物品文本，以及在你按识别热键时截取一帧屏幕做本地 OCR，查价走官方市集 API——工作方式与官方交易网站一致。请自行遵守游戏服务条款。": {
+    "zh": "魔镜不注入、不读写游戏进程与内存，也不修改任何游戏文件。它只读取游戏日志、你主动复制的物品文本，以及在你按识别热键时截取一帧屏幕做本地 OCR，查价走官方市集 API——工作方式与官方交易网站一致。请自行遵守游戏服务条款。",
+    "en": "Mirror never injects into or modifies the game process, memory or files. It only reads the game log, item text you copy yourself, and one screen frame for local OCR when you press the scan hotkey; pricing uses the official trade API — the same way the official trade site works. Always follow the game's Terms of Service.",
+    "tw": "魔鏡不注入、不讀寫遊戲行程與記憶體，也不修改任何遊戲檔案。它只讀取遊戲日誌、你主動複製的物品文字，以及在你按辨識熱鍵時擷取一幀螢幕做本機 OCR，查價走官方市集 API——運作方式與官方交易網站一致。請自行遵守遊戲服務條款。"
+  },
+  "支持哪些服务器和语言？": {
+    "zh": "支持哪些服务器和语言？",
+    "en": "Which realms and languages are supported?",
+    "tw": "支援哪些伺服器和語言？"
+  },
+  "支持国际服、国服、台服，界面提供英文、简体中文、繁体中文。国服交易搜索需在设置中填入有效的会话 Cookie。": {
+    "zh": "支持国际服、国服、台服，界面提供英文、简体中文、繁体中文。国服交易搜索需在设置中填入有效的会话 Cookie。",
+    "en": "Global, China and Taiwan realms, with an English, Simplified Chinese or Traditional Chinese interface. China-realm trade search needs a valid session cookie in settings.",
+    "tw": "支援國際服、國服、台服，介面提供英文、簡體中文、繁體中文。國服交易搜尋需在設定中填入有效的工作階段 Cookie。"
+  },
+  "魔镜客户端和魔镜网站有什么区别？": {
+    "zh": "魔镜客户端和魔镜网站有什么区别？",
+    "en": "What's the difference between the Mirror client and Mirror Web?",
+    "tw": "魔鏡客戶端和魔鏡網站有什麼區別？"
+  },
+  "是运行于 Windows 的悬浮窗程序，覆盖游戏内的操作：悬停查价、截图识别、剧情引导、快捷正则、计时器、通货兑换、奖励计数、收益统计、速查图，以及将掉落过滤器与 BD 天赋规划写入游戏。": {
+    "zh": "是运行于 Windows 的悬浮窗程序，覆盖游戏内的操作：悬停查价、截图识别、剧情引导、快捷正则、计时器、通货兑换、奖励计数、收益统计、速查图，以及将掉落过滤器与 BD 天赋规划写入游戏。",
+    "en": "is a Windows overlay application covering in-game operations: hover pricing, screen scanning, the campaign guide, regex presets, timers, currency rates, drop tallies, wealth tracking, cheat sheets, and writing loot filters and build plans into the game.",
+    "tw": "是執行於 Windows 的懸浮窗程式，涵蓋遊戲內的操作：停在物品上查價、截圖辨識、劇情引導、快捷正則、計時器、通貨兌換、獎勵計數、收益統計、速查圖，以及將掉落過濾器與配裝天賦規劃寫入遊戲。"
+  },
+  "（": {
+    "zh": "（",
+    "en": " (",
+    "tw": "（"
+  },
+  "trade.kalandraeye.com": {
+    "zh": "trade.kalandraeye.com",
+    "en": "trade.kalandraeye.com",
+    "tw": "trade.kalandraeye.com"
+  },
+  "）运行于浏览器，包含四件工具：按词缀检索装备的市集、基于 Path of Building 进行试装的角色页、掉落过滤器下载与正则生成器。两者共用同一账号。": {
+    "zh": "）运行于浏览器，包含四件工具：按词缀检索装备的市集、基于 Path of Building 进行试装的角色页、掉落过滤器下载与正则生成器。两者共用同一账号。",
+    "en": ") runs in the browser and contains four tools: a market that searches by modifier, a character page that evaluates gear via Path of Building, loot filter downloads and a regex generator. Both share one account.",
+    "tw": "）執行於瀏覽器，包含四件工具：按詞綴檢索裝備的市集、基於 Path of Building 進行試裝的角色頁、掉落過濾器下載與正則產生器。兩者共用同一帳號。"
+  },
+  "用魔镜网站一定要装客户端吗？": {
+    "zh": "用魔镜网站一定要装客户端吗？",
+    "en": "Do I have to install the client to use Mirror Web?",
+    "tw": "用魔鏡網站一定要裝客戶端嗎？"
+  },
+  "不一定，看用哪件工具。": {
+    "zh": "不一定，看用哪件工具。",
+    "en": "Not always — it depends which tool.",
+    "tw": "不一定，看用哪件工具。"
+  },
+  "掉落过滤器下载": {
+    "zh": "掉落过滤器下载",
+    "en": "Loot filter downloads",
+    "tw": "掉落過濾器下載"
+  },
+  "和": {
+    "zh": "和",
+    "en": "and",
+    "tw": "和"
+  },
+  "打开网页即可使用。": {
+    "zh": "打开网页即可使用。",
+    "en": "work from the browser alone.",
+    "tw": "打開網頁即可使用。"
+  },
+  "需要客户端在运行：搜索使用你本人的官方交易会话（我们的服务器对官方交易接口不发起任何请求，这是合规底线），Path of Building 计算引擎亦运行于客户端进程内。": {
+    "zh": "需要客户端在运行：搜索使用你本人的官方交易会话（我们的服务器对官方交易接口不发起任何请求，这是合规底线），Path of Building 计算引擎亦运行于客户端进程内。",
+    "en": "require the client to be running: searches use your own official trade session (our servers issue no requests at all to the official trade API — a compliance requirement), and the Path of Building engine likewise runs inside the client process.",
+    "tw": "需要客戶端在執行：搜尋使用你本人的官方交易工作階段（我們的伺服器對官方交易介面不發起任何請求，這是合規底線），Path of Building 計算引擎亦執行於客戶端行程內。"
+  },
+  "支持流放之路一代（POE1）吗？": {
+    "zh": "支持流放之路一代（POE1）吗？",
+    "en": "Does it support Path of Exile 1 (POE1)?",
+    "tw": "支援流亡黯道一代（POE1）嗎？"
+  },
+  "支持。魔镜同时支持《流放之路》1 与 2，绝大多数功能（查价、截图识别、剧情引导、快捷正则、通货兑换、计时器、奖励掉落统计、掉落过滤器、收益统计）两代通用。": {
+    "zh": "支持。魔镜同时支持《流放之路》1 与 2，绝大多数功能（查价、截图识别、剧情引导、快捷正则、通货兑换、计时器、奖励掉落统计、掉落过滤器、收益统计）两代通用。",
+    "en": "Yes. Mirror supports both Path of Exile 1 and 2, and most features (pricing, screen scan, campaign guide, regex presets, currency rates, timers, drop tallies, loot filters, wealth tracking) work in both.",
+    "tw": "支援。魔鏡同時支援《流亡黯道》1 與 2，絕大多數功能（查價、截圖辨識、劇情引導、快捷正則、通貨兌換、計時器、獎勵掉落統計、掉落過濾器、收益統計）兩代通用。"
+  },
+  "两代均支持，区别在于资产来源：流放之路 1 读取仓库，流放之路 2 读取你在交易站上的公开挂单。两者均可得出追踪资产总值、期间收益、每小时收益与每图收益。POE1 另支持": {
+    "zh": "两代均支持，区别在于资产来源：流放之路 1 读取仓库，流放之路 2 读取你在交易站上的公开挂单。两者均可得出追踪资产总值、期间收益、每小时收益与每图收益。POE1 另支持",
+    "en": "is available in both; only the source of the assets differs — Path of Exile 1 reads your stash, Path of Exile 2 reads your public listings on the trade site. Either way you get tracked-asset value, profit over the period, and income per hour and per map. POE1 additionally values",
+    "tw": "兩代均支援，區別在於資產來源：流亡黯道 1 讀取倉庫，流亡黯道 2 讀取你在交易站上的公開掛單。兩者均可得出追蹤資產總值、期間收益、每小時收益與每圖收益。POE1 另支援"
+  },
+  "分解粉尘": {
+    "zh": "分解粉尘",
+    "en": "Thaumaturgic Dust",
+    "tw": "分解粉塵"
+  },
+  "与": {
+    "zh": "与",
+    "en": "and",
+    "tw": "與"
+  },
+  "佣兵凭证": {
+    "zh": "佣兵凭证",
+    "en": "mercenary warrants",
+    "tw": "傭兵憑證"
+  },
+  "估值。": {
+    "zh": "估值。",
+    "en": ".",
+    "tw": "估值。"
+  },
+  "安装包从哪里下载？": {
+    "zh": "安装包从哪里下载？",
+    "en": "Where does the installer come from?",
+    "tw": "安裝包從哪裡下載？"
+  },
+  "安装包托管在本站，下载后运行安装即可，只需 Windows 10 / 11。": {
+    "zh": "安装包托管在本站，下载后运行安装即可，只需 Windows 10 / 11。",
+    "en": "From this site — download, run, done. All it needs is Windows 10 / 11.",
+    "tw": "安裝包由本站提供，下載後執行安裝即可，只需要 Windows 10 / 11。"
+  },
+  "魔镜是免费的吗？": {
+    "zh": "魔镜是免费的吗？",
+    "en": "Is Mirror free?",
+    "tw": "魔鏡是免費的嗎？"
+  },
+  "免费。下载、物品查价、截图识别、剧情引导、快捷正则、通货兑换、计时器、奖励计数、快速搜索、行情与收益统计均可直接使用，其中数项对免费档设有数量上限。": {
+    "zh": "免费。下载、物品查价、截图识别、剧情引导、快捷正则、通货兑换、计时器、奖励计数、快速搜索、行情与收益统计均可直接使用，其中数项对免费档设有数量上限。",
+    "en": "Yes. The download, item pricing, screen scanning, the campaign guide, regex presets, currency rates, timers, drop tallies, quick search, market prices and wealth tracking are all available as-is; several of them carry a quantity limit on the free tier.",
+    "tw": "免費。下載、物品查價、截圖辨識、劇情引導、快捷正則、通貨兌換、計時器、獎勵計數、快速搜尋、行情與收益統計均可直接使用，其中數項對免費檔設有數量上限。"
+  },
+  "会员": {
+    "zh": "会员",
+    "en": "Membership",
+    "tw": "會員"
+  },
+  "解锁的是：魔镜市集（类别投影搜索、角色试装、AI 助手）、由客户端把掉落过滤器一键装进游戏与你的 GGG 账号、配置云同步、行情刷新提速，以及上面那些功能更高的数量上限；AI 类功能按用量计费。掉落过滤器本身不收费——本站与市集站上的过滤文件（含语音版）任何人都能下载、手动放进游戏目录。": {
+    "zh": "解锁的是：魔镜市集（类别投影搜索、角色试装、AI 助手）、由客户端把掉落过滤器一键装进游戏与你的 GGG 账号、配置云同步、行情刷新提速，以及上面那些功能更高的数量上限；AI 类功能按用量计费。掉落过滤器本身不收费——本站与市集站上的过滤文件（含语音版）任何人都能下载、手动放进游戏目录。",
+    "en": "unlocks Mirror Market (class-projected search, character try-on, the AI assistant), one-click loot-filter installs into the game and your GGG account, config cloud sync, faster market refresh, and higher limits on the features above; AI features are metered by usage. The loot filters themselves are not paid — anyone can download the files (sound packs included) from this site or the web app and drop them into the game folder by hand.",
+    "tw": "解鎖的是：魔鏡市集（類別投影搜尋、角色試裝、AI 助手）、由客戶端把掉落過濾器一鍵裝進遊戲與你的 GGG 帳號、設定雲端同步、行情更新提速，以及上面那些功能更高的數量上限；AI 類功能按用量計費。掉落過濾器本身不收費——本站與市集站上的過濾檔案（含語音版）任何人都能下載、手動放進遊戲目錄。"
+  },
+  "魔镜（查价器）怎么用？": {
+    "zh": "魔镜（查价器）怎么用？",
+    "en": "How do I use Mirror?",
+    "tw": "魔鏡（查價器）怎麼用？"
+  },
+  "下载安装后直接运行，热键已预置。在游戏内将鼠标悬停于物品并按下热键即可查价；按 Ctrl+D 可截屏识别整屏物品价格。": {
+    "zh": "下载安装后直接运行，热键已预置。在游戏内将鼠标悬停于物品并按下热键即可查价；按 Ctrl+D 可截屏识别整屏物品价格。",
+    "en": "Download, install and run — the hotkeys are preconfigured. Hover an item in game and press the hotkey to price it; press Ctrl+D to scan and price a whole screen.",
+    "tw": "下載安裝後直接執行，熱鍵已預設。在遊戲內將滑鼠停在物品上並按下熱鍵即可查價；按 Ctrl+D 可截圖辨識整螢幕物品價格。"
+  },
+  "支持手柄吗？": {
+    "zh": "支持手柄吗？",
+    "en": "Does it work with a gamepad?",
+    "tw": "支援手把嗎？"
+  },
+  "支持。查价与各项功能既能用键盘快捷键触发，也能用手柄按键触发。": {
+    "zh": "支持。查价与各项功能既能用键盘快捷键触发，也能用手柄按键触发。",
+    "en": "Yes. Pricing and every other feature can be triggered from either a keyboard shortcut or a gamepad button.",
+    "tw": "支援。查價與各項功能既能用鍵盤快捷鍵觸發，也能用手把按鍵觸發。"
+  },
+  "会上传我的截图或数据吗？": {
+    "zh": "会上传我的截图或数据吗？",
+    "en": "Do you upload my screenshots or data?",
+    "tw": "會上傳我的截圖或資料嗎？"
+  },
+  "不会。物品识别全程在你本地电脑完成，不上传截图或账号信息；查价只调用官方市集 API。": {
+    "zh": "不会。物品识别全程在你本地电脑完成，不上传截图或账号信息；查价只调用官方市集 API。",
+    "en": "No. Item recognition runs entirely on your own PC; no screenshots or account details are uploaded, and pricing only calls the official trade API.",
+    "tw": "不會。物品辨識全程在你本機電腦完成，不上傳截圖或帳號資訊；查價只呼叫官方市集 API。"
+  },
+  "下载魔镜": {
+    "zh": "下载魔镜",
+    "en": "Download Mirror",
+    "tw": "下載魔鏡"
+  },
+  "下载后开箱即用。": {
+    "zh": "下载后开箱即用。",
+    "en": "Ready to use as soon as it is downloaded.",
+    "tw": "下載後開箱即用。"
+  },
+  "前往下载页": {
+    "zh": "前往下载页",
+    "en": "Go to downloads",
+    "tw": "前往下載頁"
+  },
+  "运行要求": {
+    "zh": "运行要求",
+    "en": "Requirements",
+    "tw": "執行需求"
+  },
+  "Windows 10 / 11（64 位）": {
+    "zh": "Windows 10 / 11（64 位）",
+    "en": "Windows 10 / 11 (64-bit)",
+    "tw": "Windows 10 / 11（64 位元）"
+  },
+  "《流放之路》1 或 2 PC 客户端": {
+    "zh": "《流放之路》1 或 2 PC 客户端",
+    "en": "The Path of Exile 1 or 2 PC client",
+    "tw": "《流亡黯道》1 或 2 PC 客戶端"
+  },
+  "统计仓库物品价值，明确策略收益": {
+    "zh": "统计仓库物品价值，明确策略收益",
+    "en": "Values the items in your stash and shows which strategy actually pays.",
+    "tw": "統計倉庫物品價值，明確策略收益"
+  },
+  "完善多语言支持，汉化支持，更便捷的搜索": {
+    "zh": "完善多语言支持，汉化支持，更便捷的搜索",
+    "en": "Full multi-language support, Chinese included — a faster way to search",
+    "tw": "完善多語言支援，中文支援，更便捷的搜尋"
+  },
+  "国服为什么需要管理员权限？": {
+    "zh": "国服为什么需要管理员权限？",
+    "en": "Why does the Tencent (CN) realm need administrator rights?",
+    "tw": "國服為什麼需要系統管理員權限？"
+  },
+  "国服客户端以管理员身份运行。魔镜若不以同等权限启动，快捷键与悬浮窗在游戏画面上不会生效。": {
+    "zh": "国服客户端以管理员身份运行。魔镜若不以同等权限启动，快捷键与悬浮窗在游戏画面上不会生效。",
+    "en": "That client runs elevated. Unless Mirror is started at the same level, hotkeys and overlays have no effect over the game window.",
+    "tw": "國服客戶端以系統管理員身分執行。魔鏡若不以同等權限啟動，快捷鍵與懸浮視窗在遊戲畫面上不會生效。"
+  },
+  "全屏游戏会被挡住吗？": {
+    "zh": "全屏游戏会被挡住吗？",
+    "en": "Will it cover a fullscreen game?",
+    "tw": "全螢幕遊戲會被擋住嗎？"
+  },
+  "不会。悬浮窗锚定在游戏客户区，全屏时即为整块显示器；切出游戏后自动隐藏。": {
+    "zh": "不会。悬浮窗锚定在游戏客户区，全屏时即为整块显示器；切出游戏后自动隐藏。",
+    "en": "No. Overlays are anchored to the game's client area — in fullscreen that is the whole monitor — and they hide themselves when you switch away.",
+    "tw": "不會。懸浮視窗錨定在遊戲工作區，全螢幕時即為整塊螢幕；切出遊戲後自動隱藏。"
+  }
+}

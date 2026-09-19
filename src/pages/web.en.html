@@ -1,0 +1,160 @@
+---
+title: Mirror Web — Path of Exile 2 Trade Search, Character Try-On, Loot Filters, Regex
+description: Mirror's web toolset for Path of Exile 2: a trade search whose mod pool narrows to the item class you picked, character try-on running the real Path of Building, NeverSink-based loot filter downloads (Pushing / Farming / Speed, sound versions included), and a stash-search regex generator. Filters and regex work straight from the browser; market search and try-on need the Mirror client running, because searches use your own official trade session.
+ogdesc: Path of Exile 2 web tools: mod-pool trade search, Path of Building character try-on, NeverSink loot filter downloads, regex generator. Filters and regex need no install.
+keywords: mirror market,poe2 trade search,path of exile 2 trade,search by modifier,item class projection,live search,character try-on,path of building,pob,delta dps,poe2 loot filter,neversink,filter download,filter sounds,poe2 regex,regex generator,waystone regex,stash search,trade site
+jsonld: jsonld/web.html
+---
+  <header class="hero" id="top" style="padding-bottom:10px">
+    <div class="wrap" style="max-width:840px;text-align:center">
+      <div class="badge reveal d1"><span class="dot"></span>Browser · nothing to install</div>
+      <h1 class="title reveal d2" style="font-size:clamp(30px,4.2vw,46px)">Mirror Web</h1>
+      <p class="lead reveal d3" style="margin-inline:auto">
+        Faster market search, character try-on, one-click sharing, daily filter downloads and quick regex generation
+      </p>
+      <div class="cta reveal d4" style="justify-content:center">
+        <a class="btn btn-gold" href="https://trade.kalandraeye.com/en/filters" target="_blank" rel="noopener">Open Mirror Web</a>
+      </div>
+      <p class="cta-note reveal d4">Requires the desktop client</p>
+    </div>
+  </header>
+
+  <section id="tools">
+    <div class="wrap">
+      <div class="tools reveal">
+      <div class="tool">
+        <div class="tool-head"><h3>Market search</h3><span class="need pair"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 0 1 0 10h-2"/><path d="M8 12h8"/></svg>Requires the client installed</span></div>
+        <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Pick an item type and its modifier pool narrows itself</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Save a set of conditions and recall the search in one click</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Buy with certainty: load your character and every result shows its DPS and EHP change</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>One market, covering both the global and Tencent realms</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Multiple languages supported</li>
+        </ul>
+        <a class="go" href="https://trade.kalandraeye.com/en/" target="_blank" rel="noopener">Open the market →</a>
+      </div>
+      <div class="tool">
+        <div class="tool-head"><h3>Character · try-on</h3><span class="need pair"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 0 1 0 10h-2"/><path d="M8 12h8"/></svg>Requires the client installed</span></div>
+        <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Load a character and get its skill damage, defences and more</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Linked to the market: try items on against that character</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>View and edit the passive tree, then sync it straight into the game</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Share a character build in one click</li>
+        </ul>
+        <a class="go" href="https://trade.kalandraeye.com/en/" target="_blank" rel="noopener">Open the character page →</a>
+      </div>
+      <div class="tool">
+        <div class="tool-head"><h3>loot filter</h3></div>
+        <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Tuned to each stage of the game: levelling, the Atlas climb and late-game speed farming</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>A voiced edition is provided, and its alert sounds can be replaced with your own</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Updated daily against live prices, free to download</li>
+        </ul>
+        <a class="go" href="https://trade.kalandraeye.com/en/filters" target="_blank" rel="noopener">Download filters →</a>
+      </div>
+      <div class="tool">
+        <div class="tool-head"><h3>regex generator</h3></div>
+        <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>No regex syntax to learn — tick the conditions and the expression is generated</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Modifier pools for every kind of item</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Generates expressions for Simplified Chinese, Traditional Chinese and English</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Save it straight into the Mirror client's preset library</li>
+        </ul>
+        <a class="go" href="https://trade.kalandraeye.com/en/regex" target="_blank" rel="noopener">Open the regex generator →</a>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ai">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-eyebrow">AI assistant</div>
+        <h2 class="sec-title">An AI assistant across the board</h2>
+      </div>
+<div class="feature reveal">
+        <div>
+          <h3>One sentence, and the gear you want<span class="poe1-chip">Mirror Market</span></h3>
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Describe the gear you want and the modifiers fill themselves in</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Works across every kind of item</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Search the market from a stash regex<span class="soon-chip">Planned</span></li>
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <picture>
+            <source type="image/avif" srcset="/shots/ai.avif" />
+            <source type="image/webp" srcset="/shots/ai.webp" />
+            <img src="/shots/ai.webp" alt="Mirror Market AI assistant: one sentence fills in the Path of Exile 2 trade search form" width="1440" height="900" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph">
+            <div class="ai-chat">
+              <div class="ai-q">lightning wand with crit, under 10 Divine</div>
+
+              <div class="ai-a">Trade search built · 42 matches <span class="dots"><span></span><span></span><span></span></span></div>
+            </div>
+          </div>
+          <div class="demo-hint">Mock-up · real screenshot coming</div>
+        </div>
+      </div>
+<div class="feature flip reveal">
+        <div>
+          <h3>Build assistant, character analysis<span class="soon-chip">Planned</span></h3>
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Reads your character data and suggests where to improve it</li>
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <picture>
+            <source type="image/avif" srcset="/shots/ai-character.avif" />
+            <source type="image/webp" srcset="/shots/ai-character.webp" />
+            <img src="/shots/ai-character.webp" alt="Mirror AI character analysis: reads the character and suggests where to improve it" width="1440" height="900" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph shimmer"></div>
+          <div class="demo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20a7 7 0 0 1 14 0"/><path d="M19 4.5 20 7l2.5 1-2.5 1-1 2.5-1-2.5L15.5 8 18 7z"/></svg></div>
+          <div class="demo-hint">Mock-up · real screenshot coming</div>
+        </div>
+      </div>
+
+<div class="feature reveal">
+        <div>
+          <h3>Builds imported into Mirror<span class="soon-chip">Planned</span></h3>
+          <ul>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Build documents, analysed for you</li>
+            <li class="feat-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Imported into the Mirror client as a levelling build</li>
+          </ul>
+        </div>
+        <div class="feat-media demo">
+          <picture>
+            <source type="image/avif" srcset="/shots/ai-build.avif" />
+            <source type="image/webp" srcset="/shots/ai-build.webp" />
+            <img src="/shots/ai-build.webp" alt="Mirror AI build assistant: analyses a build document and imports it into the client as a levelling build" width="1440" height="900" loading="lazy" decoding="async" />
+          </picture>
+          <div class="demo-ph shimmer"></div>
+          <div class="demo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h9l5 5v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M14 4v5h5"/><path d="M8 13h6M8 17h4"/></svg></div>
+          <div class="demo-hint">Mock-up · real screenshot coming</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="get">
+    <div class="wrap">
+      <div class="dl-panel reveal">
+        <div>
+          <h2>Install the client</h2>
+          <div class="dl-actions">
+            <a class="btn btn-gold" href="/download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>Download the client</a>
+          </div>
+        </div>
+        <div class="req">
+          <h4>What the client is needed for</h4>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Market search</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Loading and evaluating character data</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Filter auto-sync</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>

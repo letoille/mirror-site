@@ -1,0 +1,623 @@
+<!doctype html>
+<!--
+  ⚠️ 这个文件是 `node build.mjs` 生成的，**手改会在下一次构建时被覆盖**。
+  要改内容：src/pages/index.tw.html
+  要改外壳（导航 / 页脚 / head）：src/shell.html + src/site.mjs
+-->
+<html lang="zh-Hant" data-lang="tw">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>魔鏡 Mirror — 流亡黯道 1 &amp; 2 (POE1·POE2) 查價器 · 交易搜尋 · 懸浮窗助手</title>
+  <meta name="description" content="魔鏡 Mirror 是《流亡黯道》1 &amp; 2（POE1 · POE2）的查價與交易工具，核心功能免費。Windows 客戶端：一鍵查價、截圖辨識整螢幕價格、劇情引導、快捷正則、通貨兌換、計時器、獎勵計數、收益統計、速查圖、遊戲內配裝天賦規劃器。網頁市集：按詞綴搜裝備、用你的角色做 Path of Building 試裝、掉落過濾器下載、正則產生器。支援國際服 / 國服 / 台服（英 / 簡 / 繁）。" />
+  <meta name="keywords" content="流亡黯道2,流亡黯道,POE2,POE1,Path of Exile 2,查價器,流亡黯道查價器,流亡黯道2查價器,物品查價,價格查詢,截圖辨識,OCR,交易行,官方市集,交易搜尋,魔鏡市集,懸浮窗,overlay,price check,劇情攻略,升級攻略,快捷正則,換界石正則,碑牌正則,通貨兌換,計時器,地圖計時,獎勵計數,掉落統計,收益統計,倉庫估價,每小時收益,每圖收益,掉落過濾器,撿取過濾,NeverSink,過濾器下載,語音包,正則產生器,角色試裝,Path of Building,POB,配裝規劃器,天賦樹,速查圖,手把,傳奇,配裝,國際服,台服,魔鏡,Mirror,POE工具,POE2工具" />
+  <meta name="author" content="Mirror" />
+  <link rel="canonical" href="https://mirror.kalandraeye.com/tw/" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://mirror.kalandraeye.com/" />
+  <link rel="alternate" hreflang="en" href="https://mirror.kalandraeye.com/en/" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://mirror.kalandraeye.com/tw/" />
+  <link rel="alternate" hreflang="x-default" href="https://mirror.kalandraeye.com/" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <meta name="theme-color" content="#08090d" />
+  <link rel="stylesheet" href="/assets/site.css?v=2a98372cf5" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="魔镜 · Mirror" />
+  <meta property="og:url" content="https://mirror.kalandraeye.com/tw/" />
+  <meta property="og:title" content="魔鏡 Mirror — 流亡黯道 1 &amp; 2 (POE1·POE2) 查價器 · 交易搜尋 · 懸浮窗助手" />
+  <meta property="og:description" content="免費 POE1 &amp; POE2 查價器與交易工具。客戶端：一鍵查價 · 截圖辨識 · 劇情引導 · 收益統計 · 配裝天賦規劃器。網頁市集：按詞綴搜裝備 · 角色試裝 · 掉落過濾器 · 正則產生器。支援國際服/國服/台服。" />
+  <meta property="og:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="魔鏡 Mirror — 流亡黯道 1 &amp; 2 (POE1·POE2) 查價器 · 交易搜尋 · 懸浮窗助手" />
+  <meta name="twitter:description" content="免費 POE1 &amp; POE2 查價器與交易工具。客戶端：一鍵查價 · 截圖辨識 · 劇情引導 · 收益統計 · 配裝天賦規劃器。網頁市集：按詞綴搜裝備 · 角色試裝 · 掉落過濾器 · 正則產生器。支援國際服/國服/台服。" />
+  <meta name="twitter:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+<!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "魔鏡 Mirror",
+  "alternateName": "Mirror for Path of Exile",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Windows 10, Windows 11",
+  "description": "為《流亡黯道》1 與 2（Path of Exile 1 & 2）打造的交易與刷圖工具：Windows 懸浮視窗客戶端（物品查價、截圖辨識整屏查價、劇情引導、快捷正則、通貨兌換、計時器、獎勵計數、收益統計、速查圖、遊戲內 BD 天賦規劃器、掉落過濾器安裝），以及網頁版魔鏡市集（按詞綴搜裝備、角色 Path of Building 試裝、掉落過濾器下載、正則產生器）。",
+  "url": "https://mirror.kalandraeye.com/",
+  "image": "https://mirror.kalandraeye.com/assets/logo.png",
+  "inLanguage": [
+    "zh-CN",
+    "zh-TW",
+    "en"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "下載與核心功能免費；魔鏡市集、過濾器一鍵安裝、設定雲端同步與 AI 類功能由會員涵蓋。"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "魔鏡 Mirror",
+  "alternateName": [
+    "魔鏡",
+    "魔鏡市集",
+    "Mirror for POE",
+    "Mirror for POE2"
+  ],
+  "url": "https://mirror.kalandraeye.com/"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "zh-TW",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "使用魔鏡會被封號嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "魔鏡不注入、不讀寫遊戲行程與記憶體，也不修改任何遊戲檔案。它只讀取遊戲日誌、你主動複製的物品文字，以及在你按辨識熱鍵時擷取一幀螢幕做本機 OCR，查價走官方市集 API——運作方式與官方交易網站一致。請自行遵守遊戲服務條款。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "支援哪些伺服器和語言？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "支援國際服、國服、台服，介面提供英文、簡體中文、繁體中文。國服交易搜尋需在設定中填入有效的工作階段 Cookie。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "魔鏡客戶端和魔鏡網站有什麼區別？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "魔鏡客戶端是執行於 Windows 的懸浮窗程式，涵蓋遊戲內的操作：停在物品上查價、截圖辨識、劇情引導、快捷正則、計時器、通貨兌換、獎勵計數、收益統計、速查圖，以及將掉落過濾器與配裝天賦規劃寫入遊戲。魔鏡網站（trade.kalandraeye.com）執行於瀏覽器，包含四件工具：按詞綴檢索裝備的市集、基於 Path of Building 進行試裝的角色頁、掉落過濾器下載與正則產生器。兩者共用同一帳號。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "用魔鏡網站一定要裝客戶端嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不一定，看用哪件工具。掉落過濾器下載和正則產生器打開網頁即可使用。市集搜尋和角色試裝需要客戶端在執行：搜尋使用你本人的官方交易工作階段（我們的伺服器對官方交易介面不發起任何請求，這是合規底線），Path of Building 計算引擎亦執行於客戶端行程內。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "支援流亡黯道一代（POE1）嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "支援。魔鏡同時支援《流亡黯道》1 與 2，絕大多數功能（查價、截圖辨識、劇情引導、快捷正則、通貨兌換、計時器、獎勵掉落統計、掉落過濾器、收益統計）兩代通用。收益統計兩代均支援，區別在於資產來源：流亡黯道 1 讀取倉庫，流亡黯道 2 讀取你在交易站上的公開掛單。兩者均可得出追蹤資產總值、期間收益、每小時收益與每圖收益。POE1 另支援分解粉塵與傭兵憑證估值。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "安裝包從哪裡下載？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "安裝包由本站提供，下載後執行安裝即可，只需要 Windows 10 / 11。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "魔鏡是免費的嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "免費。下載、物品查價、截圖辨識、劇情引導、快捷正則、通貨兌換、計時器、獎勵計數、快速搜尋、行情與收益統計均可直接使用，其中數項對免費檔設有數量上限。會員解鎖的是：魔鏡市集（類別投影搜尋、角色試裝、AI 助手）、由客戶端把掉落過濾器一鍵裝進遊戲與你的 GGG 帳號、設定雲端同步、行情更新提速，以及上面那些功能更高的數量上限；AI 類功能按用量計費。掉落過濾器本身不收費——本站與市集站上的過濾檔案（含語音版）任何人都能下載、手動放進遊戲目錄。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "魔鏡（查價器）怎麼用？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "下載安裝後直接執行，熱鍵已預設。在遊戲內將滑鼠停在物品上並按下熱鍵即可查價；按 Ctrl+D 可截圖辨識整螢幕物品價格。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "支援手把嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "支援。查價與各項功能既能用鍵盤快捷鍵觸發，也能用手把按鍵觸發。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "會上傳我的截圖或資料嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不會。物品辨識全程在你本機電腦完成，不上傳截圖或帳號資訊；查價只呼叫官方市集 API。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "國服為什麼需要系統管理員權限？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "國服客戶端以系統管理員身分執行。魔鏡若不以同等權限啟動，快捷鍵與懸浮視窗在遊戲畫面上不會生效。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "全螢幕遊戲會被擋住嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不會。懸浮視窗錨定在遊戲工作區，全螢幕時即為整塊螢幕；切出遊戲後自動隱藏。"
+      }
+    }
+  ]
+}
+  </script>
+  <!-- Google Analytics 4 -->
+  <script>
+    window.GA_ID = "G-CYBLTV2J69";
+    if (window.GA_ID && window.GA_ID.indexOf("G-") === 0) {
+      var gaScript = document.createElement("script");
+      gaScript.async = true;
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + window.GA_ID;
+      document.head.appendChild(gaScript);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag("js", new Date());
+      gtag("config", window.GA_ID);
+    }
+  </script>
+</head>
+<body>
+  <div class="bg-fx">
+    <div class="aurora a1"></div><div class="aurora a2"></div>
+    <div class="grid-lines"></div>
+    <div class="embers" id="embers"></div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/tw/">
+        <img src="/assets/logo.png" alt="魔鏡" />
+        <span><span class="cn">魔鏡</span>
+          <span class="en">Mirror for POE1 &amp; POE2</span></span>
+      </a>
+      <div class="nav-links">
+        <a class="link" href="/tw/client.html"><span>客戶端</span></a>
+        <a class="link" href="/tw/web.html"><span>網站</span></a>
+        <a class="link" href="/tw/guide/"><span>使用指南</span></a>
+        <a class="btn btn-gold" href="/tw/download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg><span>下載</span></a>
+        <a class="link" href="/tw/about.html"><span>關於</span></a>
+        <div class="lang-switch">
+          <a href="/" hreflang="zh-Hans" lang="zh-Hans">简体</a>
+          <a href="/en/" hreflang="en" lang="en">EN</a>
+          <a href="/tw/" hreflang="zh-Hant" lang="zh-Hant" aria-current="true" class="on">繁體</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<!-- HERO -->
+  <header class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="badge reveal d1"><span class="dot"></span>
+          為《流亡黯道》1 &amp; 2 打造 · 客戶端 + 網頁市集
+        </div>
+        <h1 class="title reveal d2" style="font-size:clamp(30px,4vw,45px)">
+          查價 · 搜裝備 · 算收益<br>盡在 <span class="shine">魔鏡</span>
+        </h1>
+        <p class="lead reveal d3">
+          遊戲內停在物品上按下熱鍵，官方市集的即時掛單價即刻疊加在畫面上；瀏覽器端按詞綴檢索裝備、以你的角色評估換裝收益，並提供掉落過濾器與倉庫正則。
+        </p>
+        <div class="cta reveal d4">
+          <a class="btn btn-gold" href="/download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>立即下載</a>
+          <a class="btn btn-ghost" href="/web.html">看看網頁市集</a>
+        </div>
+        <div class="stats reveal d5">
+          <div class="stat"><div class="n" id="stat-downloads" data-count="0">–</div><div class="l">次下載</div></div>
+        </div>
+        <div class="realms reveal d5">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          支援 <b>國際服 / 國服 / 台服</b> · 英 / 簡 / 繁
+
+          <span class="gp-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h4M8 10v4"/><circle cx="15.5" cy="11" r="1"/><circle cx="17.5" cy="13.5" r="1"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+            鍵盤 + 手把操作
+          </span>
+        </div>
+      </div>
+      <div class="stage reveal d3">
+        <div class="stage-noise"></div>
+        <div class="hero-deck" data-interval="5000">
+          <div class="hero-track">
+            <div class="hero-slide is-mock">
+              <div style="position:relative">
+          <div class="overlay-card">
+            <div class="sweep"></div>
+            <div class="oc-head">
+              <div class="oc-name">風暴之冕</div>
+              <div class="oc-base">華麗面甲</div>
+            </div>
+            <div class="oc-body">
+              <div class="oc-line">+89 最大生命</div>
+              <div class="oc-line">+42% 冰冷抗性</div>
+              <div class="oc-line">增加 24% 找到的物品稀有度</div>
+              <div class="oc-line">+130 閃避值</div>
+            </div>
+            <div class="oc-price">
+              <span class="label">參考成交價</span>
+              <span class="val"><img src="/assets/divine.png" alt="" />≈ 2.5</span>
+            </div>
+          </div>
+          <div class="cursor-badge">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M4 2l7 18 2.5-7L20 10z"/></svg>Ctrl+D
+          </div>
+        </div>
+            </div>
+        <div class="hero-slide" data-shot>
+          <picture>
+            <source type="image/avif" srcset="/shots/hero-scan.avif" />
+            <source type="image/webp" srcset="/shots/hero-scan.webp" />
+            <img src="/shots/hero-scan.webp" alt="魔鏡截圖辨識：一次熱鍵框出整螢幕物品並給出價格，辨識全程在本機完成" width="1200" height="900" decoding="async" loading="lazy" />
+          </picture>
+        </div>
+        <div class="hero-slide" data-shot>
+          <picture>
+            <source type="image/avif" srcset="/shots/hero-wealth.avif" />
+            <source type="image/webp" srcset="/shots/hero-wealth.webp" />
+            <img src="/shots/hero-wealth.webp" alt="魔鏡收益統計：追蹤資產總值、每小時收益與每圖收益" width="1200" height="900" decoding="async" loading="lazy" />
+          </picture>
+        </div>
+        <div class="hero-slide" data-shot>
+          <picture>
+            <source type="image/avif" srcset="/shots/hero-market.avif" />
+            <source type="image/webp" srcset="/shots/hero-market.webp" />
+            <img src="/shots/hero-market.webp" alt="魔鏡市集：詞綴池隨物品類別收窄，按詞綴檢索裝備" width="1200" height="900" decoding="async" loading="lazy" />
+          </picture>
+        </div>
+          </div>
+          <div class="hero-dots"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 两个入口 -->
+  <section id="pick">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-eyebrow">兩個入口</div>
+      </div>
+      <div class="pick reveal">
+        <div class="pick-card">
+          <div class="kind">Windows 客戶端</div>
+          <h3>魔鏡客戶端</h3>
+          <p>疊加於遊戲畫面之上的懸浮窗。停在物品上並按下熱鍵即回傳定價，無需切換視窗或開啟網頁。</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>一鍵查價 · 截圖辨識整螢幕價格</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>劇情引導 · 快捷正則 · 計時器 · 通貨兌換</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>收益統計 · 獎勵計數 · 速查圖 · 行情</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>掉落過濾器一鍵安裝 · 遊戲內配裝天賦規劃器</li>
+          </ul>
+          <div class="acts">
+            <a class="btn btn-gold" href="/download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>下載客戶端</a>
+            <a class="more" href="/client.html">全部功能 →</a>
+          </div>
+        </div>
+        <div class="pick-card">
+          <div class="kind">瀏覽器</div>
+          <h3>魔鏡網站</h3>
+          <p>四件工具：按詞綴檢索裝備的市集、基於角色資料試裝的角色頁、掉落過濾器下載與正則產生器。</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>市集：詞綴按裝備類型自動過濾，也支援 AI 搜尋</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>角色：載入角色後，搜到的裝備給出 DPS 與有效血量變化</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>過濾器：開荒 / 刷圖 / 速刷，隨經濟資料更新，含語音版</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>正則：無需了解正則語法，選擇條件，產生正則運算式</li>
+          </ul>
+          <div class="acts">
+            <a class="btn btn-ghost" href="https://trade.kalandraeye.com/tw/filters" target="_blank" rel="noopener">打開網站</a>
+            <a class="more" href="/web.html">它能做什麼 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 功能一览 -->
+  <section id="features">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-eyebrow">功能一覽</div>
+      </div>
+      <div class="feat-group key reveal"><span>核心功能</span><i></i></div>
+      <div class="feat-lead reveal">
+        <div class="item">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></svg></div>
+          <h4>劇情引導</h4>
+          <p>區域任務指引，獎勵指引<br>自訂配裝技能組，助力開荒</p>
+        </div>
+        <div class="item">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 12 22l-9-9V4a1 1 0 0 1 1-1h8.6z"/><circle cx="7.5" cy="7.5" r="1.4"/></svg></div>
+          <h4>物品查價</h4>
+          <p>一鍵觸發，智慧選擇詞綴，查價更準確便捷<br>支援通貨與各類物品查價</p>
+        </div>
+        <div class="item">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M6 17V9"/><path d="M11 17V5"/><path d="M16 17v-6"/></svg></div>
+          <h4>收益統計</h4>
+          <p>統計倉庫物品價值，明確策略收益<br>支援 PoE1 與 PoE2</p>
+        </div>
+      </div>
+      <div class="feat-group more reveal"><span>其餘功能</span><i></i></div>
+      <div class="feat-rest reveal">
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>市集搜尋<em>網頁</em></h4>
+          <p>完善多語言支援，中文支援，更便捷的搜尋</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 4.5 3.4 7.5 8 8 4.6-.5 8-3.5 8-8V7z"/><path d="m9 12 2 2 4-4"/></svg>角色試裝<em>網頁</em></h4>
+          <p>載入角色後，搜到的裝備給出 DPS 與有效血量變化</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5 4 12l4 7M16 5l4 7-4 7"/></svg>正則產生器<em>網頁</em></h4>
+          <p>無需了解正則語法，選擇條件即可產生正則</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M12 7v4m0 0-5 5m5-5 5 5"/></svg>配裝天賦規劃器</h4>
+          <p>天賦規劃，快速同步到遊戲天賦</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8V5a2 2 0 0 1 2-2h3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M21 16v3a2 2 0 0 1-2 2h-3"/><path d="M7 12h10"/></svg>截圖查價</h4>
+          <p>一鍵辨識物品，快速查價</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m6 15 4-4 3 3 2-2 3 3"/></svg>自訂攻略圖</h4>
+          <p>上傳圖片，遊戲中快速開啟</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>即時行情</h4>
+          <p>通貨、傳奇等各類物品價格，按玩法給出收益提示</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5 4 12l4 7M16 5l4 7-4 7"/></svg>快捷正則</h4>
+          <p>常用正則做成卡片浮在遊戲上，一鍵複製到搜尋框</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m7 8 4 4-4 4"/><path d="M13 16h4"/><rect x="2" y="4" width="20" height="16" rx="3"/></svg>快捷指令</h4>
+          <p>一鍵回藏身處，聊天指令點擊即發送</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/><path d="M8.5 11h5"/></svg>快速查詢</h4>
+          <p>輸入物品名，三語模糊比對後複製或直接檢索</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v8m-3-6 3-2 3 2"/></svg>獎勵計數</h4>
+          <p>便捷攻堅收益統計，自動記錄刷圖次數</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>計時器</h4>
+          <p>開荒章節計時，刷圖計時</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18l-7 8v7l-4 2v-9z"/></svg>過濾器</h4>
+          <p>基於 NeverSink 定製，每日根據物價更新，自動同步遊戲</p>
+        </div>
+        <div class="item">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg>即時通貨比例</h4>
+          <p>通貨價格比例，一眼了解</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- SAFETY -->
+  <section id="safety">
+    <div class="wrap">
+      <div class="safety reveal">
+        <div class="shield"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div>
+          <h3>🛡 安全設計 · 絕不碰遊戲行程</h3>
+          <p>魔鏡<b>絕不注入、讀取或修改遊戲行程與記憶體，也不修改任何遊戲檔案</b>。它只會：讀取遊戲日誌檔案、讀取你<b>主動複製</b>的物品文字、以及按辨識熱鍵時擷取一幀螢幕做<b>本機</b> OCR。所有查價均透過<b>官方市集 API</b>，與官方交易網站運作方式一致。</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 指南入口 -->
+  <section id="learn">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-eyebrow">上手</div>
+        <h2 class="sec-title">更多功能詳細介紹</h2>
+      </div>
+      <div style="text-align:center" class="reveal">
+        <a class="btn btn-gold" href="/guide/">查看使用指南</a>
+      </div>
+    </div>
+  </section>
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-eyebrow">FAQ</div>
+        <h2 class="sec-title">常見問題</h2>
+      </div>
+      <div class="faq reveal">
+        <details class="qa">
+          <summary><span>使用魔鏡會被封號嗎？</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            魔鏡不注入、不讀寫遊戲行程與記憶體，也不修改任何遊戲檔案。它只讀取遊戲日誌、你主動複製的物品文字，以及在你按辨識熱鍵時擷取一幀螢幕做本機 OCR，查價走官方市集 API——運作方式與官方交易網站一致。請自行遵守遊戲服務條款。
+
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>支援哪些伺服器和語言？</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            支援國際服、國服、台服，介面提供英文、簡體中文、繁體中文。國服交易搜尋需在設定中填入有效的工作階段 Cookie。
+
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>魔鏡客戶端和魔鏡網站有什麼區別？</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            <b>魔鏡客戶端</b>是執行於 Windows 的懸浮窗程式，涵蓋遊戲內的操作：停在物品上查價、截圖辨識、劇情引導、快捷正則、計時器、通貨兌換、獎勵計數、收益統計、速查圖，以及將掉落過濾器與配裝天賦規劃寫入遊戲。<b>魔鏡網站</b>（<a class="inline" href="https://trade.kalandraeye.com/tw/" target="_blank" rel="noopener">trade.kalandraeye.com</a>）執行於瀏覽器，包含四件工具：按詞綴檢索裝備的市集、基於 Path of Building 進行試裝的角色頁、掉落過濾器下載與正則產生器。兩者共用同一帳號。
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>用魔鏡網站一定要裝客戶端嗎？</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            不一定，看用哪件工具。<b>掉落過濾器下載</b>和<b>正則產生器</b>打開網頁即可使用。<b>市集搜尋</b>和<b>角色試裝</b>需要客戶端在執行：搜尋使用你本人的官方交易工作階段（我們的伺服器對官方交易介面不發起任何請求，這是合規底線），Path of Building 計算引擎亦執行於客戶端行程內。
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>支援流亡黯道一代（POE1）嗎？</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            支援。魔鏡同時支援《流亡黯道》1 與 2，絕大多數功能（查價、截圖辨識、劇情引導、快捷正則、通貨兌換、計時器、獎勵掉落統計、掉落過濾器、收益統計）兩代通用。<b>收益統計</b>兩代均支援，區別在於資產來源：流亡黯道 1 讀取倉庫，流亡黯道 2 讀取你在交易站上的公開掛單。兩者均可得出追蹤資產總值、期間收益、每小時收益與每圖收益。POE1 另支援<b>分解粉塵</b>與<b>傭兵憑證</b>估值。
+
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>安裝包從哪裡下載？</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            安裝包由本站提供，下載後執行安裝即可，只需要 Windows 10 / 11。
+
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>魔鏡是免費的嗎？</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            免費。下載、物品查價、截圖辨識、劇情引導、快捷正則、通貨兌換、計時器、獎勵計數、快速搜尋、行情與收益統計均可直接使用，其中數項對免費檔設有數量上限。<b>會員</b>解鎖的是：魔鏡市集（類別投影搜尋、角色試裝、AI 助手）、由客戶端把掉落過濾器一鍵裝進遊戲與你的 GGG 帳號、設定雲端同步、行情更新提速，以及上面那些功能更高的數量上限；AI 類功能按用量計費。掉落過濾器本身不收費——本站與市集站上的過濾檔案（含語音版）任何人都能下載、手動放進遊戲目錄。
+
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>魔鏡（查價器）怎麼用？</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            下載安裝後直接執行，熱鍵已預設。在遊戲內將滑鼠停在物品上並按下熱鍵即可查價；按 Ctrl+D 可截圖辨識整螢幕物品價格。
+
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>支援手把嗎？</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            支援。查價與各項功能既能用鍵盤快捷鍵觸發，也能用手把按鍵觸發。
+
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>會上傳我的截圖或資料嗎？</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            不會。物品辨識全程在你本機電腦完成，不上傳截圖或帳號資訊；查價只呼叫官方市集 API。
+
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>國服為什麼需要系統管理員權限？</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            國服客戶端以系統管理員身分執行。魔鏡若不以同等權限啟動，快捷鍵與懸浮視窗在遊戲畫面上不會生效。
+          </div>
+        </details>
+        <details class="qa">
+          <summary><span>全螢幕遊戲會被擋住嗎？</span>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="ans">
+            不會。懸浮視窗錨定在遊戲工作區，全螢幕時即為整塊螢幕；切出遊戲後自動隱藏。
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>  <!-- DOWNLOAD -->
+  <section id="download">
+    <div class="wrap">
+      <div class="dl-panel reveal">
+        <div>
+          <h2>下載魔鏡</h2>
+          <p class="desc">下載後開箱即用。</p>
+
+          <div class="dl-actions">
+            <a class="btn btn-gold" id="dl-btn" href="/download.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              前往下載頁
+            </a>
+          </div>
+        </div>
+        <div class="req">
+          <h4>執行需求</h4>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Windows 10 / 11（64 位元）</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>《流亡黯道》1 或 2 PC 客戶端</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-inner">
+        <a class="brand" href="/tw/">
+          <img src="/assets/logo.png" alt="魔鏡" style="width:26px;height:26px;border-radius:7px" />
+          <span><span class="cn">魔鏡 · Mirror</span></span>
+        </a>
+        <span>© <span id="year">2026</span> 魔鏡</span>
+      </div>
+      <div class="foot-social">
+        <a class="social-btn discord" href="https://discord.gg/RTqazvQKKE" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.3.5c1.8.4 2.6 1 3.5 1.7a13.3 13.3 0 0 0-4.6-1.1 13.6 13.6 0 0 0-4.6.4c-.5.1-1.2.3-2 .7-.4.2-.7.3-.7.3s.8-.6 2.7-1.1L9 3a19.8 19.8 0 0 0-4.9 1.4C2 8.9 1.3 13.3 1.6 17.6A19.9 19.9 0 0 0 7.7 21l.9-1.3c-1-.3-1.9-.7-2.7-1.2l.6-.4a14.2 14.2 0 0 0 12.2 0l.6.4c-.8.5-1.7.9-2.7 1.2l.9 1.3a19.9 19.9 0 0 0 6-3.4c.5-5-.7-9.3-3.8-13.2zM8.9 15c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm6.2 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/></svg>
+          <span>加入 Discord</span>
+        </a>
+        <a class="social-btn qq" id="qq-btn" href="#" onclick="copyQQ(event)" title="1057145969">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.395 15.035a39.55 39.55 0 00-.803-2.264l-1.079-2.695c.001-.032.014-.562.014-.836C19.526 4.632 17.351 0 12 0S4.474 4.632 4.474 9.241c0 .274.013.804.014.836l-1.08 2.695a38.97 38.97 0 00-.802 2.264c-1.021 3.283-.69 4.643-.438 4.673.54.065 2.103-2.472 2.103-2.472 0 1.469.756 3.387 2.394 4.771-.612.188-1.363.479-1.845.835-.434.32-.379.646-.301.778.343.578 5.883.369 7.482.189 1.6.18 7.14.389 7.483-.189.078-.132.132-.458-.301-.778-.483-.356-1.233-.646-1.846-.836 1.637-1.384 2.393-3.302 2.393-4.771 0 0 1.563 2.537 2.103 2.472.251-.03.581-1.39-.438-4.673z"/></svg>
+          <span class="qq-label">QQ 群 1057145969</span>
+          <span class="qq-copied">已複製群號 ✓</span>
+        </a>
+      </div>
+      <p class="foot-contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span>有任何問題或建議，歡迎聯繫：</span>
+        <a href="mailto:kalandraeye@gmail.com">kalandraeye@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="/assets/shell.js?v=14afd07232" defer></script>
+
+</body>
+</html>

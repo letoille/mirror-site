@@ -1,0 +1,167 @@
+<!doctype html>
+<!--
+  ⚠️ 这个文件是 `node build.mjs` 生成的，**手改会在下一次构建时被覆盖**。
+  要改内容：src/pages/guide/market.zh.md
+  要改外壳（导航 / 页脚 / head）：src/shell.html + src/site.mjs
+-->
+<html lang="zh-Hans" data-lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>魔镜市集怎么用 — 流放之路 2 按词缀搜装备、角色试装、实时监听</title>
+  <meta name="description" content="魔镜市集（trade.kalandraeye.com）使用指南：词缀池如何随物品类别收窄、三个服如何切换、更改排序为何需重新检索、实时监听的启用方式、联系卖家与前往藏身处，以及市集搜索需要魔镜客户端在运行的原因。" />
+  <meta name="keywords" content="魔镜市集,Mirror Market,流放之路2交易搜索,POE2交易站,按词缀搜装备,类别投影,实时监听,live search,角色试装,Path of Building,联系卖家,前往藏身处,国际服,国服,台服,交易搜索怎么用" />
+  <meta name="author" content="Mirror" />
+  <link rel="canonical" href="https://mirror.kalandraeye.com/guide/market.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://mirror.kalandraeye.com/guide/market.html" />
+  <link rel="alternate" hreflang="en" href="https://mirror.kalandraeye.com/en/guide/market.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://mirror.kalandraeye.com/tw/guide/market.html" />
+  <link rel="alternate" hreflang="x-default" href="https://mirror.kalandraeye.com/guide/market.html" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <meta name="theme-color" content="#08090d" />
+  <link rel="stylesheet" href="/assets/site.css?v=2a98372cf5" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="魔镜 · Mirror" />
+  <meta property="og:url" content="https://mirror.kalandraeye.com/guide/market.html" />
+  <meta property="og:title" content="魔镜市集怎么用 — 流放之路 2 按词缀搜装备、角色试装、实时监听" />
+  <meta property="og:description" content="魔镜市集（trade.kalandraeye.com）使用指南：词缀池如何随物品类别收窄、三个服如何切换、更改排序为何需重新检索、实时监听的启用方式、联系卖家与前往藏身处，以及市集搜索需要魔镜客户端在运行的原因。" />
+  <meta property="og:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+  <meta property="og:locale" content="zh_CN" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="魔镜市集怎么用 — 流放之路 2 按词缀搜装备、角色试装、实时监听" />
+  <meta name="twitter:description" content="魔镜市集（trade.kalandraeye.com）使用指南：词缀池如何随物品类别收窄、三个服如何切换、更改排序为何需重新检索、实时监听的启用方式、联系卖家与前往藏身处，以及市集搜索需要魔镜客户端在运行的原因。" />
+  <meta name="twitter:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+
+  <!-- Google Analytics 4 -->
+  <script>
+    window.GA_ID = "G-CYBLTV2J69";
+    if (window.GA_ID && window.GA_ID.indexOf("G-") === 0) {
+      var gaScript = document.createElement("script");
+      gaScript.async = true;
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + window.GA_ID;
+      document.head.appendChild(gaScript);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag("js", new Date());
+      gtag("config", window.GA_ID);
+    }
+  </script>
+</head>
+<body>
+  <div class="bg-fx">
+    <div class="aurora a1"></div><div class="aurora a2"></div>
+    <div class="grid-lines"></div>
+    <div class="embers" id="embers"></div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/">
+        <img src="/assets/logo.png" alt="魔镜" />
+        <span><span class="cn">魔镜</span>
+          <span class="en">Mirror for POE1 &amp; POE2</span></span>
+      </a>
+      <div class="nav-links">
+        <a class="link" href="/client.html"><span>客户端</span></a>
+        <a class="link" href="/web.html"><span>网站</span></a>
+        <a class="link" href="/guide/"><span>使用指南</span></a>
+        <a class="btn btn-gold" href="/download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg><span>下载</span></a>
+        <a class="link" href="/about.html"><span>关于</span></a>
+        <div class="lang-switch">
+          <a href="/guide/market.html" hreflang="zh-Hans" lang="zh-Hans" aria-current="true" class="on">简体</a>
+          <a href="/en/guide/market.html" hreflang="en" lang="en">EN</a>
+          <a href="/tw/guide/market.html" hreflang="zh-Hant" lang="zh-Hant">繁體</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<main class="prose-page"><div class="wrap">
+<h1>魔镜市集怎么用</h1>
+<p>官方交易站的问题不在于功能不足，而在于<strong>条目过多</strong>：单个下拉列表包含数千条词缀，其中绝大多数在当前物品类别上根本无法滚出。</p>
+<p>魔镜市集只做一件事：<strong>表单随物品收窄</strong>。选定弓后，词缀池收窄至弓可滚出的 55 条、过滤器收窄至 32 个，「目标条目位于第几个下拉列表」这一问题随之消失。</p>
+<p>打开地址：<a href="https://trade.kalandraeye.com/">trade.kalandraeye.com</a></p>
+<h2>前提：需要客户端在运行</h2>
+<p>市集搜索与角色试装<strong>需要魔镜客户端在运行</strong>。同一站点上的<a href="/guide/loot-filter.html">掉落过滤器</a>与正则生成器无此要求，打开网页即可使用。</p>
+<p>这一依赖的原因如下：</p>
+<ul>
+<li><strong>搜索使用你本人的官方交易会话</strong>。每一次搜索、翻页与联系卖家，均由你本机的客户端发出，使用你的账号与 IP。我们的服务器对官方交易接口<strong>不发起任何请求</strong>，这是合规要求。</li>
+<li><strong>角色试装运行的是 Path of Building 本体</strong>，而非我们自行实现的伤害公式。该引擎驻留于客户端进程内，无法在浏览器中承载。</li>
+</ul>
+<p>页面首次打开时会自动连接本机客户端。连接失败时将显示「连接客户端」按钮，点击后会将客户端唤至前台；若客户端未启动，则一并启动。</p>
+<h2>搜一件东西</h2>
+<ol>
+<li>在顶部选择<strong>类别</strong>（弓、法杖、戒指等）</li>
+<li>词缀池与过滤器随即收窄至该类别</li>
+<li>添加条件：所需词缀、数值下限、价格上限、插槽、等级等</li>
+<li>搜索</li>
+</ol>
+<p>三语检索：物品名以英文、简中、繁中任一语言输入均可命中。同一物品在三个服的名称差异往往很大（「猎首」与 &quot;Headhunter&quot;），此处无需先行翻译。</p>
+<h2>三个服怎么切</h2>
+<p>顶栏一个下拉，国际服 / 国服 / 台服。切过去之后：</p>
+<ul>
+<li>赛季列表按服重新取（各服的赛季不一样）</li>
+<li>基底名按目标服的语言改写</li>
+</ul>
+<p>⚠️ 台服和简中<strong>不是繁简转换的关系</strong>。引路石 / 換界石、石板 / 碑牌、巨灵币 / 巨靈之幣——它们是两套完全不同的词。所以切服不只是换个开关，是整份名字目录换掉。</p>
+<h2>排序：两组，不能混着理解</h2>
+<p>页面上有两组排序，它们干的事完全不同：</p>
+<p><strong>GGG 的排序</strong>（价格、DPS、等级等）决定<strong>三千条中返回哪一百条</strong>。更改排序键必须重新检索，因为「最靠前的 100 条」随排序而变。若需触及第 100 条以外的结果，更换排序键重新检索是唯一途径。</p>
+<p><strong>本地排序</strong>（ΔDPS、ΔEHP、性价比）仅重排<strong>已取回的十条结果</strong>。它们基于你的角色计算，因此只能作用于已获取的数据。</p>
+<p>⚠️ 这两组<strong>未绘制为同一排同款按钮</strong>，目的是避免「性价比最高」被理解为全市场结论——该结论仅适用于已取回的这十条。</p>
+<h2>角色试装</h2>
+<p>载入角色后，每条挂单将直接给出换装后的 DPS 与有效血量变化。</p>
+<p>⚠️ 有一条必须知晓：<strong>Path of Building 对未满足的属性需求不作任何惩罚</strong>。一把力量不足、实际无法装备的武器，POB 仍会给出 +40% DPS。因此页面会单独标出「无法装备」——这不是脚注，而是结论。</p>
+<p>⚠️ 另需注意：角色页上的天赋树可点击，但改动<strong>仅存在于页面中</strong>，不会计入 DPS。该树目前是一个可交互的查看器。若需带入游戏，使用「同步到游戏」按钮——它会写出一份 <code>.build</code> 文件，在游戏内按 <kbd>P</kbd> 即可查看走线。</p>
+<h2>实时监听</h2>
+<p>检索完成后可开启实时监听：符合本次搜索条件的新挂单将自动送达，无需手动刷新。</p>
+<p>监听连接由客户端持有（握手需要你的会话），因此<strong>关闭页面即终止监听</strong>。在赛季初或搜寻紧俏物品时，该功能远优于反复手动检索。</p>
+<h2>联系卖家 / 前往藏身处</h2>
+<p>结果行上有这两颗按钮。</p>
+<p>⚠️ <strong>离线卖家的按钮同样不会禁用</strong>，此为有意设计。实测中几乎每一个「前往藏身处」凭据都属于离线卖家，禁用将导致该功能永远无法使用。</p>
+<p>技术层面的原因：GGG 签发的此类凭据有效期仅 300 秒，而一条挂单在屏幕上通常停留数小时。因此页面不存储该值，而是在点击的瞬间实时获取并发送。</p>
+<h2>收藏和分享</h2>
+<p>搜索条件可收藏并按文件夹整理，亦可发布为分享快照——<strong>分享页免登录、无需客户端</strong>，对方打开即可查看结果。可查看不等同于可检索。</p>
+<hr>
+<p><strong>下一篇</strong>：<a href="/guide/price-check.html">怎么查一件装备值多少钱</a> · <a href="/guide/loot-filter.html">掉落过滤器怎么装</a></p>
+
+</div></main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-inner">
+        <a class="brand" href="/">
+          <img src="/assets/logo.png" alt="魔镜" style="width:26px;height:26px;border-radius:7px" />
+          <span><span class="cn">魔镜 · Mirror</span></span>
+        </a>
+        <span>© <span id="year">2026</span> 魔镜 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer" style="color:var(--muted-2)">滇ICP备2025052314号-2</a> · <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=53010202002415" target="_blank" rel="noreferrer" style="color:var(--muted-2)"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="vertical-align:-1px;margin-right:3px"><path d="M12 2 4 5v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V5l-8-3zm0 2.2 6 2.25V11c0 3.9-2.5 6.7-6 8.05C8.5 17.7 6 14.9 6 11V6.45l6-2.25z"/><path d="M12 7.3 12.85 9l1.95.2-1.45 1.3.42 1.9L12 11.55l-1.77.85.42-1.9L9.2 9.2 11.15 9 12 7.3z"/></svg>滇公网安备53010202002415号</a></span>
+      </div>
+      <div class="foot-social">
+        <a class="social-btn discord" href="https://discord.gg/RTqazvQKKE" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.3.5c1.8.4 2.6 1 3.5 1.7a13.3 13.3 0 0 0-4.6-1.1 13.6 13.6 0 0 0-4.6.4c-.5.1-1.2.3-2 .7-.4.2-.7.3-.7.3s.8-.6 2.7-1.1L9 3a19.8 19.8 0 0 0-4.9 1.4C2 8.9 1.3 13.3 1.6 17.6A19.9 19.9 0 0 0 7.7 21l.9-1.3c-1-.3-1.9-.7-2.7-1.2l.6-.4a14.2 14.2 0 0 0 12.2 0l.6.4c-.8.5-1.7.9-2.7 1.2l.9 1.3a19.9 19.9 0 0 0 6-3.4c.5-5-.7-9.3-3.8-13.2zM8.9 15c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm6.2 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/></svg>
+          <span>加入 Discord</span>
+        </a>
+        <a class="social-btn qq" id="qq-btn" href="#" onclick="copyQQ(event)" title="1057145969">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.395 15.035a39.55 39.55 0 00-.803-2.264l-1.079-2.695c.001-.032.014-.562.014-.836C19.526 4.632 17.351 0 12 0S4.474 4.632 4.474 9.241c0 .274.013.804.014.836l-1.08 2.695a38.97 38.97 0 00-.802 2.264c-1.021 3.283-.69 4.643-.438 4.673.54.065 2.103-2.472 2.103-2.472 0 1.469.756 3.387 2.394 4.771-.612.188-1.363.479-1.845.835-.434.32-.379.646-.301.778.343.578 5.883.369 7.482.189 1.6.18 7.14.389 7.483-.189.078-.132.132-.458-.301-.778-.483-.356-1.233-.646-1.846-.836 1.637-1.384 2.393-3.302 2.393-4.771 0 0 1.563 2.537 2.103 2.472.251-.03.581-1.39-.438-4.673z"/></svg>
+          <span class="qq-label">QQ 群 1057145969</span>
+          <span class="qq-copied">已复制群号 ✓</span>
+        </a>
+      </div>
+      <p class="foot-contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span>有任何问题或建议，欢迎联系：</span>
+        <a href="mailto:kalandraeye@gmail.com">kalandraeye@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="/assets/shell.js?v=14afd07232" defer></script>
+
+</body>
+</html>

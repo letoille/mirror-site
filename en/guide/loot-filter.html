@@ -1,0 +1,181 @@
+<!doctype html>
+<!--
+  ⚠️ 这个文件是 `node build.mjs` 生成的，**手改会在下一次构建时被覆盖**。
+  要改内容：src/pages/guide/loot-filter.en.md
+  要改外壳（导航 / 页脚 / head）：src/shell.html + src/site.mjs
+-->
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to Install a Path of Exile 2 Loot Filter — Mirror / NeverSink Custom Build</title>
+  <meta name="description" content="Installing a Path of Exile 2 loot filter: which of the three (Pushing / Farming / Speed) to pick, what the sound versions do, one-click install from the client into the game and your GGG account versus dropping the file in by hand, how to switch filters in game, and when to change one. Built on NeverSink's filter." />
+  <meta name="keywords" content="poe2 loot filter,path of exile 2 item filter,how to install loot filter,neversink,filter download,filter sounds,poe2 filter install,loot filter guide,pushing filter,farming filter,speed filter" />
+  <meta name="author" content="Mirror" />
+  <link rel="canonical" href="https://mirror.kalandraeye.com/en/guide/loot-filter.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://mirror.kalandraeye.com/guide/loot-filter.html" />
+  <link rel="alternate" hreflang="en" href="https://mirror.kalandraeye.com/en/guide/loot-filter.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://mirror.kalandraeye.com/tw/guide/loot-filter.html" />
+  <link rel="alternate" hreflang="x-default" href="https://mirror.kalandraeye.com/guide/loot-filter.html" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <meta name="theme-color" content="#08090d" />
+  <link rel="stylesheet" href="/assets/site.css?v=2a98372cf5" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="魔镜 · Mirror" />
+  <meta property="og:url" content="https://mirror.kalandraeye.com/en/guide/loot-filter.html" />
+  <meta property="og:title" content="How to Install a Path of Exile 2 Loot Filter — Mirror / NeverSink Custom Build" />
+  <meta property="og:description" content="Installing a Path of Exile 2 loot filter: which of the three (Pushing / Farming / Speed) to pick, what the sound versions do, one-click install from the client into the game and your GGG account versus dropping the file in by hand, how to switch filters in game, and when to change one. Built on NeverSink's filter." />
+  <meta property="og:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How to Install a Path of Exile 2 Loot Filter — Mirror / NeverSink Custom Build" />
+  <meta name="twitter:description" content="Installing a Path of Exile 2 loot filter: which of the three (Pushing / Farming / Speed) to pick, what the sound versions do, one-click install from the client into the game and your GGG account versus dropping the file in by hand, how to switch filters in game, and when to change one. Built on NeverSink's filter." />
+  <meta name="twitter:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
+
+  <!-- Google Analytics 4 -->
+  <script>
+    window.GA_ID = "G-CYBLTV2J69";
+    if (window.GA_ID && window.GA_ID.indexOf("G-") === 0) {
+      var gaScript = document.createElement("script");
+      gaScript.async = true;
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + window.GA_ID;
+      document.head.appendChild(gaScript);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag("js", new Date());
+      gtag("config", window.GA_ID);
+    }
+  </script>
+</head>
+<body>
+  <div class="bg-fx">
+    <div class="aurora a1"></div><div class="aurora a2"></div>
+    <div class="grid-lines"></div>
+    <div class="embers" id="embers"></div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/en/">
+        <img src="/assets/logo.png" alt="Mirror" />
+        <span><span class="cn">Mirror</span>
+          <span class="en">Mirror for POE1 &amp; POE2</span></span>
+      </a>
+      <div class="nav-links">
+        <a class="link" href="/en/client.html"><span>Client</span></a>
+        <a class="link" href="/en/web.html"><span>Web</span></a>
+        <a class="link" href="/en/guide/"><span>Guides</span></a>
+        <a class="btn btn-gold" href="/en/download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg><span>Download</span></a>
+        <a class="link" href="/en/about.html"><span>About</span></a>
+        <div class="lang-switch">
+          <a href="/guide/loot-filter.html" hreflang="zh-Hans" lang="zh-Hans">简体</a>
+          <a href="/en/guide/loot-filter.html" hreflang="en" lang="en" aria-current="true" class="on">EN</a>
+          <a href="/tw/guide/loot-filter.html" hreflang="zh-Hant" lang="zh-Hant">繁體</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<main class="prose-page"><div class="wrap">
+<h1>How to install a loot filter</h1>
+<p>Most of what drops in a Path of Exile 2 map is not worth picking up. A loot filter determines <strong>what appears on the ground and what is never drawn at all</strong>, and can attach an alert sound and a beam to items that matter.</p>
+<p>It is the highest-return configuration in the game: set up once, and every subsequent map is quieter.</p>
+<h2>What we publish</h2>
+<p>We do not write filter rules. We redistribute <strong><a href="https://github.com/NeverSinkDev">NeverSink's</a></strong> — the version this community settled on, under the MIT licence. What we do is tune it to current economy data and divide it three ways:</p>
+<table>
+<thead>
+<tr>
+<th>Which one</th>
+<th>When it fits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pushing</strong></td>
+<td>From act one through to T15 maps. Shows more, to avoid missing anything</td>
+</tr>
+<tr>
+<td><strong>Farming</strong></td>
+<td>The T15 stage: upgrades, currency, and the pieces a build still lacks</td>
+</tr>
+<tr>
+<td><strong>Speed</strong></td>
+<td>Once the build is complete. Only genuinely valuable items remain; the floor is markedly cleaner</td>
+</tr>
+</tbody>
+</table>
+<p>Each also comes in a <strong>version with alert sounds</strong>, announcing high-value drops.</p>
+<p>⚠️ Sound versions are Path of Exile 2 only. POE1 has no custom alert sounds, so those entries simply don't appear.</p>
+<p><strong>All three can be installed at once</strong> and switched in game at any time, so no decision is required up front: use Pushing while levelling, then move to Farming once maps are running.</p>
+<h2>Method one: one-click install from the client (recommended)</h2>
+<p>Open the Mirror client → <strong>Filters</strong> → pick one → install.</p>
+<p>The client performs two operations: writing it into the game folder, and pushing it to your GGG account so that it is available when you log in from another machine. The in-game name takes the form <code>Mirror - Pushing</code>, with the sound version named <code>Mirror - Pushing Sounds</code>.</p>
+<p>The client then tracks the version: on an upstream update, an interface-language change or a sound-pack swap, it will prompt a reinstall.</p>
+<blockquote>
+<p>Checking whether a new version exists requires no account. <strong>Installing</strong> requires you to be signed in with a membership. The two are handled separately: the filter files themselves are free, as described below.</p>
+</blockquote>
+<h2>Method two: place the file manually</h2>
+<p>If you would rather not sign in, or simply wish to try one, download the file directly:</p>
+<p><strong><a href="https://trade.kalandraeye.com/en/filters">trade.kalandraeye.com/en/filters</a></strong></p>
+<p>All three, together with their sound versions, are freely available. Place the file in:</p>
+<pre><code>Documents/My Games/Path of Exile 2/
+</code></pre>
+<p>⚠️ If OneDrive backup is enabled, <code>Documents</code> may have been redirected elsewhere. Rely on what the game recognises rather than a manually constructed path.</p>
+<p>The sound pack's mp3 files go in that same folder.</p>
+<h2>Switching in game</h2>
+<p><kbd>Esc</kbd> → <strong>Options</strong> → <strong>UI</strong> → pick it from the dropdown.</p>
+<p>Each installed filter appears as an option. Switching takes effect immediately; no restart is required.</p>
+<h2>When to change</h2>
+<ul>
+<li><strong>Too much on the floor to read</strong> → move toward Speed</li>
+<li><strong>You feel like you're missing things</strong> → move toward Pushing</li>
+<li><strong>League start</strong> → Pushing, then Farming once T15 is steady</li>
+<li><strong>Upstream updated</strong> → the client will say so; if you installed by hand, check the download page now and then</li>
+</ul>
+<h2>Common problems</h2>
+<p><strong>Installed, but nothing changed.</strong> Confirm the game has it selected (the three steps above). A filter never activates on its own; it must be chosen in Options.</p>
+<p><strong>No alert sounds.</strong> The mp3 files must reside in the same folder as the filter. We also layer an <em>optional</em> alert sound, so a missing file never silences an entire rule; the rule in question may simply not have triggered.</p>
+<p><strong>Is there a ban risk?</strong> Loot filters are <strong>an officially supported feature</strong>; the dropdown in the Esc menu is provided by the game itself. A filter is a text file and does not touch the game process.</p>
+<hr>
+<p><strong>Next</strong>: <a href="/en/guide/price-check.html">What is this item worth</a> · <a href="/en/guide/market.html">Using Mirror Market</a></p>
+
+</div></main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-inner">
+        <a class="brand" href="/en/">
+          <img src="/assets/logo.png" alt="Mirror" style="width:26px;height:26px;border-radius:7px" />
+          <span><span class="cn">Mirror · 魔镜</span></span>
+        </a>
+        <span>© <span id="year">2026</span> Mirror</span>
+      </div>
+      <div class="foot-social">
+        <a class="social-btn discord" href="https://discord.gg/RTqazvQKKE" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.3.5c1.8.4 2.6 1 3.5 1.7a13.3 13.3 0 0 0-4.6-1.1 13.6 13.6 0 0 0-4.6.4c-.5.1-1.2.3-2 .7-.4.2-.7.3-.7.3s.8-.6 2.7-1.1L9 3a19.8 19.8 0 0 0-4.9 1.4C2 8.9 1.3 13.3 1.6 17.6A19.9 19.9 0 0 0 7.7 21l.9-1.3c-1-.3-1.9-.7-2.7-1.2l.6-.4a14.2 14.2 0 0 0 12.2 0l.6.4c-.8.5-1.7.9-2.7 1.2l.9 1.3a19.9 19.9 0 0 0 6-3.4c.5-5-.7-9.3-3.8-13.2zM8.9 15c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm6.2 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/></svg>
+          <span>Join Discord</span>
+        </a>
+        <a class="social-btn qq" id="qq-btn" href="#" onclick="copyQQ(event)" title="1057145969">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.395 15.035a39.55 39.55 0 00-.803-2.264l-1.079-2.695c.001-.032.014-.562.014-.836C19.526 4.632 17.351 0 12 0S4.474 4.632 4.474 9.241c0 .274.013.804.014.836l-1.08 2.695a38.97 38.97 0 00-.802 2.264c-1.021 3.283-.69 4.643-.438 4.673.54.065 2.103-2.472 2.103-2.472 0 1.469.756 3.387 2.394 4.771-.612.188-1.363.479-1.845.835-.434.32-.379.646-.301.778.343.578 5.883.369 7.482.189 1.6.18 7.14.389 7.483-.189.078-.132.132-.458-.301-.778-.483-.356-1.233-.646-1.846-.836 1.637-1.384 2.393-3.302 2.393-4.771 0 0 1.563 2.537 2.103 2.472.251-.03.581-1.39-.438-4.673z"/></svg>
+          <span class="qq-label">QQ Group 1057145969</span>
+          <span class="qq-copied">Copied ✓</span>
+        </a>
+      </div>
+      <p class="foot-contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span>Questions or feedback? Reach out:</span>
+        <a href="mailto:kalandraeye@gmail.com">kalandraeye@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="/assets/shell.js?v=14afd07232" defer></script>
+
+</body>
+</html>
