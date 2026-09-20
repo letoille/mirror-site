@@ -314,22 +314,6 @@ footer { position:relative; z-index:1; border-top:1px solid var(--line); padding
     .demo picture.ready ~ .demo-ph,
     .demo picture.ready ~ .demo-hint,
     .demo picture.ready ~ .demo-ico { opacity:0; pointer-events:none; transition:opacity .5s; }
-    /* ── 功能卡里的小轮播 ──────────────────────────────────────────────────
-     * 复用首屏那套 deck 的 JS（`.hero-deck`）—— 它已经管了「图加载失败就把那张
-     * 移出轨道」和「少于两张不画圆点」。这里只把它塞进 `.demo` 的框里。
-     *
-     * ⚠️ 用了 deck 的卡**不要再放 `.demo-ph` / `.demo-hint`**：那两个靠兄弟选择器
-     *    `.demo picture.ready ~ …` 退场，而 picture 现在嵌在 deck 里、不再是它们的
-     *    兄弟 —— 留着就是占位图永远压在截图上面。 */
-    .demo .hero-deck { position:absolute; inset:0; }
-    .demo .hero-track { height:100%; }
-    .demo .hero-slide { padding:20px 20px 32px; box-sizing:border-box; }
-    .demo .hero-slide picture { position:static; width:100%; height:100%; opacity:1;
-      display:flex; align-items:center; justify-content:center; }
-    .demo .hero-slide img { width:100%; height:100%; max-width:none; max-height:none;
-      object-fit:scale-down; margin:0; border:0; border-radius:0; box-shadow:none; }
-    .demo .hero-dots { position:absolute; left:0; right:0; bottom:10px; margin:0; }
-
     .demo-ph { position:absolute; inset:0; background:radial-gradient(120% 100% at 70% 20%,rgba(60,45,20,.3),transparent 55%),radial-gradient(120% 100% at 20% 90%,rgba(30,45,80,.3),transparent 55%),#0b0d13; }
     .demo-ph.shimmer::after { content:""; position:absolute; inset:0; background:linear-gradient(105deg,transparent 42%,rgba(227,192,114,.08) 50%,transparent 58%); background-size:250% 100%; animation:sweep 4.5s ease-in-out infinite; }
     .demo-hint { position:absolute; bottom:10px; left:12px; font-size:11px; color:var(--muted-2); background:rgba(0,0,0,.5); padding:4px 9px; border-radius:6px; }

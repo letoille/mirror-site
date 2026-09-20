@@ -51,16 +51,6 @@ shots/en/campaign.webp     ← 英文页用这张
 
 其余槽位三语共用默认那一份。
 
-### 一张卡放多张图
-
-功能卡里也能轮播：把 `.demo` 里换成首屏那套 `.hero-deck` / `.hero-track` /
-`.hero-slide` 结构（JS 是同一份，已经管了「加载失败就移出轨道」和「少于两张
-不画圆点」）。命名接 `-2`、`-3`，例如 `regex` + `regex-2`。
-
-⚠️ **用了 deck 的卡不要再放 `.demo-ph` / `.demo-hint`**：那两个靠兄弟选择器
-`.demo picture.ready ~ …` 退场，而 picture 现在嵌在 deck 里、不再是它们的兄弟
-—— 留着就是占位图永远压在截图上面。
-
 ## 现状
 
 | | 槽位 | 卡片 |
