@@ -109,34 +109,6 @@
     img.addEventListener("load", function () { pic.classList.add("ready"); });
   });
 
-  /* ---- 演示视频（现在只剩「一键查价」那一张卡还在用） ---- */
-  function setSources(v, path) {
-    v.innerHTML = '<source src="' + path + '.webm" type="video/webm"><source src="' + path + '.mp4" type="video/mp4">';
-    v.load();
-  }
-  var vids = document.querySelectorAll("video[data-demo]");
-  vids.forEach(function (v) {
-    var key = v.getAttribute("data-demo");
-    var other = lang === "en" ? "zh" : "en";
-    v.onloadeddata = function () { v.classList.add("ready"); v.play().catch(function () {}); };
-    if (v.hasAttribute("data-nolang")) { setSources(v, "/demos/" + key); return; }
-    // 某一语没录的回退到另一语 —— 画面里那点字比「整张卡空着」强
-    v.onerror = function () {
-      if (v.dataset.tried !== other) { v.dataset.tried = other; setSources(v, "/demos/" + key + "_" + other); }
-    };
-    v.dataset.tried = lang;
-    setSources(v, "/demos/" + key + "_" + lang);
-  });
-  if (vids.length) {
-    var vo = new IntersectionObserver(function (es) {
-      es.forEach(function (en) {
-        var v = en.target;
-        if (en.isIntersecting) { v.play && v.play().catch(function () {}); } else { v.pause && v.pause(); }
-      });
-    }, { threshold: 0.35 });
-    vids.forEach(function (v) { vo.observe(v); });
-  }
-
   /* ---- 首页 hero 轮播 ----------------------------------------------------
    * ⚠️ **图片幻灯必须先证明自己能显示，才算进轮播。** 直接把四张都排进去的话，
    * 缺图那几张就是一块空白 —— 而轮播会尽职地停在那块空白上五秒。所以这里的顺序

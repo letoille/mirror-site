@@ -195,10 +195,16 @@ function render(route, lang, entry, langsHere) {
       `\n        </div>`
     : "";
 
-  /* 搜索引擎站点验证。只发简中那一份：各家后台登记的是裸路径那个地址，
-     而 `/en/`、`/tw/` 多发一遍只是把验证码抄给所有人。空值不输出 ——
-     空的 `content=""` 有些后台会判成验证失败。 */
-  const verify = lang !== "zh" ? "" : Object.entries({
+  /* 搜索引擎站点验证。**三种语言都发。**
+   *
+   * ⚠️ 曾经只发简中（理由是「后台登记的就是裸路径那个地址」），那是错的：各家的
+   *    验证爬虫多半不带 `Accept-Language`，而 nginx 的按语言分流对「没有偏好」
+   *    的请求发 302 到 `/en/` —— 那一份没有验证码，于是验证失败，而你在浏览器里
+   *    打开裸路径怎么看都觉得该成功。验证码本来就印在公开页面上，少发一份省不了
+   *    任何东西，多发一份换来的是这条路不会莫名其妙断掉。
+   *
+   * 空值不输出 —— 空的 `content=""` 有些后台会判成验证失败。 */
+  const verify = Object.entries({
     "google-site-verification": S.VERIFY.google,
     "msvalidate.01":            S.VERIFY.bing,
     "baidu-site-verification":  S.VERIFY.baidu,

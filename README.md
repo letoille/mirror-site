@@ -62,8 +62,6 @@ src/
   jsonld/           结构化数据片段，由页面 front matter 的 `jsonld:` 引用
 assets/             site.css（全站一份）、shell.js、download.js、图片
 shots/              功能卡配图（见 shots/README.md）
-demos/              演示视频 —— **已无人引用**，改版后全部换成了图片
-download/           Windows 安装包 —— **已无人引用**，下载页链的是 GitHub Releases
 ```
 
 **⚠️ 仓库根下的 `.html` 是生成的**，手改会被下一次构建覆盖。每份文件开头都写着它的源在哪。
@@ -104,9 +102,13 @@ download/           Windows 安装包 —— **已无人引用**，下载页链�
 ## 更新安装包
 
 1. 应用仓库 `pnpm tauri build`，产物打成 `Mirror_setup.zip`
-2. 放进 [`download/`](download/)
+2. 传到 **GitHub Releases**（下载页链的就是那里，见 `src/pages/download.zh.html`）
 3. 网盘链接在 [`assets/download.js`](assets/download.js) 的 `NETDISK`
-4. `git push`，两台服务器各 `git pull` 一次
+4. `pnpm build` → `git push` → 发布（见 DEPLOY.md）
+
+⚠️ **安装包不进这个仓库。** 曾经有过一份 `download/Mirror_setup.zip`（63 MB），
+而下载页从来链的是 Releases —— 它躺在两台服务器上没人下过，却让每台机器的
+首次 `git clone` 多背 63 MB，并且**永远留在 git 历史里**（每发一版再加一份）。
 
 ## 商标
 

@@ -348,6 +348,9 @@ node scripts/ping-index.mjs --dry-run     # 先看看会推什么
 # Accept-Language 的首选语言 → 该去哪个前缀（空 = 简中，留在裸路径）
 map $http_accept_language $lang_pref {
     default                   "/en";   # 既不是中文也不是英文：英文版更可能读得懂
+    # ⚠️ **没有这个头就别猜**，原样发简中。各家搜索引擎的站点验证爬虫、curl、
+    #    监控探针大多不带 Accept-Language，把它们 302 走会让验证莫名其妙失败。
+    ""                        "";
     "~*^zh-(hant|tw|hk|mo)"   "/tw";
     "~*^zh"                   "";
     "~*^en"                   "/en";
