@@ -100,6 +100,13 @@ for (const f of walk(".").sort()) {
     if (/loading="lazy"/.test(m[0])) { iss.push("轮播里的图带了 loading=lazy，它永远不会加载"); break; }
   }
 
+  /* ⚠️ `.feature.port` 的媒体列是 `grid-template-columns: auto`（宽度由内容定），
+     所以它里面的 `.feat-media` **必须自带定高**，否则既没定宽也没定高，直接塌成
+     0 —— 卡片右边整块空白，而 markup、图片、CSS 看起来全都对。 */
+  for (const m of s.matchAll(/<div class="feature[^"]*\bport\b[^"]*"[\s\S]*?(<div class="feat-media[^>]*>)/g)) {
+    if (!/height:\s*\d/.test(m[1])) { iss.push("port 卡的 .feat-media 没有定高，会塌成 0"); break; }
+  }
+
   // hreflang 不能指向不存在的地址
   const alts = [...s.matchAll(/hreflang="([^"]+)" href="([^"]+)"/g)];
   if (alts.length && !alts.some(([, l]) => l === "x-default")) iss.push("hreflang 缺 x-default");
