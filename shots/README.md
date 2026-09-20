@@ -44,12 +44,18 @@ shots/en/campaign.webp     ← 英文页用这张
 |---|---|---|---|
 | `campaign` | ✅ | ✅ | 用默认 |
 | `price` | ✅ | ✅ | ✅ |
+| `wealth` | ✅ | ✅ | 用默认 |
 | `scan` | ✅ | ✅ | 用默认 |
 | `market` | ✅ | ✅ | ✅ |
-| `wealth` | ✅ | ✅ | 用默认 |
 | `command` | ✅ | ✅ | 用默认 |
 
 其余槽位三语共用默认那一份。
+
+### 首屏轮播
+
+首屏不再有自己的 `hero-*` 图，直接复用功能卡那四张：`price` → `campaign` →
+`scan` → `wealth`，最后一张是 CSS 画的兜底卡（四张实拍都在时它排在最后，
+不该是访客看到的第一屏）。补一张语言版本，首屏跟着一起换。
 
 ## 现状
 
@@ -70,10 +76,6 @@ shots/en/campaign.webp     ← 英文页用这张
 | ✅ | `filter` | 过滤器 |
 | ✅ | `exchange` | 常用通货兑换比率 |
 | ⬜ | `mercenary` | 佣兵查价 |
-| ✅ | `sync` | 配置云同步 |
-| ✅ | `hero-scan` | 首屏轮播 |
-| ⬜ | `hero-wealth` | 首屏轮播 |
-| ⬜ | `hero-market` | 首屏轮播 |
 | ⬜ | `ai` | 一句话，找到你想要的装备魔镜市集 |
 | ⬜ | `ai-character` | BD 助手，角色分析后续开发支持 |
 | ⬜ | `ai-build` | BD 快速导入魔镜后续开发支持 |
