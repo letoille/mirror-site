@@ -73,3 +73,11 @@ step 2 'HTML（指纹指向的资源已经就位）' --include '*/' --include '*
 step 3 '清理源里已经不存在的文件' --delete
 
 printf '\n\033[32m✓\033[0m 同步完成 → %s:%s   总用时 %ds\n' "$DST" "$DST_PATH" "$((SECONDS - T0))"
+
+# ⚠️ **放在同步之后**：推送等于跟搜索引擎说「这些地址现在是新的，来抓」。
+#    同步之前推，它们会抓到旧内容，然后按自己的节奏隔几天才回来。
+#
+# ⚠️ **推送失败不算发布失败** —— 站点已经上线了，`|| true` 让这一步只是提个醒。
+#    百度那半没有 token 就自己跳过（token 在 .env.local，不进 git）。
+printf '\n\033[1m[通知搜索引擎]\033[0m\n'
+node "$SRC/scripts/ping-index.mjs" || echo '      ⚠ 推送没成功，站点本身已经发布好了'

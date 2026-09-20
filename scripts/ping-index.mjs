@@ -9,7 +9,9 @@
  *   的文件名，**它不是秘密** —— 协议要求它能被公开取到，用途只是证明「发推送的人
  *   控制着这个域名」。
  * - **百度普通收录**：要 token，在搜索资源平台 → 站点管理 → 普通收录 → API 提交 里拿。
- *   ⚠️ **token 是秘密，只走环境变量，别写进仓库。**
+ *   ⚠️ **token 是秘密，不进仓库** —— 这个仓库是公开的（下载页链的就是它的 Releases），
+ *      写进去等于发布出去，谁都能拿它把你的每日配额刷空。放仓库根下的 `.env.local`
+ *      （已 gitignore），一行 `BAIDU_TOKEN=xxx`；环境变量优先于它。
  *
  * ⚠️ Google **没有**这种推送接口（Indexing API 只收招聘和直播两类结构化数据，
  *    拿它推普通网页会被忽略）。Google 那边靠 sitemap + Search Console 手动请求编入。
@@ -45,9 +47,17 @@ if (!key) {
 }
 
 /* ── 百度普通收录 ──────────────────────────────────────────────────────── */
-const token = process.env.BAIDU_TOKEN;
+/* 环境变量优先，其次 `.env.local`（不进 git，见 .gitignore） */
+function localEnv(key) {
+  try {
+    const m = readFileSync(join(ROOT, ".env.local"), "utf8")
+      .match(new RegExp(`^\\s*${key}\\s*=\\s*(.+?)\\s*$`, "m"));
+    return m && m[1].replace(/^["']|["']$/g, "");
+  } catch { return null; }
+}
+const token = process.env.BAIDU_TOKEN || localEnv("BAIDU_TOKEN");
 if (!token) {
-  console.warn("⚠ 没有 BAIDU_TOKEN，跳过百度推送");
+  console.warn("⚠ 没有 BAIDU_TOKEN（环境变量或 .env.local），跳过百度推送");
 } else if (DRY) {
   console.log("[dry-run] 百度推送");
 } else {

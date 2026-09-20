@@ -318,10 +318,23 @@ Google 账号后，验证状态和已提交的 sitemap 一起过来，一步都�
 
 #### 主动推送（可选，但百度和 Bing 明显更快）
 
+**`scripts/deploy-cn.sh` 最后一步会自动跑它**，不用记。手动跑：
+
 ```bash
-BAIDU_TOKEN=<搜索资源平台给的 token> node scripts/ping-index.mjs
+node scripts/ping-index.mjs
 node scripts/ping-index.mjs --dry-run     # 先看看会推什么
 ```
+
+⚠️ **百度 token 不进仓库** —— 这个仓库是公开的（下载页链的就是它的 Releases），
+写进去等于发布出去，谁都能拿它把你的每日配额刷空。放仓库根下的 `.env.local`
+（已 gitignore），**每台要跑发布的机器各放一份**：
+
+```bash
+echo 'BAIDU_TOKEN=<搜索资源平台给的 token>' > .env.local
+```
+
+环境变量 `BAIDU_TOKEN=xxx` 优先于这个文件。没有 token 就自己跳过百度那半，
+IndexNow 照常推。
 
 - **IndexNow**（Bing / Yandex）零配置：密钥就是仓库根下那个 `<key>.txt` 的文件名。
   **它不是秘密**，协议要求它能被公开取到，用途只是证明「发推送的人控制着这个域名」。
