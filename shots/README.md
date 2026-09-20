@@ -47,6 +47,7 @@ shots/en/campaign.webp     ← 英文页用这张
 | `wealth` | ✅ | ✅ | 用默认 |
 | `scan` | ✅ | ✅ | 用默认 |
 | `market` | ✅ | ✅ | ✅ |
+| `regex` | ✅ | ✅ | 用默认 |
 | `command` | ✅ | ✅ | 用默认 |
 
 其余槽位三语共用默认那一份。
@@ -63,7 +64,6 @@ shots/en/campaign.webp     ← 英文页用这张
 | ✅ | `cheatsheet` | 图片快速查看 |
 | ✅ | `market` | 实时行情 |
 | ✅ | `regex` | 常用正则快速使用 |
-| ✅ | `regex-2` | 常用正则快速使用 |
 | ✅ | `command` | 快捷指令 |
 | ✅ | `unique` | 物品快速搜索 |
 | ✅ | `reward` | 攻坚收益统计 |
