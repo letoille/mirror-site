@@ -62,9 +62,8 @@ src/
   jsonld/           结构化数据片段，由页面 front matter 的 `jsonld:` 引用
 assets/             site.css（全站一份）、shell.js、download.js、图片
 shots/              功能卡配图（见 shots/README.md）
-demos/              演示视频 —— 现在只有「一键查价」那一张卡还在用
-download/           Windows 安装包
-preview/            早期动效原型（noindex）
+demos/              演示视频 —— **已无人引用**，改版后全部换成了图片
+download/           Windows 安装包 —— **已无人引用**，下载页链的是 GitHub Releases
 ```
 
 **⚠️ 仓库根下的 `.html` 是生成的**，手改会被下一次构建覆盖。每份文件开头都写着它的源在哪。
