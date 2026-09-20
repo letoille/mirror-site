@@ -5,9 +5,9 @@
     "tw": "關於魔鏡 Mirror — 流亡黯道 1 & 2 (POE1·POE2) 查價懸浮窗與網頁市集"
   },
   "@description": {
-    "zh": "关于魔镜 Mirror：《流放之路》1 & 2（POE1 · POE2）桌面查价悬浮窗助手，另配有网页版魔镜市集。了解它是什么、能做什么、支持哪些服务器与语言、安全与隐私承诺、收费方式，以及联系方式。",
-    "en": "About Mirror: a desktop price-check overlay for Path of Exile 1 & 2, plus a web market app. What it is, what it does, which realms and languages it supports, its safety and privacy commitments, how it's funded, and how to reach us.",
-    "tw": "關於魔鏡 Mirror：《流亡黯道》1 & 2（POE1 · POE2）桌面查價懸浮窗助手，另配有網頁版魔鏡市集。了解它是什麼、能做什麼、支援哪些伺服器與語言、安全與隱私承諾、收費方式，以及聯絡方式。"
+    "zh": "魔镜是什么：《流放之路》1 & 2 的查价悬浮窗与网页市集。不注入游戏进程、不读内存，只调官方接口。支持三个服、三种语言。",
+    "en": "What Mirror is: a price-check overlay and web market for Path of Exile 1 & 2. No process injection, no memory reads — it only calls official APIs.",
+    "tw": "魔鏡是什麼：《流亡黯道》1 & 2 的查價懸浮視窗與網頁市集。不注入遊戲程序、不讀記憶體，只呼叫官方介面。支援三個服、三種語言。"
   },
   "@keywords": {
     "zh": "关于魔镜,魔镜是什么,Mirror POE,流放之路辅助,安全,隐私,不注入,官方市集API,非官方粉丝工具,联系方式,Discord,QQ群",

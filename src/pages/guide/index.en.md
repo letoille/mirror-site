@@ -1,6 +1,6 @@
 ---
 title: Mirror Guides — Price Checking, Loot Filters, Regex and Wealth Tracking in Path of Exile
-description: One page per feature: how to price an item, how to scan a whole screen, how to install a loot filter, how to build a stash regex, how to set up wealth tracking, how to get a build into the game's own planner, and how the market and character try-on work. For Path of Exile 1 and 2.
+description: Mirror guides for Path of Exile 2: how to price an item, install a loot filter, search the trade market, and generate stash regex. One page each.
 keywords: how to use mirror,poe2 price check guide,poe2 price checker tutorial,how to install loot filter,poe2 filter install,waystone regex,stash regex,wealth tracking,profit tracking,build planner import,trade search guide,character try-on,beginner guide
 ---
 

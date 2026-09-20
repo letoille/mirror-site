@@ -1,6 +1,6 @@
 ---
 title: How to Tell What an Item Is Worth in Path of Exile 2 — Mirror Price-Check Guide
-description: The complete method for pricing gear in Path of Exile 1 & 2: hover an item and press Ctrl+E, interpret each part of the overlay, why you should select modifiers yourself rather than all of them, how pseudo modifiers (total resistance / total life) work, and why unidentified uniques can only be searched by base type.
+description: How to price-check an item in Path of Exile 2: hover, press Ctrl+E, read the overlay, and why ticking every modifier returns zero results.
 keywords: poe2 price check,how much is this item worth,item pricing,poe2 price checker,how to price items,trade search,pseudo mods,total resistance,unidentified unique,ctrl+e,mirror price check
 ---
 

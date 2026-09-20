@@ -1,6 +1,6 @@
 ---
 title: How to Install a Path of Exile 2 Loot Filter — Mirror / NeverSink Custom Build
-description: Installing a Path of Exile 2 loot filter: which of the three (Pushing / Farming / Speed) to pick, what the sound versions do, one-click install from the client into the game and your GGG account versus dropping the file in by hand, how to switch filters in game, and when to change one. Built on NeverSink's filter.
+description: How to install a Path of Exile 2 loot filter: which of the three to pick, what the sound versions do, and one-click install vs copying it in.
 keywords: poe2 loot filter,path of exile 2 item filter,how to install loot filter,neversink,filter download,filter sounds,poe2 filter install,loot filter guide,pushing filter,farming filter,speed filter
 ---
 

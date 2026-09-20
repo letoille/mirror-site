@@ -5,9 +5,9 @@
     "tw": "魔鏡客戶端 — 流亡黯道 1 & 2 (POE1·POE2) 查價懸浮窗 · 截圖辨識 · 收益統計"
   },
   "@description": {
-    "zh": "魔镜客户端是《流放之路》1 & 2 的 Windows 悬浮窗助手：悬停物品一键查询官方市集实时价格、截图识别整屏物品批量查价、剧情引导跟随区域切换、快捷正则卡片、通货兑换比率、全局与地图计时、奖励掉落计数、收益统计（资产总值 / 每小时收益 / 每图收益）、速查图、行情、命令条，还能把掉落过滤器和 BD 天赋规划装进游戏。支持国际服 / 国服 / 台服，键盘与手柄。",
-    "en": "The Mirror client is a Windows overlay for Path of Exile 1 & 2: hover an item and get live official-trade prices, scan a whole screen of items at once, follow a zone-aware campaign guide, keep regex presets on screen, watch currency rates, run global and per-map timers, tally drops, track wealth (asset value, profit per hour, profit per map), pin cheat sheets, and install loot filters and build plans into the game. Global, China and Taiwan realms, keyboard and gamepad.",
-    "tw": "魔鏡客戶端是《流亡黯道》1 & 2 的 Windows 懸浮窗助手：停在物品上一鍵查詢官方市集即時價格、截圖辨識整螢幕物品批次查價、劇情引導跟著區域切換、快捷正則卡片、通貨兌換比率、全域與地圖計時、獎勵掉落計數、收益統計（資產總值 / 每小時收益 / 每圖收益）、速查圖、行情、命令列，還能把掉落過濾器和配裝天賦規劃裝進遊戲。支援國際服 / 國服 / 台服，鍵盤與手把。"
+    "zh": "《流放之路》2 查价悬浮窗：悬停按热键，官方市集实时价直接浮在物品旁。截图整屏批量查价、剧情引导、收益统计、过滤器一键装进游戏。",
+    "en": "Path of Exile 2 price check overlay for Windows: hover an item, press a hotkey, see live official market prices. Screenshot pricing, campaign guide.",
+    "tw": "《流亡黯道》2 查價懸浮視窗：停在物品上按熱鍵，官方市集即時價直接浮在旁邊。截圖整屏批量查價、劇情引導、收益統計、過濾器一鍵裝進遊戲。"
   },
   "@ogdesc": {
     "zh": "流放之路 1 & 2 的 Windows 查价悬浮窗：一键查价、截图识别整屏价格、剧情引导、快捷正则、计时器、奖励计数、收益统计、速查图，还能把掉落过滤器与 BD 天赋规划装进游戏。",

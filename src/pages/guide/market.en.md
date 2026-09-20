@@ -1,6 +1,6 @@
 ---
 title: Using Mirror Market — Path of Exile 2 Trade Search, Character Try-On, Live Search
-description: A guide to Mirror Market (trade.kalandraeye.com): how the modifier pool narrows to the item class you picked, switching between the Global, China and Taiwan realms, why changing the sort re-runs the search, turning on live search, contacting sellers and hideout links, and why market search needs the Mirror client running.
+description: How to use the Mirror Market for Path of Exile 2: search by modifier, switch realms, watch new listings live, and contact sellers in one click.
 keywords: mirror market,poe2 trade search,path of exile 2 trade site,search by modifier,item class projection,live search,character try-on,path of building,contact seller,hideout,global realm,taiwan realm,how to use trade search
 ---
 

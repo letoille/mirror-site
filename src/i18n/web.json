@@ -5,9 +5,9 @@
     "tw": "魔鏡網站 — 流亡黯道 2 交易搜尋 · 角色試裝 · 掉落過濾器 · 正則產生器"
   },
   "@description": {
-    "zh": "魔镜网站是《流放之路》2 的网页工具集：按词缀搜装备的市集（词缀池跟着物品类别收窄，三个服随时切）、用你自己的角色跑真 Path of Building 做试装的角色页、基于 NeverSink 定制的掉落过滤器下载（开荒 / 刷图 / 速刷，含语音版）、仓库搜索正则生成器。过滤器与正则打开就能用；市集与角色需要魔镜客户端在运行，因为搜索走你自己的官方交易会话。",
-    "en": "Mirror's web toolset for Path of Exile 2: a trade search whose mod pool narrows to the item class you picked, character try-on running the real Path of Building, NeverSink-based loot filter downloads (Pushing / Farming / Speed, sound versions included), and a stash-search regex generator. Filters and regex work straight from the browser; market search and try-on need the Mirror client running, because searches use your own official trade session.",
-    "tw": "魔鏡網站是《流亡黯道》2 的網頁工具集：按詞綴搜裝備的市集（詞綴池跟著物品類別收窄，三個服隨時切）、用你自己的角色跑真 Path of Building 做試裝的角色頁、基於 NeverSink 定製的掉落過濾器下載（開荒 / 刷圖 / 速刷，含語音版）、倉庫搜尋正則產生器。過濾器與正則打開就能用；市集與角色需要魔鏡客戶端在執行，因為搜尋走你自己的官方交易工作階段。"
+    "zh": "《流放之路》2 交易搜索：按词缀搜装备，词缀池跟着物品类别收窄。角色 Path of Building 试装、掉落过滤器下载、仓库正则生成器。",
+    "en": "Path of Exile 2 trade search: find gear by modifier, try it on your own character with real Path of Building, download loot filters, generate regex.",
+    "tw": "《流亡黯道》2 交易搜尋：按詞綴搜裝備，詞綴池跟著物品類別收窄。角色 Path of Building 試裝、掉落過濾器下載、倉庫正則產生器。"
   },
   "@ogdesc": {
     "zh": "流放之路 2 网页工具集：按词缀搜装备的市集、角色 Path of Building 试装、NeverSink 定制掉落过滤器下载、正则生成器。过滤器与正则免安装直接用。",
