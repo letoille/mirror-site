@@ -65,6 +65,19 @@ if (!token) {
     `http://data.zz.baidu.com/urls?site=${encodeURIComponent(S.ORIGIN)}&token=${token}`,
     { method: "POST", headers: { "Content-Type": "text/plain" }, body: urls.join("\n") });
   const body = await r.text();
-  // 回的是 JSON：success 收了几条、remain 今天还剩几条
+  // 成功时回 {"remain":N,"success":M}；失败时回 {"error":N,"message":"..."}
   console.log(`百度 → ${r.status} ${body}`);
+  // ⚠️ 百度的 message 都很短且不解释原因，这里翻一下，省得对着 "site init fail" 猜
+  const HINT = {
+    "site init fail":
+      "这个站在搜索资源平台里还没验证通过。先去后台点「验证」（验证码已由 VERIFY.baidu 发在页面上），验证过了推送才收。",
+    "token is not valid":
+      "token 不对。在 站点管理 → 普通收录 → API 提交 重新复制，注意它是按站点发的，换了站点就换一个。",
+    "site error":
+      "site 和 token 对不上。site 要和后台登记的**一字不差**（协议头、有没有 www、结尾有没有斜杠都算）。",
+    "over quota":
+      "今天的配额用完了。配额按站点算，明天零点重置。",
+  };
+  const msg = (() => { try { return JSON.parse(body).message; } catch { return null; } })();
+  if (HINT[msg]) console.log(`       ↳ ${HINT[msg]}`);
 }
