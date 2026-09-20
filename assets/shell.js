@@ -291,4 +291,68 @@
     });
     document.body.insertBefore(bar, document.body.firstChild);
   })();
+
+  /* ---- 功能卡的图点击展开 ------------------------------------------------
+   *
+   * 卡片里的框只有 600px 宽，而截图多是 1280 —— 在卡片上看不清的细节，点开按
+   * 原始像素看。
+   *
+   * ⚠️ **只放大到原始尺寸，不超过。** 小图（计时器 200×149）点开还是那么大，
+   *    这是有意的：UI 截图放大就是糊，给一张糊的大图不如给一张清楚的小图。
+   *
+   * ⚠️ 用 `currentSrc` 不用 `src`：`<picture>` 选中的可能是 avif，而 `src` 上
+   *    写的是 webp 那一份，拿 `src` 会让浏览器再下一遍另一种格式。
+   */
+  (function lightbox() {
+    var pics = document.querySelectorAll(".demo picture");
+    if (!pics.length) return;
+    var box = null;
+
+    function close() {
+      if (!box) return;
+      box.remove(); box = null;
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKey);
+    }
+    function onKey(e) { if (e.key === "Escape") close(); }
+
+    function open(img) {
+      close();
+      box = document.createElement("div");
+      box.className = "lightbox";
+      box.setAttribute("role", "dialog");
+      box.setAttribute("aria-modal", "true");
+      box.setAttribute("aria-label", img.alt || "");
+      var big = document.createElement("img");
+      big.src = img.currentSrc || img.src;
+      big.alt = img.alt || "";
+      box.appendChild(big);
+      box.addEventListener("click", close);
+      document.addEventListener("keydown", onKey);
+      document.body.style.overflow = "hidden";
+      document.body.appendChild(box);
+      box.focus && box.focus();
+    }
+
+    pics.forEach(function (pic) {
+      var img = pic.querySelector("img");
+      if (!img) return;
+      // ⚠️ 图还没到（或 404）时别让它可点 —— 那会打开一个空灯箱
+      var arm = function () {
+        pic.classList.add("zoomable");
+        pic.setAttribute("tabindex", "0");
+        pic.setAttribute("role", "button");
+      };
+      if (img.complete && img.naturalWidth > 0) arm();
+      else img.addEventListener("load", arm);
+      pic.addEventListener("click", function () {
+        if (pic.classList.contains("zoomable")) open(img);
+      });
+      pic.addEventListener("keydown", function (e) {
+        if ((e.key === "Enter" || e.key === " ") && pic.classList.contains("zoomable")) {
+          e.preventDefault(); open(img);
+        }
+      });
+    });
+  })();
 })();

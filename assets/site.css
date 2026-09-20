@@ -744,3 +744,15 @@ footer { position:relative; z-index:1; border-top:1px solid var(--line); padding
   width:26px; height:26px; line-height:1; font-size:17px; cursor:pointer;
   color:var(--muted-2); background:none; border:0; border-radius:7px; }
 .lang-hint button:hover { color:var(--text); background:rgba(255,255,255,.06); }
+
+/* 功能卡的图点击展开，见 shell.js 的 lightbox */
+.demo picture.zoomable { cursor:zoom-in; }
+.demo picture.zoomable:focus-visible { outline:2px solid var(--gold-dim); outline-offset:3px; border-radius:12px; }
+.lightbox { position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center;
+  padding:4vh 4vw; background:rgba(4,5,8,.9); cursor:zoom-out;
+  animation:lb-in .18s ease-out; }
+/* ⚠️ `width:auto` + 两个 max —— 图**不会被放大**，只有超过视口时才缩。 */
+.lightbox img { width:auto; height:auto; max-width:92vw; max-height:92vh;
+  border-radius:12px; box-shadow:0 40px 90px -20px rgba(0,0,0,.9); }
+@keyframes lb-in { from { opacity:0 } to { opacity:1 } }
+@media (prefers-reduced-motion: reduce) { .lightbox { animation:none } }
