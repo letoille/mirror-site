@@ -363,5 +363,10 @@
     "zh": "魔镜正则生成器：勾选词缀条件，直接生成游戏内仓库搜索框可用的表达式",
     "en": "Mirror regex generator: tick the modifier conditions and get an expression for the in-game stash search box",
     "tw": "魔鏡正則產生器：勾選詞綴條件，直接產生遊戲內倉庫搜尋框可用的表示式"
+  },
+  "魔镜掉落过滤器下载：开荒 / 刷图 / 速刷三份，各带语音版": {
+    "zh": "魔镜掉落过滤器下载：开荒 / 刷图 / 速刷三份，各带语音版",
+    "en": "Mirror loot filter downloads: three builds — Pushing, Farming and Speed — each with a sound version",
+    "tw": "魔鏡掉落過濾器下載：開荒 / 刷圖 / 速刷三份，各帶語音版"
   }
 }
