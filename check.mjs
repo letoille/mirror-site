@@ -92,6 +92,14 @@ for (const f of walk(".").sort()) {
     break;
   }
 
+  /* ⚠️ 轮播（`.hero-deck`）里的图**不能是 lazy 的**：幻灯在加载完成前是
+     `hidden`（`display:none`），而 `display:none` 里的 lazy 图浏览器根本不去取
+     —— `load` 永不触发、永不 reveal，死锁成一个空框。症状是「图片没显示」，
+     而文件明明在、路径也对，从 HTML 上一点看不出来。 */
+  for (const m of s.matchAll(/<div class="hero-deck[\s\S]*?<\/div>\s*<\/div>/g)) {
+    if (/loading="lazy"/.test(m[0])) { iss.push("轮播里的图带了 loading=lazy，它永远不会加载"); break; }
+  }
+
   // hreflang 不能指向不存在的地址
   const alts = [...s.matchAll(/hreflang="([^"]+)" href="([^"]+)"/g)];
   if (alts.length && !alts.some(([, l]) => l === "x-default")) iss.push("hreflang 缺 x-default");

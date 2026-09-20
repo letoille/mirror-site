@@ -127,6 +127,10 @@
     var wait = parseInt(deck.getAttribute("data-interval"), 10) || 5000;
     var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    /* ⚠️ **deck 里的 <img> 不能写 `loading="lazy"`。**
+     * 下面一行把还没加载的幻灯 `hidden` 掉（`display:none`），而 `display:none`
+     * 里的 lazy 图浏览器**根本不去取** —— 于是 `load` 永不触发、永不 reveal，
+     * 死锁成一个空框。症状是「图片没显示」，而文件明明在、路径也对。 */
     all.forEach(function (el) {
       if (el.classList.contains("is-mock")) { live.push(el); return; }
       el.hidden = true;                                  // 先不占布局
