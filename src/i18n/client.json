@@ -628,5 +628,10 @@
     "zh": "支持国服与国际服过滤同步",
     "en": "Works on both the Tencent and global realms",
     "tw": "支援國服與國際服過濾同步"
+  },
+  "魔镜一键查价：浮层上按词缀勾选与搜索条件，直接给出官方市集实时价": {
+    "zh": "魔镜一键查价：浮层上按词缀勾选与搜索条件，直接给出官方市集实时价",
+    "en": "Mirror price check: tick modifiers and conditions on the overlay, get live official market prices",
+    "tw": "魔鏡一鍵查價：浮層上按詞綴勾選與搜尋條件，直接給出官方市集即時價"
   }
 }
