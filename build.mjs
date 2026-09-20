@@ -94,6 +94,47 @@ const ASSETS = ["/assets/site.css", "/assets/shell.js", "/assets/download.js"];
  *    Google 拿 `inLanguage` 和正文比对，对不上就把整块丢掉，而浏览器里一点都看
  *    不出来：页面正文是翻译好的，只有喂给爬虫的那份不是。
  */
+/* ── 截图按语言取 ─────────────────────────────────────────────────────────────
+ *
+ * 默认 `/shots/<名>.webp`；某种语言另有一份就放 `/shots/<语言>/<名>.webp`，
+ * 构建时自动换过去。**没有那一份就沿用默认**，所以补一张多一张，不用改页面。
+ *
+ * ⚠️ 换路径要连 `<img>` 上的 `width`/`height` 一起换 —— 两份截图的像素尺寸
+ *    很少一样，留着旧的就是在声明一个错的固有尺寸。
+ *
+ * ⚠️ `.avif` 和 `.webp` **必须同时存在才换**：只换一半的话，支持 avif 的浏览器
+ *    看到英文图、不支持的看到中文图，而这件事在任何一台机器上都只看得到一半。
+ */
+const webpSize = (file) => {
+  const b = readFileSync(file);
+  const tag = b.toString("ascii", 12, 16);
+  if (tag === "VP8X") return [(b.readUIntLE(24, 3) & 0xffffff) + 1, (b.readUIntLE(27, 3) & 0xffffff) + 1];
+  if (tag === "VP8 ") return [b.readUInt16LE(26) & 0x3fff, b.readUInt16LE(28) & 0x3fff];
+  if (tag === "VP8L") {
+    const n = b.readUInt32LE(21);
+    return [(n & 0x3fff) + 1, ((n >> 14) & 0x3fff) + 1];
+  }
+  return null;
+};
+
+function localizeShots(html, lang) {
+  if (lang === "zh") return html;                       // 简中就是默认那一份
+  return html.replace(
+    /<picture>([\s\S]*?)<\/picture>/g,
+    (block) => {
+      const m = block.match(/\/shots\/([a-z0-9-]+)\.webp/);
+      if (!m) return block;
+      const name = m[1];
+      const webp = join(ROOT, "shots", lang, `${name}.webp`);
+      if (!existsSync(webp) || !existsSync(join(ROOT, "shots", lang, `${name}.avif`))) return block;
+      let out = block.replaceAll(`/shots/${name}.`, `/shots/${lang}/${name}.`);
+      const wh = webpSize(webp);
+      if (wh) out = out.replace(/width="\d+" height="\d+"/, `width="${wh[0]}" height="${wh[1]}"`);
+      return out;
+    },
+  );
+}
+
 const jsonldFor = (rel, lang) => {
   const alt = rel.replace(/\.html$/, `.${lang}.html`);
   return existsSync(join(ROOT, "src", alt)) ? alt : rel;
@@ -257,6 +298,7 @@ function render(route, lang, entry, langsHere) {
      `/en/*`、`/tw/*` 会去要 `/guide/assets/site.css` —— 404，整页零样式，
      且**构建和自检都不会报**（HTML 本身是合法的）。 */
   for (const a of ASSETS) out = out.split(`"${a}"`).join(`"/${stamp(a.slice(1))}"`);
+  out = localizeShots(out, lang);
   return out;
 }
 

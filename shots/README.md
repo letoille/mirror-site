@@ -22,6 +22,22 @@ npm_config_cache=/tmp/npmcache npx --yes sharp-cli \
 
 文件名就是槽位名（`shots/timer.webp` ↔ 页面里的 `/shots/timer.webp`）。
 
+## 按语言换图
+
+默认是 `shots/<名>.webp`，三种语言共用。某种语言另有一份就放
+`shots/<语言>/<名>.webp`（`en` / `tw`），构建时自动换过去 —— **没有那一份就沿用
+默认，所以补一张多一张，不用改页面**。
+
+```
+shots/campaign.webp        ← 简中、繁中用这张
+shots/en/campaign.webp     ← 英文页用这张
+```
+
+⚠️ **`.webp` 和 `.avif` 必须同时存在才换。** 只放一半的话，支持 avif 的浏览器看到
+一份、不支持的看到另一份 —— 而这件事在任何一台机器上都只看得到一半，测不出来。
+
+⚠️ 换路径时 `<img>` 的 `width`/`height` 由构建从 WebP 头里读出来一起换，不用手填。
+
 ## 现状
 
 | | 槽位 | 卡片 |
