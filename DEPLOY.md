@@ -237,6 +237,85 @@ hreflang、首页与指南页的 JSON-LD。要做的是**在三家后台认领�
 所以裸路径那批 URL 抓得到，`/en/`、`/tw/` 由 hreflang 指过去。**别为了「方便」把爬虫
 也跳转了**，那会让裸路径那批已收录的 URL 从索引里掉出来。
 
+#### Google Search Console
+
+**选哪种资源类型。** 两种：
+
+- **网域**（`kalandraeye.com`）—— 一次覆盖 `mirror.`、`trade.`、apex、www 和 http/https
+  全部，但**只能用 DNS TXT 验证**。这个域名下有两个站（官网和魔镜市集），选它省一半事。
+- **网址前缀**（`https://mirror.kalandraeye.com/`）—— 只覆盖这一个前缀，可以用
+  `VERIFY.google` 那个 HTML 标记验证。
+
+⚠️ 两种资源的数据**不互通**：网址前缀资源看不到 `trade.` 的数据，反过来网域资源
+里 `mirror.` 和 `trade.` 混在一起、要靠过滤器分。想两边都清楚就两种都建，验证各做一次。
+
+**步骤**
+
+1. 加资源。选了网址前缀就去「HTML 标记」那一项，把 `content` 的值填进
+   `src/site.mjs` 的 `VERIFY.google`，`pnpm build`，发布，回来点验证。
+   选了网域就按它给的 TXT 记录加到 DNS，和这个仓库无关。
+2. 「站点地图」→ 填 `sitemap.xml` → 提交。状态变成「成功」才算收下（可能要等几小时）。
+3. 「网址检查」把首页、`/client.html`、`/web.html`、`/guide/` 各请求一次编入索引。
+   ⚠️ 这个按钮**每天有配额**，别拿它推 27 条，那是 sitemap 的活。
+4. 之后看「页面」报告里的「未编入索引」分类，那里会明说为什么没收。
+
+**不用做的事**：hreflang 已经逐页发了，Search Console 里那个旧的「国际定位」工具
+已经下线，没有地方需要手工声明语言对应关系。
+
+**预期**：新站从验证到首批收录通常几天到两周。`site:mirror.kalandraeye.com` 能搜到
+东西就是进了。
+
+#### Bing 网站管理员工具
+
+**最省事的一条路：从 Google Search Console 导入。** 加站点时选「导入」，授权
+Google 账号后，验证状态和已提交的 sitemap 一起过来，一步都不用自己做。
+
+手动的话：加站点 → 「HTML Meta 标记」，把 `content` 填进 `VERIFY.bing`（它对应
+`msvalidate.01`），`pnpm build`、发布、验证 → 「站点地图」提交 `sitemap.xml`。
+
+**IndexNow 在 Bing 这边是原生支持的**，`scripts/ping-index.mjs` 推过去就行，
+后台里不需要额外配置（IndexNow 那一页只是让你确认密钥取得到）。
+
+⚠️ Bing 的「网址提交」有每日配额，和 Google 那个按钮一样，是给单页救急的，
+批量走 sitemap 和 IndexNow。
+
+**顺带**：DuckDuckGo 的网页结果来自 Bing，所以这一步做完它也就有了，没有单独的后台。
+
+#### 百度搜索资源平台
+
+⚠️ **前置条件两条，缺一条都白做**：
+
+- **域名已备案** —— 有（`滇ICP备2025052314号-2`）。没备案在百度这边不是收录慢，
+  是根本进不去。
+- **国内那台能被抓到** —— Baiduspider 从大陆 IP 爬，走的是 DNS 解析到大陆服务器的那条
+  线路。所以**国内那台的内容必须是最新的**（见上面「香港当跳板」那一节），否则百度
+  收的是旧版本，而你在香港那台上看什么都正常。
+
+**步骤**
+
+1. 「用户中心 → 站点管理 → 添加网站」，填 `https://mirror.kalandraeye.com`，选站点领域。
+2. 站点验证三选一。用 **HTML 标签验证**：把 `content` 填进 `VERIFY.baidu`，
+   `pnpm build`、发布到**国内那台**、再回来点验证。
+   （文件验证也行，但那个文件要一直留着，而 rsync 的 `--delete` 会在下次发布时
+   把它删掉 —— 除非你把它加进仓库。标签验证没这个问题。）
+3. 「资源提交 → sitemap」提交 `https://mirror.kalandraeye.com/sitemap.xml`。
+4. 「资源提交 → 普通收录 → API 提交」拿 token，之后每次发布跑一次：
+
+   ```bash
+   BAIDU_TOKEN=<token> node scripts/ping-index.mjs
+   ```
+
+   回的 JSON 里 `success` 是收下几条、`remain` 是今天还剩多少配额。
+
+**值得用的两个工具**
+
+- **抓取诊断**：让百度当场抓一次指定 URL，直接看它拿到的是什么。国内那台没同步、
+  nginx 配错、证书有问题，都在这里一眼看出来 —— 比等收录快得多。
+- **robots 检测**：确认 `robots.txt` 没把自己挡住。
+
+⚠️ **别信「快速收录」还在**：那是熊掌号时代的东西，早已下线，现在只有普通收录。
+网上大量教程还在写熊掌号，跟着做会卡在一个不存在的入口上。
+
 #### 主动推送（可选，但百度和 Bing 明显更快）
 
 ```bash
