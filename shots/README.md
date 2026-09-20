@@ -45,6 +45,7 @@ shots/en/campaign.webp     ← 英文页用这张
 | `campaign` | ✅ | ✅ | 用默认 |
 | `price` | ✅ | ✅ | ✅ |
 | `scan` | ✅ | ✅ | 用默认 |
+| `market` | ✅ | ✅ | ✅ |
 
 其余槽位三语共用默认那一份。
 
@@ -54,7 +55,7 @@ shots/en/campaign.webp     ← 英文页用这张
 |---|---|---|
 | ✅ | `campaign` | 剧情开荒，任务奖励自动提示 |
 | ✅ | `price` | 一键查价，智能选择词缀 |
-| ⬜ | `wealth` | 收益统计，看清策略收益 |
+| ✅ | `wealth` | 收益统计，看清策略收益 |
 | ✅ | `build-planner` | BD 规划，自动同步游戏内天赋 |
 | ✅ | `scan` | 一键截图查价 |
 | ✅ | `cheatsheet` | 图片快速查看 |
