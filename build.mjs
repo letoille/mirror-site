@@ -28,7 +28,7 @@
  * 不会声明一个 404。⚠️ **hreflang 指向不存在的地址比不声明更糟**：搜索引擎会按它去
  * 抓，抓回 404，然后连带怀疑同组里其它几条。
  */
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, existsSync, watch } from "node:fs";
 import { createHash } from "node:crypto";
 import { join, dirname, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -305,6 +305,7 @@ function sitemap(pages) {
 }
 
 /* ── 跑 ────────────────────────────────────────────────────────────────────── */
+function buildOnce() {
 const pages = collect();
 if (!pages.size) { console.error("src/pages 下一个页面都没有"); process.exit(1); }
 
@@ -330,6 +331,73 @@ const missing = [...pages].filter(([, l]) => !l.zh).map(([r]) => r);
 if (missing.length) console.warn(`⚠️  没有简中版本的页面（简中是裸路径，缺了就没有 canonical 那一份）：${missing.join(", ")}`);
 
 console.log(`✓ ${n} 份 HTML（${pages.size} 条路由）+ sitemap.xml`);
-for (const [route, langs] of [...pages].sort()) {
-  console.log(`    ${route.padEnd(28)} ${S.LANGS.filter((l) => langs[l]).join(" ")}`);
+if (!WATCH) {
+  for (const [route, langs] of [...pages].sort()) {
+    console.log(`    ${route.padEnd(28)} ${S.LANGS.filter((l) => langs[l]).join(" ")}`);
+  }
+}
+}
+
+/* ── 本地开发：改了就重建，顺带起个静态服务器 ───────────────────────────────
+ *
+ * ⚠️ **`--watch` 以前是个谎**：`package.json` 里 `dev` 一直写着它，而 build.mjs
+ *    从来没读过这个参数 —— 跑一次就退出，看起来像「监听中但没反应」。
+ *
+ * ⚠️ 服务器要**自己写**不能靠 `python3 -m http.server`：那玩意儿对
+ *    `/guide/` 这种目录是发 index.html 没错，但**不带缓存头**，改完刷新常常
+ *    还是旧的；而这个站的资源恰恰带内容指纹，本地更需要「永远不缓存」。
+ */
+const WATCH = process.argv.includes("--watch");
+const SERVE = process.argv.includes("--serve");
+
+buildOnce();
+
+if (SERVE) {
+  const { createServer } = await import("node:http");
+  const TYPES = { html: "text/html; charset=utf-8", css: "text/css", js: "text/javascript",
+    json: "application/json", svg: "image/svg+xml", png: "image/png", jpg: "image/jpeg",
+    webp: "image/webp", avif: "image/avif", ico: "image/x-icon", xml: "application/xml",
+    txt: "text/plain; charset=utf-8", woff2: "font/woff2", mp4: "video/mp4", webm: "video/webm" };
+  const PORT = Number(process.env.PORT || 8765);
+  createServer((req, res) => {
+    // ⚠️ 指纹是查询串，落到磁盘上要剥掉；`..` 也要挡，不然本地服务器能读整个盘
+    let p = decodeURIComponent(req.url.split("?")[0]).replace(/\/+/g, "/");
+    if (p.includes("..")) { res.writeHead(400).end("bad path"); return; }
+    let file = join(ROOT, p);
+    // 目录 → index.html；`/en` → 301 `/en/`（和 nginx 的行为对齐）
+    if (existsSync(file) && statSync(file).isDirectory()) {
+      if (!p.endsWith("/")) { res.writeHead(301, { Location: p + "/" }).end(); return; }
+      file = join(file, "index.html");
+    }
+    if (!existsSync(file) || !statSync(file).isFile()) {
+      res.writeHead(404, { "Content-Type": TYPES.html });
+      res.end(`<h1>404</h1><p>${p}</p><p>本地没有这个文件。</p>`);
+      return;
+    }
+    res.writeHead(200, {
+      "Content-Type": TYPES[file.split(".").pop().toLowerCase()] || "application/octet-stream",
+      "Cache-Control": "no-store",   // 本地一律不缓存，见上面那条 ⚠️
+    });
+    res.end(readFileSync(file));
+  }).listen(PORT, "127.0.0.1", () => {
+    console.log(`\n  → http://127.0.0.1:${PORT}/      简中`);
+    console.log(`  → http://127.0.0.1:${PORT}/en/   English`);
+    console.log(`  → http://127.0.0.1:${PORT}/tw/   繁體\n`);
+  });
+}
+
+if (WATCH) {
+  // 只盯源，不盯产物 —— 盯产物会被自己的写入触发，无限重建
+  let timer = null;
+  const rebuild = (f) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      process.stdout.write(`\n[${new Date().toTimeString().slice(0, 8)}] ${f} → `);
+      try { buildOnce(); } catch (e) { console.error("✗ " + e.message); }
+    }, 80);   // 编辑器保存常常连发好几次事件
+  };
+  for (const dir of ["src", "assets"]) {
+    watch(join(ROOT, dir), { recursive: true }, (_, f) => f && rebuild(`${dir}/${f}`));
+  }
+  console.log("监听 src/ 与 assets/，Ctrl+C 退出");
 }

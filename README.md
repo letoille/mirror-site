@@ -35,8 +35,10 @@
 
 ```bash
 pnpm install     # 只装一个 markdown-it
-pnpm build       # src/pages/** → 仓库根下的 HTML + sitemap.xml
-pnpm serve       # 构建 + 起一个 http://127.0.0.1:8765
+pnpm dev         # 改了就重建 + http://127.0.0.1:8765（本地开发用这个）
+pnpm build       # src/pages/** → 仓库根下的 HTML + sitemap.xml，并跑自检
+pnpm serve       # 只起服务器，不监听
+pnpm check       # 只跑产物自检
 ```
 
 > **为什么产物进 git**：部署模型是 `git clone` + nginx，更新就是一句 `git pull`
