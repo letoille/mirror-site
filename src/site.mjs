@@ -54,6 +54,20 @@ export const FOOTER = {
  * 出现在 sitemap 里的页面的权重与更新频率。**没列到的一律不进 sitemap** ——
  * 那是给 `preview/` 这种早期验证页留的后门（它本来就 noindex）。
  */
+/** 三家搜索引擎的站点验证码。**在各自后台拿到后填这里，别手改产物** ——
+ *  产物是 `node build.mjs` 生成的，手改的 meta 下一次构建就没了，而「验证掉了」
+ *  的表现是后台里那个站点悄悄变回未验证，不会有人通知你。
+ *
+ *  留空 = 不输出那一行（空的 `content=""` 有些后台会判成验证失败）。
+ *  ⚠️ **只发在简中那一份**（裸路径 = 各家后台里登记的那个地址），`/en/`、`/tw/`
+ *     不需要，多发只是把验证码抄给所有人看。
+ */
+export const VERIFY = {
+  google: "",   // Search Console → 网址前缀 → HTML 标记，取 content 的值
+  bing:   "",   // Bing 网站管理员工具 → HTML Meta 标记，取 content 的值
+  baidu:  "",   // 百度搜索资源平台 → 站点验证 → HTML 标签验证，取 content 的值
+};
+
 export const SITEMAP = {
   "/": { priority: "1.0", changefreq: "weekly" },
   "/client.html": { priority: "0.9", changefreq: "weekly" },

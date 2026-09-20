@@ -195,6 +195,15 @@ function render(route, lang, entry, langsHere) {
       `\n        </div>`
     : "";
 
+  /* 搜索引擎站点验证。只发简中那一份：各家后台登记的是裸路径那个地址，
+     而 `/en/`、`/tw/` 多发一遍只是把验证码抄给所有人。空值不输出 ——
+     空的 `content=""` 有些后台会判成验证失败。 */
+  const verify = lang !== "zh" ? "" : Object.entries({
+    "google-site-verification": S.VERIFY.google,
+    "msvalidate.01":            S.VERIFY.bing,
+    "baidu-site-verification":  S.VERIFY.baidu,
+  }).filter(([, v]) => v).map(([k, v]) => `  <meta name="${k}" content="${esc(v)}" />`).join("\n");
+
   const head = [
     meta.jsonld ? readFileSync(join(ROOT, "src", jsonldFor(meta.jsonld, lang)), "utf8").trim() : "",
     styles.length ? `  <style>${styles.join("\n")}</style>` : "",
@@ -219,6 +228,7 @@ function render(route, lang, entry, langsHere) {
     .replace(/__ORIGIN__/g, S.ORIGIN)
     .replace(/__OGLOCALE__/g, t.ogLocale)
     .replace(/__HREFLANG__/g, alts)
+    .replace(/__VERIFY__/g, verify ? verify + "\n" : "")
     .replace(/__HEAD__/g, head)
     .replace(/__HOME__/g, urlFor("/", lang))
     .replace(/__BRAND__/g, t.brand)

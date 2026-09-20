@@ -215,6 +215,42 @@ HTML 里写的是带指纹的资源地址（`site.css?v=<hash>`），HTML 先到
 要根治就把它们从仓库删掉：下载页链的是 GitHub Releases，不是 `/download/` 里那份；
 `demos/` 在改版换成 `<picture>` 之后已经没有任何构建产物在引用。
 
+### 接入搜索引擎索引
+
+已经就位的：`robots.txt`、`sitemap.xml`（27 条，构建时生成）、逐页 canonical 与
+hreflang、首页与指南页的 JSON-LD。要做的是**在三家后台认领这个站**。
+
+**验证码填在 `src/site.mjs` 的 `VERIFY` 里，不要手改产物** —— 产物是 `build.mjs`
+生成的，手改的 meta 下一次构建就没了，而「验证掉了」的表现是后台里那个站点悄悄
+变回未验证，不会有人通知你。填完 `pnpm build` 再发布。
+
+| | 后台 | 拿验证码的位置 | 提交 sitemap |
+|---|---|---|---|
+| Google | Search Console | 网址前缀 → HTML 标记 | 站点地图 → 填 `sitemap.xml` |
+| Bing | Bing 网站管理员工具 | HTML Meta 标记 | 站点地图 → 提交。也可直接从 Search Console 导入，验证和 sitemap 一起过来 |
+| 百度 | 搜索资源平台 | 站点验证 → HTML 标签验证 | 资源提交 → sitemap |
+
+⚠️ **百度要求域名已备案**，这个站有（`滇ICP备2025052314号-2`）。没备案的域名在百度
+这边不是收录慢，是根本进不去。
+
+⚠️ **爬虫拿到的永远是简中那一份** —— nginx 的按语言分流把已知爬虫排除在外（见上一节），
+所以裸路径那批 URL 抓得到，`/en/`、`/tw/` 由 hreflang 指过去。**别为了「方便」把爬虫
+也跳转了**，那会让裸路径那批已收录的 URL 从索引里掉出来。
+
+#### 主动推送（可选，但百度和 Bing 明显更快）
+
+```bash
+BAIDU_TOKEN=<搜索资源平台给的 token> node scripts/ping-index.mjs
+node scripts/ping-index.mjs --dry-run     # 先看看会推什么
+```
+
+- **IndexNow**（Bing / Yandex）零配置：密钥就是仓库根下那个 `<key>.txt` 的文件名。
+  **它不是秘密**，协议要求它能被公开取到，用途只是证明「发推送的人控制着这个域名」。
+  ⚠️ 那个文件**必须跟着站点一起发布**，删了推送就 422。
+- **百度 token 是秘密**，只走环境变量，别写进仓库。
+- ⚠️ **Google 没有这种接口**。Indexing API 只收招聘和直播两类结构化数据，拿它推普通
+  网页会被忽略；Google 那边靠 sitemap，急着要的单页在 Search Console 用「请求编入索引」。
+
 ### 三种语言的地址
 
 站点现在出三份：简中在裸路径（`/`、`/client.html`、`/guide/market.html`），英文在 `/en/`，
