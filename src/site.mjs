@@ -67,7 +67,7 @@ export const FOOTER = {
 export const VERIFY = {
   google: "J3ZrsHxG8KMHLWaDZw06ETZHPgLdtRCabmwIUjJ0CH0",   // Search Console → 网址前缀 → HTML 标记，取 content 的值
   bing:   "",   // Bing 网站管理员工具 → HTML Meta 标记，取 content 的值
-  baidu:  "",   // 百度搜索资源平台 → 站点验证 → HTML 标签验证，取 content 的值
+  baidu:  "codeva-k6TiGLoYPF",   // 百度搜索资源平台 → 站点验证 → HTML 标签验证，取 content 的值
 };
 
 export const SITEMAP = {
