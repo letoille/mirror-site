@@ -45,6 +45,7 @@ shots/en/campaign.webp     ← 英文页用这张
 | `campaign` | ✅ | ✅ | 用默认 |
 | `price` | ✅ | ✅ | ✅ |
 | `wealth` | ✅ | ✅ | 用默认 |
+| `build-planner` | ✅ | ✅ | 用默认 |
 | `scan` | ✅ | ✅ | 用默认 |
 | `market` | ✅ | ✅ | ✅ |
 | `regex` | ✅ | ✅ | 用默认 |
@@ -61,6 +62,7 @@ shots/en/campaign.webp     ← 英文页用这张
 | ✅ | `wealth` | 收益统计，看清策略收益 |
 | ✅ | `build-planner` | BD 规划，自动同步游戏内天赋 |
 | ✅ | `scan` | 一键截图查价 |
+| ⬜ | `mercenary` | 佣兵查价 |
 | ✅ | `cheatsheet` | 图片快速查看 |
 | ✅ | `market` | 实时行情 |
 | ✅ | `regex` | 常用正则快速使用 |
@@ -70,7 +72,6 @@ shots/en/campaign.webp     ← 英文页用这张
 | ✅ | `timer` | 计时器 |
 | ✅ | `filter` | 过滤器 |
 | ✅ | `exchange` | 常用通货兑换比率 |
-| ⬜ | `mercenary` | 佣兵查价 |
 | ⬜ | `ai` | 一句话，找到你想要的装备魔镜市集 |
 | ⬜ | `ai-character` | BD 助手，角色分析后续开发支持 |
 | ⬜ | `ai-build` | BD 快速导入魔镜后续开发支持 |
