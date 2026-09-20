@@ -194,12 +194,12 @@ footer { position:relative; z-index:1; border-top:1px solid var(--line); padding
     .gp-badge svg { width:16px; height:16px; color:var(--gold); }
 
     /* hero mock overlay */
+    /* ⚠️ **首屏舞台不再画外框。**
+     * 那个圆角框（`::before` 的底色 + 边框 + `.stage-noise` 的点阵）是给 CSS 画的
+     * 那张示意卡当衬底的，尺寸按它定。换成实拍截图之后，四张图里最高的那张比框
+     * 还高，于是图从框里溢出来、边框横穿画面。截图自己带圆角和阴影，衬底本来就
+     * 是多余的一层。 */
     .stage { position:relative; display:flex; justify-content:center; align-items:center; min-height:430px; }
-    .stage::before { content:""; position:absolute; inset:4% 0; border-radius:16px;
-      background:radial-gradient(120% 120% at 30% 10%,rgba(60,45,20,.32),transparent 55%),radial-gradient(120% 120% at 80% 90%,rgba(30,45,80,.32),transparent 55%),#0b0d13;
-      border:1px solid var(--line); box-shadow:inset 0 0 80px rgba(0,0,0,.6); }
-    .stage-noise { position:absolute; inset:4% 0; border-radius:16px; opacity:.5; pointer-events:none;
-      background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px); background-size:5px 5px; }
     .overlay-card { position:relative; width:300px; background:rgba(10,7,3,.96); border:1px solid rgba(227,192,114,.4); border-radius:8px; overflow:hidden;
       box-shadow:0 30px 70px -25px rgba(0,0,0,.9),0 0 0 1px rgba(0,0,0,.5),0 0 40px -8px rgba(227,192,114,.25);
       animation:summon .9s cubic-bezier(.2,.9,.25,1) both,float 6s ease-in-out 1s infinite; }
