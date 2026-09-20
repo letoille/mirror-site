@@ -301,10 +301,16 @@ footer { position:relative; z-index:1; border-top:1px solid var(--line); padding
     .demo picture.ready { opacity:1; }
     /* ⚠️ `.ready` 挂在 <picture> 上而不是里面的 <img>：底下那两条是兄弟选择器，
        而 .demo-ph / .demo-hint 是 <picture> 的兄弟、不是 <img> 的。 */
+    /* ⚠️ **兜底那三样要一起退场，漏一个就压在截图上。**
+       `.demo-ph`（渐变/mock）、`.demo-hint`（「示意图待补」）、`.demo-ico`（居中
+       的线条图标）都是「还没有截图」时的替身。`.demo-ico` 曾经漏在这张表外，
+       于是 7 张卡的截图上都浮着一个图标，看起来像图挂了。 */
     .demo video.ready ~ .demo-ph,
     .demo video.ready ~ .demo-hint,
+    .demo video.ready ~ .demo-ico,
     .demo picture.ready ~ .demo-ph,
-    .demo picture.ready ~ .demo-hint { opacity:0; pointer-events:none; transition:opacity .5s; }
+    .demo picture.ready ~ .demo-hint,
+    .demo picture.ready ~ .demo-ico { opacity:0; pointer-events:none; transition:opacity .5s; }
     .demo-ph { position:absolute; inset:0; background:radial-gradient(120% 100% at 70% 20%,rgba(60,45,20,.3),transparent 55%),radial-gradient(120% 100% at 20% 90%,rgba(30,45,80,.3),transparent 55%),#0b0d13; }
     .demo-ph.shimmer::after { content:""; position:absolute; inset:0; background:linear-gradient(105deg,transparent 42%,rgba(227,192,114,.08) 50%,transparent 58%); background-size:250% 100%; animation:sweep 4.5s ease-in-out infinite; }
     .demo-hint { position:absolute; bottom:10px; left:12px; font-size:11px; color:var(--muted-2); background:rgba(0,0,0,.5); padding:4px 9px; border-radius:6px; }
