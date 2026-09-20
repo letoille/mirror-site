@@ -47,6 +47,7 @@ shots/en/campaign.webp     ← 英文页用这张
 | `wealth` | ✅ | ✅ | 用默认 |
 | `build-planner` | ✅ | ✅ | 用默认 |
 | `scan` | ✅ | ✅ | 用默认 |
+| `cheatsheet` | ✅ | ✅ | 用默认 |
 | `market` | ✅ | ✅ | ✅ |
 | `regex` | ✅ | ✅ | 用默认 |
 | `command` | ✅ | ✅ | 用默认 |
