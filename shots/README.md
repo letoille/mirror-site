@@ -46,6 +46,8 @@ shots/en/campaign.webp     ← 英文页用这张
 | `price` | ✅ | ✅ | ✅ |
 | `scan` | ✅ | ✅ | 用默认 |
 | `market` | ✅ | ✅ | ✅ |
+| `wealth` | ✅ | ✅ | 用默认 |
+| `command` | ✅ | ✅ | 用默认 |
 
 其余槽位三语共用默认那一份。
 

@@ -255,6 +255,9 @@ footer { position:relative; z-index:1; border-top:1px solid var(--line); padding
     .feature { display:grid; grid-template-columns:1fr 1.1fr; gap:44px; align-items:center;
       background:linear-gradient(160deg,var(--panel),var(--bg-soft)); border:1px solid var(--line); border-radius:22px; padding:40px; position:relative; overflow:hidden; margin-bottom:24px; }
     .feature.flip { grid-template-columns:1.1fr 1fr; }
+    /* 不配图的卡：整块通栏。`.feature` 是两栏网格，光把 .feat-media 删掉
+       会空出右边一半，看起来像图没加载出来。 */
+    .feature.solo { grid-template-columns:1fr; }
     .feature.flip .feat-media { order:-1; }
     /* portrait-demo card: media column sized so the tall vertical demo sits
        centered with breathing room on both sides */

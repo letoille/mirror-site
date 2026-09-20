@@ -369,11 +369,6 @@
     "en": "A range of commands, each bindable to a hotkey of your own",
     "tw": "支援多種快捷指令，自訂快捷鍵觸發"
   },
-  "魔镜命令条：聊天指令整理成一排按钮，点击即发送": {
-    "zh": "魔镜命令条：聊天指令整理成一排按钮，点击即发送",
-    "en": "Mirror command bar: chat commands as a row of buttons, click to send",
-    "tw": "魔鏡命令條：聊天指令整理成一排按鈕，點擊即發送"
-  },
   "物品快速搜索": {
     "zh": "物品快速搜索",
     "en": "Quick item lookup",
@@ -598,11 +593,6 @@
     "zh": "换机器或重装后登录即恢复",
     "en": "Sign in on a new machine, or after a reinstall, and they come back",
     "tw": "換機器或重裝後登入即復原"
-  },
-  "魔镜配置云同步：热键、正则预设与剧情 BD 跟随账号，换机器登录即恢复": {
-    "zh": "魔镜配置云同步：热键、正则预设与剧情 BD 跟随账号，换机器登录即恢复",
-    "en": "Mirror config sync: hotkeys, regex presets and campaign builds follow your account and come back on a new machine",
-    "tw": "魔鏡設定雲端同步：熱鍵、正規表示式預設與 BD 技能組跟隨帳號，換機器登入即復原"
   },
   "魔镜一键查价：浮层上按词缀勾选与搜索条件，直接给出官方市集实时价": {
     "zh": "魔镜一键查价：浮层上按词缀勾选与搜索条件，直接给出官方市集实时价",
