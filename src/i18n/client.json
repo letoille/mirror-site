@@ -604,31 +604,6 @@
     "en": "Mirror config sync: hotkeys, regex presets and campaign builds follow your account and come back on a new machine",
     "tw": "魔鏡設定雲端同步：熱鍵、正規表示式預設與 BD 技能組跟隨帳號，換機器登入即復原"
   },
-  "过滤自动同步": {
-    "zh": "过滤自动同步",
-    "en": "Filters keep themselves current",
-    "tw": "過濾自動同步"
-  },
-  "魔镜过滤自动同步：检测到新版本后自动装进游戏目录与 GGG 账号": {
-    "zh": "魔镜过滤自动同步：检测到新版本后自动装进游戏目录与 GGG 账号",
-    "en": "Mirror filter auto-sync: a new version is installed into the game directory and the GGG account on its own",
-    "tw": "魔鏡過濾自動同步：偵測到新版本後自動裝進遊戲目錄與 GGG 帳號"
-  },
-  "自动更新同步过滤": {
-    "zh": "自动更新同步过滤",
-    "en": "Filters sync and update on their own",
-    "tw": "自動更新同步過濾"
-  },
-  "切换不同的过滤音效": {
-    "zh": "切换不同的过滤音效",
-    "en": "Switch between sound packs",
-    "tw": "切換不同的過濾音效"
-  },
-  "支持国服与国际服过滤同步": {
-    "zh": "支持国服与国际服过滤同步",
-    "en": "Works on both the Tencent and global realms",
-    "tw": "支援國服與國際服過濾同步"
-  },
   "魔镜一键查价：浮层上按词缀勾选与搜索条件，直接给出官方市集实时价": {
     "zh": "魔镜一键查价：浮层上按词缀勾选与搜索条件，直接给出官方市集实时价",
     "en": "Mirror price check: tick modifiers and conditions on the overlay, get live official market prices",

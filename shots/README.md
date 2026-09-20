@@ -60,7 +60,6 @@ shots/en/campaign.webp     ← 英文页用这张
 | ✅ | `scan` | 一键截图查价 |
 | ✅ | `cheatsheet` | 图片快速查看 |
 | ✅ | `market` | 实时行情 |
-| ✅ | `filter-sync` | 过滤自动同步 |
 | ✅ | `regex` | 常用正则快速使用 |
 | ✅ | `command` | 快捷指令 |
 | ✅ | `unique` | 物品快速搜索 |
