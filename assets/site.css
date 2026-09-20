@@ -575,6 +575,9 @@ footer { position:relative; z-index:1; border-top:1px solid var(--line); padding
 .tool { border:1px solid var(--line); border-radius:18px; padding:26px 26px 24px;
   background:linear-gradient(160deg,var(--panel),var(--bg-soft)); transition:.2s; }
 .tool:hover { transform:translateY(-3px); border-color:var(--gold-dim); }
+/* 工具卡顶部的截图。复用 `.demo` 那一套（按语言换图、加载成功才显示、
+   点击放大、示意图兜底），这里只管它在卡里占多大、离标题多远。 */
+.tool-media { margin:-6px 0 16px; }
 .tool-head { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px; }
 .tool-head h3 { margin:0; font-size:19px; font-weight:800; }
 .tool > p { margin:0 0 16px; color:var(--muted); font-size:14px; line-height:1.75; }

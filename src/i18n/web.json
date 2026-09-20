@@ -348,5 +348,20 @@
     "zh": "BD 助手，角色分析",
     "en": "Build assistant, character analysis",
     "tw": "BD 助手，角色分析"
+  },
+  "魔镜市集搜索：选定物品类别后词缀池自动收窄，按词缀检索《流放之路》2 装备": {
+    "zh": "魔镜市集搜索：选定物品类别后词缀池自动收窄，按词缀检索《流放之路》2 装备",
+    "en": "Mirror market search: pick an item class and its modifier pool narrows itself, then search Path of Exile 2 gear by modifier",
+    "tw": "魔鏡市集搜尋：選定物品類別後詞綴池自動收窄，按詞綴檢索《流亡黯道》2 裝備"
+  },
+  "魔镜角色页：载入自己的角色跑 Path of Building，每条挂单给出 DPS 与有效血量变化": {
+    "zh": "魔镜角色页：载入自己的角色跑 Path of Building，每条挂单给出 DPS 与有效血量变化",
+    "en": "Mirror character page: load your own character into Path of Building and see each listing's DPS and EHP change",
+    "tw": "魔鏡角色頁：載入自己的角色跑 Path of Building，每條掛單給出 DPS 與有效血量變化"
+  },
+  "魔镜正则生成器：勾选词缀条件，直接生成游戏内仓库搜索框可用的表达式": {
+    "zh": "魔镜正则生成器：勾选词缀条件，直接生成游戏内仓库搜索框可用的表达式",
+    "en": "Mirror regex generator: tick the modifier conditions and get an expression for the in-game stash search box",
+    "tw": "魔鏡正則產生器：勾選詞綴條件，直接產生遊戲內倉庫搜尋框可用的表示式"
   }
 }
