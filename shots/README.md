@@ -47,6 +47,7 @@ shots/en/campaign.webp     ← 英文页用这张
 | `wealth` | ✅ | ✅ | 用默认 |
 | `build-planner` | ✅ | ✅ | 用默认 |
 | `scan` | ✅ | ✅ | 用默认 |
+| `mercenary` | ✅ | ✅ | 用默认 |
 | `cheatsheet` | ✅ | ✅ | 用默认 |
 | `market` | ✅ | ✅ | ✅ |
 | `regex` | ✅ | ✅ | 用默认 |
@@ -75,7 +76,7 @@ shots/en/campaign.webp     ← 英文页用这张
 | ✅ | `wealth` | 收益统计，看清策略收益 |
 | ✅ | `build-planner` | BD 规划，自动同步游戏内天赋 |
 | ✅ | `scan` | 一键截图查价 |
-| ⬜ | `mercenary` | 佣兵查价 |
+| ✅ | `mercenary` | 佣兵查价 |
 | ✅ | `cheatsheet` | 图片快速查看 |
 | ✅ | `market` | 实时行情 |
 | ✅ | `regex` | 常用正则快速使用 |
