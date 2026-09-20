@@ -51,11 +51,15 @@ shots/en/campaign.webp     ← 英文页用这张
 
 其余槽位三语共用默认那一份。
 
-### 首屏轮播
+### 一张卡放多张图
 
-首屏不再有自己的 `hero-*` 图，直接复用功能卡那四张：`price` → `campaign` →
-`scan` → `wealth`，最后一张是 CSS 画的兜底卡（四张实拍都在时它排在最后，
-不该是访客看到的第一屏）。补一张语言版本，首屏跟着一起换。
+功能卡里也能轮播：把 `.demo` 里换成首屏那套 `.hero-deck` / `.hero-track` /
+`.hero-slide` 结构（JS 是同一份，已经管了「加载失败就移出轨道」和「少于两张
+不画圆点」）。命名接 `-2`、`-3`，例如 `regex` + `regex-2`。
+
+⚠️ **用了 deck 的卡不要再放 `.demo-ph` / `.demo-hint`**：那两个靠兄弟选择器
+`.demo picture.ready ~ …` 退场，而 picture 现在嵌在 deck 里、不再是它们的兄弟
+—— 留着就是占位图永远压在截图上面。
 
 ## 现状
 
@@ -69,6 +73,7 @@ shots/en/campaign.webp     ← 英文页用这张
 | ✅ | `cheatsheet` | 图片快速查看 |
 | ✅ | `market` | 实时行情 |
 | ✅ | `regex` | 常用正则快速使用 |
+| ✅ | `regex-2` | 常用正则快速使用 |
 | ✅ | `command` | 快捷指令 |
 | ✅ | `unique` | 物品快速搜索 |
 | ✅ | `reward` | 攻坚收益统计 |

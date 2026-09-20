@@ -334,26 +334,6 @@
     "en": "The web generator builds one from the conditions you tick",
     "tw": "網頁正則產生器，勾選條件即可產生"
   },
-  "魔镜快捷正则：常用正则卡片浮在游戏上，一键复制到仓库或商店搜索框": {
-    "zh": "魔镜快捷正则：常用正则卡片浮在游戏上，一键复制到仓库或商店搜索框",
-    "en": "Mirror regex presets: frequently used expressions as chips over the game, copied into a stash or vendor search in one click",
-    "tw": "魔鏡快捷正則：常用正則卡片浮在遊戲上，一鍵複製到倉庫或商店搜尋框"
-  },
-  "\"生命\" \"抗性\"": {
-    "zh": "\"生命\" \"抗性\"",
-    "en": "\"life\" \"resist\"",
-    "tw": "\"生命\" \"抗性\""
-  },
-  "品质 ≥ 15": {
-    "zh": "品质 ≥ 15",
-    "en": "quality ≥ 15",
-    "tw": "品質 ≥ 15"
-  },
-  "6 插槽": {
-    "zh": "6 插槽",
-    "en": "6 sockets",
-    "tw": "6 插槽"
-  },
   "快捷指令": {
     "zh": "快捷指令",
     "en": "Quick commands",
@@ -598,5 +578,10 @@
     "zh": "魔镜一键查价：浮层上按词缀勾选与搜索条件，直接给出官方市集实时价",
     "en": "Mirror price check: tick modifiers and conditions on the overlay, get live official market prices",
     "tw": "魔鏡一鍵查價：浮層上按詞綴勾選與搜尋條件，直接給出官方市集即時價"
+  },
+  "魔镜正则预设管理：按物品种类归类，保存常用表达式随时取用": {
+    "zh": "魔镜正则预设管理：按物品种类归类，保存常用表达式随时取用",
+    "en": "Mirror regex presets: grouped by item kind, saved expressions ready to reuse",
+    "tw": "魔鏡正則預設管理：按物品種類歸類，保存常用表示式隨時取用"
   }
 }
