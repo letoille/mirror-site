@@ -235,9 +235,25 @@
       tw: { msg: "本站有繁體中文版本", go: "切換", close: "關閉" },
       en: { msg: "This site is available in English", go: "Switch", close: "Dismiss" }
     };
-    /* `<html lang>` → 我们内部那三个键 */
-    var here = { "zh-CN": "zh", "zh-Hant": "tw", en: "en" }[document.documentElement.lang];
+    /* `<html lang>` / `hreflang` → 我们内部那三个键 */
+    var langs = { "zh-CN": "zh", "zh-Hans": "zh", "zh-Hant": "tw", en: "en" };
+    var here = langs[document.documentElement.lang];
     if (!here) return;
+
+    /* ⚠️ **两个地方都要记**：`localStorage` 给这条提示条自己用，cookie 给 nginx 用
+       —— 裸根 `/` 的按语言跳转在服务器上判，而服务器读不到 localStorage。少写一个，
+       用户就会「明明选过了，下次打开首页又被送去另一份」。 */
+    var remember = function (lang) {
+      try { localStorage.setItem(KEY, "1"); } catch (e) {}
+      document.cookie = "mirror_lang=" + (lang || here) +
+        ";path=/;max-age=31536000;SameSite=Lax";
+    };
+    /* ⚠️ 切换器始终记录选择，不能被下面「不显示提示条」的提前返回跳过。 */
+    document.querySelectorAll(".lang-switch a").forEach(function (el) {
+      el.addEventListener("click", function () {
+        remember(langs[el.getAttribute("hreflang")] || here);
+      });
+    });
 
     try { if (localStorage.getItem(KEY)) return; } catch (e) {}
 
@@ -273,22 +289,8 @@
     bar.appendChild(a);
     bar.appendChild(x);
 
-    /* ⚠️ **两个地方都要记**：`localStorage` 给这条提示条自己用，cookie 给 nginx 用
-       —— 裸根 `/` 的按语言跳转在服务器上判，而服务器读不到 localStorage。少写一个，
-       用户就会「明明选过了，下次打开首页又被送去另一份」。 */
-    var remember = function (lang) {
-      try { localStorage.setItem(KEY, "1"); } catch (e) {}
-      document.cookie = "mirror_lang=" + (lang || here) +
-        ";path=/;max-age=31536000;SameSite=Lax";
-    };
     a.addEventListener("click", function () { remember(want); });
     x.addEventListener("click", function () { remember(here); bar.remove(); });
-    /* 用过语言切换器 = 已经做出选择，别再提示 */
-    document.querySelectorAll(".lang-switch a").forEach(function (el) {
-      el.addEventListener("click", function () {
-        remember({ "zh-CN": "zh", "zh-Hant": "tw", en: "en" }[el.getAttribute("hreflang")] || here);
-      });
-    });
     document.body.insertBefore(bar, document.body.firstChild);
   })();
 

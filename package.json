@@ -6,7 +6,8 @@
     "dev": "node build.mjs --watch --serve",
     "serve": "node build.mjs --serve",
     "build": "node build.mjs && node check.mjs",
-    "check": "node check.mjs"
+    "check": "node check.mjs",
+    "test": "node --test scripts/*.test.mjs"
   },
   "dependencies": {
     "markdown-it": "^14.1.0"
