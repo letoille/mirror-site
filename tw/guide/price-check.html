@@ -23,7 +23,7 @@
   <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512" />
   <link rel="apple-touch-icon" href="/favicon.png" />
   <meta name="theme-color" content="#08090d" />
-  <link rel="stylesheet" href="/assets/site.css?v=51f57740ce" />
+  <link rel="stylesheet" href="/assets/site.css?v=50d65c39d3" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -39,7 +39,7 @@
   <meta name="twitter:title" content="流亡黯道 2 怎麼查一件裝備值多少錢 — 魔鏡查價指南" />
   <meta name="twitter:description" content="《流亡黯道》2 怎麼查價：停在物品上按 Ctrl+E，讀懂浮層每一行，為什麼全勾詞綴會搜不到東西，綜合詞綴怎麼用。" />
   <meta name="twitter:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
-
+  <link rel="alternate" type="text/markdown" href="https://mirror.kalandraeye.com/tw/guide/price-check.md" title="Markdown" />
   <!-- Google Analytics 4 -->
   <script>
     window.GA_ID = "G-CYBLTV2J69";
@@ -62,7 +62,7 @@
     <div class="embers" id="embers"></div>
   </div>
 
-  <nav class="nav" id="nav">
+  <nav class="nav" id="nav" lang="zh-Hant">
     <div class="wrap nav-inner">
       <a class="brand" href="/tw/">
         <img src="/assets/logo.png" alt="魔鏡" />
@@ -85,11 +85,11 @@
   </nav>
 
 <main class="prose-page"><div class="wrap">
-<h1>怎麼查一件裝備值多少錢</h1>
+<h1 id="怎麼查一件裝備值多少錢">怎麼查一件裝備值多少錢</h1>
 <p>《流亡黯道》沒有官方定價。一件裝備的價值取決於<strong>目前有多少人掛出條件相近的物品、定價幾何</strong>。因此「查價」本質上是一次交易行檢索：將該裝備的特徵轉換為搜尋條件，再觀察回傳掛單的開價區間。</p>
 <p>手動完成這一流程需要：在遊戲內複製物品 → 開啟交易網站 → 從上千條詞綴中定位相關條目 → 逐條勾選 → 填寫數值下限 → 執行搜尋。單件約一分鐘，整個背包則需半小時。</p>
 <p>魔鏡將該流程壓縮為一個熱鍵。</p>
-<h2>操作步驟</h2>
+<h2 id="操作步驟">操作步驟</h2>
 <ol>
 <li>啟動魔鏡客戶端並保持背景執行（它不會奪取遊戲焦點）</li>
 <li>在遊戲內將滑鼠<strong>停在</strong>目標裝備上</li>
@@ -99,11 +99,11 @@
 <blockquote>
 <p>熱鍵可在客戶端「快捷鍵」頁修改，亦可綁定至手把——所有功能均支援手把按鍵觸發。</p>
 </blockquote>
-<h2>浮層各項說明</h2>
+<h2 id="浮層各項說明">浮層各項說明</h2>
 <p><strong>詞綴按類型分色。</strong> 破裂、工藝、汙染各有對應顏色，因其價值差異顯著：一條高階破裂詞綴的價值可能超過該裝備其餘部分之和；而工藝詞綴為買家自行可加，通常不計入溢價。</p>
 <p><strong>每條詞綴前設有核取方塊。</strong> 預設僅勾選數條，此為有意設計，原因見下節。</p>
 <p><strong>數值可設定下限。</strong> 勾選「最大生命」後，浮層將依該裝備實際滾出的數值給出下限；可手動下調，以擴大結果範圍、增加樣本量。</p>
-<h2>為何不應全部勾選</h2>
+<h2 id="為何不應全部勾選">為何不應全部勾選</h2>
 <p>全部勾選等同於詢問「市場上是否存在與此<strong>完全一致</strong>的物品」。答案通常是否定的，檢索回傳零條結果——而零條結果並不代表價格高，它代表<strong>未獲得任何資訊</strong>。</p>
 <p>更有效的提問方式是「與此<strong>條件相近</strong>的物品成交價幾何」。因此：</p>
 <ul>
@@ -112,28 +112,29 @@
 <li>適度下調數值下限，以取得足夠樣本</li>
 </ul>
 <p>這一步是查價流程中唯一需要判斷的環節，也是魔鏡不代為決定的原因：哪些詞綴具備價值，取決於目前版本、目前賽季，以及市場上正在流行的配裝。</p>
-<h2>綜合詞綴：一次檢索「總抗性」</h2>
+<h2 id="綜合詞綴-一次檢索-總抗性">綜合詞綴：一次檢索「總抗性」</h2>
 <p>買家選購戒指時，考量的通常不是「火抗 ≥ 30」，而是三抗總和是否達標。交易站原生支援該問法，稱為<strong>綜合詞綴</strong>（pseudo）——總元素抗性、總生命等。</p>
 <p>浮層將這些條目單獨列出，點擊即可加入檢索條件。相比逐條勾選抗性，使用綜合詞綴更為準確，因為市場定價依據的正是總量。</p>
-<h2>若干特殊情形</h2>
+<h2 id="若干特殊情形">若干特殊情形</h2>
 <p><strong>未鑑定傳奇。</strong> 此類物品沒有名稱，交易站亦不為未鑑定物品索引名稱，因此只能按「基底 + 未鑑定」檢索，其結果本質上是一個<strong>賭性定價</strong>。魔鏡會由基底反查該基底可產出的全部傳奇並列出，選定後整條查詢才切換至對應檔位。</p>
 <p><strong>關聯物品。</strong> 檢索碎片、門票或傳奇時，浮層會一併列出上游資料中與其同組的物品及價格，便於比較。須注意該關係表示「相關」，並不代表「此物必定產出彼物」。</p>
 <p><strong>分解粉塵</strong>（流亡黯道 1）。傳奇在君鋒鎮分解可得的粉塵數量直接計算於浮層上——部分情況下分解收益高於直接出售。</p>
-<h2>檢索完成之後</h2>
+<h2 id="檢索完成之後">檢索完成之後</h2>
 <p>浮層底部提供數個出口：</p>
 <ul>
 <li><strong>Search</strong> —— 以目前勾選條件在官方市集開啟，篩選條件原樣帶入</li>
 <li><strong>兩個市集入口</strong> —— 其一攜帶 GGG 的存檔 id（將消耗一次搜尋配額），其二攜帶<strong>查詢本身</strong>進入<a href="/tw/guide/market.html">魔鏡市集</a>，在該處表單以可編輯副本形式呈現，可繼續調整</li>
 </ul>
-<h2>批次檢索整螢幕物品</h2>
+<h2 id="批次檢索整螢幕物品">批次檢索整螢幕物品</h2>
 <p>逐件停留效率有限。按下 <kbd>Ctrl</kbd> + <kbd>D</kbd> 擷取目前畫面一幀，魔鏡將<strong>在本機</strong>辨識螢幕上的全部物品名並批次查價，約一至兩秒回傳結果。截圖不會上傳。</p>
 <p>該路徑僅依據名稱辨識，因此適用於通貨、傳奇、命運卡等由名稱決定價格的物品；帶隨機詞綴的裝備仍需逐件停留查詢。</p>
 <hr>
 <p><strong>下一篇</strong>：<a href="/tw/guide/market.html">魔鏡市集怎麼用</a> · <a href="/tw/guide/loot-filter.html">掉落過濾器怎麼裝</a></p>
 
+<p class="guide-image-note"><a href="/tw/guide/price-check.md" type="text/markdown">Markdown</a></p>
 </div></main>
 
-  <footer>
+  <footer lang="zh-Hant">
     <div class="wrap">
       <div class="foot-inner">
         <a class="brand" href="/tw/">
@@ -161,7 +162,7 @@
     </div>
   </footer>
 
-  <script src="/assets/shell.js?v=2b03f16bb3" defer></script>
+  <script src="/assets/shell.js?v=d56964bb7d" defer></script>
 
 </body>
 </html>

@@ -36,7 +36,7 @@
 ```bash
 pnpm install     # 只装一个 markdown-it
 pnpm dev         # 改了就重建 + http://127.0.0.1:8765（本地开发用这个）
-pnpm build       # src/pages/** → 仓库根下的 HTML + sitemap.xml，并跑自检
+pnpm build       # src/pages/** → HTML、sitemap.xml、指南 Markdown 和 llms.txt，并跑自检
 pnpm serve       # 只起服务器，不监听
 pnpm check       # 只跑产物自检
 ```
@@ -74,9 +74,9 @@ shots/              功能卡配图（见 shots/README.md）
    （`/guide/**` 自动进，用 `GUIDE_DEFAULT` 的权重）
 4. `pnpm build`
 
-### 三种语言
+### 站点语言与独立译文
 
-九条路由现在都出三份：简中裸路径、英文 `/en/*`、繁中 `/tw/*`。加一页的话，三种各写一个文件即可。
+站点栏目提供简中裸路径、英文 `/en/*`、繁中 `/tw/*`。指南可以按需增加 `.ja.md` 日文译文，生成 `/ja/guide/*.html`；目前不生成日文首页或指南目录，日文文章的站点导航指向已有英文页面。
 
 - **简中是裸路径**（`/client.html`），因为那几个地址已经在被收录，搬走等于重来一轮
 - **语言首页带尾斜杠**（`/en/`，不是 `/en`）—— 磁盘上就是 `en/index.html`，nginx 不用额外配
@@ -98,6 +98,14 @@ shots/              功能卡配图（见 shots/README.md）
   指南页（`.md`）不比：那是正文，段落数本来就该随语言不同
 
 改设计页的流程：改简中 → `extract` → 补 `src/i18n/<页>.json` 里新增的那几条 → `apply` → `build`。
+
+### 供 AI / LLM 读取的正文
+
+- 指南的 HTML 仍是主页面，正文静态输出，不依赖 JavaScript 加载；标题带稳定的章节锚点。
+- 每篇指南自动导出同路径的 `.md`：例如 `/ja/guide/international-starter.md`。内容直接从文章源码生成，包含规范 HTML 地址与语言，去掉导航和图片容器，并保留截图说明和来源链接。
+- HTML 的 `rel="alternate" type="text/markdown"` 与正文底部的 Markdown 链接指向该版本；入坑指南的 Article 结构化数据也声明 Markdown 编码版本。
+- 根目录 `llms.txt` 自动列出所有已发布指南及语言版本。它是辅助发现入口，不是爬虫权限协议，也不保证模型收录或引用。
+- HTML、`.md`、`llms.txt` 和 sitemap 都是构建产物，需要一起提交。生产 nginx 的 Markdown MIME 与 HTTP canonical 配置见 [DEPLOY.md](DEPLOY.md) 的站点配置示例；本地预览服务器已提供这些响应头。
 
 ## 更新安装包
 

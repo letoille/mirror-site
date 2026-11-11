@@ -1,7 +1,7 @@
 ---
 title: Mirror Guides — Price Checking, Loot Filters, Regex and Wealth Tracking in Path of Exile
-description: Mirror guides for Path of Exile 2: how to price an item, install a loot filter, search the trade market, and generate stash regex. One page each.
-keywords: how to use mirror,poe2 price check guide,poe2 price checker tutorial,how to install loot filter,poe2 filter install,waystone regex,stash regex,wealth tracking,profit tracking,build planner import,trade search guide,character try-on,beginner guide
+description: Guides for Path of Exile 1 and 2: getting started, official downloads, essential tools, price checking, loot filters, trade search and stash regex, with screenshots.
+keywords: Path of Exile getting started,POE1 beginner guide,POE2 beginner guide,how to use mirror,poe2 price check guide,poe2 price checker tutorial,how to install loot filter,poe2 filter install,waystone regex,stash regex,wealth tracking,profit tracking,build planner import,trade search guide,character try-on,beginner guide
 ---
 
 # Guides
@@ -9,6 +9,7 @@ keywords: how to use mirror,poe2 price check guide,poe2 price checker tutorial,h
 ## Getting started
 
 <ul class="guide-grid">
+<li class="guide-start"><a href="/en/guide/international-starter.html"><i>Start here</i>Getting started with Path of Exile<small>Downloads, price checking, loot filters, trade search, poe.ninja builds and PoEDB</small></a></li>
 <li><span><i>01</i>Installing Mirror and starting it the first time<small>Download, pick your game and realm, and why the Tencent realm needs administrator rights</small><em>Coming soon</em></span></li>
 <li><a href="/en/guide/price-check.html"><i>02</i>How to find out what an item is worth<small>Hover, press the hotkey, read every line on the overlay — and why you should not tick every modifier</small></a></li>
 <li><a href="/en/guide/loot-filter.html"><i>03</i>How to install a loot filter<small>Which of the three to pick, what the sound versions are, and how one-click install differs from copying it in yourself</small></a></li>

@@ -23,7 +23,7 @@
   <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512" />
   <link rel="apple-touch-icon" href="/favicon.png" />
   <meta name="theme-color" content="#08090d" />
-  <link rel="stylesheet" href="/assets/site.css?v=51f57740ce" />
+  <link rel="stylesheet" href="/assets/site.css?v=50d65c39d3" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -39,7 +39,7 @@
   <meta name="twitter:title" content="How to Tell What an Item Is Worth in Path of Exile 2 — Mirror Price-Check Guide" />
   <meta name="twitter:description" content="How to price-check an item in Path of Exile 2: hover, press Ctrl+E, read the overlay, and why ticking every modifier returns zero results." />
   <meta name="twitter:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
-
+  <link rel="alternate" type="text/markdown" href="https://mirror.kalandraeye.com/en/guide/price-check.md" title="Markdown" />
   <!-- Google Analytics 4 -->
   <script>
     window.GA_ID = "G-CYBLTV2J69";
@@ -62,7 +62,7 @@
     <div class="embers" id="embers"></div>
   </div>
 
-  <nav class="nav" id="nav">
+  <nav class="nav" id="nav" lang="en">
     <div class="wrap nav-inner">
       <a class="brand" href="/en/">
         <img src="/assets/logo.png" alt="Mirror" />
@@ -85,11 +85,11 @@
   </nav>
 
 <main class="prose-page"><div class="wrap">
-<h1>How to tell what an item is worth</h1>
+<h1 id="how-to-tell-what-an-item-is-worth">How to tell what an item is worth</h1>
 <p>Path of Exile has no official prices. An item's value depends on <strong>how many comparable items are currently listed, and at what price</strong>. Pricing is therefore a trade search: translate the item's attributes into search conditions, then observe the range the returned listings ask for.</p>
 <p>Performing this manually requires copying the item in game, opening the trade site, locating the relevant entries among thousands of modifiers, selecting each one, entering minimum values and running the search. Roughly a minute per item; half an hour for a stash tab.</p>
 <p>Mirror compresses that into a single hotkey.</p>
-<h2>Procedure</h2>
+<h2 id="procedure">Procedure</h2>
 <ol>
 <li>Start the Mirror client and leave it running in the background (it does not take focus from the game)</li>
 <li><strong>Hover</strong> the target item in game</li>
@@ -99,11 +99,11 @@
 <blockquote>
 <p>The hotkey can be changed on the client's <strong>Shortcuts</strong> page, or bound to a gamepad — every feature supports gamepad triggers.</p>
 </blockquote>
-<h2>Reading the overlay</h2>
+<h2 id="reading-the-overlay">Reading the overlay</h2>
 <p><strong>Modifiers are colour-coded by type.</strong> Fractured, crafted and corrupted each have their own colour, because their value differs substantially: a high-tier fractured modifier can be worth more than the rest of the item combined, whereas crafted modifiers can be added by the buyer and generally carry no premium.</p>
 <p><strong>Each modifier has a checkbox.</strong> Only a few are selected by default. This is deliberate; the reason follows below.</p>
 <p><strong>Values accept a lower bound.</strong> Selecting &quot;maximum Life&quot; proposes a floor based on what the item actually rolled. It can be lowered manually to widen the result set and increase the sample.</p>
-<h2>Why not select everything</h2>
+<h2 id="why-not-select-everything">Why not select everything</h2>
 <p>Selecting everything asks whether the market holds an item <strong>identical</strong> to this one. Usually it does not, and the search returns nothing — and an empty result does not indicate a high price, it indicates <strong>no information at all</strong>.</p>
 <p>The more useful question is what <strong>comparable</strong> items sell for. Therefore:</p>
 <ul>
@@ -112,28 +112,29 @@
 <li>Lower the minimums moderately, to obtain a sufficient sample</li>
 </ul>
 <p>This is the only step in the process that calls for judgement, and the reason Mirror does not decide on your behalf: which modifiers carry value depends on the patch, the league, and which builds the market is currently assembling.</p>
-<h2>Pseudo modifiers: searching &quot;total resistance&quot; in one step</h2>
+<h2 id="pseudo-modifiers-searching-total-resistance-in-one-step">Pseudo modifiers: searching &quot;total resistance&quot; in one step</h2>
 <p>When buying a ring, a player rarely thinks &quot;fire resistance ≥ 30&quot;; they consider whether the three resistances sum to enough. The trade site supports this natively — these are <strong>pseudo modifiers</strong>: total elemental resistance, total life, and so on.</p>
 <p>The overlay lists them separately, and a click adds them to the search. They are more accurate than selecting resistances individually, because the market prices the total rather than the parts.</p>
-<h2>Special cases</h2>
+<h2 id="special-cases">Special cases</h2>
 <p><strong>Unidentified uniques.</strong> These have no name, and the trade site does not index names for unidentified items, so the only available search is &quot;base type + unidentified&quot; — which is fundamentally <strong>a speculative price</strong>. Mirror derives every unique that base can produce and lists them; selecting one switches the whole query to that tier.</p>
 <p><strong>Related items.</strong> When pricing a fragment, ticket or unique, the overlay also lists items grouped with it in the upstream data, prices included. Note that this relationship means &quot;related&quot;, not &quot;this necessarily drops that&quot;.</p>
 <p><strong>Thaumaturgic Dust</strong> (Path of Exile 1). The amount of dust a unique disenchants into is computed directly on the overlay — in some cases disenchanting yields more than selling.</p>
-<h2>After the search</h2>
+<h2 id="after-the-search">After the search</h2>
 <p>Several exits are provided along the bottom of the overlay:</p>
 <ul>
 <li><strong>Search</strong> — opens the official trade site with the current conditions, filters carried over intact</li>
 <li><strong>Two market entries</strong> — one carries GGG's saved-search id (which consumes a search from your quota); the other carries <strong>the query itself</strong> into <a href="/en/guide/market.html">Mirror Market</a>, where it arrives as an editable copy you can continue to adjust</li>
 </ul>
-<h2>Pricing a whole screen at once</h2>
+<h2 id="pricing-a-whole-screen-at-once">Pricing a whole screen at once</h2>
 <p>Hovering items individually is slow. Pressing <kbd>Ctrl</kbd> + <kbd>D</kbd> captures one frame; Mirror recognises every item name on it <strong>locally</strong> and prices them in bulk, returning results in one to two seconds. The capture is not uploaded.</p>
 <p>That path identifies items by name only, so it suits currency, uniques and divination cards — items whose name determines the price. Gear with random modifiers still requires an individual hover.</p>
 <hr>
 <p><strong>Next</strong>: <a href="/en/guide/market.html">Using Mirror Market</a> · <a href="/en/guide/loot-filter.html">Installing a loot filter</a></p>
 
+<p class="guide-image-note"><a href="/en/guide/price-check.md" type="text/markdown">Markdown</a></p>
 </div></main>
 
-  <footer>
+  <footer lang="en">
     <div class="wrap">
       <div class="foot-inner">
         <a class="brand" href="/en/">
@@ -161,7 +162,7 @@
     </div>
   </footer>
 
-  <script src="/assets/shell.js?v=2b03f16bb3" defer></script>
+  <script src="/assets/shell.js?v=d56964bb7d" defer></script>
 
 </body>
 </html>

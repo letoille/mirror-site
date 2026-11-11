@@ -23,7 +23,7 @@
   <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512" />
   <link rel="apple-touch-icon" href="/favicon.png" />
   <meta name="theme-color" content="#08090d" />
-  <link rel="stylesheet" href="/assets/site.css?v=51f57740ce" />
+  <link rel="stylesheet" href="/assets/site.css?v=50d65c39d3" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -39,7 +39,7 @@
   <meta name="twitter:title" content="流亡黯道 2 掉落過濾器怎麼裝 — 魔鏡 / NeverSink 定製版指南" />
   <meta name="twitter:description" content="《流亡黯道》2 掉落過濾器怎麼裝：開荒 / 刷圖 / 速刷三份怎麼選，語音版是什麼，一鍵安裝和手動放進遊戲目錄的區別。" />
   <meta name="twitter:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
-
+  <link rel="alternate" type="text/markdown" href="https://mirror.kalandraeye.com/tw/guide/loot-filter.md" title="Markdown" />
   <!-- Google Analytics 4 -->
   <script>
     window.GA_ID = "G-CYBLTV2J69";
@@ -62,7 +62,7 @@
     <div class="embers" id="embers"></div>
   </div>
 
-  <nav class="nav" id="nav">
+  <nav class="nav" id="nav" lang="zh-Hant">
     <div class="wrap nav-inner">
       <a class="brand" href="/tw/">
         <img src="/assets/logo.png" alt="魔鏡" />
@@ -85,10 +85,10 @@
   </nav>
 
 <main class="prose-page"><div class="wrap">
-<h1>掉落過濾器怎麼裝</h1>
+<h1 id="掉落過濾器怎麼裝">掉落過濾器怎麼裝</h1>
 <p>《流亡黯道》2 中，單張地圖掉落的物品絕大多數不具備撿取價值。掉落過濾器決定<strong>哪些顯示、哪些完全不繪製於地面</strong>，並可為高價值物品附加提示音與光柱。</p>
 <p>這是本作中<strong>效益最高的一項設定</strong>：一次安裝，此後每張地圖均可節省時間。</p>
-<h2>我們發的是什麼</h2>
+<h2 id="我們發的是什麼">我們發的是什麼</h2>
 <p>我們不自行撰寫過濾規則，而是轉發 <strong><a href="https://github.com/NeverSinkDev">NeverSink</a></strong> 的版本——社群公認的那一份，採用 MIT 授權。我們所做的是依據目前經濟資料定製，並劃分為三份：</p>
 <table>
 <thead>
@@ -115,14 +115,14 @@
 <p>每一份另提供<strong>帶語音的版本</strong>：高價值物品掉落時給出語音提示。</p>
 <p>⚠️ 語音版只有《流亡黯道》2 有。POE1 不支援自訂提示音，所以那幾份不會出現在介面裡。</p>
 <p><strong>三份可同時安裝</strong>，遊戲內隨時切換，無需預先取捨：開荒階段使用開荒，進入刷圖階段後更換即可。</p>
-<h2>方式一：客戶端一鍵安裝（建議）</h2>
+<h2 id="方式一-客戶端一鍵安裝-建議">方式一：客戶端一鍵安裝（建議）</h2>
 <p>打開魔鏡客戶端 →「過濾」頁 → 選一份 → 裝。</p>
 <p>客戶端將執行兩項操作：寫入遊戲目錄，並推送至你的 GGG 帳號，以便在其他裝置登入時同樣可用。裝入遊戲後的名稱形如 <code>魔鏡 - 開荒</code>，帶語音的版本為 <code>魔鏡 - 開荒語音版</code>。</p>
 <p>此後客戶端將持續追蹤版本：上游更新、介面語言變更或語音包更換時，均會提示重新安裝。</p>
 <blockquote>
 <p>查看是否存在新版本無需登入；<strong>安裝</strong>則需要登入並開通。兩者分開處理：過濾檔案本身不收費，詳見下一節。</p>
 </blockquote>
-<h2>方式二：手動放入目錄</h2>
+<h2 id="方式二-手動放入目錄">方式二：手動放入目錄</h2>
 <p>若不希望登入，或僅需試用，可直接下載檔案：</p>
 <p><strong><a href="https://trade.kalandraeye.com/tw/filters">trade.kalandraeye.com/tw/filters</a></strong></p>
 <p>三份及其語音版均可自由下載。下載後放入：</p>
@@ -130,26 +130,27 @@
 </code></pre>
 <p>⚠️ 若已啟用 OneDrive 備份，<code>Documents</code> 可能已被重新導向至其他位置。請以遊戲內能否識別為準，不要手動拼接路徑。</p>
 <p>語音版的 mp3 也放同一個目錄。</p>
-<h2>在遊戲裡切換</h2>
+<h2 id="在遊戲裡切換">在遊戲裡切換</h2>
 <p><kbd>Esc</kbd> → <strong>選項</strong> → <strong>介面</strong> → 從下拉選單裡選中它。</p>
 <p>安裝幾份即有幾個選項，可隨時切換，無需重開遊戲。</p>
-<h2>什麼時候該換一份</h2>
+<h2 id="什麼時候該換一份">什麼時候該換一份</h2>
 <ul>
 <li><strong>地面物品過多、難以辨識</strong> → 向「速刷」方向調整</li>
 <li><strong>疑似遺漏應撿取的物品</strong> → 向「開荒」方向調整</li>
 <li><strong>賽季初</strong> → 先用開荒，T15 穩定後更換為刷圖</li>
 <li><strong>上游更新</strong> → 客戶端會提示；手動安裝者可定期查看下載頁</li>
 </ul>
-<h2>常見問題</h2>
+<h2 id="常見問題">常見問題</h2>
 <p><strong>安裝後沒有變化。</strong> 請先確認遊戲內已選中該過濾器（見上一節三步）。過濾器不會自動生效，必須在選項中選定。</p>
 <p><strong>沒有提示音。</strong> mp3 需與過濾檔案位於同一目錄。此外我們疊加的是「可選提示音」，檔案缺失不會使整條規則失聲，因此也可能只是未觸發該條規則。</p>
 <p><strong>是否存在封號風險。</strong> 掉落過濾器是<strong>遊戲官方支援的功能</strong>，Esc 選單中的下拉選單即由官方提供。它只是一個文字檔，不接觸遊戲行程。</p>
 <hr>
 <p><strong>下一篇</strong>：<a href="/tw/guide/price-check.html">怎麼查一件裝備值多少錢</a> · <a href="/tw/guide/market.html">魔鏡市集怎麼用</a></p>
 
+<p class="guide-image-note"><a href="/tw/guide/loot-filter.md" type="text/markdown">Markdown</a></p>
 </div></main>
 
-  <footer>
+  <footer lang="zh-Hant">
     <div class="wrap">
       <div class="foot-inner">
         <a class="brand" href="/tw/">
@@ -177,7 +178,7 @@
     </div>
   </footer>
 
-  <script src="/assets/shell.js?v=2b03f16bb3" defer></script>
+  <script src="/assets/shell.js?v=d56964bb7d" defer></script>
 
 </body>
 </html>

@@ -23,7 +23,7 @@
   <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512" />
   <link rel="apple-touch-icon" href="/favicon.png" />
   <meta name="theme-color" content="#08090d" />
-  <link rel="stylesheet" href="/assets/site.css?v=51f57740ce" />
+  <link rel="stylesheet" href="/assets/site.css?v=50d65c39d3" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -39,7 +39,7 @@
   <meta name="twitter:title" content="流放之路 2 掉落过滤器怎么装 — 魔镜 / NeverSink 定制版指南" />
   <meta name="twitter:description" content="《流放之路》2 掉落过滤器怎么装：开荒 / 刷图 / 速刷三份怎么选，语音版是什么，一键安装和手动放进游戏目录的区别。" />
   <meta name="twitter:image" content="https://mirror.kalandraeye.com/assets/logo.png" />
-
+  <link rel="alternate" type="text/markdown" href="https://mirror.kalandraeye.com/guide/loot-filter.md" title="Markdown" />
   <!-- Google Analytics 4 -->
   <script>
     window.GA_ID = "G-CYBLTV2J69";
@@ -62,7 +62,7 @@
     <div class="embers" id="embers"></div>
   </div>
 
-  <nav class="nav" id="nav">
+  <nav class="nav" id="nav" lang="zh-Hans">
     <div class="wrap nav-inner">
       <a class="brand" href="/">
         <img src="/assets/logo.png" alt="魔镜" />
@@ -85,10 +85,10 @@
   </nav>
 
 <main class="prose-page"><div class="wrap">
-<h1>掉落过滤器怎么装</h1>
+<h1 id="掉落过滤器怎么装">掉落过滤器怎么装</h1>
 <p>《流放之路》2 中，单张地图掉落的物品绝大多数不具备拾取价值。掉落过滤器决定<strong>哪些显示、哪些完全不绘制于地面</strong>，并可为高价值物品附加提示音与光柱。</p>
 <p>这是本作中<strong>收益最高的一项配置</strong>：一次安装，此后每张地图均可节省时间。</p>
-<h2>我们发的是什么</h2>
+<h2 id="我们发的是什么">我们发的是什么</h2>
 <p>我们不自行编写过滤规则，而是转发 <strong><a href="https://github.com/NeverSinkDev">NeverSink</a></strong> 的版本——社区公认的那一份，采用 MIT 许可。我们所做的是依据当前经济数据定制，并划分为三份：</p>
 <table>
 <thead>
@@ -115,14 +115,14 @@
 <p>每一份另提供<strong>带语音的版本</strong>：高价值物品掉落时给出语音提示。</p>
 <p>⚠️ 语音版只有《流放之路》2 有。POE1 不支持自定义提示音，所以那几份不会出现在界面里。</p>
 <p><strong>三份可同时安装</strong>，游戏内随时切换，无需预先取舍：开荒阶段使用开荒，进入刷图阶段后更换即可。</p>
-<h2>方式一：客户端一键安装（推荐）</h2>
+<h2 id="方式一-客户端一键安装-推荐">方式一：客户端一键安装（推荐）</h2>
 <p>打开魔镜客户端 →「过滤」页 → 选一份 → 装。</p>
 <p>客户端将执行两项操作：写入游戏目录，并推送至你的 GGG 账号，以便在其他设备登录时同样可用。装入游戏后的名称形如 <code>魔镜 - 开荒</code>，带语音的版本为 <code>魔镜 - 开荒语音版</code>。</p>
 <p>此后客户端将持续跟踪版本：上游更新、界面语言变更或语音包更换时，均会提示重新安装。</p>
 <blockquote>
 <p>查看是否存在新版本无需登录；<strong>安装</strong>则需要登录并开通。二者分开处理：过滤文件本身不收费，详见下一节。</p>
 </blockquote>
-<h2>方式二：手动放入目录</h2>
+<h2 id="方式二-手动放入目录">方式二：手动放入目录</h2>
 <p>若不希望登录，或仅需试用，可直接下载文件：</p>
 <p><strong><a href="https://trade.kalandraeye.com/filters">trade.kalandraeye.com/filters</a></strong></p>
 <p>三份及其语音版均可自由下载。下载后放入：</p>
@@ -130,26 +130,27 @@
 </code></pre>
 <p>⚠️ 若已启用 OneDrive 备份，<code>Documents</code> 可能已被重定向至其他位置。请以游戏内能否识别为准，不要手动拼接路径。</p>
 <p>语音版的 mp3 也放同一个目录。</p>
-<h2>在游戏里切换</h2>
+<h2 id="在游戏里切换">在游戏里切换</h2>
 <p><kbd>Esc</kbd> → <strong>选项</strong> → <strong>界面</strong> → 从下拉框里选中它。</p>
 <p>安装几份即有几个选项，可随时切换，无需重启游戏。</p>
-<h2>什么时候该换一份</h2>
+<h2 id="什么时候该换一份">什么时候该换一份</h2>
 <ul>
 <li><strong>地面物品过多、难以辨识</strong> → 向「速刷」方向调整</li>
 <li><strong>疑似遗漏应拾取的物品</strong> → 向「开荒」方向调整</li>
 <li><strong>赛季初</strong> → 先用开荒，T15 稳定后更换为刷图</li>
 <li><strong>上游更新</strong> → 客户端会提示；手动安装者可定期查看下载页</li>
 </ul>
-<h2>常见问题</h2>
+<h2 id="常见问题">常见问题</h2>
 <p><strong>安装后没有变化。</strong> 请先确认游戏内已选中该过滤器（见上一节三步）。过滤器不会自动生效，必须在选项中选定。</p>
 <p><strong>没有提示音。</strong> mp3 需与过滤文件位于同一目录。此外我们叠加的是「可选提示音」，文件缺失不会使整条规则失声，因此也可能只是未触发该条规则。</p>
 <p><strong>是否存在封号风险。</strong> 掉落过滤器是<strong>游戏官方支持的功能</strong>，Esc 菜单中的下拉列表即由官方提供。它只是一个文本文件，不接触游戏进程。</p>
 <hr>
 <p><strong>下一篇</strong>：<a href="/guide/price-check.html">怎么查一件装备值多少钱</a> · <a href="/guide/market.html">魔镜市集怎么用</a></p>
 
+<p class="guide-image-note"><a href="/guide/loot-filter.md" type="text/markdown">Markdown</a></p>
 </div></main>
 
-  <footer>
+  <footer lang="zh-Hans">
     <div class="wrap">
       <div class="foot-inner">
         <a class="brand" href="/">
@@ -177,7 +178,7 @@
     </div>
   </footer>
 
-  <script src="/assets/shell.js?v=2b03f16bb3" defer></script>
+  <script src="/assets/shell.js?v=d56964bb7d" defer></script>
 
 </body>
 </html>

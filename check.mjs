@@ -9,7 +9,7 @@ import { join } from "node:path";
 const walk = (d, out = []) => {
   for (const n of readdirSync(d)) {
     const f = join(d, n);
-    if (statSync(f).isDirectory()) { if (!["node_modules", "src", ".git", "assets", "demos", "download", "preview", "shots"].includes(n)) walk(f, out); }
+    if (statSync(f).isDirectory()) { if (!["node_modules", "src", ".git", "assets", "demos", "download", "preview", "drafts", "shots"].includes(n)) walk(f, out); }
     else if (n.endsWith(".html")) out.push(f);
   }
   return out;
@@ -18,7 +18,7 @@ const walk = (d, out = []) => {
 /** 英文页上**合法**的中日韩字符：语言切换器的按钮、品牌名、法定备案号。 */
 /* ⚠️ 备案号**不在**白名单里：它现在只发给简中那一份（`build.mjs` 的 `beian`），
    所以它出现在英文页上一定是回归，白名单会把这件事盖掉。 */
-const CJK_OK = /^(简体|繁體|魔镜|魔鏡)$/;
+const CJK_OK = /^(简体|繁體|日本語|魔镜|魔鏡)$/;
 
 const VOID = new Set(["area","base","br","col","embed","hr","img","input","link","meta","param","source","track","wbr"]);
 function unbalanced(html) {
@@ -61,7 +61,7 @@ for (const f of walk(".").sort()) {
      而 Google 拿 `inLanguage` 和正文比对，对不上就把整块丢掉。 */
   for (const m of s.matchAll(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/g)) {
     let d; try { d = JSON.parse(m[1]); } catch { continue; }
-    const want = { en: "en", "zh-Hant": "zh-TW", "zh-CN": "zh-CN" }[
+    const want = { en: "en", ja: "ja", "zh-Hant": "zh-TW", "zh-Hans": "zh-CN", "zh-CN": "zh-CN" }[
       (s.match(/<html lang="([^"]+)"/) || [])[1]];
     /* ⚠️ 只管**字符串**形态的 `inLanguage`。数组是另一回事 —— `SoftwareApplication`
        上的 `["zh-CN","zh-TW","en"]` 说的是「这个应用支持哪几种语言」，和这一页

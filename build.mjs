@@ -34,12 +34,25 @@ import { join, dirname, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import MarkdownIt from "markdown-it";
 import * as S from "./src/site.mjs";
+import { guideMarkdown, llmIndex } from "./src/guide-export.mjs";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const SRC = join(ROOT, "src", "pages");
 const SHELL = readFileSync(join(ROOT, "src", "shell.html"), "utf8");
 
 const md = new MarkdownIt({ html: true, linkify: true, typographer: false });
+// Stable heading IDs let search engines and AI readers cite individual sections.
+md.renderer.rules.heading_open = (tokens, index, options, env, renderer) => {
+  const text = tokens[index + 1].content;
+  const base = text.normalize("NFKC").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-|-$/g, "") || "section";
+  const ids = env.headingIds || (env.headingIds = new Map());
+  const count = (ids.get(base) || 0) + 1;
+  ids.set(base, count);
+  tokens[index].attrSet("id", base + (count > 1 ? `-${count}` : ""));
+  return renderer.renderToken(tokens, index, options);
+};
+
+const isGuideArticle = (route, entry) => entry.kind === "md" && route.startsWith("/guide/") && !route.endsWith("/");
 
 /* ── 壳里那些跟语言走的字 ─────────────────────────────────────────────────── */
 const T = {
@@ -160,7 +173,7 @@ function collect(dir = SRC, out = new Map()) {
   for (const name of readdirSync(dir)) {
     const full = join(dir, name);
     if (statSync(full).isDirectory()) { collect(full, out); continue; }
-    const m = name.match(/^(.+)\.(zh|en|tw)\.(html|md)$/);
+    const m = name.match(/^(.+)\.(zh|en|tw|ja)\.(html|md)$/);
     if (!m) continue;
     const [, stem, lang, kind] = m;
     const rel = relative(SRC, dir).split(/[\\/]/).filter(Boolean);
@@ -187,8 +200,10 @@ const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replac
 function render(route, lang, entry, langsHere) {
   const raw = readFileSync(entry.file, "utf8");
   const [meta, rest] = parseFront(raw);
+  const markdownUrl = isGuideArticle(route, entry) ? urlFor(route, lang).replace(/\.html$/, ".md") : null;
+  const machineLink = markdownUrl ? `<p class="guide-image-note"><a href="${markdownUrl}" type="text/markdown">Markdown</a></p>` : "";
   let body = entry.kind === "md"
-    ? `<main class="prose-page"><div class="wrap">\n${md.render(rest)}\n</div></main>`
+    ? `<main class="prose-page"><div class="wrap">\n${md.render(rest)}\n${machineLink}\n</div></main>`
     : rest;
 
   // 页面自带的 <style> 提到 head 去 —— 放在 body 里浏览器也认，但那会让样式在首屏
@@ -196,8 +211,11 @@ function render(route, lang, entry, langsHere) {
   const styles = [];
   body = body.replace(/<style>([\s\S]*?)<\/style>/g, (_, css) => { styles.push(css); return ""; });
 
-  const t = T[lang];
+  // Japanese is article-only for now; its site chrome links to the existing English site.
+  const chromeLang = lang === "ja" ? "en" : lang;
+  const t = T[chromeLang];
   const canonical = S.ORIGIN + urlFor(route, lang);
+  const ogImage = new URL(meta.ogimage || "/assets/logo.png", S.ORIGIN).href;
 
   // hreflang 只给**真的存在**的那几种语言
   const alts = langsHere.length > 1
@@ -207,7 +225,7 @@ function render(route, lang, entry, langsHere) {
     : "";
 
   const nav = S.NAV.map((item) => {
-    const href = item.external ? item.to : urlFor(item.to, lang);
+    const href = item.external ? item.to : urlFor(item.to, chromeLang);
     const here = item.to === route;
     const cls = item.cta ? "btn btn-gold" : "link" + (here ? " here" : "");
     const icon = item.cta
@@ -215,14 +233,14 @@ function render(route, lang, entry, langsHere) {
       : "";
     const aria = here ? ' aria-current="page"' : "";
     const ext = item.external ? ' target="_blank" rel="noopener"' : "";
-    return `        <a class="${cls}" href="${href}"${aria}${ext}>${icon}<span>${esc(item.label[lang] || item.label.zh)}</span></a>`;
+    return `        <a class="${cls}" href="${href}"${aria}${ext}>${icon}<span>${esc(item.label[chromeLang] || item.label.zh)}</span></a>`;
   }).join("\n");
 
   /**
    * 语言切换。⚠️ 只列 `langsHere` —— 某一页缺某种语言时，那一栏就不该出现在它上面，
    * 否则点过去是 404。这和 hreflang 用的是同一份名单，不是两处各判一次。
    */
-  const LANG_LABEL = { zh: "简体", en: "EN", tw: "繁體" };
+  const LANG_LABEL = { zh: "简体", en: "EN", tw: "繁體", ja: "日本語" };
   const langSwitch = langsHere.length > 1
     ? `        <div class="lang-switch">\n` +
       langsHere.map((l) => {
@@ -253,6 +271,7 @@ function render(route, lang, entry, langsHere) {
 
   const head = [
     meta.jsonld ? readFileSync(join(ROOT, "src", jsonldFor(meta.jsonld, lang)), "utf8").trim() : "",
+    markdownUrl ? `  <link rel="alternate" type="text/markdown" href="${S.ORIGIN + markdownUrl}" title="Markdown" />` : "",
     styles.length ? `  <style>${styles.join("\n")}</style>` : "",
   ].filter(Boolean).join("\n");
 
@@ -267,17 +286,20 @@ function render(route, lang, entry, langsHere) {
     .replace(/__SOURCE__/g, relative(ROOT, entry.file).split(sep).join("/"))
     .replace(/__LANGKEY__/g, lang)
     .replace(/__LANG__/g, S.HTML_LANG[lang])
+    .replace(/__CHROME_LANG__/g, S.HTML_LANG[chromeLang])
     .replace(/__TITLE__/g, esc(meta.title || "魔镜 Mirror"))
     .replace(/__DESCRIPTION__/g, esc(meta.description || ""))
     .replace(/__OGDESC__/g, esc(meta.ogdesc || meta.description || ""))
+    .replace(/__OGTYPE__/g, esc(meta.ogtype || "website"))
+    .replace(/__OGIMAGE__/g, esc(ogImage))
     .replace(/__KEYWORDS__/g, esc(meta.keywords || ""))
     .replace(/__CANONICAL__/g, canonical)
     .replace(/__ORIGIN__/g, S.ORIGIN)
-    .replace(/__OGLOCALE__/g, t.ogLocale)
+    .replace(/__OGLOCALE__/g, lang === "ja" ? "ja_JP" : t.ogLocale)
     .replace(/__HREFLANG__/g, alts)
     .replace(/__VERIFY__/g, verify ? verify + "\n" : "")
     .replace(/__HEAD__/g, head)
-    .replace(/__HOME__/g, urlFor("/", lang))
+    .replace(/__HOME__/g, urlFor("/", chromeLang))
     .replace(/__BRAND__/g, t.brand)
     .replace(/__BRAND_FOOT__/g, t.brandFoot)
     .replace(/__NAV__/g, nav)
@@ -368,16 +390,25 @@ const pages = collect();
 if (!pages.size) { console.error("src/pages 下一个页面都没有"); process.exit(1); }
 
 let n = 0;
+const guideEntries = [];
 for (const [route, langs] of pages) {
   const here = S.LANGS.filter((l) => langs[l]);
   for (const lang of here) {
     const out = fileFor(route, lang);
     mkdirSync(dirname(out), { recursive: true });
     writeFileSync(out, render(route, lang, langs[lang], here));
+    if (isGuideArticle(route, langs[lang])) {
+      const [meta, source] = parseFront(readFileSync(langs[lang].file, "utf8"));
+      const canonical = S.ORIGIN + urlFor(route, lang);
+      const markdown = canonical.replace(/\.html$/, ".md");
+      writeFileSync(out.replace(/\.html$/, ".md"), guideMarkdown(source, { canonical, language: S.HTML_LANG[lang], title: meta.title }));
+      guideEntries.push({ canonical, markdown, language: S.HTML_LANG[lang], title: meta.title, description: meta.description || "" });
+    }
     n++;
   }
 }
 writeFileSync(join(ROOT, "sitemap.xml"), sitemap(pages));
+writeFileSync(join(ROOT, "llms.txt"), llmIndex(guideEntries, S.ORIGIN));
 
 const drift = [...pages].flatMap(([route, langs]) => checkDrift(route, langs));
 if (drift.length) {
@@ -388,7 +419,7 @@ if (drift.length) {
 const missing = [...pages].filter(([, l]) => !l.zh).map(([r]) => r);
 if (missing.length) console.warn(`⚠️  没有简中版本的页面（简中是裸路径，缺了就没有 canonical 那一份）：${missing.join(", ")}`);
 
-console.log(`✓ ${n} 份 HTML（${pages.size} 条路由）+ sitemap.xml`);
+console.log(`✓ ${n} 份 HTML（${pages.size} 条路由）+ sitemap.xml + ${guideEntries.length} 份 Markdown + llms.txt`);
 if (!WATCH) {
   for (const [route, langs] of [...pages].sort()) {
     console.log(`    ${route.padEnd(28)} ${S.LANGS.filter((l) => langs[l]).join(" ")}`);
@@ -415,7 +446,7 @@ if (SERVE) {
   const TYPES = { html: "text/html; charset=utf-8", css: "text/css", js: "text/javascript",
     json: "application/json", svg: "image/svg+xml", png: "image/png", jpg: "image/jpeg",
     webp: "image/webp", avif: "image/avif", ico: "image/x-icon", xml: "application/xml",
-    txt: "text/plain; charset=utf-8", woff2: "font/woff2", mp4: "video/mp4", webm: "video/webm" };
+    txt: "text/plain; charset=utf-8", md: "text/markdown; charset=utf-8", woff2: "font/woff2", mp4: "video/mp4", webm: "video/webm" };
   const PORT = Number(process.env.PORT || 8765);
   createServer((req, res) => {
     // ⚠️ 指纹是查询串，落到磁盘上要剥掉；`..` 也要挡，不然本地服务器能读整个盘
@@ -435,6 +466,9 @@ if (SERVE) {
     res.writeHead(200, {
       "Content-Type": TYPES[file.split(".").pop().toLowerCase()] || "application/octet-stream",
       "Cache-Control": "no-store",   // 本地一律不缓存，见上面那条 ⚠️
+      ...(p.endsWith(".md") && p.includes("/guide/")
+        ? { Link: `<${S.ORIGIN + p.replace(/\.md$/, ".html")}>; rel="canonical"` }
+        : {}),
     });
     res.end(readFileSync(file));
   }).listen(PORT, "127.0.0.1", () => {

@@ -1,0 +1,33 @@
+# Mirror
+
+> Mirror is an independent desktop companion and web toolset for Path of Exile 1 and Path of Exile 2.
+
+Guides are served as static HTML, with source-derived Markdown alternatives. Each guide includes its canonical URL and language. Feature availability can differ by game; trade search requires the Mirror client to be running.
+
+## Website
+
+- [English website](https://mirror.kalandraeye.com/en/)
+- [简体中文网站](https://mirror.kalandraeye.com/)
+- [繁體中文網站](https://mirror.kalandraeye.com/tw/)
+
+Japanese is currently available for individual guides only; there is no Japanese homepage or guide index.
+
+## Guides
+
+- [Getting Started with Path of Exile — Downloads, Essential Tools and Trading | Mirror (en)](https://mirror.kalandraeye.com/en/guide/international-starter.md): A beginner's guide to Path of Exile 1 and 2: official downloads, Mirror price checking, loot filters, category-aware trade search, popular builds on poe.ninja and modifier data on PoEDB, with screenshots. HTML: https://mirror.kalandraeye.com/en/guide/international-starter.html
+- [How to Install a Path of Exile 2 Loot Filter — Mirror / NeverSink Custom Build (en)](https://mirror.kalandraeye.com/en/guide/loot-filter.md): How to install a Path of Exile 2 loot filter: which of the three to pick, what the sound versions do, and one-click install vs copying it in. HTML: https://mirror.kalandraeye.com/en/guide/loot-filter.html
+- [Using Mirror Market — Path of Exile 2 Trade Search, Character Try-On, Live Search (en)](https://mirror.kalandraeye.com/en/guide/market.md): How to use the Mirror Market for Path of Exile 2: search by modifier, switch realms, watch new listings live, and contact sellers in one click. HTML: https://mirror.kalandraeye.com/en/guide/market.html
+- [How to Tell What an Item Is Worth in Path of Exile 2 — Mirror Price-Check Guide (en)](https://mirror.kalandraeye.com/en/guide/price-check.md): How to price-check an item in Path of Exile 2: hover, press Ctrl+E, read the overlay, and why ticking every modifier returns zero results. HTML: https://mirror.kalandraeye.com/en/guide/price-check.html
+- [流放之路国际服入坑指南 — 注册下载、必备工具与中文交易 (zh-Hans)](https://mirror.kalandraeye.com/guide/international-starter.md): 流放之路 1、2 国际服入坑指南：官方注册下载入口、POE1 游戏汉化、魔镜查价与掉落过滤器、中文市集，以及 poe.ninja 和 PoEDB 的用法，附操作实拍。 HTML: https://mirror.kalandraeye.com/guide/international-starter.html
+- [流放之路 2 掉落过滤器怎么装 — 魔镜 / NeverSink 定制版指南 (zh-Hans)](https://mirror.kalandraeye.com/guide/loot-filter.md): 《流放之路》2 掉落过滤器怎么装：开荒 / 刷图 / 速刷三份怎么选，语音版是什么，一键安装和手动放进游戏目录的区别。 HTML: https://mirror.kalandraeye.com/guide/loot-filter.html
+- [魔镜市集怎么用 — 流放之路 2 按词缀搜装备、角色试装、实时监听 (zh-Hans)](https://mirror.kalandraeye.com/guide/market.md): 魔镜市集怎么用：《流放之路》2 按词缀搜装备、三个服切换、实时监听新挂单、直接联系卖家，以及为什么它需要客户端。 HTML: https://mirror.kalandraeye.com/guide/market.html
+- [流放之路 2 怎么查一件装备值多少钱 — 魔镜查价指南 (zh-Hans)](https://mirror.kalandraeye.com/guide/price-check.md): 《流放之路》2 怎么查价：悬停物品按 Ctrl+E，读懂浮层每一行，为什么全勾词缀会搜不到东西，综合词缀怎么用。 HTML: https://mirror.kalandraeye.com/guide/price-check.html
+- [Path of Exileの始め方 — ダウンロード・便利なツール・トレード | Mirror (ja)](https://mirror.kalandraeye.com/ja/guide/international-starter.md): Path of Exile 1・2の入門ガイド。公式ダウンロード、Mirrorの価格チェック、アイテムフィルター、カテゴリに応じたトレード検索、poe.ninjaのビルド、PoEDBのモッドデータを画像付きで紹介します。 HTML: https://mirror.kalandraeye.com/ja/guide/international-starter.html
+- [流亡黯道國際服入坑指南 — 註冊下載、必備工具與中文交易 (zh-Hant)](https://mirror.kalandraeye.com/tw/guide/international-starter.md): 流亡黯道 1、2 國際服入坑指南：官方註冊下載入口、POE1 遊戲中文化、魔鏡查價與掉落過濾器、中文市集，以及 poe.ninja 和 PoEDB 的用法，附操作截圖。 HTML: https://mirror.kalandraeye.com/tw/guide/international-starter.html
+- [流亡黯道 2 掉落過濾器怎麼裝 — 魔鏡 / NeverSink 定製版指南 (zh-Hant)](https://mirror.kalandraeye.com/tw/guide/loot-filter.md): 《流亡黯道》2 掉落過濾器怎麼裝：開荒 / 刷圖 / 速刷三份怎麼選，語音版是什麼，一鍵安裝和手動放進遊戲目錄的區別。 HTML: https://mirror.kalandraeye.com/tw/guide/loot-filter.html
+- [魔鏡市集怎麼用 — 流亡黯道 2 按詞綴搜裝備、角色試裝、即時監聽 (zh-Hant)](https://mirror.kalandraeye.com/tw/guide/market.md): 魔鏡市集怎麼用：《流亡黯道》2 按詞綴搜裝備、三個服切換、即時監聽新掛單、直接聯繫賣家，以及為什麼它需要客戶端。 HTML: https://mirror.kalandraeye.com/tw/guide/market.html
+- [流亡黯道 2 怎麼查一件裝備值多少錢 — 魔鏡查價指南 (zh-Hant)](https://mirror.kalandraeye.com/tw/guide/price-check.md): 《流亡黯道》2 怎麼查價：停在物品上按 Ctrl+E，讀懂浮層每一行，為什麼全勾詞綴會搜不到東西，綜合詞綴怎麼用。 HTML: https://mirror.kalandraeye.com/tw/guide/price-check.html
+
+## Discovery
+
+- [Sitemap](https://mirror.kalandraeye.com/sitemap.xml)

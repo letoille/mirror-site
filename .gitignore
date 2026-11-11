@@ -11,6 +11,9 @@ node_modules/
 # 截图调试用的临时副本
 _dbg_*.html
 
+# 文章草稿、截图脚本和本地预览（正式文章放 src/pages/guide）
+/drafts/
+
 # 凭据。**这个仓库是公开的**（下载页链的就是它的 Releases），
 # 百度推送 token 写进来等于发布出去，谁都能拿它把每日配额刷空。
 .env.local

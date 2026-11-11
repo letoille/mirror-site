@@ -80,3 +80,37 @@ for (const dismiss of [false, true]) {
     if (dismiss) assert.equal(bar.removed, true);
   });
 }
+
+const articleLanguages = [...languages, { tag: "ja", key: "ja", prefix: "/ja", browser: "ja-JP" }];
+for (const current of articleLanguages) {
+  const path = current.prefix + "/guide/international-starter.html";
+  test(`${path}: switches among the four available translations`, () => {
+    const target = current.key === "en" ? articleLanguages[0] : articleLanguages[1];
+    const { document, links } = load(path, target.browser, "hint");
+    assert.equal(links.length, 4);
+    assert.equal(document.body.children.length, 1);
+    const [, hintLink] = document.body.children[0].children;
+    assert.equal(hintLink.href, target.prefix + "/guide/international-starter.html");
+    for (const language of articleLanguages) {
+      const switchLink = links.find(link => link.getAttribute("hreflang") === language.tag);
+      assert.equal(switchLink.getAttribute("href"), language.prefix + "/guide/international-starter.html");
+      switchLink.events.click();
+      assert.equal(document.cookie, `mirror_lang=${language.key};path=/;max-age=31536000;SameSite=Lax`);
+    }
+  });
+}
+
+for (const current of languages) {
+  test(`${current.prefix || "/"}: Japanese browsers do not get missing homepage links`, () => {
+    const { document } = load(current.prefix + "/", "ja-JP", "hint");
+    assert.equal(document.body.children.length, 0);
+  });
+}
+
+test("Japanese browsers get the article's Japanese translation", () => {
+  const { document } = load("/en/guide/international-starter.html", "ja-JP", "hint");
+  const [, link] = document.body.children[0].children;
+  assert.equal(link.href, "/ja/guide/international-starter.html");
+  link.events.click();
+  assert.equal(document.cookie, "mirror_lang=ja;path=/;max-age=31536000;SameSite=Lax");
+});

@@ -4,8 +4,8 @@
 更新 = 在服务器上 `git pull`。可同时部署在多台服务器。
 
 > ⚠️ **仓库现在有构建，但服务器上不跑它。** 页面由 `node build.mjs` 从 `src/pages/**`
-> 生成，**产物跟源码一起提交** —— 正是为了让这一节写的东西一个字都不用改：服务器不装
-> node，nginx 不动，更新还是 `git pull`。
+> 生成，**产物跟源码一起提交**。服务器不装 node，内容更新仍是 `git pull`。
+> 首次启用 Markdown 正文时，按下方示例补上 MIME 与 HTTP canonical 配置；之后新增文章不需要再改 nginx。
 >
 > 代价是作者必须记得 `pnpm build` 之后再提交。**判据**：`git status` 里只有 `src/` 的
 > 改动而根下的 `.html` 没跟着动，就是忘了构建 —— 那种情况下 `git pull` 拉过去的是旧页面，
@@ -55,7 +55,7 @@ server {
     gzip_vary on;
     gzip_comp_level 6;
     gzip_min_length 256;
-    gzip_types text/css application/javascript application/json image/svg+xml application/xml;
+    gzip_types text/css application/javascript application/json image/svg+xml application/xml text/markdown text/plain;
 
     location / { try_files $uri $uri/ =404; }
 
@@ -67,6 +67,13 @@ server {
     }
     # HTML 不长缓存，保证改动及时生效
     location ~* \.html?$ { add_header Cache-Control "no-cache"; }
+    # Markdown 正文供 AI / LLM 讀取，canonical 仍指向對應 HTML。
+    location ~ ^(?<guide_path>/(?:en/|tw/|ja/)?guide/[^/]+)\.md$ {
+        default_type text/markdown;
+        charset utf-8;
+        add_header Cache-Control "no-cache";
+        add_header Link '<https://mirror.kalandraeye.com$guide_path.html>; rel="canonical"';
+    }
 }
 NGINX
 
@@ -148,13 +155,20 @@ server {
     ssl_protocols TLSv1.2 TLSv1.3;
 
     gzip on; gzip_vary on; gzip_comp_level 6; gzip_min_length 256;
-    gzip_types text/css application/javascript application/json image/svg+xml application/xml;
+    gzip_types text/css application/javascript application/json image/svg+xml application/xml text/markdown text/plain;
 
     location / { try_files $uri $uri/ =404; }
     location ~* \.(css|js|png|ico|jpg|jpeg|svg|webp|avif|woff2?)$ {
         expires 30d; add_header Cache-Control "public, max-age=2592000"; access_log off;
     }
     location ~* \.html?$ { add_header Cache-Control "no-cache"; }
+    # Markdown 正文供 AI / LLM 讀取，canonical 仍指向對應 HTML。
+    location ~ ^(?<guide_path>/(?:en/|tw/|ja/)?guide/[^/]+)\.md$ {
+        default_type text/markdown;
+        charset utf-8;
+        add_header Cache-Control "no-cache";
+        add_header Link '<https://mirror.kalandraeye.com$guide_path.html>; rel="canonical"';
+    }
 }
 ```
 `sudo nginx -t && sudo systemctl reload nginx`。

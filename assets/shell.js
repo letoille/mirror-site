@@ -233,10 +233,11 @@
     var TXT = {
       zh: { msg: "本站有简体中文版本", go: "切换", close: "关闭" },
       tw: { msg: "本站有繁體中文版本", go: "切換", close: "關閉" },
-      en: { msg: "This site is available in English", go: "Switch", close: "Dismiss" }
+      en: { msg: "This site is available in English", go: "Switch", close: "Dismiss" },
+      ja: { msg: "この記事は日本語でも読めます", go: "日本語に切り替え", close: "閉じる" }
     };
     /* `<html lang>` / `hreflang` → 我们内部那三个键 */
-    var langs = { "zh-CN": "zh", "zh-Hans": "zh", "zh-Hant": "tw", en: "en" };
+    var langs = { "zh-CN": "zh", "zh-Hans": "zh", "zh-Hant": "tw", en: "en", ja: "ja" };
     var here = langs[document.documentElement.lang];
     if (!here) return;
 
@@ -267,19 +268,23 @@
           return /hant|tw|hk|mo/.test(l) ? "tw" : "zh";
         }
         if (l.indexOf("en") === 0) return "en";
+        if (l.indexOf("ja") === 0) return "ja";
       }
       return "en";   /* 既不是中文也不是英文：英文版更可能读得懂 */
     })();
     if (want === here) return;
 
-    /* 当前地址去掉语言前缀，再换上目标语言的 —— 停在哪一页就切哪一页，不回首页 */
-    var path = location.pathname.replace(/^\/(en|tw)(?=\/|$)/, "") || "/";
-    var href = (want === "zh" ? "" : "/" + want) + path;
+    /* 只提示当前页面实际提供的语言，避免没有译文时拼出一个 404。 */
+    var target = Array.prototype.find.call(document.querySelectorAll(".lang-switch a"), function (el) {
+      return langs[el.getAttribute("hreflang")] === want;
+    });
+    if (!target) return;
+    var href = target.getAttribute("href");
 
     var t = TXT[want];
     var bar = document.createElement("div");
     bar.className = "lang-hint";
-    bar.setAttribute("lang", { zh: "zh-CN", tw: "zh-Hant", en: "en" }[want]);
+    bar.setAttribute("lang", { zh: "zh-CN", tw: "zh-Hant", en: "en", ja: "ja" }[want]);
     var a = document.createElement("a");
     a.href = href; a.textContent = t.go;
     var x = document.createElement("button");
@@ -306,7 +311,7 @@
    *    写的是 webp 那一份，拿 `src` 会让浏览器再下一遍另一种格式。
    */
   (function lightbox() {
-    var pics = document.querySelectorAll(".demo picture");
+    var pics = document.querySelectorAll(".demo picture, .guide-figure picture");
     if (!pics.length) return;
     var box = null;
 

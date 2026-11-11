@@ -623,11 +623,18 @@ footer { position:relative; z-index:1; border-top:1px solid var(--line); padding
 .prose-page th { color:var(--gold-soft); font-weight:700; font-size:12.5px; letter-spacing:.5px; text-transform:uppercase; }
 .prose-page td strong { color:var(--text); }
 .prose-page hr { border:0; border-top:1px solid var(--line); margin:34px 0; }
-.prose-page img { max-width:100%; border-radius:12px; border:1px solid var(--line); }
+.prose-page img { max-width:100%; height:auto; border-radius:12px; border:1px solid var(--line); }
+.prose-page .guide-breadcrumb, .prose-page .guide-image-note { font-size:13px; }
+.prose-page .guide-figure { display:grid; gap:10px; margin:24px 0; min-width:0; }
+.prose-page .guide-figure picture { display:block; max-width:100%; justify-self:center; }
+.prose-page .guide-figure img { display:block; }
+.prose-page .guide-figure figcaption { color:var(--muted); font-size:13px; line-height:1.8; }
+.prose-page h1, .prose-page h2, .prose-page h3 { overflow-wrap:anywhere; scroll-margin-top:140px; }
 
 /* 指南目录 */
 .guide-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin:0 0 30px; padding:0; list-style:none; }
 .guide-grid li { margin:0; }
+.guide-grid .guide-start { grid-column:1 / -1; }
 .guide-grid a, .guide-grid > li > span { display:block; border:1px solid var(--line); border-radius:13px; padding:16px 18px;
   background:var(--bg-soft); color:var(--text); font-weight:700; font-size:14.5px; border-bottom-width:1px; transition:.18s; }
 .guide-grid a:hover { transform:translateY(-2px); border-color:var(--gold-dim); color:var(--gold); }
@@ -749,8 +756,8 @@ footer { position:relative; z-index:1; border-top:1px solid var(--line); padding
 .lang-hint button:hover { color:var(--text); background:rgba(255,255,255,.06); }
 
 /* 功能卡的图点击展开，见 shell.js 的 lightbox */
-.demo picture.zoomable { cursor:zoom-in; }
-.demo picture.zoomable:focus-visible { outline:2px solid var(--gold-dim); outline-offset:3px; border-radius:12px; }
+.demo picture.zoomable, .guide-figure picture.zoomable { cursor:zoom-in; }
+.demo picture.zoomable:focus-visible, .guide-figure picture.zoomable:focus-visible { outline:2px solid var(--gold-dim); outline-offset:3px; border-radius:12px; }
 .lightbox { position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center;
   padding:4vh 4vw; background:rgba(4,5,8,.9); cursor:zoom-out;
   animation:lb-in .18s ease-out; }

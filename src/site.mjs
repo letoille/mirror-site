@@ -18,10 +18,11 @@ export const WEB_APP = "https://trade.kalandraeye.com";
  * 前缀，老地址一个字节不动。这条规则和魔镜网站那边是同一条（`site/src/lib/langPath.ts`），
  * 两个站的地址形状一致，用户和爬虫都少一次意外。
  */
-export const LANGS = ["zh", "en", "tw"];
-export const PREFIX = { zh: "", en: "/en", tw: "/tw" };
+// ja 目前僅提供個別指南；沒有日文首頁或空的日文欄目。
+export const LANGS = ["zh", "en", "tw", "ja"];
+export const PREFIX = { zh: "", en: "/en", tw: "/tw", ja: "/ja" };
 /** BCP 47 标签，`<html lang>` 和 hreflang 用的就是它。 */
-export const HTML_LANG = { zh: "zh-Hans", en: "en", tw: "zh-Hant" };
+export const HTML_LANG = { zh: "zh-Hans", en: "en", tw: "zh-Hant", ja: "ja" };
 
 /**
  * 顶栏导航。`to` 是不带语言前缀的路径，构建时按语言补上。
